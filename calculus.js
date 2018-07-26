@@ -59,6 +59,9 @@ function Chapterenable(){
     this.chawarinvestment = true;
     this.chafourinvestmenti = true;
     this.chasuccessioncrisis = true;
+    this.chafourinvestmentii = true;
+    this.chaerosiaprelude = true;
+    this.chastenaitrip = true;
 }
 
 function Stampoption(){
@@ -77,9 +80,9 @@ function Simonstat(){
 	//this.expoint = 1417;
 	this.bonustat = new Bonustat();
 	this.newskill = new Newskill();
-	this.economy = new Variable();
-	this.social = new Variable();
-	this.religion = new Variable();
+	this.economy = new Score();
+	this.social = new Score();
+	this.religion = new Score();
 	this.keyitem = new Keyitem();
 }
 
@@ -107,7 +110,7 @@ function Newskill(){
 	this.flowlustwo = false;
 }
 
-function Variable(){
+function Score(){
 
     this.value = 0;
     this.starting = 0;
@@ -146,6 +149,11 @@ function Globalstat(){
 	this.warpreparation = 0;
 	this.arclentacc = 0;
 	this.orcentconvo = new Orcentconvo();
+	this.abyssal = 3;
+	this.yhilintower = 0;
+	this.takkantower = 0;
+	this.aramtower = 0;
+	this.zirantiatower = 0;
 }
 
 function Trincopies(){
@@ -173,6 +181,8 @@ function Trincopies(){
     //this.kingaide = false;
     //this.ghanthaide = false;
     //this.lecherous = false;
+    //this.greedy = false;
+    //this.obnoxiousorc = false;
 }
 
 function Armystat(){
@@ -205,9 +215,9 @@ function Orcstat(){
 
 function Palacestat(){
 
-    this.military = new Variable();
-    this.magic = new Variable();
-    this.hospitality = new Variable();
+    this.military = new Score();
+    this.magic = new Score();
+    this.hospitality = new Score();
     this.sexroom = false;
     this.orclab = false;
     this.orcpost = false;
@@ -223,8 +233,19 @@ function Palacestat(){
     this.megailxiris = false;
     this.akaxyarra = false;
     this.megailxqum = false;
+    this.talkbaliawynn = false;
+    this.magicdefence = Magicdefence.NONE;
+    this.damagedone = false;
 
 }
+
+const Magicdefence = Object.freeze({
+
+    NONE: 0,
+    STRONG: 1,
+    AVERAGE: 2,
+    WEAK: 3
+});
 
 function Decoration(){
 
@@ -269,12 +290,16 @@ function Palacestaff(){
 
     this.numbers = 0;
     this.karajoin = false;
+    this.shojoin = false;
 }
 
 function Orcentconvo(){
     this.value = 0;
     this.fightingbar = false;
     this.boozeshack = false;
+    this.teahouse = false;
+    this.zirantiabar = false;
+    this.arambucket = false;
 }
 
 function Peoplerp(){
@@ -306,6 +331,7 @@ function Peoplerp(){
 	this.elleani = new RpMember();
 	this.riala = new RpMember();
 	this.iris = new RpMember();
+	this.fheliel = new RpMember();
 }
 
 function RpMember(){
@@ -320,20 +346,21 @@ function RpMember(){
 
 function Country(){
 
-	this.aram = new Variable();
-	this.ardoheim = new Variable();
-	this.chalicestates = new Variable();
-	this.darghelon = new Variable();
-	this.eustrin = new Variable();
-	this.gheldaron = new Variable();
-	this.ghenalon = new Variable();
-	this.newgivini = new Variable();
-	this.orgasmicempire = new Variable();
-	this.stenai = new Variable();
-	this.takkan = new Variable();
-	this.tatseni = new Variable();
-	this.yhilin = new Variable();
-	this.zirantia = new Variable();
+	this.aram = new Score();
+	this.ardoheim = new Score();
+	this.chalicestates = new Score();
+	this.darghelon = new Score();
+	this.eustrin = new Score();
+	this.erosia = new Score();
+	this.gheldaron = new Score();
+	this.ghenalon = new Score();
+	this.newgivini = new Score();
+	this.orgasmicempire = new Score();
+	this.stenai = new Score();
+	this.takkan = new Score();
+	this.tatseni = new Score();
+	this.yhilin = new Score();
+	this.zirantia = new Score();
 }
 
 function Customitem(){
@@ -369,6 +396,7 @@ function Plotchoice(){
 	this.ambassadoragree = false;
 	this.akafocus = false;
 	this.megailfocus = false;
+	this.qumogre = false;
 	this.yarrafocus = 0;
 	this.orgasmiclibrary = new Orgasmiclibrary();
 	this.nalilifuck = false;
@@ -386,6 +414,7 @@ function Plotchoice(){
 	this.elfally = Elfally.NONE;
 	this.min = false;
 	this.nerandaresponse = Response.NONE;
+	this.secondritual = false;
 	this.andranull = false;
 	this.thelontalk = false;
 	this.zirantiasupport = Zirantiasupport.NONE;
@@ -395,6 +424,7 @@ function Plotchoice(){
 	this.unpeopleslum = false;
 	this.unpeoplelibrary = false;
 	this.lustlordlibrary = false;
+	this.fhelielchat = false;
 	this.aramiteshining = false;
 	this.borderstatus = Border.NONE;
 	this.borderesponse = Borderesponse.NONE;
@@ -411,8 +441,14 @@ function Plotchoice(){
     this.teahouseconnection = false;
     this.wynnjoin = false;
     //this.kalantsilence = false;
-    ///this.kalantwall = false;
+    //this.kalantwall = false;
     this.lecherousknow = false;
+    this.andrasee = false;
+    this.dariheal = false;
+    this.daricured = false;
+    //this.distruption = Distruption.NONE;
+    this.frontlost = Frontlost.NONE;
+    this.elvenhit = Elvenhit.NONE;
 }
 
 function Orgasmiclibrary(){
@@ -439,7 +475,6 @@ function Newtrial(){
 
 /*
 const Type = Object.freeze({
-
 	NONE: 0,
 	ALLIES: 1,
 	SERVANTS: 2,
@@ -538,6 +573,28 @@ const Borderesponse = Object.freeze({
     BORDERDIS: 5
 });
 
+/* const Distruption = Object.freeze({
+
+    NONE: 0,
+    MERCHANT: 1,
+    CHURCH: 2,
+    MAGIC: 3
+}); */
+
+const Frontlost = Object.freeze({
+
+    NONE: 0,
+    ARAM: 1,
+    ZIRANTIA: 2
+});
+
+const Elvenhit = Object.freeze({
+
+    NONE: 0,
+    DARGHELON: 1,
+    GHELDARON: 2
+});
+
 function Summitresult(){
 
 	this.unpmotion = false;
@@ -619,7 +676,8 @@ const Timeslot = Object.freeze({
 	AFTERZIRANTIA: 5,
 	AFTERREFUGEE: 6,
 	AFTEREUSTRIN: 7,
-    AFTERWAR: 8
+    AFTERWAR: 8,
+    AFTERSUCCESSION: 9
 });
 
 function Arclentwar(){
@@ -668,7 +726,6 @@ const Mestanorder = Object.freeze({
     NONE: 0,
     FAKE: 1,
     STALL: 2
-
 });
 
 const Farnantrade = Object.freeze({
@@ -676,7 +733,6 @@ const Farnantrade = Object.freeze({
     NONE: 0,
     HURT: 1,
     HELP: 2
-
 });
 
 const Farnanend = Object.freeze({
@@ -704,7 +760,6 @@ const Luanellsuitor = Object.freeze({
     BHAKAN: 1,
     FARNAN: 2,
     NOONE: 3
-
 });
 */
 
@@ -748,6 +803,7 @@ function Ledgeryhilin(){
     this.succubitrade = Investmentround.NONE;
     this.minroute = Investmentround.NONE;
     this.airshipone = Investmentround.NONE;
+    this.airshiptwo = Investmentround.NONE;
     this.brothelsuccubi = Investmentround.NONE;
 }
 
@@ -784,7 +840,7 @@ function Ledgerardford(){
 	this.ivalanbank = Investmentround.NONE;
 	this.ordersilence = Investmentround.NONE;
 	this.vinariodeed = Investmentround.NONE;
-	//this.ghenaleseprogram = Investmentround.NONE;
+	this.ghenaleseprogram = Investmentround.NONE;
 }
 
 function Ledgerelven(){
@@ -801,7 +857,7 @@ function Ledgergivini(){
     this.givinismith = Investmentround.NONE;
     this.orcmerchant = Investmentround.NONE;
     this.teahouse = Investmentround.NONE;
-    this.givinbank = Investmentround.NONE;
+    this.givinibank = Investmentround.NONE;
     this.mageguild = Investmentround.NONE;
     this.warmonument = Investmentround.NONE;
 }
@@ -845,7 +901,8 @@ const Investmentround = Object.freeze({
 	ARDFORD: 4,
     YHILINGOV: 5,
 	WARAFTERMATH: 6,
-	AFTERWAR: 7
+	AFTERWAR: 7,
+    AFTERSUCCESSION: 8
 });
 
 function Opportunity(){
@@ -1090,6 +1147,36 @@ function optionproces(game){
         document.getElementById("hidden-succession-crisis").style.display = "none";
     }
 
+    if(document.getElementById("four-investment-ii-select").checked === false){
+        game.chapterenable.chafourinvestmentii = false;
+        document.getElementById("display-four-investment-ii").style.display = "none";
+        document.getElementById("hidden-four-investment-ii").style.display = "";
+    } else {
+        game.chapterenable.chafourinvestmentii = true;
+        document.getElementById("display-four-investment-ii").style.display = "";
+        document.getElementById("hidden-four-investment-ii").style.display = "none";
+    }
+
+    if(document.getElementById("erosia-prelude-select").checked === false){
+        game.chapterenable.chaerosiaprelude = false;
+        document.getElementById("display-erosia-prelude").style.display = "none";
+        document.getElementById("hidden-erosia-prelude").style.display = "";
+    } else {
+        game.chapterenable.chaerosiaprelude = true;
+        document.getElementById("display-erosia-prelude").style.display = "";
+        document.getElementById("hidden-erosia-prelude").style.display = "none";
+    }
+
+    if(document.getElementById("stenai-trip-select").checked === false){
+        game.chapterenable.chastenaitrip = false;
+        document.getElementById("display-stenai-trip").style.display = "none";
+        document.getElementById("hidden-stenai-trip").style.display = "";
+    } else {
+        game.chapterenable.chastenaitrip = true;
+        document.getElementById("display-stenai-trip").style.display = "";
+        document.getElementById("hidden-stenai-trip").style.display = "none";
+    }
+
 
 	if(document.getElementById("select-rp-report").checked === true){
 
@@ -1120,7 +1207,8 @@ function optionproces(game){
 		document.getElementById("elleani-rp-report").checked = true;
 		document.getElementById("riala-rp-report").checked = true;
 		document.getElementById("iris-rp-report").checked = true;
-		
+		document.getElementById("fheliel-rp-report").checked = true;
+
 	}
 
 	game.peoplerp.yarra.stamp = document.getElementById("yarra-rp-report").checked;
@@ -1150,6 +1238,7 @@ function optionproces(game){
 	game.peoplerp.elleani.stamp = document.getElementById("elleani-rp-report").checked;
 	game.peoplerp.riala.stamp = document.getElementById("riala-rp-report").checked;
 	game.peoplerp.iris.stamp = document.getElementById("iris-rp-report").checked;
+	game.peoplerp.fheliel.stamp = document.getElementById("fheliel-rp-report").checked;
 
 	game.stampoption.stampchapter = document.getElementById("select-chapter-stamp").checked;
 	game.stampoption.stampglobal = document.getElementById("select-global-stamp").checked;
@@ -1316,6 +1405,26 @@ function chaptercalculation(game){
     } else {
         skipsuccesioncrisis(game);
     }
+
+    if(game.chapterenable.chafourinvestmentii === true){
+        fourinvestmentii(game);
+    } else {
+        skipfourinvestmentii(game);
+    }
+
+    if(game.chapterenable.chaerosiaprelude === true){
+        erosiaprelude(game);
+    } else {
+        skiperosiaprelude(game);
+    }
+
+    if(game.chapterenable.chastenaitrip === true){
+        stenaitrip(game);
+    } else {
+        skipstenaitrip(game);
+    }
+
+    expectedreturn(game);
 }
 
 // story chapter
@@ -1489,7 +1598,7 @@ function stinefordmegail(game){
 	}
 
 	if(document.getElementById("slaver-first-aka").checked === true){
-	
+
 		document.getElementById("slaver-first-qum").checked = false;
 		document.getElementById("slaver-first-qum").disabled = true;
 		document.getElementById("slaver-first-yarra").checked = false;
@@ -1514,7 +1623,7 @@ function stinefordmegail(game){
 	}
 
 	if(document.getElementById("slaver-first-yarra").checked === true){
-	
+
 		document.getElementById("slaver-first-aka").checked = false;
 		document.getElementById("slaver-first-aka").disabled = true;
 		document.getElementById("slaver-first-qum").checked = false;
@@ -1525,7 +1634,7 @@ function stinefordmegail(game){
 
 		document.getElementById("slaver-first-aka").disabled = document.getElementById("slaver-first-qum").checked;
         document.getElementById("slaver-first-qum").disabled = document.getElementById("slaver-first-aka").checked;
-		
+
 	}
 
 	if(document.getElementById("slaver-help-qum").checked === true){
@@ -1539,7 +1648,7 @@ function stinefordmegail(game){
 	}
 
 	if(document.getElementById("slaver-first-qum").checked === true){
-	
+
 		document.getElementById("slaver-first-aka").checked = false;
 		document.getElementById("slaver-first-aka").disabled = true;
 		document.getElementById("slaver-first-yarra").checked = false;
@@ -1570,7 +1679,7 @@ function stinefordmegail(game){
 
 	const orcsfarm = document.getElementById("orc-farm");
 	if(orcsfarm.value === "dominated"){
-		
+
 	} else if(orcsfarm.value === "killed"){
 		game.globalstat.armystat.size -= 1;
 	}
@@ -1580,9 +1689,17 @@ function stinefordmegail(game){
         game.customitem.akadagger =  true
 	}
 
-	//Mandatory
-	//Alchool: 20K, Mine: 20K, Accademy Daemons Attack: 5K
-	game.globalstat.pron += 45000;
+	if(document.getElementById("merchant-booze-sell").checked === true){
+        game.globalstat.pron += 20000;
+    }
+
+	if(document.getElementById("robin-demon-quest").checked === true){
+        game.globalstat.pron += 5000;
+    }
+
+	if(document.getElementById("hilstara-mine-clear").checked === true){
+        game.globalstat.pron += 20000;
+    }
 
 	const licensenpotion = document.getElementById("potion-license");
 	if(licensenpotion.value === "sold"){
@@ -1608,9 +1725,9 @@ function stinefordmegail(game){
 	}
 
 	if(document.getElementById("tower-discovery").checked === true){
-		
+
 		document.getElementById("display-tower").style.visibility = "";
-		
+
 		if(document.getElementById("succubus-heal").checked === true){
 			game.globalstat.pron += 2500;
 		}
@@ -2234,7 +2351,6 @@ function yhilincoup(game){
 		game.globalstat.shiningword += 1;
 	}
 
-
 	if(document.getElementById("figurine-quest").checked === true){
 		document.getElementById("figurine-quest-start").style.display = "";
 		var unspotted = +document.getElementById("unpeople-spotted").value;
@@ -2363,9 +2479,20 @@ function skipyhilincoup(game){
 	game.globalstat.shiningword += +document.getElementById("manor-sword-skip").value;
 
 	const figurineskip = +document.getElementById("figurine-manor-skip").value;
-	if(figurineskip === 3){
-		game.simonstat.social.value += 1;
-	}
+    if(figurineskip >= 3){
+        document.getElementById("manor-result-skip").textContent = "Never being Spotted Grants Three Figurine, Means 3000 Sx and a +1 to Social Score";
+        document.getElementById("manor-result-skip").style.color = "#00FF00";
+        game.simonstat.social.value += 1;
+    } else if(figurineskip >= 2){
+        document.getElementById("manor-result-skip").textContent = "The Party is Spotted Few Times, This Grants Two Figurine, Means 2000 Sx";
+        document.getElementById("manor-result-skip").style.color = "#FF0000";
+    } else if(figurineskip >= 1){
+        document.getElementById("manor-result-skip").textContent = "The Party is Spotted More then Five Times, This Grants One Figurine, Means 1000 Sx";
+        document.getElementById("manor-result-skip").style.color = "#FF0000";
+    } else {
+        document.getElementById("manor-result-skip").textContent = "The Party is Spotted too Many Times (10+) to Find even One Figurine";
+        document.getElementById("manor-result-skip").style.color = "#FF0000";
+    }
 
 	if(document.getElementById("janine-husband-skip").checked === true){
 		game.plotchoice.janinehusband = true;
@@ -2845,7 +2972,7 @@ function investmentphase(game){
 		document.getElementById("invest-arigarda-first-yes").style.display = "";
 		document.getElementById("invest-arigarda-first-no").style.display = "none";
 	}
-	
+
 	document.getElementById("pron-remaining").textContent = "" + game.globalstat.pron;
 
 	stampendvar("Shining Swords: ", game.globalstat.shiningword, "stamp-shining-sword-investment", true);
@@ -3283,7 +3410,7 @@ function roamingsection(game){
 		}
 
 		if(document.getElementById("keep-orc-altina").checked === true){
-			
+
 			keepvote += 5;
 			document.getElementById("keep-altina-open").style.visibility = "";
 			if(document.getElementById("keep-altina-choice").value === "fuck"){
@@ -3324,6 +3451,8 @@ function roamingsection(game){
 
 			document.getElementById("keep-altina-open").style.visibility = "hidden";
 		}
+
+		document.getElementById("whitered-keep-vote").textContent = "" + keepvote;
 
 		if(keepvote >= 29 ){
 			game.globalstat.armystat.size += 3;
@@ -3375,14 +3504,14 @@ function roamingsection(game){
 
 	if(game.plotchoice.variamind === Variamind.DOMINATED){
 		if(game.plotchoice.variarape === true){
-			
+
 			game.peoplerp.varia.initial = 40;
 			game.peoplerp.aka.rp += 8;
 			game.peoplerp.yarra.rp +=2;
 			game.peoplerp.hilstara.rp += 2;
 			game.peoplerp.trin.rp += 8;
 			game.peoplerp.megail.rp -= 2;
-			
+
 			if(game.plotchoice.whoringqum === true){
 				game.peoplerp.qum.rp -= 13;
 			} else {
@@ -3464,7 +3593,7 @@ function roamingsection(game){
 					game.peoplerp.altina.rp += 10;
 				}
 			}
-		} 
+		}
 	}
 
 	const impaleraid = document.getElementById("roaming-impaler-fate");
@@ -3533,7 +3662,7 @@ function roamingsection(game){
 		document.getElementById("altina-crypt-open").style.display = "none";
 		document.getElementById("altina-crypt-fuck").checked = false;
 	}
-	
+
 	if(game.plotchoice.variamind === Variamind.RESHAPED){
 		document.getElementById("varia-reshape-chain").style.display = "";
 		if(document.getElementById("varia-chain-dialogue").checked === true){
@@ -3557,7 +3686,7 @@ function roamingsection(game){
 	}
 
 	if(game.globalstat.armystat.keeprecruited === true && game.globalstat.armystat.towerecruited === true){
-		
+
 		document.getElementById("horde-succubi-force").style.display = "";
 		if(document.getElementById("horde-succubi-dialogue").checked === true){
 			synergy += 1;
@@ -3600,7 +3729,7 @@ function roamingsection(game){
 	} else if(game.globalstat.armystat.quality >= 4){
 		document.getElementById("horde-village-reward").textContent = "Village Reward: Shining Sword";
 		game.globalstat.shiningword += 1
-	} else if(game.globalstat.armystat.quality >= 3){ 
+	} else if(game.globalstat.armystat.quality >= 3){
 		document.getElementById("horde-village-reward").textContent = "Village Reward: Full Plate";
 	} else if(game.globalstat.armystat.quality >= 2){
 		document.getElementById("horde-village-reward").textContent = "Village Reward: Steel Armor";
@@ -3773,14 +3902,14 @@ function skiproamingsection(game){
 		}
 	} else {
 		document.getElementById("roaming-cache-skip").style.display = "none";
-		document.getElementById("devil-roaming-skip").checked = false;	
+		document.getElementById("devil-roaming-skip").checked = false;
 	}
 
 	if(game.plotchoice.deepcache === Chapterdone.NONE){
 		document.getElementById("deep-roaming-skip").style.display = "";
 		if(document.getElementById("lustplate-roaming-skip").checked === true){
 			game.customitem.lustplate = true;
-		} 
+		}
 	} else {
 		document.getElementById("deep-roaming-skip").style.display = "none";
 		document.getElementById("lustplate-roaming-skip").checked = false;
@@ -3976,7 +4105,7 @@ function skiproamingsection(game){
 					game.peoplerp.altina.rp += 10;
 				}
 			}
-		} 
+		}
 	}
 
 	const impaleraid = document.getElementById("roaming-impaler-skip");
@@ -4010,7 +4139,7 @@ function skiproamingsection(game){
 
 	if(game.ledgerlist.ledgeryhilin.ironcudgel === Investmentround.FIRSTROUND && game.ledgerlist.ledgeryhilin.arigarda === Investmentround.FIRSTROUND){
 		synergyscore += 1;
-	}	
+	}
 
 	if(game.ledgerlist.ledgeryhilin.dustyhorde === Investmentround.FIRSTROUND && game.ledgerlist.ledgeryhilin.arigarda === Investmentround.FIRSTROUND){
 		synergyscore -= 1;
@@ -4055,7 +4184,7 @@ function skiproamingsection(game){
 	} else if(game.globalstat.armystat.quality >= 4){
 		document.getElementById("village-reward-skip").textContent = "Village Reward: Shining Sword";
 		game.globalstat.shiningword += 1
-	} else if(game.globalstat.armystat.quality >= 3){ 
+	} else if(game.globalstat.armystat.quality >= 3){
 		document.getElementById("village-reward-skip").textContent = "Village Reward: Full Plate";
 	} else if(game.globalstat.armystat.quality >= 2){
 		document.getElementById("village-reward-skip").textContent = "Village Reward: Steel Armor";
@@ -4144,7 +4273,7 @@ function splitpartyaka(game){
     countryscriptstart(game.country);
 
 	var trinrp = game.peoplerp.trin.initial + game.peoplerp.trin.rp;
-	
+
 	if(trinrp >= 50){
         game.globalstat.trincopies.trinmax += 2;
 	} else if(trinrp >= 30){
@@ -5974,6 +6103,7 @@ function splitpartyarra(game){
             twonight = true;
             if(qumood >= 1){
                 empressapproval += 1;
+                game.plotchoice.qumogre = true;
                 qumood -= 1;
                 qumscene += 1;
             }
@@ -6077,6 +6207,7 @@ function splitpartyarra(game){
             fournight = true;
             if(qumood >= 1){
                 empressapproval += 1;
+                game.plotchoice.qumogre = true;
                 qumood -= 1;
                 qumscene += 1;
             }
@@ -6235,6 +6366,7 @@ function splitpartyarra(game){
             fivenight = true;
             if(qumood >= 1){
                 empressapproval += 1;
+                game.plotchoice.qumogre = true;
                 qumood -= 1;
                 qumscene += 1;
             }
@@ -6453,6 +6585,7 @@ function splitpartyarra(game){
             sixday = true;
             if(qumood >= 1){
                 empressapproval += 1;
+                game.plotchoice.qumogre = true;
                 qumood -= 1;
                 qumscene += 1;
             }
@@ -6661,6 +6794,7 @@ function splitpartyarra(game){
             sixnight = true;
             if(qumood >= 1){
                 empressapproval += 1;
+                game.plotchoice.qumogre = true;
                 qumood -= 1;
                 qumscene += 1;
             }
@@ -6905,6 +7039,7 @@ function splitpartyarra(game){
             sevenday = true;
             if(qumood >= 1){
                 empressapproval += 1;
+                game.plotchoice.qumogre = true;
                 qumood -= 1;
                 qumscene += 1;
             }
@@ -7082,7 +7217,7 @@ function splitpartyarra(game){
         document.getElementById("yarra-seven-day-balia-done").disabled = false;
         document.getElementById("yarra-seven-day-village-done").disabled = false;
         document.getElementById("yarra-seven-day-sleep-done").disabled = false;
-    }    
+    }
 
     // Day Seven Night
     if(fucklord === false){
@@ -7185,6 +7320,7 @@ function splitpartyarra(game){
             sevenight = true;
             if(qumood >= 1){
                 empressapproval += 1;
+                game.plotchoice.qumogre = true;
                 qumood -= 1;
                 qumscene += 1;
             }
@@ -7564,6 +7700,7 @@ function splitpartyarra(game){
             eightnight = true;
             if(qumood >= 1){
                 qumood -= 1;
+                game.plotchoice.qumogre = true;
                 qumscene += 1;
             }
         }
@@ -8091,6 +8228,10 @@ function skipsplitpartyarra(game){
 		if(qumood >= 1){
 			qumood -= 1;
 		}
+	}
+
+    if(document.getElementById("skip-yarra-ogre-done").checked === true){
+        game.plotchoice.qumogre = true;
 	}
 
     // sleep last action
@@ -8713,10 +8854,6 @@ function simonroute(game){
         document.getElementById("simon-nalili-day-bath").checked = false;
 	}
 
-	if(document.getElementById("simon-nalili-talk-harem").checked === true){
-        game.peoplerp.nalili.rp += 3;
-	}
-
 	if(document.getElementById("simon-nalili-crypt-size").checked === true){
 		simonday += 3;
 		mental += 5;
@@ -8929,7 +9066,7 @@ function simonroute(game){
         document.getElementById("simon-esthera-whip-close").style.display = "none";
 	}
 
-	if(simonday >= 90){
+	if(simonday >= 76){
 		document.getElementById("simon-esthera-vault-open").style.visibility = "";
 	} else {
         document.getElementById("simon-esthera-vault-open").style.visibility = "hidden";
@@ -9045,6 +9182,12 @@ function simonroute(game){
         }
 
 		if(firstfuck === true || secondfuck === true){
+
+            document.getElementById("simon-nalili-harem-open").style.visibility = "";
+            if(document.getElementById("simon-nalili-talk-harem").checked === true){
+                game.peoplerp.nalili.rp += 3;
+            }
+
             if(document.getElementById("simon-nalili-monster-four").checked === true){
                 document.getElementById("simon-nalili-corrupt-open").style.visibility = "";
             } else {
@@ -9064,6 +9207,8 @@ function simonroute(game){
             document.getElementById("simon-nalili-corrupt-done").checked = false;
             document.getElementById("simon-nalili-dominate-open").style.visibility = "hidden";
             document.getElementById("simon-nalili-dominate-done").checked = false;
+            document.getElementById("simon-nalili-harem-open").style.visibility = "hidden";
+            document.getElementById("simon-nalili-talk-harem").checked = false;
 		}
 
 	} else {
@@ -9087,6 +9232,8 @@ function simonroute(game){
         document.getElementById("simon-nalili-corrupt-done").checked = false;
         document.getElementById("simon-nalili-dominate-open").style.visibility = "hidden";
         document.getElementById("simon-nalili-dominate-done").checked = false;
+        document.getElementById("simon-nalili-harem-open").style.visibility = "hidden";
+        document.getElementById("simon-nalili-talk-harem").checked = false;
 	}
 
     if(simonday >= 76){
@@ -9111,13 +9258,6 @@ function simonroute(game){
         document.getElementById("simon-nalili-second-fuck").checked = false;
         document.getElementById("simon-nalili-first-open").style.visibility = "hidden";
         document.getElementById("simon-nalili-second-open").style.visibility = "hidden";
-    }
-
-    if(simonday >= 90){
-        document.getElementById("simon-nalili-harem-open").style.visibility = "";
-    } else {
-        document.getElementById("simon-nalili-harem-open").style.visibility = "hidden";
-        document.getElementById("simon-nalili-talk-harem").checked = false;
     }
 
     if(simonday >= 76){
@@ -9360,7 +9500,7 @@ function skipsimonroute(game){
 			document.getElementById("skip-simon-book-copy").style.color = "#00FF00";
 		} else {
 			document.getElementById("skip-simon-book-copy").textContent = "Economy Score Too Low to Copy Financial Books";
-			document.getElementById("skip-simon-book-copy").style.color = "#FF0000";			
+			document.getElementById("skip-simon-book-copy").style.color = "#FF0000";
 		}
 	} else {
         document.getElementById("skip-simon-book-copy").style.visibility = "hidden";
@@ -10828,7 +10968,7 @@ function skipreuninsection(game){
     document.getElementById("skip-reunion-profit-total").textContent = "Total Profit " + reunionprofit + " ProN";
 
     reunionprofit += game.globalstat.pron;
-    
+
     if(game.ledgerlist.ledgeryhilin.cachexavation === Investmentround.NONE){
     	document.getElementById("skip-reunion-investment-cache-open").style.display = "";
         if(document.getElementById("skip-reunion-investment-cache-done").checked === true){
@@ -10839,7 +10979,7 @@ function skipreuninsection(game){
             game.simonstat.bonustat.agi += 10;
             game.simonstat.bonustat.luk += 10;
         }
-        
+
     } else {
         document.getElementById("skip-reunion-investment-cache-open").style.display = "none";
         document.getElementById("skip-reunion-investment-cache-done").checked = false;
@@ -10885,12 +11025,12 @@ function skipreuninsection(game){
                 reunionprofit += 15000;
                 game.simonstat.economy.value += 1;
             }
-                        
+
         } else {
             document.getElementById("skip-reunion-investment-magic-bridge-open").style.display = "none";
             document.getElementById("skip-reunion-investment-magic-bridge-done").checked = false;
         }
-        
+
     } else {
 
         document.getElementById("skip-reunion-investment-yhilinsupp-bridge-open").style.display = "none";
@@ -10905,7 +11045,7 @@ function skipreuninsection(game){
                 reunionprofit -= 20000;
                 game.simonstat.economy.value += 1;
             }
-            
+
         } else {
             document.getElementById("skip-reunion-investment-yhilinsupp-bare-open").style.display = "none";
             document.getElementById("skip-reunion-investment-yhilinsupp-bare-done").checked = false;
@@ -10918,7 +11058,7 @@ function skipreuninsection(game){
                 reunionprofit -= 25000;
                 game.simonstat.economy.value += 1;
             }
-            
+
         } else {
             document.getElementById("skip-reunion-investment-magic-bare-open").style.display = "none";
             document.getElementById("skip-reunion-investment-magic-bare-done").checked = false;
@@ -10938,7 +11078,7 @@ function skipreuninsection(game){
                 reunionprofit -= 450000;
                 game.peoplerp.megail.rp += 5;
             }
-            
+
         } else {
             document.getElementById("skip-reunion-investment-yhilinbank-yes-open").style.display = "none";
             document.getElementById("skip-reunion-investment-yhilinbank-yes-done").checked = false;
@@ -10956,7 +11096,7 @@ function skipreuninsection(game){
                 reunionprofit -= 500000;
                 game.peoplerp.megail.rp += 5;
             }
-            
+
         } else {
             document.getElementById("skip-reunion-investment-yhilinbank-no-open").style.display = "none";
             document.getElementById("skip-reunion-investment-yhilinbank-no-done").checked = false;
@@ -10980,7 +11120,7 @@ function skipreuninsection(game){
             	game.ledgerlist.ledgeryhilin.premiumsteeltwo = Investmentround.REUNION;
                 reunionprofit -= 75000;
             }
-            
+
         } else {
             document.getElementById("skip-reunion-investment-premium-yes-open").style.display = "none";
             document.getElementById("skip-reunion-investment-premium-yes-done").checked = false;
@@ -11002,7 +11142,7 @@ function skipreuninsection(game){
                 game.peoplerp.aka.rp += 2;
                 game.peoplerp.hilstara.rp += 2;
             }
-            
+
         } else {
             document.getElementById("skip-reunion-investment-premium-no-open").style.display = "none";
             document.getElementById("skip-reunion-investment-premium-no-done").checked = false;
@@ -11678,6 +11818,7 @@ function summitsection (game){
         document.getElementById("summit-day-three-foreign-close").style.display = "none";
         if(document.getElementById("summit-day-three-foreign-program").checked === true){
         	game.globalstat.pron -= 120000;
+            game.ledgerlist.ledgerardford.ghenaleseprogram = Investmentround.ARDFORD;
             foreignvault = true;
             game.country.yhilin.value += 1;
             game.country.ghenalon.value += 1;
@@ -12936,6 +13077,7 @@ function skipsummitsection(game){
 
     if(document.getElementById("skip-summit-foreign-program").checked === true){
         game.globalstat.pron -= 120000;
+        game.ledgerlist.ledgerardford.ghenaleseprogram = Investmentround.ARDFORD;
         game.country.yhilin.value += 1;
         game.country.ghenalon.value += 1;
     }
@@ -15259,6 +15401,10 @@ function governyhilini(game){
 
         }
 
+        if(document.getElementById("govern-i-sarai-request-magic-done").checked === true){
+            game.plotchoice.secondritual = true;
+        }
+
     } else {
         document.getElementById("govern-i-sarai-request-magic-open").style.visibility = "hidden";
         document.getElementById("govern-i-sarai-request-magic-done").checked = false;
@@ -16483,10 +16629,18 @@ function skipsgovernyhilini(game){
     }
 
     if(document.getElementById("skip-govern-i-sarai-request-magic").checked === true){
+
+        document.getElementById("skip-govern-i-sarai-request-magic-open").style.visibility = "";
+        if(document.getElementById("skip-govern-i-sarai-request-magic-done").checked === true){
+            game.plotchoice.secondritual = true;
+        }
+
         if(game.plotchoice.magicultmeet === true){
             saraimood += 1;
 		}
 
+    } else {
+        document.getElementById("skip-govern-i-sarai-request-magic-open").style.visibility = "hidden";
     }
 
     if(game.summitresult.unpmotion === false){
@@ -19052,8 +19206,8 @@ function governyhilinii(game){
     if(game.globalstat.yhilinacc >= 15){
         document.getElementById("govern-ii-yarra-quest-bank-open").style.visibility = "";
         if(document.getElementById("govern-ii-yarra-quest-bank-done").checked === true){
-            game.globalstat.yarraquest.numbers += 1;            
-            game.globalstat.yarraquest.bank = true;            
+            game.globalstat.yarraquest.numbers += 1;
+            game.globalstat.yarraquest.bank = true;
         }
     } else {
         document.getElementById("govern-ii-yarra-quest-bank-open").style.visibility = "hidden";
@@ -19505,7 +19659,7 @@ function governyhilinii(game){
                 game.globalstat.discretionary -= 50;
                 game.peoplerp.lynine.rp += 5;
         		game.peoplerp.orilise.rp += 5;
-        		game.peoplerp.altina.rp += 5;        
+        		game.peoplerp.altina.rp += 5;
                 elven = true;
             }
         } else {
@@ -19800,7 +19954,7 @@ function governyhilinii(game){
             if(nobletwo.value === "two"){
                 campaign = 2;
                 game.globalstat.discretionary -= 20;
-            } else  if(nobletwo === "one"){
+            } else  if(nobletwo.value === "one"){
                 campaign = 1;
                 game.globalstat.discretionary -= 10;
             } else {
@@ -19870,8 +20024,8 @@ function governyhilinii(game){
     if(game.boystat.squareclose === false && game.petitionhouse.statueopen === true){
         if(game.boystat.success === true){
         	if(game.globalstat.discretionary < 10 && document.getElementById("govern-ii-statue-i-petition-done").checked === false){
-                document.getElementById("govern-ii-statue-i-petition-open").style.display = "";
-                document.getElementById("govern-ii-statue-i-petition-close").style.display = "none";
+                document.getElementById("govern-ii-statue-i-petition-open").style.display = "none";
+                document.getElementById("govern-ii-statue-i-petition-close").style.display = "";
 			} else {
                 document.getElementById("govern-ii-statue-i-petition-open").style.display = "";
                 document.getElementById("govern-ii-statue-i-petition-close").style.display = "none";
@@ -21281,7 +21435,7 @@ function skipgovernyhilinii(game){
         if(nobletwo.value === "two"){
                 campaign = 2;
                 game.globalstat.discretionary -= 20;
-        } else  if(nobletwo === "one"){
+        } else  if(nobletwo.value === "one"){
                 campaign = 1;
                 game.globalstat.discretionary -= 10;
         } else {
@@ -21487,6 +21641,7 @@ function skipgovernyhilinii(game){
 function zirantiatrip(game){
 
     game.peoplerp.wynn.initial = 40;
+    game.peoplerp.wynn.cap = 101;
     game.peoplerp.uyae.initial = 30;
     game.peoplerp.uyae.cap = 99;
     game.globalstat.wynnangry = 50;
@@ -22176,6 +22331,7 @@ function zirantiatrip(game){
 function skipzirantiatrip(game){
 
     game.peoplerp.wynn.initial = 40;
+    game.peoplerp.wynn.cap = 101;
     game.peoplerp.uyae.initial = 30;
     game.peoplerp.uyae.cap = 99;
     game.globalstat.wynnangry = 50;
@@ -22853,6 +23009,7 @@ function governyhiliniii(game){
     }
 
     if(document.getElementById("govern-iii-trade-fehliel").checked === true){
+        game.plotchoice.fhelielchat = true;
         game.globalstat.tradescore += 1;
     }
 
@@ -24369,7 +24526,7 @@ function governyhiliniii(game){
             if(nobletwo.value === "two"){
                 campaign = 2;
                 game.globalstat.discretionary -= 20;
-            } else  if(nobletwo === "one"){
+            } else  if(nobletwo.value === "one"){
                 campaign = 1;
                 game.globalstat.discretionary -= 10;
             } else {
@@ -24441,8 +24598,8 @@ function governyhiliniii(game){
     if(game.boystat.squareclose === false && game.petitionhouse.statueopen === true && game.petitionhouse.statuedone === false){
         if(game.boystat.success === true){
             if(game.globalstat.discretionary < 10 && document.getElementById("govern-iii-statue-i-petition-done").checked === false){
-                document.getElementById("govern-iii-statue-i-petition-open").style.display = "";
-                document.getElementById("govern-iii-statue-i-petition-close").style.display = "none";
+                document.getElementById("govern-iii-statue-i-petition-open").style.display = "none";
+                document.getElementById("govern-iii-statue-i-petition-close").style.display = "";
                 statue = false;
             } else {
                 document.getElementById("govern-iii-statue-i-petition-open").style.display = "";
@@ -24926,7 +25083,7 @@ function governyhiliniii(game){
 }
 
 function skipgovernyhiliniii(game){
-    
+
     if(game.research.daricondition === Timeslot.AFTERFOREST){
         game.peoplerp.dari.rp += 11;
     }
@@ -25140,6 +25297,7 @@ function skipgovernyhiliniii(game){
     }
 
     if(document.getElementById("skip-govern-iii-trade-fehliel").checked === true){
+        game.plotchoice.fhelielchat = true;
         game.globalstat.tradescore += 1;
     }
 
@@ -26309,7 +26467,7 @@ function skipgovernyhiliniii(game){
         if(nobletwo.value === "two"){
             campaign = 2;
             game.globalstat.discretionary -= 20;
-        } else  if(nobletwo === "one"){
+        } else  if(nobletwo.value === "one"){
             campaign = 1;
             game.globalstat.discretionary -= 10;
         } else {
@@ -27984,7 +28142,7 @@ function governyhiliniiiv(game){
             if(nobletwo.value === "two"){
                 campaign = 2;
                 game.globalstat.discretionary -= 20;
-            } else  if(nobletwo === "one"){
+            } else if(nobletwo.value === "one"){
                 campaign = 1;
                 game.globalstat.discretionary -= 10;
             } else {
@@ -28056,8 +28214,8 @@ function governyhiliniiiv(game){
     if(game.boystat.squareclose === false && game.petitionhouse.statueopen === true && game.petitionhouse.statuedone === false){
         if(game.boystat.success === true){
             if(game.globalstat.discretionary < 10 && document.getElementById("govern-iii-v-statue-i-petition-done").checked === false){
-                document.getElementById("govern-iii-v-statue-i-petition-open").style.display = "";
-                document.getElementById("govern-iii-v-statue-i-petition-close").style.display = "none";
+                document.getElementById("govern-iii-v-statue-i-petition-open").style.display = "none";
+                document.getElementById("govern-iii-v-statue-i-petition-close").style.display = "";
                 statue = false;
             } else {
                 document.getElementById("govern-iii-v-statue-i-petition-open").style.display = "";
@@ -28544,7 +28702,7 @@ function skipgovernyhiliniiiv(game){
     game.globalstat.discretionary += 50;
     var campaign = 0;
     game.petitionhouse.statueopen = (game.boystat.victory >= 25 && game.boystat.damage <= 0 && game.boystat.chaos <= 0);
-    
+
     if(game.petitionhouse.slumhouse === true){
         document.getElementById("skip-govern-iii-v-slumhouse-petition-open").style.visibility = "";
 
@@ -29598,7 +29756,7 @@ function skipgovernyhiliniiiv(game){
         if(nobletwo.value === "two"){
             campaign = 2;
             game.globalstat.discretionary -= 20;
-        } else  if(nobletwo === "one"){
+        } else  if(nobletwo.value === "one"){
             campaign = 1;
             game.globalstat.discretionary -= 10;
         } else {
@@ -30023,7 +30181,7 @@ function eustrin(game){
     		document.getElementById("eustrin-southern-result").textContent = "The tunnels seem clearer";
     		document.getElementById("eustrin-southern-result").style.color = "";
     		game.globalstat.eustrinimpact += 2;
-    		game.peoplerp.neranda.rp += 2; 
+    		game.peoplerp.neranda.rp += 2;
     	} else if(cleanse >= 30){
     		document.getElementById("eustrin-southern-result").textContent = "We'll have to overcome a few obstacles, but I hope...";
     		document.getElementById("eustrin-southern-result").style.color = "#FF0000";
@@ -31591,7 +31749,7 @@ function governyhiliniv(game){
             if(nobletwo.value === "two"){
                 campaign = 2;
                 game.globalstat.discretionary -= 20;
-            } else  if(nobletwo === "one"){
+            } else  if(nobletwo.value === "one"){
                 campaign = 1;
                 game.globalstat.discretionary -= 10;
             } else {
@@ -31661,8 +31819,8 @@ function governyhiliniv(game){
     if(game.boystat.squareclose === false && game.petitionhouse.statueopen === true && game.petitionhouse.statuedone === false){
         if(game.boystat.success === true){
             if(game.globalstat.discretionary < 10 && document.getElementById("govern-iv-statue-i-petition-done").checked === false){
-                document.getElementById("govern-iv-statue-i-petition-open").style.display = "";
-                document.getElementById("govern-iv-statue-i-petition-close").style.display = "none";
+                document.getElementById("govern-iv-statue-i-petition-open").style.display = "none";
+                document.getElementById("govern-iv-statue-i-petition-close").style.display = "";
             } else {
                 document.getElementById("govern-iv-statue-i-petition-open").style.display = "";
                 document.getElementById("govern-iv-statue-i-petition-close").style.display = "none";
@@ -33685,7 +33843,7 @@ function skipgovernyhiliniv(game){
         if(nobletwo.value === "two"){
             campaign = 2;
             game.globalstat.discretionary -= 20;
-        } else  if(nobletwo === "one"){
+        } else  if(nobletwo.value === "one"){
             campaign = 1;
             game.globalstat.discretionary -= 10;
         } else {
@@ -36563,9 +36721,9 @@ function thirdarclentwar(game){
         document.getElementById("third-war-clear-extension-two-done").value = "";
         const monofun = document.getElementById("third-war-clear-extension-one-done");
         if(monofun.value === "estern"){
-            game.extensiontroop.eastern = true;
+            eastern = true;
         } else if(monofun.value === "western"){
-            game.extensiontroop.western = true;
+            western = true;
         }
     } else {
         document.getElementById("third-war-clear-extension-two-open").style.display = "none";
@@ -36777,7 +36935,7 @@ function thirdarclentwar(game){
 
     if(document.getElementById("third-war-summit-pillars").checked === true){
         game.arclentwar.orcsummit += 1;
-        //game.plotchoice.tradersmasher = true;
+        game.plotchoice.tradersmasher = true;
     }
 
     if(document.getElementById("third-war-summit-erosian").checked === true){
@@ -39856,7 +40014,7 @@ function fourinvestmenti(game){
 
     if(game.ledgerlist.ledgereustrin.eustringuild !== Investmentround.NONE){
         document.getElementById("four-investment-i-profit-eustrin-guild").style.display = "";
-        profitotal += 200000;
+        profitotal += 250000;
     } else {
         document.getElementById("four-investment-i-profit-eustrin-guild").style.display = "none";
     }
@@ -40057,7 +40215,7 @@ function fourinvestmenti(game){
     			game.palacestat.magic.value += 1;
     			game.palacestat.hospitality.value += 3;
     			game.peoplerp.carina.rp += 5;
-                game.palacestat.shirne = true;
+                game.palacestat.shrine = true;
     		}
     	} else {
     		document.getElementById("four-investment-i-hq-carina-shrine-open").style.display = "none";
@@ -40389,7 +40547,7 @@ function fourinvestmenti(game){
         document.getElementById("four-investment-i-givini-tea-house-done").checked = false;
     }
 
-    if(megailback === true){
+    if(megailback === true && elleaniback === true){
         document.getElementById("four-investment-i-givini-bank-open").style.visibility = "";
         if (game.globalstat.pron >= 350000){
             document.getElementById("four-investment-i-givini-bank-open").style.display = "";
@@ -40402,6 +40560,8 @@ function fourinvestmenti(game){
                 game.country.chalicestates.value += 2;
                 game.country.takkan.value += 2;
                 game.country.ardoheim.value += 2;
+                game.peoplerp.megail.rp += 5;
+                game.peoplerp.elleani.rp += 3;
             }
         } else {
             document.getElementById("four-investment-i-givini-bank-open").style.display = "none";
@@ -41451,7 +41611,7 @@ function fourinvestmenti(game){
             } else if(donation.value === "chalice"){
                 game.country.chalicestates.value += 2;
             } else if(donation.value === "takkan"){
-                game.country.takkan.value += 1;
+                game.country.takkan.value += 2;
             }
         } else {
             document.getElementById("four-investment-i-rose-warehouse-open").style.visibility = "hidden";
@@ -41514,6 +41674,7 @@ function fourinvestmenti(game){
         document.getElementById("four-investment-i-chalice-statue-close").style.display = "none";
         if(document.getElementById("four-investment-i-chalice-statue-done").checked === true){
             game.globalstat.pron -= 2000;
+            game.palacestat.hospitality.value += 1;
             game.decoration.chalicestatue = true;
         }
     } else {
@@ -42080,6 +42241,17 @@ function fourinvestmenti(game){
     }
 
     if(game.plotchoice.yhilinfinal === true){
+        document.getElementById("four-investment-i-andra-mine-open").style.visibility = "";
+        if (document.getElementById("four-investment-i-andra-mine-done").checked === true){
+            game.peoplerp.sarai.rp += 5;
+            game.plotchoice.andrasee = true;
+        }
+    } else {
+        document.getElementById("four-investment-i-andra-mine-open").style.visibility = "hidden";
+        document.getElementById("four-investment-i-andra-mine-done").checked = false;
+    }
+
+    if(game.plotchoice.yhilinfinal === true){
         document.getElementById("four-investment-i-lamia-statue-open").style.visibility = "";
         if(game.globalstat.pron >= 1000){
             document.getElementById("four-investment-i-lamia-statue-open").style.display = "";
@@ -42367,6 +42539,7 @@ function fourinvestmenti(game){
             if(document.getElementById("four-investment-i-wynn-join-done").checked === true){
                 game.plotchoice.wynnjoin = true;
                 game.peoplerp.wynn.rp += 5;
+                game.peoplerp.wynn.cap = 100;
             }
         } else {
             document.getElementById("four-investment-i-wynn-join-open").style.visibility = "hidden";
@@ -42398,6 +42571,18 @@ function fourinvestmenti(game){
         document.getElementById("four-investment-i-hq-wynn-shield-open").style.display = "";
         document.getElementById("four-investment-i-hq-wynn-shield-close").style.display = "none";
         document.getElementById("four-investment-i-hq-wynn-shield-done").checked = false;
+    }
+
+    if(game.plotchoice.wynnjoin === true && game.palacestat.orclab === true){
+        document.getElementById("four-investment-i-wynn-balia-open").style.visibility = "";
+        if(document.getElementById("four-investment-i-wynn-balia-done").checked === true){
+            game.palacestat.talkbaliawynn = true;
+            game.peoplerp.wynn.rp += 2;
+            game.peoplerp.balia.rp += 2;
+        }
+    } else {
+        document.getElementById("four-investment-i-wynn-balia-open").style.visibility = "hidden";
+        document.getElementById("four-investment-i-wynn-balia-done").checked = false;
     }
 
     if(askstaff === true){
@@ -42455,9 +42640,9 @@ function fourinvestmenti(game){
 
     if(game.plotchoice.variamind === Variamind.RESHAPED){
         document.getElementById("four-investment-i-weapons-varia-open").style.display = "";
-        document.getElementById("four-investment-blade-varia-open").style.display = "none";
-        document.getElementById("four-investment-blade-varia-done").checked = false;
-        document.getElementById("four-investment-blade-varia-wynn-done").checked = false;
+        document.getElementById("four-investment-i-blade-varia-open").style.display = "none";
+        document.getElementById("four-investment-i-blade-varia-done").checked = false;
+        document.getElementById("four-investment-i-blade-varia-wynn-done").checked = false;
         if(game.customitem.variasteel === true && game.ledgerlist.ledgergivini.givinismith !== Investmentround.NONE){
             document.getElementById("four-investment-i-weapons-varia-open").style.visibility = "";
             if(document.getElementById("four-investment-i-weapons-varia-done").checked === true){
@@ -42470,27 +42655,27 @@ function fourinvestmenti(game){
         }
     } else if(game.plotchoice.variamind === Variamind.DOMINATED && game.customitem.variabalde === false){
         document.getElementById("four-investment-i-weapons-varia-open").style.display = "none";
-        document.getElementById("four-investment-blade-varia-open").style.display = "";
+        document.getElementById("four-investment-i-blade-varia-open").style.display = "";
         document.getElementById("four-investment-i-weapons-varia-done").checked = false;
         if(game.customitem.variasteel === true){
-            document.getElementById("four-investment-blade-varia-open").style.visibility = "";
-            if(document.getElementById("four-investment-blade-varia-done").checked === true){
+            document.getElementById("four-investment-i-blade-varia-open").style.visibility = "";
+            if(document.getElementById("four-investment-i-blade-varia-done").checked === true){
                 game.peoplerp.varia.rp += 5;
                 game.customitem.variabalde = true;
             }
-            if(document.getElementById("four-investment-blade-varia-wynn-done").checked === true){
+            if(document.getElementById("four-investment-i-blade-varia-wynn-done").checked === true){
                 game.peoplerp.wynn.rp += 5;
             }
         } else {
-            document.getElementById("four-investment-blade-varia-open").style.visibility = "hidden";
-            document.getElementById("four-investment-blade-varia-done").checked = false;
-            document.getElementById("four-investment-blade-varia-wynn-done").checked = false;
+            document.getElementById("four-investment-i-blade-varia-open").style.visibility = "hidden";
+            document.getElementById("four-investment-i-blade-varia-done").checked = false;
+            document.getElementById("four-investment-i-blade-varia-wynn-done").checked = false;
         }
     } else {
         document.getElementById("four-investment-i-weapons-varia-open").style.display = "none";
         document.getElementById("four-investment-i-weapons-varia-done").checked = false;
-        document.getElementById("four-investment-blade-varia-open").style.display = "none";
-        document.getElementById("four-investment-blade-varia-done").checked = false;
+        document.getElementById("four-investment-i-blade-varia-open").style.display = "none";
+        document.getElementById("four-investment-i-blade-varia-done").checked = false;
     }
 
     rpscriptlocker(game.peoplerp);
@@ -42511,7 +42696,7 @@ function fourinvestmenti(game){
         game.peoplerp.qum.rp = 100 - game.peoplerp.qum.initial
     }
 
-    if((game.peoplerp.megail.initial + game.peoplerp.megail.rp)>= 100 && (game.peoplerp.iris.initial + game.peoplerp.iris.rp)>= 99){
+    if((game.peoplerp.megail.initial + game.peoplerp.megail.rp) >= 100 && (game.peoplerp.iris.initial + game.peoplerp.iris.rp) >= 99){
         document.getElementById("four-investment-i-megail-iris-bed-open").style.visibility = "";
         if(document.getElementById("four-investment-i-megail-iris-bed-done").checked === true){
             game.palacestat.megailxiris = true;
@@ -42542,94 +42727,55 @@ function fourinvestmenti(game){
     }
 
     if(orcentback === true){
-        document.getElementById("four-investment-i-orcent-keeper-open").style.visbility = "";
+        document.getElementById("four-investment-i-orcent-crawl-open").style.visibility = "";
         if(document.getElementById("four-investment-i-orcent-keeper-done").checked === true){
             game.globalstat.orcentconvo.value += 1;
         }
-    } else {
-        document.getElementById("four-investment-i-orcent-keeper-open").style.visibility = "hidden";
-        document.getElementById("four-investment-i-orcent-keeper-done").checked = false;
-    }
-
-    if(orcentback === true){
-        document.getElementById("four-investment-i-orcent-crimson-open").style.visbility = "";
         if(document.getElementById("four-investment-i-orcent-crimson-done").checked === true){
             game.globalstat.orcentconvo.value += 1;
         }
-    } else {
-        document.getElementById("four-investment-i-orcent-crimson-open").style.visibility = "hidden";
-        document.getElementById("four-investment-i-orcent-crimson-done").checked = false;
-    }
-
-    if(orcentback === true){
-        document.getElementById("four-investment-i-orcent-oak-open").style.visbility = "";
         if(document.getElementById("four-investment-i-orcent-oak-done").checked === true){
             game.globalstat.orcentconvo.value += 1;
         }
-    } else {
-        document.getElementById("four-investment-i-orcent-oak-open").style.visibility = "hidden";
-        document.getElementById("four-investment-i-orcent-oak-done").checked = false;
-    }
-
-    if(orcentback === true && uyaeback === true){
-        document.getElementById("four-investment-i-orcent-zirantia-open").style.visbility = "";
-        if(document.getElementById("four-investment-i-orcent-zirantia-done").checked === true){
-            game.globalstat.orcentconvo.value += 1;
-        }
-    } else {
-        document.getElementById("four-investment-i-orcent-zirantia-open").style.visibility = "hidden";
-        document.getElementById("four-investment-i-orcent-zirantia-done").checked = false;
-    }
-
-    if(orcentback === true){
-        document.getElementById("four-investment-i-orcent-gushing-open").style.visbility = "";
         if(document.getElementById("four-investment-i-orcent-gushing-done").checked === true){
             game.globalstat.orcentconvo.value += 1;
         }
-    } else {
-        document.getElementById("four-investment-i-orcent-gushing-open").style.visibility = "hidden";
-        document.getElementById("four-investment-i-orcent-gushing-done").checked = false;
-    }
-
-    if(orcentback === true){
-        document.getElementById("four-investment-i-orcent-fheliel-open").style.visbility = "";
         if(document.getElementById("four-investment-i-orcent-fheliel-done").checked === true){
             game.globalstat.orcentconvo.value += 1;
         }
-    } else {
-        document.getElementById("four-investment-i-orcent-fheliel-open").style.visibility = "hidden";
-        document.getElementById("four-investment-i-orcent-fheliel-done").checked = false;
-    }
-
-    if(orcentback === true){
-        document.getElementById("four-investment-i-orcent-helvanna-open").style.visbility = "";
         if(document.getElementById("four-investment-i-orcent-helvanna-done").checked === true){
             game.globalstat.orcentconvo.value += 1;
         }
+        if(game.ledgerlist.ledgeryhilin.fightring !== Investmentround.NONE){
+            document.getElementById("four-investment-i-orcent-warrior-open").style.visibility = "";
+            if(document.getElementById("four-investment-i-orcent-warrior-done").checked === true){
+                game.globalstat.orcentconvo.value += 1;
+            game.peoplerp.trin.rp += 2;
+                game.globalstat.orcentconvo.fightingbar = true;
+            }
+        } else {
+            document.getElementById("four-investment-i-orcent-warrior-open").style.visibility = "hidden";
+            document.getElementById("four-investment-i-orcent-warrior-done").checked = false;
+        }
+        if(game.ledgerlist.ledgertakkan.boozeshack !== Investmentround.NONE){
+            document.getElementById("four-investment-i-orcent-shack-open").style.visibility = "";
+            if(document.getElementById("four-investment-i-orcent-shack-done").checked === true){
+                game.globalstat.orcentconvo.value += 1;
+                game.globalstat.orcentconvo.boozeshack = true;
+            }
+        } else {
+            document.getElementById("four-investment-i-orcent-shack-open").style.visibility = "hidden";
+            document.getElementById("four-investment-i-orcent-shack-done").checked = false;
+        }
     } else {
-        document.getElementById("four-investment-i-orcent-helvanna-open").style.visibility = "hidden";
+        document.getElementById("four-investment-i-orcent-crawl-open").style.visibility = "hidden";
+        document.getElementById("four-investment-i-orcent-keeper-done").checked = false;
+        document.getElementById("four-investment-i-orcent-crimson-done").checked = false;
+        document.getElementById("four-investment-i-orcent-oak-done").checked = false;
+        document.getElementById("four-investment-i-orcent-gushing-done").checked = false;
+        document.getElementById("four-investment-i-orcent-fheliel-done").checked = false;
         document.getElementById("four-investment-i-orcent-helvanna-done").checked = false;
-    }
-
-    if(orcentback === true && game.ledgerlist.ledgeryhilin.fightring !== Investmentround.NONE){
-        document.getElementById("four-investment-i-orcent-warrior-open").style.visbility = "";
-        if(document.getElementById("four-investment-i-orcent-warrior-done").checked === true){
-            game.globalstat.orcentconvo.value += 1;
-            game.globalstat.orcentconvo.fightingbar = true;
-        }
-    } else {
-        document.getElementById("four-investment-i-orcent-warrior-open").style.visibility = "hidden";
         document.getElementById("four-investment-i-orcent-warrior-done").checked = false;
-    }
-
-    if(orcentback === true && game.ledgerlist.ledgertakkan.boozeshack !== Investmentround.NONE){
-        document.getElementById("four-investment-i-orcent-shack-open").style.visibility = "";
-        if(document.getElementById("four-investment-i-orcent-shack-done").checked === true){
-            game.globalstat.orcentconvo.value += 1;
-            game.globalstat.orcentconvo.boozeshack = true;
-        }
-    } else {
-        document.getElementById("four-investment-i-orcent-shack-open").style.visibility = "hidden";
         document.getElementById("four-investment-i-orcent-shack-done").checked = false;
     }
 
@@ -42813,7 +42959,7 @@ function fourinvestmenti(game){
         document.getElementById("four-investment-i-givini-tea-house-done").checked = false;
     }
 
-    if(megailback === true && game.globalstat.pron < 350000 && document.getElementById("four-investment-i-givini-bank-done").checked === false){
+    if(megailback === true && elleaniback === true && game.globalstat.pron < 350000 && document.getElementById("four-investment-i-givini-bank-done").checked === false){
         document.getElementById("four-investment-i-givini-bank-open").style.display = "none";
         document.getElementById("four-investment-i-givini-bank-close").style.display = "";
     }
@@ -42888,7 +43034,7 @@ function fourinvestmenti(game){
         }
     }
 
-    if(game.ledgerlist.ledgeryhilin.sexring === Investmentround.NONE && game.ledgerlist.ledgeryhilin.fightring !== Investmentround.NONE){
+    if(game.ledgerlist.ledgeryhilin.sexring === Investmentround.NONE && game.petitionhouse.nalilidea === true && game.ledgerlist.ledgeryhilin.fightring !== Investmentround.NONE){
         if(game.globalstat.pron < 250000 && document.getElementById("four-investment-i-sex-ring-done").checked === false){
             document.getElementById("four-investment-i-sex-ring-open").style.display = "none";
             document.getElementById("four-investment-i-sex-ring-close").style.display = "";
@@ -43207,7 +43353,7 @@ function fourinvestmenti(game){
         document.getElementById("four-investment-i-hq-wynn-shield-open").style.display = "none";
         document.getElementById("four-investment-i-hq-wynn-shield-close").style.display = "";
     }
-    
+
     document.getElementById("four-investment-i-hq-military").textContent = "" + game.palacestat.military.value;
     document.getElementById("four-investment-i-magic").textContent = "" + game.palacestat.magic.value;
     document.getElementById("four-investment-i-hq-hospitality").textContent = "" + game.palacestat.hospitality.value;
@@ -43359,7 +43505,7 @@ function skipfourinvestmenti(game){
     if(game.ledgerlist.ledgereustrin.bountyoffice !== Investmentround.NONE){
         profitotal += 5000;
     }
-    
+
     if(game.ledgerlist.ledgereustrin.eustrinsupplier !== Investmentround.NONE){
         profitotal += 5000;
     }
@@ -43441,7 +43587,7 @@ function skipfourinvestmenti(game){
     }
 
     if(game.ledgerlist.ledgereustrin.eustringuild !== Investmentround.NONE){
-        profitotal += 200000;
+        profitotal += 250000;
     }
 
     if(game.ledgerlist.ledgeryhilin.minroute !== Investmentround.NONE){
@@ -43532,7 +43678,7 @@ function skipfourinvestmenti(game){
         game.palacestat.magic.value += 1;
         game.palacestat.hospitality.value += 3;
         game.peoplerp.carina.rp += 5;
-        game.palacestat.shirne = true;
+        game.palacestat.shrine = true;
     }
 
     if(game.summitresult.orcmotion === false){
@@ -43692,6 +43838,8 @@ function skipfourinvestmenti(game){
         game.country.chalicestates.value += 2;
         game.country.takkan.value += 2;
         game.country.ardoheim.value += 2;
+        game.peoplerp.megail.rp += 5;
+        game.peoplerp.elleani.rp += 3;
     }
 
     if (document.getElementById("skip-four-investment-i-givini-mage-done").checked === true){
@@ -44266,7 +44414,7 @@ function skipfourinvestmenti(game){
             } else if(donation.value === "chalice"){
                 game.country.chalicestates.value += 2;
             } else if(donation.value === "takkan"){
-                game.country.takkan.value += 1;
+                game.country.takkan.value += 2;
             }
         } else {
             document.getElementById("skip-four-investment-i-rose-warehouse-open").style.visibility = "hidden";
@@ -44298,6 +44446,7 @@ function skipfourinvestmenti(game){
 
     if(document.getElementById("skip-four-investment-i-chalice-statue-done").checked === true){
     	game.globalstat.pron -= 2000;
+        game.palacestat.hospitality.value += 1;
         game.decoration.chalicestatue = true;
     }
 
@@ -44659,6 +44808,17 @@ function skipfourinvestmenti(game){
     }
 
     if(game.plotchoice.yhilinfinal === true){
+        document.getElementById("skip-four-investment-i-andra-mine-open").style.visibility = "";
+        if (document.getElementById("skip-four-investment-i-andra-mine-done").checked === true){
+            game.peoplerp.sarai.rp += 5;
+            game.plotchoice.andrasee = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-i-andra-mine-open").style.visibility = "hidden";
+        document.getElementById("skip-four-investment-i-andra-mine-done").checked = false;
+    }
+
+    if(game.plotchoice.yhilinfinal === true){
         document.getElementById("skip-four-investment-i-lamia-statue-open").style.visibility = "";
         if(document.getElementById("skip-four-investment-i-lamia-statue-done").checked === true){
         	game.globalstat.pron -= 1000;
@@ -44871,6 +45031,7 @@ function skipfourinvestmenti(game){
             if(document.getElementById("skip-four-investment-i-wynn-join-done").checked === true){
                 game.plotchoice.wynnjoin = true;
                 game.peoplerp.wynn.rp += 5;
+                game.peoplerp.wynn.cap = 100;
             }
         } else {
             document.getElementById("skip-four-investment-i-wynn-join-open").style.visibility = "hidden";
@@ -44892,6 +45053,18 @@ function skipfourinvestmenti(game){
     } else {
         document.getElementById("skip-four-investment-i-hq-wynn-shield-open").style.visibility = "hidden";
         document.getElementById("skip-four-investment-i-hq-wynn-shield-done").checked = false;
+    }
+
+    if(game.plotchoice.wynnjoin === true && game.palacestat.orclab === true){
+        document.getElementById("skip-four-investment-i-wynn-balia-open").style.visibility = "";
+        if(document.getElementById("skip-four-investment-i-wynn-balia-done").checked === true){
+            game.palacestat.talkbaliawynn = true;
+            game.peoplerp.wynn.rp += 2;
+            game.peoplerp.balia.rp += 2;
+        }
+    } else {
+        document.getElementById("skip-four-investment-i-wynn-balia-open").style.visibility = "hidden";
+        document.getElementById("skip-four-investment-i-wynn-balia-done").checked = false;
     }
 
     if(document.getElementById("skip-four-investment-i-patty-ship-done").checked === true){
@@ -44920,9 +45093,9 @@ function skipfourinvestmenti(game){
 
     if(game.plotchoice.variamind === Variamind.RESHAPED){
         document.getElementById("skip-four-investment-i-weapons-varia-open").style.display = "";
-        document.getElementById("skip-four-investment-blade-varia-open").style.display = "none";
-        document.getElementById("skip-four-investment-blade-varia-done").checked = false;
-        document.getElementById("skip-four-investment-blade-varia-wynn-done").checked = false;
+        document.getElementById("skip-four-investment-i-blade-varia-open").style.display = "none";
+        document.getElementById("skip-four-investment-i-blade-varia-done").checked = false;
+        document.getElementById("skip-four-investment-i-blade-varia-wynn-done").checked = false;
         if(game.customitem.variasteel === true && game.ledgerlist.ledgergivini.givinismith !== Investmentround.NONE){
             document.getElementById("skip-four-investment-i-weapons-varia-open").style.visibility = "";
             if(document.getElementById("skip-four-investment-i-weapons-varia-done").checked === true){
@@ -44935,21 +45108,21 @@ function skipfourinvestmenti(game){
         }
     } else if(game.plotchoice.variamind === Variamind.DOMINATED){
         document.getElementById("skip-four-investment-i-weapons-varia-open").style.display = "none";
-        document.getElementById("skip-four-investment-blade-varia-open").style.display = "";
+        document.getElementById("skip-four-investment-i-blade-varia-open").style.display = "";
         document.getElementById("skip-four-investment-i-weapons-varia-done").checked = false;
         if(game.customitem.variasteel === true && game.customitem.variabalde === false){
-            document.getElementById("skip-four-investment-blade-varia-open").style.visibility = "";
-            if(document.getElementById("skip-four-investment-blade-varia-done").checked === true){
+            document.getElementById("skip-four-investment-i-blade-varia-open").style.visibility = "";
+            if(document.getElementById("skip-four-investment-i-blade-varia-done").checked === true){
                 game.peoplerp.varia.rp += 5;
                 game.customitem.variabalde = true;
             }
-            if(document.getElementById("skip-four-investment-blade-varia-wynn-done").checked === true){
+            if(document.getElementById("skip-four-investment-i-blade-varia-wynn-done").checked === true){
                 game.peoplerp.wynn.rp += 5;
             }
         } else {
-            document.getElementById("skip-four-investment-blade-varia-open").style.visibility = "hidden";
-            document.getElementById("skip-four-investment-blade-varia-done").checked = false;
-            document.getElementById("skip-four-investment-blade-varia-wynn-done").checked = false;
+            document.getElementById("skip-four-investment-i-blade-varia-open").style.visibility = "hidden";
+            document.getElementById("skip-four-investment-i-blade-varia-done").checked = false;
+            document.getElementById("skip-four-investment-i-blade-varia-wynn-done").checked = false;
         }
     }
 
@@ -45013,10 +45186,6 @@ function skipfourinvestmenti(game){
     	game.globalstat.orcentconvo.value += 1;
     }
 
-    if(document.getElementById("skip-four-investment-i-orcent-zirantia-done").checked === true){
-    	game.globalstat.orcentconvo.value += 1;
-    }
-
     if(document.getElementById("skip-four-investment-i-orcent-gushing-done").checked === true){
     	game.globalstat.orcentconvo.value += 1;
     }
@@ -45030,9 +45199,10 @@ function skipfourinvestmenti(game){
     }
 
     if(game.ledgerlist.ledgeryhilin.fightring !== Investmentround.NONE){
-        document.getElementById("skip-four-investment-i-orcent-warrior-open").style.visbility = "";
+        document.getElementById("skip-four-investment-i-orcent-warrior-open").style.visibility = "";
         if(document.getElementById("skip-four-investment-i-orcent-warrior-done").checked === true){
             game.globalstat.orcentconvo.value += 1;
+            game.peoplerp.trin.rp += 2;
             game.globalstat.orcentconvo.fightingbar = true;
         }
     } else {
@@ -45518,11 +45688,11 @@ function succesioncrisis(game){
     }
 
     if(game.ledgerlist.ledgeryhilin.minroute !== Investmentround.NONE && mindone === true){
-        document.getElementById("succession-crisis-ignias-min-done").disable = !(document.getElementById("succession-crisis-ignias-min-done").checked);
-        document.getElementById("succession-crisis-kalant-min-done").disable = !(document.getElementById("succession-crisis-kalant-min-done").checked);
+        document.getElementById("succession-crisis-ignias-min-done").disabled = !(document.getElementById("succession-crisis-ignias-min-done").checked);
+        document.getElementById("succession-crisis-kalant-min-done").disabled = !(document.getElementById("succession-crisis-kalant-min-done").checked);
     } else {
-        document.getElementById("succession-crisis-ignias-min-done").disable = false;
-        document.getElementById("succession-crisis-kalant-min-done").disable = false;
+        document.getElementById("succession-crisis-ignias-min-done").disabled = false;
+        document.getElementById("succession-crisis-kalant-min-done").disabled = false;
     }
 
     if(game.ledgerlist.ledgerardford.ordersilence !== Investmentround.NONE){
@@ -46607,7 +46777,7 @@ function succesioncrisis(game){
     }
 
     rpscriptlocker(game.peoplerp);
-    
+
     document.getElementById("succession-crisis-tyna-score").textContent = "" + game.suitor.tyna;
     document.getElementById("succession-crisis-tyna-givini").textContent = "" + givinisupport;
     document.getElementById("succession-crisis-ignias-score").textContent = "" + game.suitor.ignias;
@@ -46913,11 +47083,11 @@ function skipsuccesioncrisis(game){
     }
 
     if(game.ledgerlist.ledgeryhilin.minroute !== Investmentround.NONE && mindone === true){
-        document.getElementById("skip-succession-crisis-ignias-min-done").disable = !(document.getElementById("skip-succession-crisis-ignias-min-done").checked);
-        document.getElementById("skip-succession-crisis-kalant-min-done").disable = !(document.getElementById("skip-succession-crisis-kalant-min-done").checked);
+        document.getElementById("skip-succession-crisis-ignias-min-done").disabled = !(document.getElementById("skip-succession-crisis-ignias-min-done").checked);
+        document.getElementById("skip-succession-crisis-kalant-min-done").disabled = !(document.getElementById("skip-succession-crisis-kalant-min-done").checked);
     } else {
-        document.getElementById("skip-succession-crisis-ignias-min-done").disable = false;
-        document.getElementById("skip-succession-crisis-kalant-min-done").disable = false;
+        document.getElementById("skip-succession-crisis-ignias-min-done").disabled = false;
+        document.getElementById("skip-succession-crisis-kalant-min-done").disabled = false;
     }
 
     if(game.ledgerlist.ledgerardford.ordersilence !== Investmentround.NONE){
@@ -47877,7 +48047,7 @@ function skipsuccesioncrisis(game){
         document.getElementById("skip-succession-crisis-end-result").textContent = "";
         document.getElementById("skip-succession-crisis-end-result").style.color = "";
     }
-    
+
     if(game.globalstat.trincopies.numbers > game.globalstat.trincopies.trinmax){
     	document.getElementById("skip-succession-crisis-trin-copies-negative").style.display = "";
     	game.globalstat.trincopies.trinmax = game.globalstat.trincopies.numbers + +document.getElementById("skip-succession-crisis-trin-copies-remain").value;
@@ -48004,7 +48174,9399 @@ function skipsuccesioncrisis(game){
     stampendvar("AGI: +", game.simonstat.bonustat.agi, "stamp-stat-agi-succession-crisis", true);
     stampendvar("LUK: +", game.simonstat.bonustat.luk, "stamp-stat-luk-succession-crisis", true);
     stampendlust(game.simonstat.bonustat.sp, "stamp-stat-sp-succession-crisis", true);
+}
 
+function fourinvestmentii(game){
+
+    rpscriptstart(game.peoplerp);
+    scorescriptstart(game.simonstat);
+    countryscriptstart(game.country);
+    palacescriptstart(game.palacestat);
+
+    if(game.globalstat.yhilinacc >= 50){
+        game.plotchoice.yhilinfinal = true;
+    }
+
+    if(game.research.orcdiversification === Timeslot.AFTERWAR){
+        game.globalstat.orcstat.orcstrength = 12;
+        game.globalstat.orcstat.orcintelligence = 12;
+        game.globalstat.orcstat.orcdiscipline = 12;
+        game.country.takkan.value += 5;
+    }
+
+    if(game.research.dariritual !== Timeslot.NONE){
+        if(game.research.daricondition !== Timeslot.NONE){
+            game.plotchoice.dariheal = true;
+        } else {
+            game.research.daricondition = Timeslot.AFTERWAR;
+        }
+    }
+
+    if(game.research.basedefense === Timeslot.AFTERWAR){
+        game.palacestat.military.value += 5;
+        game.palacestat.magic.value += 10;
+    }
+
+    var profitotal = 0;
+
+    //Yhilini Arm Dealer
+    profitotal += 20000;
+
+    if(game.ledgerlist.ledgeryhilin.premiumsteeltwo !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-premium").style.display = "";
+        profitotal += 10000;
+    } else {
+        document.getElementById("four-investment-ii-profit-premium").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.yhilinbanktwo !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-yhilin-bank").style.display = "";
+        profitotal += 150000;
+    } else {
+        document.getElementById("four-investment-ii-profit-yhilin-bank").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.giftmegail !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-megail-gift").style.display = "";
+        profitotal += 25000;
+    } else {
+        document.getElementById("four-investment-ii-profit-megail-gift").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.mineprocess !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-mine").style.display = "";
+        profitotal += 100000;
+    } else {
+        document.getElementById("four-investment-ii-profit-mine").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerstineford.magicshop !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-magic-shop").style.display = "";
+        profitotal += 25000;
+    } else {
+        document.getElementById("four-investment-ii-profit-magic-shop").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.magictrade !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-magic-trade").style.display = "";
+        profitotal += 65000;
+    } else {
+        document.getElementById("four-investment-ii-profit-magic-trade").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.yhilinsupplier !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-yhilin-supplier").style.display = "";
+        profitotal += 5000;
+    } else {
+        document.getElementById("four-investment-ii-profit-yhilin-supplier").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgereustrin.aramitesupplier !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-aram-supplier").style.display = "";
+        profitotal += 5000;
+    } else {
+        document.getElementById("four-investment-ii-profit-aram-supplier").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgereustrin.bountyoffice !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-bounty").style.display = "";
+        profitotal += 5000;
+    } else {
+        document.getElementById("four-investment-ii-profit-bounty").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgereustrin.eustrinsupplier !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-eustrin-supplier").style.display = "";
+        profitotal += 5000;
+    } else {
+        document.getElementById("four-investment-ii-profit-eustrin-supplier").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgereustrin.eustrinprocessor !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-eustrin-processing").style.display = "";
+        profitotal += 20000;
+    } else {
+        document.getElementById("four-investment-ii-profit-eustrin-processing").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgereustrin.eustrinmanufacturer !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-eustrin-manufacturing").style.display = "";
+        profitotal += 25000;
+    } else {
+        document.getElementById("four-investment-ii-profit-eustrin-manufacturing").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerardford.ivalanbank !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-ivalan-bank").style.display = "";
+        profitotal += 225000;
+    } else {
+        document.getElementById("four-investment-ii-profit-ivalan-bank").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerardford.adranbank !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-ardan-bank").style.display = "";
+        profitotal += 300000;
+    } else {
+        document.getElementById("four-investment-ii-profit-ardan-bank").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerardford.ardfordsupplier !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-ardford-supplier").style.display = "";
+        profitotal += 5000;
+    } else {
+        document.getElementById("four-investment-ii-profit-ardford-supplier").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerardford.shitmage !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-shit-mage").style.display = "";
+        profitotal += 5000;
+    } else {
+        document.getElementById("four-investment-ii-profit-shit-mage").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerardford.ardfordresturant !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-ardford-restaurant").style.display = "";
+        profitotal += 10000;
+    } else {
+        document.getElementById("four-investment-ii-profit-ardford-restaurant").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerardford.crystalrefinery !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-crystal-refiner").style.display = "";
+        profitotal += 55000;
+    } else {
+        document.getElementById("four-investment-ii-profit-crystal-refiner").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerardford.flotilla !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-flotilla").style.display = "";
+        profitotal += 25000;
+    } else {
+        document.getElementById("four-investment-ii-profit-flotilla").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.fightring !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-slum-ring").style.display = "";
+        profitotal += 40000;
+    } else {
+        document.getElementById("four-investment-ii-profit-slum-ring").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.sexring !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-sex-ring").style.display = "";
+        profitotal += 60000;
+    } else {
+        document.getElementById("four-investment-ii-profit-sex-ring").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.sexshop !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-sex-shop").style.display = "";
+        profitotal += 75000;
+    } else {
+        document.getElementById("four-investment-ii-profit-sex-shop").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.mineshaft !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-private-mine").style.display = "";
+        profitotal += 130000;
+    } else {
+        document.getElementById("four-investment-ii-profit-private-mine").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgergivini.givininetwork !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-givini-trade").style.display = "";
+        profitotal += 100000;
+        game.country.newgivini.value += 1;
+    } else {
+        document.getElementById("four-investment-ii-profit-givini-trade").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerchalice.chalicenetwork !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-givini-trade").style.display = "";
+        profitotal += 100000;
+        game.country.chalicestates.value += 1;
+    } else {
+        document.getElementById("four-investment-ii-profit-givini-trade").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgertakkan.takkanetwork !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-takkan-trade").style.display = "";
+        profitotal += 100000;
+        game.country.takkan.value += 1;
+    } else {
+        document.getElementById("four-investment-ii-profit-takkan-trade").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.mercenaryoffice !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-mercenary-office").style.display = "";
+        profitotal += 15000;
+    } else {
+        document.getElementById("four-investment-ii-profit-mercenary-office").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerchalice.gasmshop !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-gasm-shop").style.display = "";
+        profitotal += 110000;
+    } else {
+        document.getElementById("four-investment-ii-profit-gasm-shop").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.succubitrade !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-succubi-trade").style.display = "";
+        profitotal += 200000;
+    } else {
+        document.getElementById("four-investment-ii-profit-succubi-trade").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgereustrin.eustringuild !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-eustrin-guild").style.display = "";
+        profitotal += 250000;
+    } else {
+        document.getElementById("four-investment-ii-profit-eustrin-guild").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.minroute !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-min-trade").style.display = "";
+        profitotal += 185000;
+    } else {
+        document.getElementById("four-investment-ii-profit-min-trade").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerelven.theltiarflow !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-theltiar-flowhouse").style.display = "";
+        profitotal += 80000;
+    } else {
+        document.getElementById("four-investment-ii-profit-theltiar-flowhouse").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerelven.theltiarent !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-theltiar-rental").style.display = "";
+        profitotal += 95000;
+    } else {
+        document.getElementById("four-investment-ii-profit-theltiar-rental").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerelven.denmielarchive !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-denmiel-archives").style.display = "";
+        profitotal += 20000;
+    } else {
+        document.getElementById("four-investment-ii-profit-denmiel-archives").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerelven.denmielfarm !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-denmiel-mushrooms").style.display = "";
+        profitotal += 40000;
+    } else {
+        document.getElementById("four-investment-ii-profit-denmiel-mushrooms").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerchalice.llexpansion !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-lustlord-expansion").style.display = "";
+        profitotal += 50000;
+    } else {
+        document.getElementById("four-investment-ii-profit-lustlord-expansion").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerchalice.lovetour !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-band-tour").style.display = "";
+        profitotal += 2000;
+    } else {
+        document.getElementById("four-investment-ii-profit-band-tour").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerchalice.gasmaemorer !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-armor-succubus").style.display = "";
+        profitotal += 10000;
+    } else {
+        document.getElementById("four-investment-ii-profit-armor-succubus").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerchalice.potionmore !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-potion-more").style.display = "";
+        profitotal += 100;
+    } else {
+        document.getElementById("four-investment-ii-profit-potion-more").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgertakkan.slumremodeled !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-tarrankan-slum").style.display = "";
+        profitotal += 50000;
+    } else {
+        document.getElementById("four-investment-ii-profit-tarrankan-slum").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgertakkan.hallstrength !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-hall-mental").style.display = "";
+        profitotal += 25000;
+    } else {
+        document.getElementById("four-investment-ii-profit-hall-mental").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgertakkan.boozeshack !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-booze-shack").style.display = "";
+        profitotal += 50000;
+    } else {
+        document.getElementById("four-investment-ii-profit-booze-shack").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgertakkan.tradeimprovment !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-tarrankan-trade").style.display = "";
+        profitotal += 50000;
+    } else {
+        document.getElementById("four-investment-ii-profit-tarrankan-trade").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgertakkan.ceekanshipping !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-ceekan-shipping").style.display = "";
+        profitotal += 200000;
+    } else {
+        document.getElementById("four-investment-ii-profit-ceekan-shipping").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgertakkan.lonelysailor !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-lonely-sailor").style.display = "";
+        profitotal += 100000;
+    } else {
+        document.getElementById("four-investment-ii-profit-lonely-sailor").style.display = "none";
+    }
+
+    var smasherguild = 0;
+    var smashermoney = 0;
+
+    if(game.plotchoice.tradersmasher === true){
+        smasherguild += 1;
+    }
+
+    if(game.ledgerlist.ledgertakkan.ceekanshipping !== Investmentround.NONE){
+        smasherguild += 1;
+    }
+
+    if(game.ledgerlist.ledgertakkan.lonelysailor !== Investmentround.NONE){
+        smasherguild += 1;
+    }
+
+    if(game.ledgerlist.ledgertakkan.orcdemocracy !== Investmentround.NONE){
+        smasherguild += 1;
+    }
+
+    if(game.ledgerlist.ledgertakkan.orcpools !== Investmentround.NONE){
+        smasherguild += 1;
+    }
+
+    if(game.ledgerlist.ledgergivini.orcmerchant !== Investmentround.NONE){
+        smasherguild += 1;
+    }
+
+    if(smasherguild >= 6){
+        smashermoney = 200000;
+    } else if(smasherguild >= 5){
+        smashermoney = 175000;
+    } else if(smasherguild >= 4){
+        smashermoney = 150000;
+    } else if(smasherguild >= 3){
+        smashermoney = 125000;
+    } else if(smasherguild >= 2){
+        smashermoney = 75000;
+    } else if(smasherguild >= 1){
+        smashermoney = 50000;
+    } else {
+        smashermoney = 10000;
+    }
+
+    if(game.ledgerlist.ledgertakkan.tradesmasherguild !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-tradesmasher-guild").style.display = "";
+        document.getElementById("four-investment-ii-tradesmasher-money").textContent = "" + smashermoney;
+        profitotal += smashermoney;
+    } else {
+        document.getElementById("four-investment-ii-profit-tradesmasher-guild").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerchalice.givinitunnel !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-givini-tunnels").style.display = "";
+        profitotal += 300000;
+    } else {
+        document.getElementById("four-investment-ii-profit-givini-tunnels").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgergivini.givinismith !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-givini-smith").style.display = "";
+        profitotal += 10000;
+    } else {
+        document.getElementById("four-investment-ii-profit-givini-smith").style.display = "none";
+    }
+
+    var giviniorc = 0;
+
+    if(game.country.newgivini.value >= 50){
+        giviniorc = 200000;
+    } else if(game.country.newgivini.value >= 40){
+        giviniorc = 150000;
+    } else if(game.country.newgivini.value >= 30){
+        giviniorc = 100000;
+    } else if(game.country.newgivini.value >= 20){
+        giviniorc = 50000;
+    } else {
+        giviniorc = 25000;
+    }
+
+    if(game.ledgerlist.ledgergivini.orcmerchant !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-givini-orc").style.display = "";
+        document.getElementById("four-investment-ii-orc-money").textContent = "" + giviniorc;
+        profitotal += giviniorc;
+    } else {
+        document.getElementById("four-investment-ii-profit-givini-orc").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgergivini.givinibank !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-givini-bank").style.display = "";
+        profitotal += 300000;
+    } else {
+        document.getElementById("four-investment-ii-profit-givini-bank").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgergivini.mageguild !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-mage-guild").style.display = "";
+        profitotal += 40000;
+    } else {
+        document.getElementById("four-investment-ii-profit-mage-guild").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgergivini.teahouse !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-givini-teahouse").style.display = "";
+        profitotal += 30000;
+    } else {
+        document.getElementById("four-investment-ii-profit-givini-teahouse").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerstineford.tradepillars !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-trading-pillar").style.display = "";
+        profitotal += 100000;
+    } else {
+        document.getElementById("four-investment-ii-profit-trading-pillar").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerstineford.stinefordbank !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-stineford-bank").style.display = "";
+        profitotal += 240000;
+    } else {
+        document.getElementById("four-investment-ii-profit-stineford-bank").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerstineford.weaponshop !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-stineford-weapons").style.display = "";
+        profitotal += 75000;
+    } else {
+        document.getElementById("four-investment-ii-profit-stineford-weapons").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.airshipone !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-yhilin-airship").style.display = "";
+        profitotal += 100000;
+    } else {
+        document.getElementById("four-investment-ii-profit-yhilin-airship").style.display = "none";
+    }
+
+    var brothelmoney = 0;
+
+    if(game.plotchoice.yhilinfinal === true){
+        brothelmoney =  35000;
+    } else {
+        brothelmoney = 15000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.brothelsuccubi !== Investmentround.NONE){
+        document.getElementById("four-investment-ii-profit-yhilin-brothel").style.display = "";
+        document.getElementById("four-investment-ii-brothel-money").textContent = "" + brothelmoney;
+        profitotal += brothelmoney;
+    } else {
+        document.getElementById("four-investment-ii-profit-yhilin-brothel").style.display = "none";
+    }
+
+    document.getElementById("four-investment-ii-profit-result").textContent = "" + profitotal;
+    game.globalstat.pron += profitotal;
+
+    if(game.country.chalicestates.value >= 40){
+        game.peoplerp.iris.cap = 100;
+        if((game.peoplerp.iris.initial + game.peoplerp.iris.rp)>= 99){
+            game.peoplerp.iris.rp += 1;
+        }
+    }
+
+    if(game.palacestat.sexroom === false){
+        if(game.globalstat.pron >= 5000){
+            document.getElementById("four-investment-ii-hq-yarra-room-open").style.display = "";
+            document.getElementById("four-investment-ii-hq-yarra-room-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-hq-yarra-room-done").checked === true){
+                game.globalstat.pron -= 5000;
+                game.palacestat.hospitality.value += 5;
+                game.palacestat.sexroom = true;
+                game.peoplerp.yarra.rp += 5;
+                game.peoplerp.nalili.rp += 3;
+            }
+        } else {
+            document.getElementById("four-investment-ii-hq-yarra-room-open").style.display = "none";
+            document.getElementById("four-investment-ii-hq-yarra-room-close").style.display = "";
+            document.getElementById("four-investment-ii-hq-yarra-room-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-hq-yarra-room-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-yarra-room-close").style.display = "none";
+        document.getElementById("four-investment-ii-hq-yarra-room-done").checked = false;
+    }
+
+    if(game.palacestat.orclab === false){
+        if(game.globalstat.pron >= 25000){
+            document.getElementById("four-investment-ii-hq-balia-lab-open").style.display = "";
+            document.getElementById("four-investment-ii-hq-balia-lab-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-hq-balia-lab-done").checked === true){
+                game.globalstat.pron -= 25000;
+                game.palacestat.military.value += 5;
+                game.palacestat.magic.value += 2;
+                game.palacestat.hospitality.value += 1;
+                game.palacestat.orclab = true;
+                game.peoplerp.balia.rp += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-hq-balia-lab-open").style.display = "none";
+            document.getElementById("four-investment-ii-hq-balia-lab-close").style.display = "";
+            document.getElementById("four-investment-ii-hq-balia-lab-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-hq-balia-lab-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-balia-lab-close").style.display = "none";
+        document.getElementById("four-investment-ii-hq-balia-lab-done").checked = false;
+    }
+
+    if(game.palacestat.orcpost === false){
+        if(game.globalstat.pron >= 5000){
+            document.getElementById("four-investment-ii-hq-orc-post-open").style.display = "";
+            document.getElementById("four-investment-ii-hq-orc-post-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-hq-orc-post-done").checked === true){
+                game.globalstat.pron -= 5000;
+                game.palacestat.military.value += 3;
+                game.palacestat.orcpost = true;
+                game.peoplerp.balia.rp += 2;
+                if(game.globalstat.orcstat.orcdiscipline < 10){
+                    game.palacestat.hospitality.value -= 1;
+                }
+            }
+        } else {
+            document.getElementById("four-investment-ii-hq-orc-post-open").style.display = "none";
+            document.getElementById("four-investment-ii-hq-orc-post-close").style.display = "";
+            document.getElementById("four-investment-ii-hq-orc-post-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-hq-orc-post-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-orc-post-close").style.display = "none";
+        document.getElementById("four-investment-ii-hq-orc-post-done").checked = false;
+    }
+
+    if(game.palacestat.armory === false){
+        if(game.globalstat.pron >= 10000){
+            document.getElementById("four-investment-ii-hq-orcent-armory-open").style.display = "";
+            document.getElementById("four-investment-ii-hq-orcent-armory-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-hq-orcent-armory-done").checked === true){
+                game.globalstat.pron -= 10000;
+                game.palacestat.military.value += 5;
+                game.peoplerp.hilstara.rp += 2;
+                game.palacestat.armory = true;
+            }
+        } else {
+            document.getElementById("four-investment-ii-hq-orcent-armory-open").style.display = "none";
+            document.getElementById("four-investment-ii-hq-orcent-armory-close").style.display = "";
+            document.getElementById("four-investment-ii-hq-orcent-armory-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-hq-orcent-armory-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-orcent-armory-close").style.display = "none";
+        document.getElementById("four-investment-ii-hq-orcent-armory-done").checked = false;
+    }
+
+    if(game.palacestat.supplies === false){
+        if(game.globalstat.pron >= 10000){
+            document.getElementById("four-investment-ii-hq-lynine-supply-open").style.display = "";
+            document.getElementById("four-investment-ii-hq-lynine-supply-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-hq-lynine-supply-done").checked === true){
+                game.globalstat.pron -= 10000;
+                game.palacestat.military.value += 2;
+                game.palacestat.hospitality.value += 2;
+                game.peoplerp.lynine.rp += 2;
+                game.palacestat.supplies = true;
+            }
+        } else {
+            document.getElementById("four-investment-ii-hq-lynine-supply-open").style.display = "none";
+            document.getElementById("four-investment-ii-hq-lynine-supply-close").style.display = "";
+            document.getElementById("four-investment-ii-hq-lynine-supply-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-hq-lynine-supply-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-lynine-supply-close").style.display = "none";
+        document.getElementById("four-investment-ii-hq-lynine-supply-done").checked = false;
+    }
+
+    if(game.palacestat.robinshiled === false){
+        if(game.globalstat.pron >= 100000){
+            document.getElementById("four-investment-ii-hq-robin-shield-open").style.display = "";
+            document.getElementById("four-investment-ii-hq-robin-shield-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-hq-robin-shield-done").checked === true){
+                game.globalstat.pron -= 100000;
+                game.palacestat.magic.value += 5;
+                game.palacestat.robinshiled = true;
+            }
+        } else {
+            document.getElementById("four-investment-ii-hq-robin-shield-open").style.display = "none";
+            document.getElementById("four-investment-ii-hq-robin-shield-close").style.display = "";
+            document.getElementById("four-investment-ii-hq-robin-shield-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-hq-robin-shield-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-robin-shield-close").style.display = "none";
+        document.getElementById("four-investment-ii-hq-robin-shield-done").checked = false;
+    }
+
+    if(game.palacestat.rialafoundation === false){
+        if (game.globalstat.pron >= 225000){
+            document.getElementById("four-investment-ii-hq-riala-shield-open").style.display = "";
+            document.getElementById("four-investment-ii-hq-riala-shield-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-hq-riala-shield-done").checked === true){
+                game.globalstat.pron -= 225000;
+                game.palacestat.rialafoundation = true;
+                game.palacestat.military.value += 5;
+                game.palacestat.magic.value += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-hq-riala-shield-open").style.display = "none";
+            document.getElementById("four-investment-ii-hq-riala-shield-close").style.display = "";
+            document.getElementById("four-investment-ii-hq-riala-shield-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-hq-riala-shield-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-riala-shield-close").style.display = "none";
+        document.getElementById("four-investment-ii-hq-riala-shield-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.ironcudgel !== Investmentround.NONE && game.palacestat.cudgel === false){
+        if(game.globalstat.pron >= 15000){
+            document.getElementById("four-investment-ii-hq-cudgel-buidling-open").style.display = "";
+            document.getElementById("four-investment-ii-hq-cudgel-buidling-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-hq-cudgel-buidling-done").checked === true){
+                game.globalstat.pron -= 15000;
+                game.palacestat.military.value += 4;
+                game.palacestat.cudgel = true;
+            }
+        } else {
+            document.getElementById("four-investment-ii-hq-cudgel-buidling-open").style.display = "none";
+            document.getElementById("four-investment-ii-hq-cudgel-buidling-close").style.display = "";
+            document.getElementById("four-investment-ii-hq-cudgel-buidling-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-hq-cudgel-buidling-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-cudgel-buidling-close").style.display = "none";
+        document.getElementById("four-investment-ii-hq-cudgel-buidling-done").checked = false;
+    }
+
+    if(game.palacestat.shrine === false){
+        if(game.globalstat.pron >= 5000){
+            document.getElementById("four-investment-ii-hq-carina-shrine-open").style.display = "";
+            document.getElementById("four-investment-ii-hq-carina-shrine-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-hq-carina-shrine-done").checked === true){
+                game.globalstat.pron -= 5000;
+                game.palacestat.magic.value += 1;
+                game.palacestat.hospitality.value += 3;
+                game.peoplerp.carina.rp += 5;
+                game.palacestat.shrine = true;
+            }
+        } else {
+            document.getElementById("four-investment-ii-hq-carina-shrine-open").style.display = "none";
+            document.getElementById("four-investment-ii-hq-carina-shrine-close").style.display = "";
+            document.getElementById("four-investment-ii-hq-carina-shrine-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-hq-carina-shrine-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-carina-shrine-close").style.display = "none";
+        document.getElementById("four-investment-ii-hq-carina-shrine-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerstineford.tradepillars === Investmentround.NONE){
+        if(game.globalstat.pron >= 300000){
+            document.getElementById("four-investment-ii-merchant-pillar-open").style.display = "";
+            document.getElementById("four-investment-ii-merchant-pillar-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-merchant-pillar-done").checked === true){
+                game.globalstat.pron -= 300000;
+                game.ledgerlist.ledgerstineford.tradepillars = Investmentround.AFTERSUCCESSION;
+                game.simonstat.economy.value += 2;
+                game.country.ardoheim.value += 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-merchant-pillar-open").style.display = "none";
+            document.getElementById("four-investment-ii-merchant-pillar-close").style.display = "";
+            document.getElementById("four-investment-ii-merchant-pillar-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-merchant-pillar-open").style.display = "none";
+        document.getElementById("four-investment-ii-merchant-pillar-close").style.display = "none";
+        document.getElementById("four-investment-ii-merchant-pillar-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerstineford.stinefordbank === Investmentround.NONE){
+        if(game.globalstat.pron >= 400000){
+            document.getElementById("four-investment-ii-stineford-bank-open").style.display = "";
+            document.getElementById("four-investment-ii-stineford-bank-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-stineford-bank-done").checked === true){
+                game.globalstat.pron -= 400000;
+                game.ledgerlist.ledgerstineford.stinefordbank = Investmentround.AFTERSUCCESSION;
+                game.simonstat.economy.value += 5;
+                game.country.ardoheim.value += 3;
+            }
+        } else {
+            document.getElementById("four-investment-ii-stineford-bank-open").style.display = "none";
+            document.getElementById("four-investment-ii-stineford-bank-close").style.display = "";
+            document.getElementById("four-investment-ii-stineford-bank-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-stineford-bank-open").style.display = "none";
+        document.getElementById("four-investment-ii-stineford-bank-close").style.display = "none";
+        document.getElementById("four-investment-ii-stineford-bank-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerstineford.weaponshop === Investmentround.NONE){
+        if (game.globalstat.pron >= 200000){
+            document.getElementById("four-investment-ii-stineford-weapons-open").style.display = "";
+            document.getElementById("four-investment-ii-stineford-weapons-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-stineford-weapons-done").checked === true){
+                game.globalstat.pron -= 200000;
+                game.ledgerlist.ledgerstineford.weaponshop = Investmentround.AFTERSUCCESSION;
+                game.simonstat.economy.value += 2;
+                game.country.ardoheim.value += 2;
+                game.peoplerp.megail.rp += 3;
+            }
+        } else {
+            document.getElementById("four-investment-ii-stineford-weapons-open").style.display = "none";
+            document.getElementById("four-investment-ii-stineford-weapons-close").style.display = "";
+            document.getElementById("four-investment-ii-stineford-weapons-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-stineford-weapons-open").style.display = "none";
+        document.getElementById("four-investment-ii-stineford-weapons-close").style.display = "none";
+        document.getElementById("four-investment-ii-stineford-weapons-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerstineford.magicshop === Investmentround.NONE){
+        if (game.globalstat.pron >= 25000){
+            document.getElementById("four-investment-ii-stineford-magic-open").style.display = "";
+            document.getElementById("four-investment-ii-stineford-magic-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-stineford-magic-done").checked === true){
+                game.ledgerlist.ledgerstineford.magicshop = Investmentround.AFTERSUCCESSION;
+                game.globalstat.pron -= 25000;
+                game.peoplerp.megail.rp += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-stineford-magic-open").style.display = "none";
+            document.getElementById("four-investment-ii-stineford-magic-close").style.display = "";
+            document.getElementById("four-investment-ii-stineford-magic-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-stineford-magic-open").style.display = "none";
+        document.getElementById("four-investment-ii-stineford-magic-close").style.display = "none";
+        document.getElementById("four-investment-ii-stineford-magic-done").checked = false;
+    }
+
+    var twopen = false;
+    if(game.ledgerlist.ledgeryhilin.airshipone !== Investmentround.NONE){
+    	twopen = true;
+    	if(game.globalstat.pron >= 500000){
+    		document.getElementById("four-investment-ii-airship-military-open").style.display = "";
+ 		   	document.getElementById("four-investment-ii-airship-military-close").style.display = "none";
+    		if(document.getElementById("four-investment-ii-airship-military-done").checked === true){
+    			game.globalstat.pron -= 500000;
+    			game.ledgerlist.ledgeryhilin.airshiptwo = Investmentround.AFTERSUCCESSION;
+    		}
+    	} else {
+    		document.getElementById("four-investment-ii-airship-military-open").style.display = "none";
+    		document.getElementById("four-investment-ii-airship-military-close").style.display = "";
+    		document.getElementById("four-investment-ii-airship-military-done").checked = false;
+    	}
+    } else {
+		document.getElementById("four-investment-ii-airship-military-open").style.display = "none";
+    	document.getElementById("four-investment-ii-airship-military-close").style.display = "none";
+    	document.getElementById("four-investment-ii-airship-military-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.airshipone === Investmentround.NONE){
+        if (game.globalstat.pron >= 1000000){
+            document.getElementById("four-investment-ii-airship-fleet-open").style.display = "";
+            document.getElementById("four-investment-ii-airship-fleet-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-airship-fleet-done").checked === true){
+                game.globalstat.pron -= 1000000;
+                game.ledgerlist.ledgeryhilin.airshipone = Investmentround.AFTERSUCCESSION;
+                game.simonstat.economy.value += 5;
+                game.globalstat.arclentacc += 2;
+                game.peoplerp.janine.rp += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-airship-fleet-open").style.display = "none";
+            document.getElementById("four-investment-ii-airship-fleet-close").style.display = "";
+            document.getElementById("four-investment-ii-airship-fleet-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-airship-fleet-open").style.display = "none";
+        document.getElementById("four-investment-ii-airship-fleet-close").style.display = "none";
+        document.getElementById("four-investment-ii-airship-fleet-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.hallstrength === Investmentround.NONE){
+        if(game.globalstat.pron >= 200000){
+            document.getElementById("four-investment-ii-hall-mental-open").style.display = "";
+            document.getElementById("four-investment-ii-hall-mental-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-hall-mental-done").checked === true){
+                game.globalstat.pron -= 200000;
+                game.ledgerlist.ledgertakkan.hallstrength = Investmentround.AFTERSUCCESSION;
+                game.simonstat.social.value += 1;
+                game.country.takkan.value += 3;
+                game.peoplerp.balia.rp += 5;
+                game.peoplerp.orilise.rp += 3;
+            }
+        } else {
+            document.getElementById("four-investment-ii-hall-mental-open").style.display = "none";
+            document.getElementById("four-investment-ii-hall-mental-close").style.display = "";
+            document.getElementById("four-investment-ii-hall-mental-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-hall-mental-open").style.display = "none";
+        document.getElementById("four-investment-ii-hall-mental-close").style.display = "none";
+        document.getElementById("four-investment-ii-hall-mental-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.boozeshack === Investmentround.NONE){
+        if(game.globalstat.pron >= 150000){
+            document.getElementById("four-investment-ii-booze-shack-open").style.display = "";
+            document.getElementById("four-investment-ii-booze-shack-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-booze-shack-done").checked === true){
+                game.globalstat.pron -= 150000;
+                game.ledgerlist.ledgertakkan.boozeshack = Investmentround.AFTERSUCCESSION;
+                game.simonstat.social.value += 1;
+                game.country.takkan.value += 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-booze-shack-open").style.display = "none";
+            document.getElementById("four-investment-ii-booze-shack-close").style.display = "";
+            document.getElementById("four-investment-ii-booze-shack-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-booze-shack-open").style.display = "none";
+        document.getElementById("four-investment-ii-booze-shack-close").style.display = "none";
+        document.getElementById("four-investment-ii-booze-shack-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.tradesmasherguild === Investmentround.NONE){
+        if (game.globalstat.pron >= 350000){
+            document.getElementById("four-investment-ii-tradesmasher-guild-open").style.display = "";
+            document.getElementById("four-investment-ii-tradesmasher-guild-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-tradesmasher-guild-done").checked === true){
+                game.globalstat.pron -= 350000;
+                game.ledgerlist.ledgertakkan.tradesmasherguild = Investmentround.AFTERSUCCESSION;
+                game.simonstat.economy.value += 3;
+                game.country.takkan.value += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-tradesmasher-guild-open").style.display = "none";
+            document.getElementById("four-investment-ii-tradesmasher-guild-close").style.display = "";
+            document.getElementById("four-investment-ii-tradesmasher-guild-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-tradesmasher-guild-open").style.display = "none";
+        document.getElementById("four-investment-ii-tradesmasher-guild-close").style.display = "none";
+        document.getElementById("four-investment-ii-tradesmasher-guild-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.lonelysailor === Investmentround.NONE){
+        if (game.globalstat.pron >= 250000){
+            document.getElementById("four-investment-ii-lonely-sailor-open").style.display = "";
+            document.getElementById("four-investment-ii-lonely-sailor-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-lonely-sailor-done").checked === true){
+                game.globalstat.pron -= 250000;
+                game.ledgerlist.ledgertakkan.lonelysailor = Investmentround.AFTERSUCCESSION;
+                game.simonstat.economy.value += 1;
+                game.simonstat.social.value += 1;
+                game.country.takkan.value += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-lonely-sailor-open").style.display = "none";
+            document.getElementById("four-investment-ii-lonely-sailor-close").style.display = "";
+            document.getElementById("four-investment-ii-lonely-sailor-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-lonely-sailor-open").style.display = "none";
+        document.getElementById("four-investment-ii-lonely-sailor-close").style.display = "none";
+        document.getElementById("four-investment-ii-lonely-sailor-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.ceekanshipping === Investmentround.NONE){
+        if (game.globalstat.pron >= 700000){
+            document.getElementById("four-investment-ii-ceekan-shipping-open").style.display = "";
+            document.getElementById("four-investment-ii-ceekan-shipping-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-ceekan-shipping-done").checked === true){
+                game.globalstat.pron -= 700000;
+                game.ledgerlist.ledgertakkan.ceekanshipping = Investmentround.AFTERSUCCESSION;
+                game.simonstat.economy.value += 2;
+                game.country.takkan.value += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-ceekan-shipping-open").style.display = "none";
+            document.getElementById("four-investment-ii-ceekan-shipping-close").style.display = "";
+            document.getElementById("four-investment-ii-ceekan-shipping-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-ceekan-shipping-open").style.display = "none";
+        document.getElementById("four-investment-ii-ceekan-shipping-close").style.display = "none";
+        document.getElementById("four-investment-ii-ceekan-shipping-done").checked = false;
+    }
+
+    var orcost = 0;
+    if(game.ledgerlist.ledgergivini.givininetwork !== Investmentround.NONE){
+        if(game.country.newgivini.value < 20){
+            orcost = 100000;
+        } else if(game.country.newgivini.value < 25){
+            orcost = 200000;
+        } else if(game.country.newgivini.value < 35){
+            orcost = 300000;
+        } else if(game.country.newgivini.value < 45){
+            orcost = 400000;
+        } else {
+            orcost = 500000;
+        }
+    } else {
+        if(game.country.newgivini.value < 10){
+            orcost = 100000;
+        } else if(game.country.newgivini.value < 15){
+            orcost = 200000;
+        } else if(game.country.newgivini.value < 25){
+            orcost = 300000;
+        } else if(game.country.newgivini.value < 35){
+            orcost = 400000;
+        } else {
+            orcost = 500000;
+        }
+    }
+
+    if(game.ledgerlist.ledgergivini.orcmerchant === Investmentround.NONE){
+        if(game.country.newgivini.value >= 50){
+            document.getElementById("four-investment-ii-givini-orc-open").style.visibility = "hidden";
+            document.getElementById("four-investment-ii-givini-orc-open").style.display = "";
+            document.getElementById("four-investment-ii-givini-orc-close").style.display = "none";
+            document.getElementById("four-investment-ii-givini-orc-done").checked = false;
+        } else {
+            document.getElementById("four-investment-ii-givini-orc-open").style.visibility = "";
+            document.getElementById("four-investment-ii-givini-orc-money").textContent = "" + orcost;
+            document.getElementById("four-investment-ii-givini-orc-cost").textContent = "" + orcost;
+            if (game.globalstat.pron >= orcost){
+                document.getElementById("four-investment-ii-givini-orc-open").style.display = "";
+                document.getElementById("four-investment-ii-givini-orc-close").style.display = "none";
+                if (document.getElementById("four-investment-ii-givini-orc-done").checked === true){
+                    game.globalstat.pron -= orcost;
+                    game.ledgerlist.ledgergivini.orcmerchant = Investmentround.AFTERSUCCESSION;
+                    game.country.newgivini.value += 5;
+                    game.peoplerp.elleani.rp += 3;
+                }
+            } else {
+                document.getElementById("four-investment-ii-givini-orc-open").style.display = "none";
+                document.getElementById("four-investment-ii-givini-orc-close").style.display = "";
+                document.getElementById("four-investment-ii-givini-orc-done").checked = false;
+            }
+        }
+    } else {
+        document.getElementById("four-investment-ii-givini-orc-open").style.display = "none";
+        document.getElementById("four-investment-ii-givini-orc-close").style.display = "none";
+        document.getElementById("four-investment-ii-givini-orc-done").checked = false;
+    }
+
+
+    if(game.ledgerlist.ledgergivini.givinismith === Investmentround.NONE){
+        if(game.globalstat.pron >= 200000){
+            document.getElementById("four-investment-ii-givini-smith-open").style.display = "";
+            document.getElementById("four-investment-ii-givini-smith-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-givini-smith-done").checked === true){
+                game.globalstat.pron -= 200000;
+                game.ledgerlist.ledgergivini.givinismith = Investmentround.AFTERSUCCESSION;
+                game.country.newgivini.value += 2;
+                game.peoplerp.elleani.rp += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-givini-smith-open").style.display = "none";
+            document.getElementById("four-investment-ii-givini-smith-close").style.display = "";
+            document.getElementById("four-investment-ii-givini-smith-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-givini-smith-open").style.display = "none";
+        document.getElementById("four-investment-ii-givini-smith-close").style.display = "none";
+        document.getElementById("four-investment-ii-givini-smith-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgergivini.teahouse === Investmentround.NONE){
+        if (game.globalstat.pron >= 275000){
+            document.getElementById("four-investment-ii-givini-tea-house-open").style.display = "";
+            document.getElementById("four-investment-ii-givini-tea-house-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-givini-tea-house-done").checked === true){
+                game.globalstat.pron -= 275000;
+                game.ledgerlist.ledgergivini.teahouse = Investmentround.AFTERSUCCESSION;
+                game.simonstat.economy.value += 1;
+                game.simonstat.social.value += 1;
+                game.country.newgivini.value += 2;
+                game.country.chalicestates.value += 1;
+                game.country.takkan.value += 1;
+                game.peoplerp.elleani.rp += 3;
+            }
+        } else {
+            document.getElementById("four-investment-ii-givini-tea-house-open").style.display = "none";
+            document.getElementById("four-investment-ii-givini-tea-house-close").style.display = "";
+            document.getElementById("four-investment-ii-givini-tea-house-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-givini-tea-house-open").style.display = "none";
+        document.getElementById("four-investment-ii-givini-tea-house-close").style.display = "none";
+        document.getElementById("four-investment-ii-givini-tea-house-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgergivini.givinibank === Investmentround.NONE){
+        if (game.globalstat.pron >= 350000){
+            document.getElementById("four-investment-ii-givini-bank-open").style.display = "";
+            document.getElementById("four-investment-ii-givini-bank-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-givini-bank-done").checked === true){
+                game.globalstat.pron -= 350000;
+                game.ledgerlist.ledgergivini.givinibank = Investmentround.AFTERSUCCESSION;
+                game.simonstat.economy.value += 5;
+                game.country.newgivini.value += 5;
+                game.country.chalicestates.value += 2;
+                game.country.takkan.value += 2;
+                game.country.ardoheim.value += 2;
+                game.peoplerp.megail.rp += 5;
+                game.peoplerp.elleani.rp += 3;
+            }
+        } else {
+            document.getElementById("four-investment-ii-givini-bank-open").style.display = "none";
+            document.getElementById("four-investment-ii-givini-bank-close").style.display = "";
+            document.getElementById("four-investment-ii-givini-bank-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-givini-bank-open").style.display = "none";
+        document.getElementById("four-investment-ii-givini-bank-close").style.display = "none";
+        document.getElementById("four-investment-ii-givini-bank-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgergivini.mageguild === Investmentround.NONE){
+        if (game.globalstat.pron >= 1000000){
+            document.getElementById("four-investment-ii-givini-mage-open").style.display = "";
+            document.getElementById("four-investment-ii-givini-mage-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-givini-mage-done").checked === true){
+                game.globalstat.pron -= 1000000;
+                game.ledgerlist.ledgergivini.mageguild = Investmentround.AFTERSUCCESSION;
+                game.country.newgivini.value += 5;
+                game.peoplerp.wynn.rp += 5;
+                game.peoplerp.elleani.rp += 3;
+                game.peoplerp.robin.rp += 1;
+            }
+        } else {
+            document.getElementById("four-investment-ii-givini-mage-open").style.display = "none";
+            document.getElementById("four-investment-ii-givini-mage-close").style.display = "";
+            document.getElementById("four-investment-ii-givini-mage-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-givini-mage-open").style.display = "none";
+        document.getElementById("four-investment-ii-givini-mage-close").style.display = "none";
+        document.getElementById("four-investment-ii-givini-mage-done").checked = false;
+    }
+
+    var succubusarmorer = 0;
+    if(game.opportunity.gasmarmor === true){
+        succubusarmorer = 100000;
+    } else {
+        succubusarmorer = 150000;
+    }
+    document.getElementById("four-investment-ii-armor-succubus-money").textContent = "" + succubusarmorer;
+    document.getElementById("four-investment-ii-armor-succubus-cost").textContent = "" + succubusarmorer;
+
+    if(game.ledgerlist.ledgerchalice.gasmaemorer === Investmentround.NONE){
+        if(game.globalstat.pron >= succubusarmorer){
+            document.getElementById("four-investment-ii-armor-succubus-open").style.display = "";
+            document.getElementById("four-investment-ii-armor-succubus-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-armor-succubus-done").checked === true){
+                game.globalstat.pron -= succubusarmorer;
+                game.ledgerlist.ledgerchalice.gasmaemorer = Investmentround.AFTERSUCCESSION;
+                game.simonstat.economy.value += 1;
+                game.country.chalicestates.value += 2;
+                game.peoplerp.nalili.rp += 2;
+
+            }
+        } else {
+            document.getElementById("four-investment-ii-armor-succubus-open").style.display = "none";
+            document.getElementById("four-investment-ii-armor-succubus-close").style.display = "";
+            document.getElementById("four-investment-ii-armor-succubus-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-armor-succubus-open").style.display = "none";
+        document.getElementById("four-investment-ii-armor-succubus-close").style.display = "none";
+        document.getElementById("four-investment-ii-armor-succubus-done").checked = false;
+    }
+
+    rpscriptlocker(game.peoplerp);
+
+    if(game.ledgerlist.ledgerchalice.potionmore === Investmentround.NONE){
+        if (game.globalstat.pron >= 20000){
+            document.getElementById("four-investment-ii-potion-more-open").style.display = "";
+            document.getElementById("four-investment-ii-potion-more-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-potion-more-done").checked === true){
+                game.globalstat.pron -= 20000;
+                game.ledgerlist.ledgerchalice.potionmore = Investmentround.AFTERSUCCESSION;
+                game.peoplerp.aka.rp += 5;
+                game.peoplerp.megail.rp -= 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-potion-more-open").style.display = "none";
+            document.getElementById("four-investment-ii-potion-more-close").style.display = "";
+            document.getElementById("four-investment-ii-potion-more-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-potion-more-open").style.display = "none";
+        document.getElementById("four-investment-ii-potion-more-close").style.display = "none";
+        document.getElementById("four-investment-ii-potion-more-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerchalice.givinitunnel === Investmentround.NONE){
+        if (game.globalstat.pron >= 1500000){
+            document.getElementById("four-investment-ii-givini-tunnel-open").style.display = "";
+            document.getElementById("four-investment-ii-givini-tunnel-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-givini-tunnel-done").checked === true){
+                game.globalstat.pron -= 1500000;
+                game.ledgerlist.ledgerchalice.givinitunnel = Investmentround.AFTERSUCCESSION;
+                game.simonstat.economy.value += 5;
+                game.country.chalicestates.value += 3;
+                game.country.newgivini.value += 3;
+                game.country.takkan.value += 3;
+                game.peoplerp.elleani.rp += 5;
+                game.peoplerp.megail.rp += 5;
+                game.peoplerp.yarra.rp += 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-givini-tunnel-open").style.display = "none";
+            document.getElementById("four-investment-ii-givini-tunnel-close").style.display = "";
+            document.getElementById("four-investment-ii-givini-tunnel-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-givini-tunnel-open").style.display = "none";
+        document.getElementById("four-investment-ii-givini-tunnel-close").style.display = "none";
+        document.getElementById("four-investment-ii-givini-tunnel-done").checked = false;
+    }
+
+    var mercenaryoffice = 0;
+    if(game.petitionhouse.infrasctuctureproject === true){
+        mercenaryoffice = 150000;
+    } else {
+        mercenaryoffice = 250000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.mercenaryoffice === Investmentround.NONE){
+        document.getElementById("four-investment-ii-mercenary-office-money").textContent = "" + mercenaryoffice;
+        document.getElementById("four-investment-ii-mercenary-office-cost").textContent = "" + mercenaryoffice;
+        if (game.globalstat.pron >= mercenaryoffice){
+            document.getElementById("four-investment-ii-mercenary-office-open").style.display = "";
+            document.getElementById("four-investment-ii-mercenary-office-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-mercenary-office-done").checked === true){
+                game.globalstat.pron -= mercenaryoffice;
+                game.ledgerlist.ledgeryhilin.mercenaryoffice = Investmentround.AFTERSUCCESSION;
+                game.country.yhilin.value += 2;
+                game.simonstat.social.value += 2;
+                game.peoplerp.janine.rp += 5;
+                game.peoplerp.hilstara.rp += 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-mercenary-office-open").style.display = "none";
+            document.getElementById("four-investment-ii-mercenary-office-close").style.display = "";
+            document.getElementById("four-investment-ii-mercenary-office-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-mercenary-office-open").style.display = "none";
+        document.getElementById("four-investment-ii-mercenary-office-close").style.display = "none";
+        document.getElementById("four-investment-ii-mercenary-office-done").checked = false;
+    }
+
+    var steel = 0;
+    if(game.ledgerlist.ledgeryhilin.premiumsteelone !== Investmentround.NONE){
+        steel = 75000;
+    } else {
+        steel = 100000;
+    }
+
+    document.getElementById("four-investment-ii-premium-steel-money").textContent = "" + steel;
+    document.getElementById("four-investment-ii-premium-steel-cost").textContent = "" + steel;
+
+    if(game.ledgerlist.ledgeryhilin.premiumsteeltwo === Investmentround.NONE){
+        if(game.globalstat.pron >= steel){
+            document.getElementById("four-investment-ii-premium-steel-open").style.display = "";
+            document.getElementById("four-investment-ii-premium-steel-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-premium-steel-done").checked === true){
+                game.ledgerlist.ledgeryhilin.premiumsteeltwo = Investmentround.AFTERSUCCESSION;
+                game.globalstat.pron -= steel;
+                game.peoplerp.hilstara.rp += 2;
+                game.peoplerp.aka.rp += 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-premium-steel-open").style.display = "none";
+            document.getElementById("four-investment-ii-premium-steel-close").style.display = "";
+            document.getElementById("four-investment-ii-premium-steel-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-premium-steel-open").style.display = "none";
+        document.getElementById("four-investment-ii-premium-steel-close").style.display = "none";
+        document.getElementById("four-investment-ii-premium-steel-done").checked = false;
+    }
+
+    var yhilinbank = 0;
+    if(game.ledgerlist.ledgeryhilin.yhilinbankone !== Investmentround.NONE){
+        yhilinbank = 450000;
+    } else {
+        yhilinbank = 500000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.yhilinbanktwo === Investmentround.NONE){
+        document.getElementById("four-investment-ii-yhilin-bank-money").textContent = "" + yhilinbank;
+        document.getElementById("four-investment-ii-yhilin-bank-cost").textContent = "" + yhilinbank;
+        if(game.globalstat.pron >= yhilinbank){
+            document.getElementById("four-investment-ii-yhilin-bank-open").style.display = "";
+            document.getElementById("four-investment-ii-yhilin-bank-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-yhilin-bank-done").checked === true){
+                game.ledgerlist.ledgeryhilin.yhilinbanktwo = Investmentround.AFTERSUCCESSION;
+                game.globalstat.pron -= yhilinbank;
+                game.peoplerp.megail.rp += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-yhilin-bank-open").style.display = "none";
+            document.getElementById("four-investment-ii-yhilin-bank-close").style.display = "";
+            document.getElementById("four-investment-ii-yhilin-bank-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-yhilin-bank-open").style.display = "none";
+        document.getElementById("four-investment-ii-yhilin-bank-close").style.display = "none";
+        document.getElementById("four-investment-ii-yhilin-bank-done").checked = false;
+    }
+
+    if(game.plotchoice.min === true && game.ledgerlist.ledgeryhilin.minroute === Investmentround.NONE){
+        if (game.globalstat.pron >= 400000){
+            document.getElementById("four-investment-ii-min-route-open").style.display = "";
+            document.getElementById("four-investment-ii-min-route-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-min-route-done").checked === true){
+                game.globalstat.pron -= 400000;
+                game.ledgerlist.ledgeryhilin.minroute = Investmentround.AFTERSUCCESSION;
+                game.simonstat.economy.value += 3;
+                game.country.ardoheim.value += 1;
+                game.country.darghelon.value += 1;
+                game.country.gheldaron.value += 1;
+                game.country.newgivini.value += 1;
+                game.country.chalicestates.value += 1;
+                game.peoplerp.megail.rp += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-min-route-open").style.display = "none";
+            document.getElementById("four-investment-ii-min-route-close").style.display = "";
+            document.getElementById("four-investment-ii-min-route-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-min-route-open").style.display = "none";
+        document.getElementById("four-investment-ii-min-route-close").style.display = "none";
+        document.getElementById("four-investment-ii-min-route-done").checked = false;
+    }
+
+    var succubustrade = 0;
+    if(game.petitionhouse.infrasctuctureproject === true){
+        succubustrade = 400000;
+    } else {
+        succubustrade = 550000;
+    }
+
+    document.getElementById("four-investment-ii-yhilin-trade-money").textContent = "" + succubustrade;
+    document.getElementById("four-investment-ii-yhilin-trade-cost").textContent = "" + succubustrade;
+
+    if(game.arclentwar.ikdmorale <= 60 && game.ledgerlist.ledgeryhilin.succubitrade === Investmentround.NONE){
+        if (game.globalstat.pron >= succubustrade){
+            document.getElementById("four-investment-ii-yhilin-trade-open").style.display = "";
+            document.getElementById("four-investment-ii-yhilin-trade-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-yhilin-trade-done").checked === true){
+                game.ledgerlist.ledgeryhilin.succubitrade = Investmentround.AFTERSUCCESSION;
+                game.globalstat.pron -= succubustrade;
+                game.country.chalicestates.value += 2;
+                game.simonstat.economy.value += 2;
+                game.peoplerp.iris.rp += 3;
+            }
+        } else {
+            document.getElementById("four-investment-ii-yhilin-trade-open").style.display = "none";
+            document.getElementById("four-investment-ii-yhilin-trade-close").style.display = "";
+            document.getElementById("four-investment-ii-yhilin-trade-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-yhilin-trade-open").style.display = "none";
+        document.getElementById("four-investment-ii-yhilin-trade-close").style.display = "none";
+        document.getElementById("four-investment-ii-yhilin-trade-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.fightring === Investmentround.NONE){
+        if (game.globalstat.pron >= 150000){
+            document.getElementById("four-investment-ii-slum-ring-open").style.display = "";
+            document.getElementById("four-investment-ii-slum-ring-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-slum-ring-done").checked === true){
+                game.globalstat.pron -= 150000;
+                game.ledgerlist.ledgeryhilin.fightring = Investmentround.AFTERSUCCESSION;
+                game.peoplerp.janine.rp += 1;
+            }
+        } else {
+            document.getElementById("four-investment-ii-slum-ring-open").style.display = "none";
+            document.getElementById("four-investment-ii-slum-ring-close").style.display = "";
+            document.getElementById("four-investment-ii-slum-ring-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-slum-ring-open").style.display = "none";
+        document.getElementById("four-investment-ii-slum-ring-close").style.display = "none";
+        document.getElementById("four-investment-ii-slum-ring-done").checked = false;
+    }
+
+    if(game.petitionhouse.nalilidea === false){
+        document.getElementById("four-investment-ii-nalili-open").style.display = "";
+        if(game.ledgerlist.ledgeryhilin.fightring !== Investmentround.NONE){
+            document.getElementById("four-investment-ii-nalili-open").style.visibility = "";
+            if(document.getElementById("four-investment-ii-nalili-done").checked === true){
+                game.petitionhouse.nalilidea = true;
+                game.peoplerp.nalili.rp += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-nalili-open").style.visibility = "hidden";
+            document.getElementById("four-investment-ii-nalili-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-nalili-open").style.display = "none";
+        document.getElementById("four-investment-ii-nalili-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.sexring === Investmentround.NONE){
+        if(game.ledgerlist.ledgeryhilin.fightring !== Investmentround.NONE && game.petitionhouse.nalilidea === true){
+            document.getElementById("four-investment-ii-sex-ring-open").style.visibility = "";
+            if (game.globalstat.pron >= 250000){
+                document.getElementById("four-investment-ii-sex-ring-open").style.display = "";
+                document.getElementById("four-investment-ii-sex-ring-close").style.display = "none";
+                if (document.getElementById("four-investment-ii-sex-ring-done").checked === true){
+                    game.globalstat.pron -= 250000;
+                    game.ledgerlist.ledgeryhilin.sexring = Investmentround.AFTERSUCCESSION;
+                    game.peoplerp.janine.rp += 1;
+                    game.peoplerp.nalili.rp += 10;
+                }
+            } else {
+                document.getElementById("four-investment-ii-sex-ring-open").style.display = "none";
+                document.getElementById("four-investment-ii-sex-ring-close").style.display = "";
+                document.getElementById("four-investment-ii-sex-ring-done").checked = false;
+            }
+        } else {
+            document.getElementById("four-investment-ii-sex-ring-open").style.visibility = "hidden";
+            document.getElementById("four-investment-ii-sex-ring-open").style.display = "";
+            document.getElementById("four-investment-ii-sex-ring-close").style.display = "none";
+        }
+    } else {
+        document.getElementById("four-investment-ii-sex-ring-open").style.display = "none";
+        document.getElementById("four-investment-ii-sex-ring-close").style.display = "none";
+        document.getElementById("four-investment-ii-sex-ring-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.sexshop === Investmentround.NONE){
+        if (game.globalstat.pron >= 350000){
+            document.getElementById("four-investment-ii-sex-shop-open").style.display = "";
+            document.getElementById("four-investment-ii-sex-shop-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-sex-shop-done").checked === true){
+                game.globalstat.pron -= 350000;
+                game.ledgerlist.ledgeryhilin.sexshop = Investmentround.AFTERWAR;
+                game.peoplerp.janine.rp += 2;
+                game.peoplerp.megail.rp += 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-sex-shop-open").style.display = "none";
+            document.getElementById("four-investment-ii-sex-shop-close").style.display = "";
+            document.getElementById("four-investment-ii-sex-shop-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-sex-shop-open").style.display = "none";
+        document.getElementById("four-investment-ii-sex-shop-close").style.display = "none";
+        document.getElementById("four-investment-ii-sex-shop-done").checked = false;
+    }
+
+
+
+    if(game.opportunity.smithguild === true && game.ledgerlist.ledgereustrin.eustringuild === Investmentround.NONE){
+        if (game.globalstat.pron >= 600000){
+            document.getElementById("four-investment-ii-eustrin-guild-open").style.display = "";
+            document.getElementById("four-investment-ii-eustrin-guild-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-eustrin-guild-done").checked === true){
+                game.globalstat.pron -= 600000;
+                game.ledgerlist.ledgereustrin.eustringuild = Investmentround.AFTERSUCCESSION;
+                game.peoplerp.neranda.rp += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-eustrin-guild-open").style.display = "none";
+            document.getElementById("four-investment-ii-eustrin-guild-close").style.display = "";
+            document.getElementById("four-investment-ii-eustrin-guild-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-eustrin-guild-open").style.display = "none";
+        document.getElementById("four-investment-ii-eustrin-guild-close").style.display = "none";
+        document.getElementById("four-investment-ii-eustrin-guild-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerelven.theltiarent === Investmentround.NONE){
+        if (game.globalstat.pron >= 425000){
+            document.getElementById("four-investment-ii-theltiar-rentals-open").style.display = "";
+            document.getElementById("four-investment-ii-theltiar-rentals-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-theltiar-rentals-done").checked === true){
+                game.globalstat.pron -= 425000;
+                game.ledgerlist.ledgerelven.theltiarent = Investmentround.AFTERSUCCESSION;
+                game.simonstat.economy.value += 1;
+                game.simonstat.social.value += 1;
+                game.country.darghelon.value += 2;
+                game.peoplerp.lynine.rp += 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-theltiar-rentals-open").style.display = "none";
+            document.getElementById("four-investment-ii-theltiar-rentals-close").style.display = "";
+            document.getElementById("four-investment-ii-theltiar-rentals-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-theltiar-rentals-open").style.display = "none";
+        document.getElementById("four-investment-ii-theltiar-rentals-close").style.display = "none";
+        document.getElementById("four-investment-ii-theltiar-rentals-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerelven.theltiarflow === Investmentround.NONE){
+        if (game.globalstat.pron >= 250000){
+            document.getElementById("four-investment-ii-theltiar-flowhouse-open").style.display = "";
+            document.getElementById("four-investment-ii-theltiar-flowhouse-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-theltiar-flowhouse-done").checked === true){
+                game.globalstat.pron -= 250000;
+                game.ledgerlist.ledgerelven.theltiarflow = Investmentround.AFTERSUCCESSION;
+                game.simonstat.economy.value += 1;
+                game.country.darghelon.value += 3;
+                game.peoplerp.lynine.rp += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-theltiar-flowhouse-open").style.display = "none";
+            document.getElementById("four-investment-ii-theltiar-flowhouse-close").style.display = "";
+            document.getElementById("four-investment-ii-theltiar-flowhouse-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-theltiar-flowhouse-open").style.display = "none";
+        document.getElementById("four-investment-ii-theltiar-flowhouse-close").style.display = "none";
+        document.getElementById("four-investment-ii-theltiar-flowhouse-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerelven.denmielfarm === Investmentround.NONE){
+        if (game.globalstat.pron >= 105000){
+            document.getElementById("four-investment-ii-denmiel-mushrooms-open").style.display = "";
+            document.getElementById("four-investment-ii-denmiel-mushrooms-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-denmiel-mushrooms-done").checked === true){
+                game.globalstat.pron -= 105000;
+                game.ledgerlist.ledgerelven.denmielfarm = Investmentround.AFTERSUCCESSION;
+                game.simonstat.economy.value += 2;
+                game.country.gheldaron.value += 2;
+                game.peoplerp.orilise.rp += 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-denmiel-mushrooms-open").style.display = "none";
+            document.getElementById("four-investment-ii-denmiel-mushrooms-close").style.display = "";
+            document.getElementById("four-investment-ii-denmiel-mushrooms-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-denmiel-mushrooms-open").style.display = "none";
+        document.getElementById("four-investment-ii-denmiel-mushrooms-close").style.display = "none";
+        document.getElementById("four-investment-ii-denmiel-mushrooms-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerelven.denmielarchive === Investmentround.NONE){
+        if (game.globalstat.pron >= 250000){
+            document.getElementById("four-investment-ii-denmiel-archives-open").style.display = "";
+            document.getElementById("four-investment-ii-denmiel-archives-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-denmiel-archives-done").checked === true){
+                game.globalstat.pron -= 250000;
+                game.ledgerlist.ledgerelven.denmielarchive = Investmentround.AFTERSUCCESSION;
+                game.simonstat.social.value += 1;
+                game.simonstat.religion.value += 1;
+                game.country.gheldaron.value += 5;
+                game.peoplerp.orilise.rp += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-denmiel-archives-open").style.display = "none";
+            document.getElementById("four-investment-ii-denmiel-archives-close").style.display = "";
+            document.getElementById("four-investment-ii-denmiel-archives-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-denmiel-archives-open").style.display = "none";
+        document.getElementById("four-investment-ii-denmiel-archives-close").style.display = "none";
+        document.getElementById("four-investment-ii-denmiel-archives-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerchalice.gasmshop === Investmentround.NONE){
+        if (game.globalstat.pron >= 275000){
+            document.getElementById("four-investment-ii-gasm-shop-open").style.display = "";
+            document.getElementById("four-investment-ii-gasm-shop-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-gasm-shop-done").checked === true){
+                game.globalstat.pron -= 275000;
+                game.ledgerlist.ledgerchalice.gasmshop = Investmentround.AFTERSUCCESSION;
+                game.simonstat.economy.value += 2;
+                game.country.chalicestates.value += 2;
+                game.peoplerp.iris.rp += 3;
+            }
+        } else {
+            document.getElementById("four-investment-ii-gasm-shop-open").style.display = "none";
+            document.getElementById("four-investment-ii-gasm-shop-close").style.display = "";
+            document.getElementById("four-investment-ii-gasm-shop-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-gasm-shop-open").style.display = "none";
+        document.getElementById("four-investment-ii-gasm-shop-close").style.display = "none";
+        document.getElementById("four-investment-ii-gasm-shop-done").checked = false;
+    }
+
+    var towermoney = 0;
+    if(game.plotchoice.succubitowerdialogue === true){
+        towermoney = 800000;
+    } else {
+        towermoney = 1000000;
+    }
+
+    if(game.ledgerlist.ledgerstineford.succubustower === Investmentround.NONE){
+		document.getElementById("four-investment-ii-stineford-tower-money").textContent = "" + towermoney;
+    	document.getElementById("four-investment-ii-stineford-tower-cost").textContent = "" + towermoney;
+    	if(game.globalstat.pron >= towermoney){
+    	    document.getElementById("four-investment-ii-stineford-tower-open").style.display = "";
+    	    document.getElementById("four-investment-ii-stineford-tower-close").style.display = "none";
+    	    if(document.getElementById("four-investment-ii-stineford-tower-done").checked === true){
+    	        game.globalstat.pron -= towermoney;
+        	    game.ledgerlist.ledgerstineford.succubustower = Investmentround.AFTERSUCCESSION;
+        	    game.simonstat.social.value += 2;
+        	    game.country.ardoheim.value += 5;
+        	    game.globalstat.arclentacc += 1;
+        	    game.peoplerp.yarra.rp += 5;
+        	    game.peoplerp.qum.rp += 5;
+        	}
+    	} else {
+        	document.getElementById("four-investment-ii-stineford-tower-open").style.display = "none";
+        	document.getElementById("four-investment-ii-stineford-tower-close").style.display = "";
+        	document.getElementById("four-investment-ii-stineford-tower-done").checked = false;
+    	}
+    } else {
+		document.getElementById("four-investment-ii-stineford-tower-open").style.display = "none";
+        document.getElementById("four-investment-ii-stineford-tower-close").style.display = "none";
+        document.getElementById("four-investment-ii-stineford-tower-done").checked = false;
+    }
+
+	var aramembassy = 0;
+    if(game.arclentwar.aramcd >= 30){
+        aramembassy = 150000;
+    } else if(game.arclentwar.aramcd >= 20){
+        aramembassy = 200000;
+    } else if(game.arclentwar.aramcd >= 15){
+        aramembassy = 250000;
+    } else if(game.arclentwar.aramcd >= 10){
+        aramembassy = 300000;
+    } else {
+        aramembassy = 400000;
+    }
+
+    if(game.ledgerlist.ledgereustrin.eustrinembassy !== Investmentround.NONE && game.ledgerlist.ledgereustrin.aramembassy === Investmentround.NONE){
+        document.getElementById("four-investment-ii-aram-embassy-money").textContent = "" + aramembassy;
+        document.getElementById("four-investment-ii-aram-embassy-cost").textContent = "" + aramembassy;
+        if(game.globalstat.pron >= aramembassy){
+            document.getElementById("four-investment-ii-aram-embassy-open").style.display = "";
+            document.getElementById("four-investment-ii-aram-embassy-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-aram-embassy-done").checked === true){
+                game.globalstat.pron -= aramembassy;
+                game.ledgerlist.ledgereustrin.aramembassy = Investmentround.AFTERSUCCESSION;
+                game.country.eustrin.value += 2;
+                game.country.aram.value += 5;
+
+            }
+        } else {
+            document.getElementById("four-investment-ii-aram-embassy-open").style.display = "none";
+            document.getElementById("four-investment-ii-aram-embassy-close").style.display = "";
+            document.getElementById("four-investment-ii-aram-embassy-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-aram-embassy-open").style.display = "none";
+        document.getElementById("four-investment-ii-aram-embassy-close").style.display = "none";
+        document.getElementById("four-investment-ii-aram-embassy-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.impoffices === Investmentround.NONE){
+		if(game.globalstat.pron >= 100000){
+        	document.getElementById("four-investment-ii-imp-offices-open").style.display = "";
+        	document.getElementById("four-investment-ii-imp-offices-close").style.display = "none";
+       		if(document.getElementById("four-investment-ii-imp-offices-done").checked === true){
+        	    game.globalstat.pron -= 100000;
+        	    game.ledgerlist.ledgertakkan.impoffices = Investmentround.AFTERSUCCESSION;
+        	    game.simonstat.social.value += 1;
+        	    game.country.takkan.value += 1;
+        	}
+    	} else {
+        	document.getElementById("four-investment-ii-imp-offices-open").style.display = "none";
+        	document.getElementById("four-investment-ii-imp-offices-close").style.display = "";
+        	document.getElementById("four-investment-ii-imp-offices-done").checked = false;
+    	}
+    } else {
+    	document.getElementById("four-investment-ii-imp-offices-open").style.display = "none";
+       	document.getElementById("four-investment-ii-imp-offices-close").style.display = "none";
+       	document.getElementById("four-investment-ii-imp-offices-done").checked = false;
+
+    }
+
+    if(game.ledgerlist.ledgertakkan.orcpools === Investmentround.NONE){
+        if (game.globalstat.pron >= 500000){
+            document.getElementById("four-investment-ii-orc-pools-open").style.display = "";
+            document.getElementById("four-investment-ii-orc-pools-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-orc-pools-done").checked === true){
+                game.globalstat.pron -= 500000;
+                game.ledgerlist.ledgertakkan.orcpools = Investmentround.AFTERSUCCESSION;
+                game.simonstat.social.value += 2;
+                game.country.takkan.value += 5;
+                game.peoplerp.balia.rp += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-orc-pools-open").style.display = "none";
+            document.getElementById("four-investment-ii-orc-pools-close").style.display = "";
+            document.getElementById("four-investment-ii-orc-pools-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-orc-pools-open").style.display = "none";
+        document.getElementById("four-investment-ii-orc-pools-close").style.display = "none";
+        document.getElementById("four-investment-ii-orc-pools-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgergivini.warmonument === Investmentround.NONE){
+    	if(game.globalstat.pron >= 1000000){
+            document.getElementById("four-investment-ii-war-monument-open").style.display = "";
+            document.getElementById("four-investment-ii-war-monument-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-war-monument-done").checked === true){
+                game.globalstat.pron -= 1000000;
+                game.ledgerlist.ledgergivini.warmonument = Investmentround.AFTERSUCCESSION;
+                game.simonstat.social.value += 3;
+                game.country.newgivini.value += 10;
+                game.country.chalicestates.value += 2;
+                game.country.takkan.value += 2;
+                game.country.ardoheim.value += 1;
+                game.country.yhilin.value += 1;
+                game.country.aram.value += 1;
+                game.country.eustrin.value += 1;
+                game.country.zirantia.value += 1;
+                game.country.darghelon.value += 1;
+                game.country.gheldaron.value += 1;
+                game.peoplerp.hilstara.rp += 5;
+                game.peoplerp.sarai.rp -= 2;
+                game.peoplerp.vhala.rp += 1;
+                game.peoplerp.elleani.rp += 2;
+                game.peoplerp.riala.rp += 2;
+                game.peoplerp.iris.rp += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-war-monument-open").style.display = "none";
+            document.getElementById("four-investment-ii-war-monument-close").style.display = "";
+            document.getElementById("four-investment-ii-war-monument-done").checked = false;
+        }
+    } else {
+    	document.getElementById("four-investment-ii-war-monument-open").style.display = "none";
+        document.getElementById("four-investment-ii-war-monument-close").style.display = "none";
+        document.getElementById("four-investment-ii-war-monument-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerchalice.warehousedonation === Investmentround.NONE){
+		if (game.globalstat.pron >= 100000){
+            document.getElementById("four-investment-ii-chalice-supplies-one-open").style.display = "";
+            document.getElementById("four-investment-ii-chalice-supplies-one-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-chalice-supplies-one-done").checked === true){
+                game.globalstat.pron -= 100000;
+                game.ledgerlist.ledgerchalice.warehousedonation = Investmentround.AFTERSUCCESSION;
+                game.country.chalicestates.value += 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-chalice-supplies-one-open").style.display = "none";
+            document.getElementById("four-investment-ii-chalice-supplies-one-close").style.display = "";
+            document.getElementById("four-investment-ii-chalice-supplies-one-done").checked = false;
+        }
+
+        if (game.globalstat.pron >= 250000){
+            document.getElementById("four-investment-ii-chalice-supplies-two-open").style.display = "";
+            document.getElementById("four-investment-ii-chalice-supplies-two-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-chalice-supplies-two-done").checked === true){
+                game.globalstat.pron -= 250000;
+                game.ledgerlist.ledgerchalice.warehousedonation = Investmentround.AFTERSUCCESSION;
+                game.country.chalicestates.value += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-chalice-supplies-two-open").style.display = "none";
+            document.getElementById("four-investment-ii-chalice-supplies-two-close").style.display = "";
+            document.getElementById("four-investment-ii-chalice-supplies-two-done").checked = false;
+        }
+
+        if (game.globalstat.pron >= 500000){
+            document.getElementById("four-investment-ii-chalice-supplies-three-open").style.display = "";
+            document.getElementById("four-investment-ii-chalice-supplies-three-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-chalice-supplies-three-done").checked === true){
+                game.globalstat.pron -= 500000;
+                game.ledgerlist.ledgerchalice.warehousedonation = Investmentround.AFTERSUCCESSION;
+                game.country.chalicestates.value += 10;
+            }
+        } else {
+            document.getElementById("four-investment-ii-chalice-supplies-three-open").style.display = "none";
+            document.getElementById("four-investment-ii-chalice-supplies-three-close").style.display = "";
+            document.getElementById("four-investment-ii-chalice-supplies-three-done").checked = false;
+        }
+
+        if(game.ledgerlist.ledgerchalice.warehousedonation !== Investmentround.NONE){
+        	document.getElementById("four-investment-ii-chalice-supplies-one-done").disabled = !(document.getElementById("four-investment-ii-chalice-supplies-one-done").checked);
+        	document.getElementById("four-investment-ii-chalice-supplies-two-done").disabled = !(document.getElementById("four-investment-ii-chalice-supplies-two-done").checked);
+        	document.getElementById("four-investment-ii-chalice-supplies-three-done").disabled = !(document.getElementById("four-investment-ii-chalice-supplies-three-done").checked);
+        	document.getElementById("four-investment-ii-chalice-supplies-one-open").style.display = "";
+        	document.getElementById("four-investment-ii-chalice-supplies-one-close").style.display = "none";
+        	document.getElementById("four-investment-ii-chalice-supplies-two-open").style.display = "";
+        	document.getElementById("four-investment-ii-chalice-supplies-two-close").style.display = "none";
+        	document.getElementById("four-investment-ii-chalice-supplies-three-open").style.display = "";
+        	document.getElementById("four-investment-ii-chalice-supplies-three-close").style.display = "none";
+    	} else {
+    	    document.getElementById("four-investment-ii-chalice-supplies-one-done").disabled = false;
+    	    document.getElementById("four-investment-ii-chalice-supplies-two-done").disabled = false;
+    	    document.getElementById("four-investment-ii-chalice-supplies-three-done").disabled = false;
+    	}
+
+    } else {
+    	document.getElementById("four-investment-ii-chalice-supplies-one-done").checked = false;
+        document.getElementById("four-investment-ii-chalice-supplies-two-done").checked = false;
+        document.getElementById("four-investment-ii-chalice-supplies-three-done").checked = false;
+        document.getElementById("four-investment-ii-chalice-supplies-one-open").style.display = "none";
+        document.getElementById("four-investment-ii-chalice-supplies-one-close").style.display = "none";
+        document.getElementById("four-investment-ii-chalice-supplies-two-open").style.display = "none";
+        document.getElementById("four-investment-ii-chalice-supplies-two-close").style.display = "none";
+        document.getElementById("four-investment-ii-chalice-supplies-three-open").style.display = "none";
+        document.getElementById("four-investment-ii-chalice-supplies-three-close").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerchalice.llstatues === Investmentround.NONE){
+		if(game.globalstat.pron >= 50000){
+       		document.getElementById("four-investment-ii-lustlord-statue-open").style.display = "";
+        	document.getElementById("four-investment-ii-lustlord-statue-close").style.display = "none";
+        	if(document.getElementById("four-investment-ii-lustlord-statue-done").checked === true){
+        	    game.globalstat.pron -= 50000;
+        	    game.ledgerlist.ledgerchalice.llstatues = Investmentround.AFTERSUCCESSION;
+        	    game.simonstat.religion.value += 2;
+        	    game.country.chalicestates.value += 2;
+        	}
+    	} else {
+    	    document.getElementById("four-investment-ii-lustlord-statue-open").style.display = "none";
+    	    document.getElementById("four-investment-ii-lustlord-statue-close").style.display = "";
+    	    document.getElementById("four-investment-ii-lustlord-statue-done").checked = false;
+    	}
+    } else {
+    	document.getElementById("four-investment-ii-lustlord-statue-open").style.display = "none";
+    	document.getElementById("four-investment-ii-lustlord-statue-close").style.display = "none";
+    	document.getElementById("four-investment-ii-lustlord-statue-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerchalice.gasmclean === Investmentround.NONE){
+		if(game.globalstat.pron >= 250000){
+    	    document.getElementById("four-investment-ii-gasm-cleanup-open").style.display = "";
+    	    document.getElementById("four-investment-ii-gasm-cleanup-close").style.display = "none";
+    	    if(document.getElementById("four-investment-ii-gasm-cleanup-done").checked === true){
+    	        game.globalstat.pron -= 250000;
+    	        game.ledgerlist.ledgerchalice.gasmclean = Investmentround.AFTERSUCCESSION;
+    	        game.simonstat.social.value += 1;
+    	        game.country.chalicestates.value += 5;
+    	        game.peoplerp.iris.rp += 5;
+    	    }
+	    } else {
+    	    document.getElementById("four-investment-ii-gasm-cleanup-open").style.display = "none";
+    	    document.getElementById("four-investment-ii-gasm-cleanup-close").style.display = "";
+    	    document.getElementById("four-investment-ii-gasm-cleanup-done").checked = false;
+    	}
+    } else {
+		document.getElementById("four-investment-ii-gasm-cleanup-open").style.display = "none";
+    	document.getElementById("four-investment-ii-gasm-cleanup-close").style.display = "none";
+    	document.getElementById("four-investment-ii-gasm-cleanup-done").checked = false;
+    }
+
+	if(game.ledgerlist.ledgerchalice.gasmorctunnel === Investmentround.NONE){
+        if (game.globalstat.pron >= 200000){
+            document.getElementById("four-investment-ii-orc-tunnel-open").style.display = "";
+            document.getElementById("four-investment-ii-orc-tunnel-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-orc-tunnel-done").checked === true){
+                game.globalstat.pron -= 200000;
+                game.ledgerlist.ledgerchalice.gasmorctunnel = Investmentround.AFTERSUCCESSION;
+                game.simonstat.social.value += 1;
+                game.country.chalicestates.value += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-orc-tunnel-open").style.display = "none";
+            document.getElementById("four-investment-ii-orc-tunnel-close").style.display = "";
+            document.getElementById("four-investment-ii-orc-tunnel-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-orc-tunnel-open").style.display = "none";
+        document.getElementById("four-investment-ii-orc-tunnel-close").style.display = "none";
+        document.getElementById("four-investment-ii-orc-tunnel-done").checked = false;
+    }
+
+    if(game.petitionhouse.nationaltrade === false && game.plotchoice.yhilinfinal === false){
+        if (game.globalstat.pron >= 250000){
+            document.getElementById("four-investment-ii-national-succubus-open").style.display = "";
+            document.getElementById("four-investment-ii-national-succubus-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-national-succubus-done").checked === true){
+                game.globalstat.pron -= 250000;
+                game.petitionhouse.nationaltrade = true;
+                game.globalstat.yhilinacc += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-national-succubus-open").style.display = "none";
+            document.getElementById("four-investment-ii-national-succubus-close").style.display = "";
+            document.getElementById("four-investment-ii-national-succubus-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-national-succubus-open").style.display = "none";
+        document.getElementById("four-investment-ii-national-succubus-close").style.display = "none";
+        document.getElementById("four-investment-ii-national-succubus-done").checked = false;
+    }
+
+    if(game.petitionhouse.brothelsucc === false && game.plotchoice.yhilinfinal === false){
+        if (game.globalstat.pron >= 50000){
+            document.getElementById("four-investment-ii-succubus-brothel-open").style.display = "";
+            document.getElementById("four-investment-ii-succubus-brothel-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-succubus-brothel-done").checked === true){
+                game.globalstat.pron -= 50000;
+                game.petitionhouse.brothelsucc = true;
+                game.globalstat.yhilinacc += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-succubus-brothel-open").style.display = "none";
+            document.getElementById("four-investment-ii-succubus-brothel-close").style.display = "";
+            document.getElementById("four-investment-ii-succubus-brothel-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-succubus-brothel-open").style.display = "none";
+        document.getElementById("four-investment-ii-succubus-brothel-close").style.display = "none";
+        document.getElementById("four-investment-ii-succubus-brothel-done").checked = false;
+    }
+
+    if(game.petitionhouse.brothelsucc === true && game.ledgerlist.ledgeryhilin.brothelsuccubi === Investmentround.NONE){
+        if (game.globalstat.pron >= 25000){
+            document.getElementById("four-investment-ii-brothel-reform-open").style.display = "";
+            document.getElementById("four-investment-ii-brothel-reform-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-brothel-reform-done").checked === true){
+                game.globalstat.pron -= 25000;
+                game.ledgerlist.ledgeryhilin.brothelsuccubi = Investmentround.AFTERSUCCESSION;
+                game.globalstat.yhilinacc += 5;
+                game.globalstat.arclentacc += 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-brothel-reform-open").style.display = "none";
+            document.getElementById("four-investment-ii-brothel-reform-close").style.display = "";
+            document.getElementById("four-investment-ii-brothel-reform-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-brothel-reform-open").style.display = "none";
+        document.getElementById("four-investment-ii-brothel-reform-close").style.display = "none";
+        document.getElementById("four-investment-ii-brothel-reform-done").checked = false;
+    }
+
+	if(game.petitionhouse.elvenimprove === false && game.plotchoice.yhilinfinal === false){
+        if (game.globalstat.pron >= 500000){
+            document.getElementById("four-investment-ii-elven-improvement-open").style.display = "";
+            document.getElementById("four-investment-ii-elven-improvement-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-elven-improvement-done").checked === true){
+                game.globalstat.pron -= 500000;
+                game.petitionhouse.elvenimprove = true;
+                game.globalstat.yhilinacc += 10;
+                game.peoplerp.altina.rp += 2;
+                game.peoplerp.lynine.rp += 2;
+                game.peoplerp.orilise.rp += 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-elven-improvement-open").style.display = "none";
+            document.getElementById("four-investment-ii-elven-improvement-close").style.display = "";
+            document.getElementById("four-investment-ii-elven-improvement-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-elven-improvement-open").style.display = "none";
+        document.getElementById("four-investment-ii-elven-improvement-close").style.display = "none";
+        document.getElementById("four-investment-ii-elven-improvement-done").checked = false;
+    }
+
+    if(game.petitionhouse.statuedone === false){
+        if (game.globalstat.pron >= 25000){
+            document.getElementById("four-investment-ii-dk-statue-open").style.display = "";
+            document.getElementById("four-investment-ii-dk-statue-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-dk-statue-done").checked === true){
+                game.globalstat.pron -= 25000;
+                game.petitionhouse.statuedone = true;
+            }
+        } else {
+            document.getElementById("four-investment-ii-dk-statue-open").style.display = "none";
+            document.getElementById("four-investment-ii-dk-statue-close").style.display = "";
+            document.getElementById("four-investment-ii-dk-statue-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-dk-statue-open").style.display = "none";
+        document.getElementById("four-investment-ii-dk-statue-close").style.display = "none";
+        document.getElementById("four-investment-ii-dk-statue-done").checked = false;
+    }
+
+    if(game.petitionhouse.magicstandard === false && game.plotchoice.yhilinfinal === false){
+        if (game.globalstat.pron >= 100000){
+            document.getElementById("four-investment-ii-magic-standardization-open").style.display = "";
+            document.getElementById("four-investment-ii-magic-standardization-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-magic-standardization-done").checked === true){
+                game.globalstat.pron -= 100000;
+                game.petitionhouse.magicstandard = true;
+                game.simonstat.social.value += 1;
+                game.country.yhilin.value += 2;
+                game.globalstat.yhilinacc += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-magic-standardization-open").style.display = "none";
+            document.getElementById("four-investment-ii-magic-standardization-close").style.display = "";
+            document.getElementById("four-investment-ii-magic-standardization-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-magic-standardization-open").style.display = "none";
+        document.getElementById("four-investment-ii-magic-standardization-close").style.display = "none";
+        document.getElementById("four-investment-ii-magic-standardization-done").checked = false;
+    }
+
+    if(game.petitionhouse.shrinecovert === false && game.petitionhouse.aidconvert === false && game.plotchoice.yhilinfinal === false){
+        if (game.globalstat.pron >= 50000){
+            document.getElementById("four-investment-ii-monastery-shrine-open").style.display = "";
+            document.getElementById("four-investment-ii-monastery-shrine-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-monastery-shrine-done").checked === true){
+                game.globalstat.pron -= 50000;
+                game.petitionhouse.shrinecovert = true;
+                game.simonstat.religion.value += 2;
+                game.country.yhilin.value += 1;
+                game.globalstat.yhilinacc += 10;
+                game.peoplerp.carina.rp += 5;
+                game.peoplerp.sarai.rp -= 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-monastery-shrine-open").style.display = "none";
+            document.getElementById("four-investment-ii-monastery-shrine-close").style.display = "";
+            document.getElementById("four-investment-ii-monastery-shrine-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-monastery-shrine-open").style.display = "none";
+        document.getElementById("four-investment-ii-monastery-shrine-close").style.display = "none";
+        document.getElementById("four-investment-ii-monastery-shrine-done").checked = false;
+    }
+
+    if(game.petitionhouse.shrinecovert === false && game.petitionhouse.aidconvert === false && game.plotchoice.yhilinfinal === false){
+        if (game.globalstat.pron >= 25000){
+            document.getElementById("four-investment-ii-monastery-aid-open").style.display = "";
+            document.getElementById("four-investment-ii-monastery-aid-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-monastery-aid-done").checked === true){
+                game.globalstat.pron -= 25000;
+                game.petitionhouse.aidconvert = true;
+                game.simonstat.religion.value += 2;
+                game.country.yhilin.value += 1;
+                game.globalstat.yhilinacc += 2;
+                game.peoplerp.carina.rp += 2;
+                game.peoplerp.sarai.rp += 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-monastery-aid-open").style.display = "none";
+            document.getElementById("four-investment-ii-monastery-aid-close").style.display = "";
+            document.getElementById("four-investment-ii-monastery-aid-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-monastery-aid-open").style.display = "none";
+        document.getElementById("four-investment-ii-monastery-aid-close").style.display = "none";
+        document.getElementById("four-investment-ii-monastery-aid-done").checked = false;
+    }
+
+    if((game.petitionhouse.shrinecovert === true || game.petitionhouse.aidconvert === true) && (document.getElementById("four-investment-ii-monastery-shrine-done").checked === true || document.getElementById("four-investment-ii-monastery-aid-done").checked === true)){
+        document.getElementById("four-investment-ii-monastery-shrine-done").disabled = !(document.getElementById("four-investment-ii-monastery-shrine-done").checked);
+        document.getElementById("four-investment-ii-monastery-aid-done").disabled = !(document.getElementById("four-investment-ii-monastery-aid-done").checked);
+        document.getElementById("four-investment-ii-monastery-shrine-open").style.display = "";
+        document.getElementById("four-investment-ii-monastery-shrine-close").style.display = "none";
+        document.getElementById("four-investment-ii-monastery-aid-open").style.display = "";
+        document.getElementById("four-investment-ii-monastery-aid-close").style.display = "none";
+    } else {
+        document.getElementById("four-investment-ii-monastery-shrine-done").disabled = false;
+        document.getElementById("four-investment-ii-monastery-aid-done").disabled = false;
+    }
+
+    if(game.petitionhouse.sexarcane === false && game.plotchoice.yhilinfinal === false){
+        if (game.globalstat.pron >= 200000){
+            document.getElementById("four-investment-ii-arcane-sex-open").style.display = "";
+            document.getElementById("four-investment-ii-arcane-sex-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-arcane-sex-done").checked === true){
+                game.globalstat.pron -= 200000;
+                game.petitionhouse.sexarcane = true;
+                game.globalstat.yhilinacc += 3;
+                game.peoplerp.janine.rp += 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-arcane-sex-open").style.display = "none";
+            document.getElementById("four-investment-ii-arcane-sex-close").style.display = "";
+            document.getElementById("four-investment-ii-arcane-sex-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-arcane-sex-open").style.display = "none";
+        document.getElementById("four-investment-ii-arcane-sex-close").style.display = "none";
+        document.getElementById("four-investment-ii-arcane-sex-done").checked = false;
+    }
+
+    var buyacc = Math.ceil((50 - game.globalstat.yhilinacc)/5);
+    var maxbuy = game.globalstat.pron / 250000 | 0;
+    var buynumber = 0;
+    if(buyacc > 0){
+        if(maxbuy > 0){
+            if(maxbuy >= buyacc){
+                document.getElementById("four-investment-ii-acc-buy-open").style.display = "";
+                document.getElementById("four-investment-ii-acc-buy-close").style.display = "none";
+                document.getElementById("four-investment-ii-acc-buy-number").max = buyacc;
+                document.getElementById("four-investment-ii-acc-buy-max").textContent = "" + buyacc;
+                buynumber = +document.getElementById("four-investment-ii-acc-buy-number").value;
+                game.globalstat.yhilinacc += (buynumber * 5);
+                game.globalstat.pron -= (buynumber * 250000);
+            } else {
+                document.getElementById("four-investment-ii-acc-buy-open").style.display = "";
+                document.getElementById("four-investment-ii-acc-buy-close").style.display = "none";
+                document.getElementById("four-investment-ii-acc-buy-number").max = maxbuy;
+                document.getElementById("four-investment-ii-acc-buy-max").textContent = "" + maxbuy;
+                buynumber = +document.getElementById("four-investment-ii-acc-buy-number").value;
+                game.globalstat.yhilinacc += (buynumber * 5);
+                game.globalstat.pron -= (buynumber * 250000);
+            }
+        } else {
+            document.getElementById("four-investment-ii-acc-buy-open").style.display = "none";
+            document.getElementById("four-investment-ii-acc-buy-close").style.display = "";
+            document.getElementById("four-investment-ii-acc-buy-number").value = 0;
+        }
+
+    } else {
+        document.getElementById("four-investment-ii-acc-buy-open").style.display = "none";
+        document.getElementById("four-investment-ii-acc-buy-close").style.display = "none";
+        document.getElementById("four-investment-ii-acc-buy-number").value = 0;
+    }
+
+    if(game.decoration.chalicebanner === false){
+		if(game.globalstat.pron >= 1500){
+        	document.getElementById("four-investment-ii-chalice-banner-open").style.display = "";
+        	document.getElementById("four-investment-ii-chalice-banner-close").style.display = "none";
+        	if(document.getElementById("four-investment-ii-chalice-banner-done").checked === true){
+        	    game.globalstat.pron -= 1500;
+        	    game.decoration.chalicebanner = true;
+        	}
+    	} else {
+        	document.getElementById("four-investment-ii-chalice-banner-open").style.display = "none";
+        	document.getElementById("four-investment-ii-chalice-banner-close").style.display = "";
+        	document.getElementById("four-investment-ii-chalice-banner-done").checked = false;
+    	}
+    } else {
+    	document.getElementById("four-investment-ii-chalice-banner-open").style.display = "none";
+        document.getElementById("four-investment-ii-chalice-banner-close").style.display = "none";
+        document.getElementById("four-investment-ii-chalice-banner-done").checked = false;
+    }
+
+    if(game.decoration.chalicestatue === false){
+		if(game.globalstat.pron >= 2000){
+        	document.getElementById("four-investment-ii-chalice-statue-open").style.display = "";
+        	document.getElementById("four-investment-ii-chalice-statue-close").style.display = "none";
+        	if(document.getElementById("four-investment-ii-chalice-statue-done").checked === true){
+        	    game.globalstat.pron -= 2000;
+                game.palacestat.hospitality.value += 1;
+        	    game.decoration.chalicestatue = true;
+        	}
+    	} else {
+    	    document.getElementById("four-investment-ii-chalice-statue-open").style.display = "none";
+    	    document.getElementById("four-investment-ii-chalice-statue-close").style.display = "";
+    	    document.getElementById("four-investment-ii-chalice-statue-done").checked = false;
+    	}
+    } else {
+    	document.getElementById("four-investment-ii-chalice-statue-open").style.display = "none";
+        document.getElementById("four-investment-ii-chalice-statue-close").style.display = "none";
+        document.getElementById("four-investment-ii-chalice-statue-done").checked = false;
+    }
+
+    if(game.decoration.givinidragon === false){
+		if(game.globalstat.pron >= 2500){
+    	    document.getElementById("four-investment-ii-givini-dragon-normal-open").style.display = "";
+    	    document.getElementById("four-investment-ii-givini-dragon-normal-close").style.display = "none";
+    	    if(document.getElementById("four-investment-ii-givini-dragon-normal-done").checked === true){
+    	        game.globalstat.pron -= 2500;
+    	        game.decoration.givinidragon = true;
+    	    }
+    	} else {
+    	    document.getElementById("four-investment-ii-givini-dragon-normal-open").style.display = "none";
+    	    document.getElementById("four-investment-ii-givini-dragon-normal-close").style.display = "";
+    	    document.getElementById("four-investment-ii-givini-dragon-normal-done").checked = false;
+    	}
+    } else {
+    	document.getElementById("four-investment-ii-givini-dragon-normal-open").style.display = "none";
+        document.getElementById("four-investment-ii-givini-dragon-normal-close").style.display = "none";
+        document.getElementById("four-investment-ii-givini-dragon-normal-done").checked = false;
+    }
+
+	if(game.decoration.givinideluxdragon === false){
+		if(game.globalstat.pron >= 5000){
+        	document.getElementById("four-investment-ii-givini-dragon-deluxe-open").style.display = "";
+        	document.getElementById("four-investment-ii-givini-dragon-deluxe-close").style.display = "none";
+        	if(document.getElementById("four-investment-ii-givini-dragon-deluxe-done").checked === true){
+        	    game.globalstat.pron -= 5000;
+        	    game.decoration.givinideluxdragon = true;
+        	    game.palacestat.magic.value += 1;
+        	}
+    	} else {
+    	    document.getElementById("four-investment-ii-givini-dragon-deluxe-open").style.display = "none";
+    	    document.getElementById("four-investment-ii-givini-dragon-deluxe-close").style.display = "";
+    	    document.getElementById("four-investment-ii-givini-dragon-deluxe-done").checked = false;
+    	}
+	} else {
+		document.getElementById("four-investment-ii-givini-dragon-deluxe-open").style.display = "none";
+        document.getElementById("four-investment-ii-givini-dragon-deluxe-close").style.display = "none";
+        document.getElementById("four-investment-ii-givini-dragon-deluxe-done").checked = false;
+	}
+
+	if(game.decoration.givinibanner === false){
+		if(game.globalstat.pron >= 1000){
+    	    document.getElementById("four-investment-ii-givini-banner-open").style.display = "";
+    	    document.getElementById("four-investment-ii-givini-banner-close").style.display = "none";
+    	    if(document.getElementById("four-investment-ii-givini-banner-done").checked === true){
+    	        game.globalstat.pron -= 1000;
+    	        game.decoration.givinibanner = true;
+    	    }
+    	} else {
+    	    document.getElementById("four-investment-ii-givini-banner-open").style.display = "none";
+    	    document.getElementById("four-investment-ii-givini-banner-close").style.display = "";
+    	    document.getElementById("four-investment-ii-givini-banner-done").checked = false;
+    	}
+	} else {
+		document.getElementById("four-investment-ii-givini-banner-open").style.display = "none";
+        document.getElementById("four-investment-ii-givini-banner-close").style.display = "none";
+        document.getElementById("four-investment-ii-givini-banner-done").checked = false;
+	}
+
+	if(game.decoration.givinidragon === true && game.decoration.givinideluxdragon === true && game.decoration.givinibanner === true && game.decoration.giviniall ===  false){
+        document.getElementById("four-investment-ii-givini-decoration-all").style.visibility = "";
+        game.palacestat.hospitality.value += 1;
+        game.country.newgivini.value += 1;
+        game.decoration.giviniall = true;
+    } else {
+        document.getElementById("four-investment-ii-givini-decoration-all").style.visibility = "hidden";
+    }
+
+    if(game.decoration.takkandrake === false){
+		if(game.globalstat.pron >= 1000){
+    	    document.getElementById("four-investment-ii-takkan-black-drake-open").style.display = "";
+    	    document.getElementById("four-investment-ii-takkan-black-drake-close").style.display = "none";
+    	    if(document.getElementById("four-investment-ii-takkan-black-drake-done").checked === true){
+    	        game.globalstat.pron -= 1000;
+    	        game.decoration.takkandrake = true;
+    	    }
+    	} else {
+    	    document.getElementById("four-investment-ii-takkan-black-drake-open").style.display = "none";
+    		    document.getElementById("four-investment-ii-takkan-black-drake-close").style.display = "";
+        document.getElementById("four-investment-ii-takkan-black-drake-done").checked = false;
+    	}
+    } else {
+    	document.getElementById("four-investment-ii-takkan-black-drake-open").style.display = "none";
+        document.getElementById("four-investment-ii-takkan-black-drake-close").style.display = "none";
+        document.getElementById("four-investment-ii-takkan-black-drake-done").checked = false;
+    }
+
+    if(game.decoration.takkangoldendrake === false){
+		if(game.globalstat.pron >= 5000){
+    	    document.getElementById("four-investment-ii-takkan-golden-drake-open").style.display = "";
+    	    document.getElementById("four-investment-ii-takkan-golden-drake-close").style.display = "none";
+   	    	if(document.getElementById("four-investment-ii-takkan-golden-drake-done").checked === true){
+        	    game.globalstat.pron -= 5000;
+    	        game.decoration.takkangoldendrake = true;
+    	    }
+    	} else {
+    	    document.getElementById("four-investment-ii-takkan-golden-drake-open").style.display = "none";
+    	    document.getElementById("four-investment-ii-takkan-golden-drake-close").style.display = "";
+    	    document.getElementById("four-investment-ii-takkan-golden-drake-done").checked = false;
+    	}
+    } else {
+    	document.getElementById("four-investment-ii-takkan-golden-drake-open").style.display = "none";
+        document.getElementById("four-investment-ii-takkan-golden-drake-close").style.display = "none";
+        document.getElementById("four-investment-ii-takkan-golden-drake-done").checked = false;
+    }
+
+    if(game.decoration.takkangargoyle === false){
+    	if(game.globalstat.pron >= 2000){
+    	    document.getElementById("four-investment-ii-takkan-gargoyle-open").style.display = "";
+    	    document.getElementById("four-investment-ii-takkan-gargoyle-close").style.display = "none";
+    	    if(document.getElementById("four-investment-ii-takkan-gargoyle-done").checked === true){
+    	        game.globalstat.pron -= 2000;
+    	        game.decoration.takkangargoyle = true;
+    	    }
+    	} else {
+    	    document.getElementById("four-investment-ii-takkan-gargoyle-open").style.display = "none";
+    	    document.getElementById("four-investment-ii-takkan-gargoyle-close").style.display = "";
+    	    document.getElementById("four-investment-ii-takkan-gargoyle-done").checked = false;
+    	}
+    } else {
+    	document.getElementById("four-investment-ii-takkan-gargoyle-open").style.display = "none";
+        document.getElementById("four-investment-ii-takkan-gargoyle-close").style.display = "none";
+        document.getElementById("four-investment-ii-takkan-gargoyle-done").checked = false;
+    }
+
+
+    if(game.decoration.takkandrake === true && game.decoration.takkangoldendrake === true && game.decoration.takkangargoyle === true && game.decoration.takkanall === false){
+        document.getElementById("four-investment-ii-takkan-decoration-all").style.visibility = "";
+        game.decoration.takkanall = true;
+        game.simonstat.economy.value += 1;
+        game.country.takkan.value += 1;
+    } else {
+        document.getElementById("four-investment-ii-takkan-decoration-all").style.visibility = "hidden";
+    }
+
+    if(game.plotchoice.yhilinfinal === true && game.decoration.magicstatue === false){
+        if(game.globalstat.pron >= 10000){
+            document.getElementById("four-investment-ii-magic-statue-open").style.display = "";
+            document.getElementById("four-investment-ii-magic-statue-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-magic-statue-done").checked === true){
+                game.globalstat.pron -= 10000;
+                game.decoration.magicstatue = true;
+                game.simonstat.religion.value += 1;
+                game.globalstat.yhilinacc += 2;
+                game.peoplerp.sarai.rp += 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-magic-statue-open").style.display = "none";
+            document.getElementById("four-investment-ii-magic-statue-close").style.display = "";
+            document.getElementById("four-investment-ii-magic-statue-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-magic-statue-open").style.display = "none";
+        document.getElementById("four-investment-ii-magic-statue-close").style.display = "none";
+        document.getElementById("four-investment-ii-magic-statue-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.slumremodeled === Investmentround.NONE){
+        if (game.globalstat.pron >= 1000000){
+            document.getElementById("four-investment-ii-tarrankan-slum-open").style.display = "";
+            document.getElementById("four-investment-ii-tarrankan-slum-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-tarrankan-slum-done").checked === true){
+                game.globalstat.pron -= 1000000;
+                game.ledgerlist.ledgertakkan.slumremodeled = Investmentround.AFTERSUCCESSION;
+                game.simonstat.economy.value += 1;
+                game.simonstat.social.value += 1;
+                game.country.takkan.value += 1;
+            }
+        } else {
+            document.getElementById("four-investment-ii-tarrankan-slum-open").style.display = "none";
+            document.getElementById("four-investment-ii-tarrankan-slum-close").style.display = "";
+            document.getElementById("four-investment-ii-tarrankan-slum-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-tarrankan-slum-open").style.display = "none";
+        document.getElementById("four-investment-ii-tarrankan-slum-close").style.display = "none";
+        document.getElementById("four-investment-ii-tarrankan-slum-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.tradeimprovment === Investmentround.NONE){
+        if(game.ledgerlist.ledgertakkan.slumremodeled !== Investmentround.NONE){
+            document.getElementById("four-investment-ii-tarrankan-trade-open").style.visibility = "";
+            if (game.globalstat.pron >= 100000){
+                document.getElementById("four-investment-ii-tarrankan-trade-open").style.display = "";
+                document.getElementById("four-investment-ii-tarrankan-trade-close").style.display = "none";
+                if (document.getElementById("four-investment-ii-tarrankan-trade-done").checked === true){
+                    game.globalstat.pron -= 100000;
+                    game.ledgerlist.ledgertakkan.tradeimprovment = Investmentround.AFTERSUCCESSION;
+                    game.simonstat.economy.value += 2;
+                    game.country.takkan.value += 2;
+                }
+            } else {
+                document.getElementById("four-investment-ii-tarrankan-trade-open").style.display = "none";
+                document.getElementById("four-investment-ii-tarrankan-trade-close").style.display = "";
+                document.getElementById("four-investment-ii-tarrankan-trade-done").checked = false;
+            }
+        } else {
+            document.getElementById("four-investment-ii-tarrankan-trade-open").style.visibility = "hidden";
+            document.getElementById("four-investment-ii-tarrankan-trade-open").style.display = "";
+            document.getElementById("four-investment-ii-tarrankan-trade-close").style.display = "none";
+            document.getElementById("four-investment-ii-tarrankan-trade-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-tarrankan-trade-open").style.display = "none";
+        document.getElementById("four-investment-ii-tarrankan-trade-close").style.display = "none";
+        document.getElementById("four-investment-ii-tarrankan-trade-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerchalice.lovetour === Investmentround.NONE){
+        if (game.globalstat.pron >= 100000){
+            document.getElementById("four-investment-ii-love-tour-open").style.display = "";
+            document.getElementById("four-investment-ii-love-tour-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-love-tour-done").checked === true){
+                game.globalstat.pron -= 100000;
+                game.ledgerlist.ledgerchalice.lovetour = Investmentround.AFTERSUCCESSION;
+                game.globalstat.arclentacc += 5;
+                game.simonstat.social.value += 1;
+                game.country.chalicestates.value += 2;
+                game.country.newgivini.value += 2;
+                game.country.takkan.value += 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-love-tour-open").style.display = "none";
+            document.getElementById("four-investment-ii-love-tour-close").style.display = "";
+            document.getElementById("four-investment-ii-love-tour-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-love-tour-open").style.display = "none";
+        document.getElementById("four-investment-ii-love-tour-close").style.display = "none";
+        document.getElementById("four-investment-ii-love-tour-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.orcdemocracy === Investmentround.NONE){
+        if (game.globalstat.pron >= 1000000){
+            document.getElementById("four-investment-ii-orc-democracy-open").style.display = "";
+            document.getElementById("four-investment-ii-orc-democracy-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-orc-democracy-done").checked === true){
+                game.globalstat.pron -= 1000000;
+                game.ledgerlist.ledgertakkan.orcdemocracy = Investmentround.AFTERSUCCESSION;
+                game.simonstat.social.value += 5;
+                game.country.takkan.value += 10;
+                game.peoplerp.balia.rp += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-orc-democracy-open").style.display = "none";
+            document.getElementById("four-investment-ii-orc-democracy-close").style.display = "";
+            document.getElementById("four-investment-ii-orc-democracy-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-orc-democracy-open").style.display = "none";
+        document.getElementById("four-investment-ii-orc-democracy-close").style.display = "none";
+        document.getElementById("four-investment-ii-orc-democracy-done").checked = false;
+    }
+
+    if(game.palacestat.well === false){
+        if(game.palacestat.military.value >= 6){
+            document.getElementById("four-investment-ii-hq-iris-well-open").style.visibility = "";
+            if (game.globalstat.pron >= 10000){
+                document.getElementById("four-investment-ii-hq-iris-well-open").style.display = "";
+                document.getElementById("four-investment-ii-hq-iris-well-close").style.display = "none";
+                if (document.getElementById("four-investment-ii-hq-iris-well-done").checked === true){
+                    game.globalstat.pron -= 10000;
+                    game.palacestat.well = true;
+                    game.palacestat.military.value += 3;
+                    game.palacestat.hospitality.value += 1;
+                    game.peoplerp.iris.rp += 2;
+                }
+            } else {
+                document.getElementById("four-investment-ii-hq-iris-well-open").style.display = "none";
+                document.getElementById("four-investment-ii-hq-iris-well-close").style.display = "";
+                document.getElementById("four-investment-ii-hq-iris-well-done").checked = false;
+            }
+        } else {
+            document.getElementById("four-investment-ii-hq-iris-well-open").style.visibility = "hidden";
+            document.getElementById("four-investment-ii-hq-iris-well-open").style.display = "";
+            document.getElementById("four-investment-ii-hq-iris-well-close").style.display = "none";
+            document.getElementById("four-investment-ii-hq-iris-well-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-hq-iris-well-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-iris-well-close").style.display = "none";
+        document.getElementById("four-investment-ii-hq-iris-well-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerchalice.llexpansion === Investmentround.NONE){
+        if(game.ledgerlist.ledgerchalice.llstatues !== Investmentround.NONE){
+            document.getElementById("four-investment-ii-lustlord-expansion-open").style.visibility = "";
+            if (game.globalstat.pron >= 750000){
+                document.getElementById("four-investment-ii-lustlord-expansion-open").style.display = "";
+                document.getElementById("four-investment-ii-lustlord-expansion-close").style.display = "none";
+                if(document.getElementById("four-investment-ii-lustlord-expansion-done").checked === true){
+                    game.globalstat.pron -= 750000;
+                    game.ledgerlist.ledgerchalice.llexpansion = Investmentround.AFTERSUCCESSION;
+                    game.simonstat.religion.value += 5;
+                    game.country.chalicestates.value += 5;
+                    game.peoplerp.yarra.rp += 5;
+                    game.peoplerp.carina.rp -= 2;
+                    game.peoplerp.sarai.rp += 2;
+                    game.peoplerp.nalili.rp += 5;
+                    game.peoplerp.riala.rp += 2;
+                    game.peoplerp.iris.rp += 5;
+                }
+            } else {
+                document.getElementById("four-investment-ii-lustlord-expansion-open").style.display = "none";
+                document.getElementById("four-investment-ii-lustlord-expansion-close").style.display = "";
+                document.getElementById("four-investment-ii-lustlord-expansion-done").checked = false;
+            }
+        } else {
+            document.getElementById("four-investment-ii-lustlord-expansion-open").style.visibility = "hidden";
+            document.getElementById("four-investment-ii-lustlord-expansion-open").style.display = "";
+            document.getElementById("four-investment-ii-lustlord-expansion-close").style.display = "none";
+            document.getElementById("four-investment-ii-lustlord-expansion-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-lustlord-expansion-open").style.display = "none";
+        document.getElementById("four-investment-ii-lustlord-expansion-close").style.display = "none";
+        document.getElementById("four-investment-ii-lustlord-expansion-done").checked = false;
+    }
+
+    if(game.plotchoice.yhilinfinal === true && game.palacestat.yhilinishield === false){
+        if (game.globalstat.pron >= 80000){
+            document.getElementById("four-investment-ii-hq-yhilin-shield-open").style.display = "";
+            document.getElementById("four-investment-ii-hq-yhilin-shield-close").style.display = "none";
+            if (document.getElementById("four-investment-ii-hq-yhilin-shield-done").checked === true){
+                game.globalstat.pron -= 80000;
+                game.palacestat.yhilinishield = true;
+                game.palacestat.magic.value += 4;
+            }
+        } else {
+            document.getElementById("four-investment-ii-hq-yhilin-shield-open").style.display = "none";
+            document.getElementById("four-investment-ii-hq-yhilin-shield-close").style.display = "";
+            document.getElementById("four-investment-ii-hq-yhilin-shield-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-hq-yhilin-shield-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-yhilin-shield-close").style.display = "none";
+        document.getElementById("four-investment-ii-hq-yhilin-shield-done").checked = false;
+    }
+
+    if(game.plotchoice.yhilinfinal === true && game.decoration.lamiastatue === false){
+        if(game.globalstat.pron >= 1000){
+            document.getElementById("four-investment-ii-lamia-statue-open").style.display = "";
+            document.getElementById("four-investment-ii-lamia-statue-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-lamia-statue-done").checked === true){
+                game.globalstat.pron -= 1000;
+                game.decoration.lamiastatue = true;
+                game.globalstat.yhilinacc += 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-lamia-statue-open").style.display = "none";
+            document.getElementById("four-investment-ii-lamia-statue-close").style.display = "";
+            document.getElementById("four-investment-ii-lamia-statue-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-lamia-statue-open").style.display = "none";
+        document.getElementById("four-investment-ii-lamia-statue-close").style.display = "none";
+        document.getElementById("four-investment-ii-lamia-statue-done").checked = false;
+    }
+
+    if(game.plotchoice.yhilinfinal === true && game.decoration.bookstatue === false){
+        if(game.globalstat.pron >= 2000){
+            document.getElementById("four-investment-ii-book-statue-open").style.display = "";
+            document.getElementById("four-investment-ii-book-statue-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-book-statue-done").checked === true){
+                game.globalstat.pron -= 2000;
+                game.decoration.bookstatue = true;
+            }
+        } else {
+            document.getElementById("four-investment-ii-book-statue-open").style.display = "none";
+            document.getElementById("four-investment-ii-book-statue-close").style.display = "";
+            document.getElementById("four-investment-ii-book-statue-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-book-statue-open").style.display = "none";
+        document.getElementById("four-investment-ii-book-statue-close").style.display = "none";
+        document.getElementById("four-investment-ii-book-statue-done").checked = false;
+    }
+
+    if(game.plotchoice.yhilinfinal === true && game.decoration.magicbed === false){
+        if(game.globalstat.pron >= 500){
+            document.getElementById("four-investment-ii-mage-bed-open").style.display = "";
+            document.getElementById("four-investment-ii-mage-bed-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-mage-bed-done").checked === true){
+                game.globalstat.pron -= 500;
+                game.decoration.magicbed = true;
+            }
+        } else {
+            document.getElementById("four-investment-ii-mage-bed-open").style.display = "none";
+            document.getElementById("four-investment-ii-mage-bed-close").style.display = "";
+            document.getElementById("four-investment-ii-mage-bed-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-mage-bed-open").style.display = "none";
+        document.getElementById("four-investment-ii-mage-bed-close").style.display = "none";
+        document.getElementById("four-investment-ii-mage-bed-done").checked = false;
+    }
+
+    if(document.getElementById("four-investment-ii-anak-start").checked === true){
+        document.getElementById("four-investment-ii-mirror-shard-open").style.visibility = "";
+        document.getElementById("four-investment-ii-anak-sword-open").style.visibility = "";
+    } else {
+        document.getElementById("four-investment-ii-mirror-shard-open").style.visibility = "hidden";
+        document.getElementById("four-investment-ii-anak-sword-open").style.visibility = "hidden";
+        document.getElementById("four-investment-ii-mirror-shard-done").value = 0;
+        document.getElementById("four-investment-ii-anak-sword-done").checked = false;
+    }
+
+    if(document.getElementById("four-investment-ii-anak-sword-done").checked === true){
+        game.globalstat.shiningword += 1;
+    }
+
+    var fragment = +document.getElementById("four-investment-ii-mirror-shard-done").value;
+    if(fragment >= 7){
+        document.getElementById("four-investment-ii-anak-node-open").style.visibility = "";
+    } else {
+        document.getElementById("four-investment-ii-anak-node-open").style.visibility = "hidden";
+        document.getElementById("four-investment-ii-anak-node-done").checked = false;
+    }
+
+    if(document.getElementById("four-investment-ii-anak-node-done").checked === true){
+        document.getElementById("four-investment-ii-anak-meeting-open").style.visibility = "";
+    } else {
+        document.getElementById("four-investment-ii-anak-meeting-open").style.visibility = "hidden";
+        document.getElementById("four-investment-ii-anak-meeting-done").checked = false;
+    }
+
+    var reserchselect = false;
+    if(game.research.orcdiversification === Timeslot.NONE){
+        document.getElementById("four-investment-ii-research-diversification-open").style.display = "";
+        if(document.getElementById("four-investment-ii-research-diversification-done").checked === true){
+            game.research.orcdiversification = Timeslot.AFTERSUCCESSION;
+            reserchselect = true;
+        }
+    } else {
+        document.getElementById("four-investment-ii-research-diversification-open").style.display = "none";
+        document.getElementById("four-investment-ii-research-diversification-done").checked = false;
+    }
+
+    if(game.research.dariritual === Timeslot.NONE){
+        document.getElementById("four-investment-ii-research-unpeople-open").style.display = "";
+        if(document.getElementById("four-investment-ii-research-unpeople-done").checked === true){
+            game.research.dariritual = Timeslot.AFTERSUCCESSION;
+            reserchselect = true;
+        }
+    } else {
+        document.getElementById("four-investment-ii-research-unpeople-open").style.display = "none";
+        document.getElementById("four-investment-ii-research-unpeople-done").checked = false;
+    }
+
+    if(game.research.sexpurity === Timeslot.NONE){
+        document.getElementById("four-investment-ii-research-purity-open").style.display = "";
+        if(document.getElementById("four-investment-ii-research-purity-done").checked === true){
+            game.research.sexpurity = Timeslot.AFTERSUCCESSION;
+            reserchselect = true;
+        }
+    } else {
+        document.getElementById("four-investment-ii-research-purity-open").style.display = "none";
+        document.getElementById("four-investment-ii-research-purity-done").checked = false;
+    }
+
+    if(game.research.basedefense === Timeslot.NONE){
+        document.getElementById("four-investment-ii-research-defence-open").style.display = "";
+        if(document.getElementById("four-investment-ii-research-defence-done").checked === true){
+            game.research.basedefense = Timeslot.AFTERSUCCESSION;
+            reserchselect = true;
+        }
+    } else {
+        document.getElementById("four-investment-ii-research-defence-open").style.display = "none";
+        document.getElementById("four-investment-ii-research-defence-done").checked = false;
+    }
+
+    if(reserchselect === true){
+        document.getElementById("four-investment-ii-research-diversification-done").disabled = !(document.getElementById("four-investment-ii-research-diversification-done").checked);
+        document.getElementById("four-investment-ii-research-unpeople-done").disabled = !(document.getElementById("four-investment-ii-research-unpeople-done").checked);
+        document.getElementById("four-investment-ii-research-purity-done").disabled = !(document.getElementById("four-investment-ii-research-purity-done").checked);
+        document.getElementById("four-investment-ii-research-defence-done").disabled = !(document.getElementById("four-investment-ii-research-defence-done").checked);
+    } else {
+        document.getElementById("four-investment-ii-research-diversification-done").disabled = false;
+        document.getElementById("four-investment-ii-research-unpeople-done").disabled = false;
+        document.getElementById("four-investment-ii-research-purity-done").disabled = false;
+        document.getElementById("four-investment-ii-research-defence-done").disabled = false;
+    }
+
+    if(game.plotchoice.yhilinfinal === true && game.peoplerp.janine.cap !== 100){
+        document.getElementById("four-investment-ii-yhilin-final-open").style.visibility = "";
+        if (document.getElementById("four-investment-ii-yhilin-final-done").checked === true){
+            game.peoplerp.janine.cap = 100;
+            game.peoplerp.janine.rp += 10;
+
+            if(game.globalstat.trincopies.janineuncle === true){
+                game.globalstat.trincopies.numbers -= 1;
+                game.globalstat.trincopies.janineuncle = false;
+            }
+
+            if(game.globalstat.trincopies.negotiationsouthern === true){
+                game.globalstat.trincopies.numbers -= 1;
+                game.globalstat.trincopies.negotiationsouthern = false;
+            }
+
+            if(game.globalstat.trincopies.negotiationeastern === true){
+                game.globalstat.trincopies.numbers -= 1;
+                game.globalstat.trincopies.negotiationeastern = false;
+            }
+
+            if(game.globalstat.trincopies.negotiationyoung === true){
+                game.globalstat.trincopies.numbers -= 1;
+                game.globalstat.trincopies.negotiationyoung = false;
+            }
+
+            if(game.globalstat.trincopies.negotationold === true){
+                game.globalstat.trincopies.numbers -= 1;
+                game.globalstat.trincopies.negotationold = false;
+            }
+
+            if(game.globalstat.trincopies.negotiationjade === true){
+                game.globalstat.trincopies.numbers -= 1;
+                game.globalstat.trincopies.negotiationjade = false;
+            }
+
+        }
+    } else {
+        document.getElementById("four-investment-ii-yhilin-final-open").style.visibility = "hidden";
+        document.getElementById("four-investment-ii-yhilin-final-done").checked = false;
+    }
+
+    rpscriptlocker(game.peoplerp);
+
+    if(game.peoplerp.megail.lock === true){
+        game.peoplerp.megail.rp = 100 - game.peoplerp.megail.initial
+    }
+
+    if(game.peoplerp.aka.lock === true){
+        game.peoplerp.aka.rp = 100 - game.peoplerp.aka.initial
+    }
+
+    if(game.peoplerp.yarra.lock === true){
+        game.peoplerp.yarra.rp = 100 - game.peoplerp.yarra.initial
+    }
+
+    if(game.peoplerp.qum.lock === true){
+        game.peoplerp.qum.rp = 100 - game.peoplerp.qum.initial
+    }
+
+    if(game.peoplerp.iris.lock === true){
+        game.peoplerp.iris.rp = 100 - game.peoplerp.iris.initial
+    }
+
+    if(game.palacestat.megailxiris === false){
+        document.getElementById("four-investment-ii-megail-iris-bed-open").style.display = "";
+        if((game.peoplerp.megail.initial + game.peoplerp.megail.rp) >= 100 && (game.peoplerp.iris.initial + game.peoplerp.iris.rp) >= 99){
+            document.getElementById("four-investment-ii-megail-iris-bed-open").style.visibility = "";
+            if(document.getElementById("four-investment-ii-megail-iris-bed-done").checked === true){
+                game.palacestat.megailxiris = true;
+            }
+        } else {
+            document.getElementById("four-investment-ii-megail-iris-bed-open").style.visibility = "hidden";
+            document.getElementById("four-investment-ii-megail-iris-bed-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-megail-iris-bed-open").style.display = "none";
+        document.getElementById("four-investment-ii-megail-iris-bed-done").checked = false;
+    }
+
+    if(game.palacestat.akaxyarra === false){
+        document.getElementById("four-investment-ii-yarra-aka-bed-open").style.display = "";
+        if((game.peoplerp.yarra.initial + game.peoplerp.yarra.rp)>= 100 && (game.peoplerp.aka.initial + game.peoplerp.aka.rp)>= 100){
+            document.getElementById("four-investment-ii-yarra-aka-bed-open").style.visibility = "";
+            if(document.getElementById("four-investment-ii-yarra-aka-bed-done").checked === true){
+                game.palacestat.akaxyarra = true;
+            }
+        } else {
+            document.getElementById("four-investment-ii-yarra-aka-bed-open").style.visibility = "hidden";
+            document.getElementById("four-investment-ii-yarra-aka-bed-done").checked = false;
+        }
+    }  else {
+        document.getElementById("four-investment-ii-yarra-aka-bed-open").style.display = "none";
+        document.getElementById("four-investment-ii-yarra-aka-bed-done").checked = false;
+    }
+
+    if(game.palacestat.megailxqum === false){
+        document.getElementById("four-investment-ii-megail-qum-bed-open").style.display = "";
+        if((game.peoplerp.megail.initial + game.peoplerp.megail.rp)>= 100 && (game.peoplerp.qum.initial + game.peoplerp.qum.rp)>= 100){
+            document.getElementById("four-investment-ii-megail-qum-bed-open").style.visibility = "";
+            if(document.getElementById("four-investment-ii-megail-qum-bed-done").checked === true){
+                game.palacestat.megailxqum = true;
+            }
+        } else {
+            document.getElementById("four-investment-ii-megail-qum-bed-open").style.visibility = "hidden";
+            document.getElementById("four-investment-ii-megail-qum-bed-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-megail-qum-bed-open").style.display = "none";
+        document.getElementById("four-investment-ii-megail-qum-bed-done").checked = false;
+    }
+
+    if(game.arclentwar.aramitefront >= 10){
+        document.getElementById("four-investment-ii-hilstara-scene-type").textContent = "Simon Help Hilstara with a Cramp";
+    } else {
+        document.getElementById("four-investment-ii-hilstara-scene-type").textContent = "Simon Give a Massage to Help Hilstara with Residual Pain";
+    }
+
+    if(document.getElementById("four-investment-ii-hilstara-scene-done").checked === true){
+        game.peoplerp.hilstara.rp += 2;
+    }
+
+    if(document.getElementById("four-investment-ii-vhala-scene").checked === true){
+        game.peoplerp.vhala.rp += 1;
+    }
+
+    if(game.research.robinproject !== Timeslot.NONE){
+        document.getElementById("four-investment-ii-robin-scene-type").textContent = "Her Secondary State Used in the tower before Alonon Confrontation";
+        if(document.getElementById("four-investment-ii-robin-scene-done").checked === true){
+            game.peoplerp.robin.rp += 1;
+        }
+    } else {
+        document.getElementById("four-investment-ii-robin-scene-type").textContent = "the Special Project She Want Pursue";
+    }
+
+    if(document.getElementById("four-investment-ii-uyae-join").checked === true){
+        game.peoplerp.uyae.cap = 100;
+        game.peoplerp.uyae.rp += 5;
+    }
+
+    if(game.plotchoice.dariheal === true){
+        document.getElementById("four-investment-ii-dari-ritual-open").style.display = "";
+        if(document.getElementById("four-investment-ii-dari-ritual-done").checked === true){
+            game.plotchoice.daricured = true;
+            game.peoplerp.dari.rp += 5;
+        }
+    } else {
+        document.getElementById("four-investment-ii-dari-ritual-open").style.display = "none";
+        document.getElementById("four-investment-ii-dari-ritual-done").checked = false;
+    }
+
+    if(game.plotchoice.dariheal === true){
+        document.getElementById("four-investment-ii-dari-join-open").style.display = "";
+        if(game.plotchoice.daricured === true && (game.peoplerp.dari.initial + game.peoplerp.dari.rp) >= 80){
+            document.getElementById("four-investment-ii-dari-join-open").style.visibility = "";
+            if(document.getElementById("four-investment-ii-dari-join-done").checked === true){
+                game.peoplerp.dari.cap = 100;
+                game.peoplerp.dari.rp += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-dari-join-open").style.visibility = "hidden";
+            document.getElementById("four-investment-ii-dari-join-done").checked = false;
+        }
+
+    } else {
+        document.getElementById("four-investment-ii-dari-join-open").style.display = "none";
+        document.getElementById("four-investment-ii-dari-join-done").checked = false;
+    }
+
+    if(game.plotchoice.campresolution === false){
+        if(game.simonstat.social.value >= 40){
+            document.getElementById("four-investment-ii-merchant-regulation-high-open").style.display = "";
+            document.getElementById("four-investment-ii-merchant-regulation-low-open").style.display = "none";
+            document.getElementById("four-investment-ii-merchant-regulation-low-done").value = "";
+            const regulation = document.getElementById("four-investment-ii-merchant-regulation-high-done");
+            if(regulation.value === "yhilin"){
+                game.peoplerp.iris.rp += 2;
+                game.peoplerp.megail.rp += 2;
+                game.simonstat.economy.value += 1;
+                game.country.yhilin.value += 2;
+                game.country.ardoheim.value -= 1;
+                game.country.newgivini.value -= 1;
+                game.globalstat.yhilinacc += 5;
+                game.plotchoice.campresolution = true;
+            } else if(regulation.value === "ardoheim"){
+                game.peoplerp.iris.rp += 2;
+                game.peoplerp.megail.rp += 2;
+                game.simonstat.economy.value += 1;
+                game.country.yhilin.value -= 1;
+                game.country.ardoheim.value += 2;
+                game.country.newgivini.value -= 1;
+                game.plotchoice.campresolution = true;
+            } else if(regulation.value === "givini"){
+                game.peoplerp.iris.rp += 2;
+                game.peoplerp.megail.rp += 2;
+                game.simonstat.economy.value += 1;
+                game.country.yhilin.value -= 1;
+                game.country.ardoheim.value -= 1;
+                game.country.newgivini.value += 2;
+                game.plotchoice.campresolution = true;
+            } else if(regulation.value === "neutral"){
+                game.peoplerp.iris.rp += 2;
+                game.peoplerp.megail.rp += 2;
+                game.simonstat.economy.value += 1;
+                game.globalstat.arclentacc += 1;
+                game.country.yhilin.value += 1;
+                game.country.ardoheim.value += 1;
+                game.country.newgivini.value += 1;
+                game.plotchoice.campresolution = true;
+            }
+        } else{
+            document.getElementById("four-investment-ii-merchant-regulation-high-open").style.display = "none";
+            document.getElementById("four-investment-ii-merchant-regulation-low-open").style.display = "";
+            document.getElementById("four-investment-ii-merchant-regulation-high-done").value = "";
+            const regulation = document.getElementById("four-investment-ii-merchant-regulation-low-done");
+            if(regulation.value === "yhilin"){
+                game.peoplerp.iris.rp += 2;
+                game.peoplerp.megail.rp += 2;
+                game.simonstat.economy.value += 1;
+                game.country.yhilin.value += 2;
+                game.country.ardoheim.value -= 1;
+                game.country.newgivini.value -= 1;
+                game.plotchoice.campresolution = true;
+            } else if(regulation.value === "ardoheim"){
+                game.peoplerp.iris.rp += 2;
+                game.peoplerp.megail.rp += 2;
+                game.simonstat.economy.value += 1;
+                game.country.yhilin.value -= 1;
+                game.country.ardoheim.value += 2;
+                game.country.newgivini.value -= 1;
+                game.plotchoice.campresolution = true;
+            } else if(regulation.value === "givini"){
+                game.peoplerp.iris.rp += 2;
+                game.peoplerp.megail.rp += 2;
+                game.simonstat.economy.value += 1;
+                game.country.yhilin.value -= 1;
+                game.country.ardoheim.value -= 1;
+                game.country.newgivini.value += 2;
+                game.plotchoice.campresolution = true;
+            }
+        }
+    } else {
+    	document.getElementById("four-investment-ii-merchant-regulation-high-open").style.display = "none";
+        document.getElementById("four-investment-ii-merchant-regulation-low-open").style.display = "none";
+        document.getElementById("four-investment-ii-merchant-regulation-high-done").value = "";
+        document.getElementById("four-investment-ii-merchant-regulation-low-done").value = "";
+    }
+
+
+
+    if(game.petitionhouse.statueseen === false){
+    	document.getElementById("four-investment-ii-statue-open").style.display = "";
+    	if(game.petitionhouse.statuedone === true){
+        	document.getElementById("four-investment-ii-statue-open").style.visibility = "";
+        	if(document.getElementById("four-investment-ii-statue-done").checked === true){
+        	    game.petitionhouse.statueseen = true;
+        	    game.peoplerp.esthera.rp += 5;
+
+        	    if(game.plotchoice.altinastat === Altinastatus.COCKWHORE){
+        	        game.peoplerp.altina.rp += 5;
+        	    }
+
+            	if(game.plotchoice.variamind === Variamind.DOMINATED){
+                game.peoplerp.varia.rp += 5;
+            	}
+
+        	}
+
+    	} else {
+        	document.getElementById("four-investment-ii-statue-open").style.visibility = "hidden";
+        	document.getElementById("four-investment-ii-statue-done").checked = false;
+    	}
+    } else {
+    	document.getElementById("four-investment-ii-statue-open").style.display = "none";
+        document.getElementById("four-investment-ii-statue-done").checked = false;
+    }
+
+    if(game.plotchoice.yhilinfinal === true && game.plotchoice.andrasee === false){
+        document.getElementById("four-investment-ii-andra-mine-open").style.display = "";
+        if (document.getElementById("four-investment-ii-andra-mine-done").checked === true){
+            game.peoplerp.sarai.rp += 5;
+	    game.plotchoice.andrasee = true;
+        }
+    } else {
+        document.getElementById("four-investment-ii-andra-mine-open").style.display = "none";
+        document.getElementById("four-investment-ii-andra-mine-done").checked = false;
+    }
+
+    if(game.plotchoice.wendismausoleum === false){
+    	document.getElementById("four-investment-ii-wynn-talk-open").style.display = "";
+		if(document.getElementById("four-investment-ii-wynn-talk-done").checked === true){
+        	game.globalstat.wynnangry -= 5;
+        	game.plotchoice.wendismausoleum = true;
+    	}
+    } else {
+    	document.getElementById("four-investment-ii-wynn-talk-open").style.display = "none";
+    	document.getElementById("four-investment-ii-wynn-talk-done").checked = false;
+    }
+
+    if(game.plotchoice.bertriciaquest === false){
+        document.getElementById("four-investment-ii-bertricia-succubus-open").style.display = "";
+        if(game.plotchoice.bertriciaopen === true && game.country.chalicestates.value >= 40){
+            document.getElementById("four-investment-ii-bertricia-succubus-open").style.visibility = "";
+            if(document.getElementById("four-investment-ii-bertricia-succubus-done").checked === true){
+                game.plotchoice.bertriciaquest = true;
+                game.globalstat.arclentacc += 3;
+                game.simonstat.religion.value += 1;
+                game.country.darghelon.value += 1;
+                game.country.gheldaron.value += 1;
+                game.peoplerp.carina.rp += 5;
+                game.peoplerp.lynine.rp += 2;
+                game.peoplerp.altina.rp += 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-bertricia-succubus-open").style.visibility = "hidden";
+            document.getElementById("four-investment-ii-bertricia-succubus-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-bertricia-succubus-open").style.display = "none";
+        document.getElementById("four-investment-ii-bertricia-succubus-done").checked = false;
+    }
+
+    if(game.plotchoice.teahouseknow === false){
+    	document.getElementById("four-investment-ii-teahouse-succubi-open").style.display = "";
+		if(document.getElementById("four-investment-ii-teahouse-succubi-done").checked === true){
+        	game.plotchoice.teahouseknow = true;
+    	}
+    } else {
+    	document.getElementById("four-investment-ii-teahouse-succubi-open").style.display = "none";
+		document.getElementById("four-investment-ii-teahouse-succubi-done").checked = false;
+    }
+
+    if(game.plotchoice.teahouseconnection === false){
+        document.getElementById("four-investment-ii-teahouse-connection-open").style.display = "";
+        if(game.plotchoice.teahouseknow === true && game.country.newgivini.value >= 25){
+            document.getElementById("four-investment-ii-teahouse-connection-open").style.visibility = "";
+            if(document.getElementById("four-investment-ii-teahouse-connection-done").checked === true){
+                game.plotchoice.teahouseconnection = true;
+                game.country.newgivini.value += 1;
+            }
+        } else {
+            document.getElementById("four-investment-ii-teahouse-connection-open").style.visibility = "hidden";
+            document.getElementById("four-investment-ii-teahouse-connection-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-teahouse-connection-open").style.display = "none";
+        document.getElementById("four-investment-ii-teahouse-connection-done").checked = false;
+    }
+
+    if(game.plotchoice.wynnjoin === false){
+        document.getElementById("four-investment-ii-wynn-join-open").style.display = "";
+        if(game.globalstat.wynnangry <= 0){
+            if(game.plotchoice.wendismausoleum === true){
+                document.getElementById("four-investment-ii-wynn-join-open").style.visibility = "";
+                if(document.getElementById("four-investment-ii-wynn-join-done").checked === true){
+                    game.plotchoice.wynnjoin = true;
+                    game.peoplerp.wynn.rp += 5;
+                    game.peoplerp.wynn.cap = 100;
+                }
+            } else {
+                document.getElementById("four-investment-ii-wynn-join-open").style.visibility = "hidden";
+                document.getElementById("four-investment-ii-wynn-join-done").checked = false;
+                game.globalstat.wynnangry = 1;
+            }
+        } else {
+            document.getElementById("four-investment-ii-wynn-join-open").style.visibility = "hidden";
+            document.getElementById("four-investment-ii-wynn-join-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-wynn-join-open").style.display = "none";
+        document.getElementById("four-investment-ii-wynn-join-done").checked = false;
+    }
+
+    if(game.plotchoice.wynnjoin === true){
+        document.getElementById("four-investment-ii-hq-wynn-shield-open").style.visibility = "";
+        if(game.globalstat.pron >= 100000){
+            document.getElementById("four-investment-ii-hq-wynn-shield-open").style.display = "";
+            document.getElementById("four-investment-ii-hq-wynn-shield-close").style.display = "none";
+            if(document.getElementById("four-investment-ii-hq-wynn-shield-done").checked === true){
+                game.globalstat.pron -= 100000;
+                game.palacestat.magic.value += 5;
+                game.palacestat.wynnshiled = true;
+            }
+        } else {
+            document.getElementById("four-investment-ii-hq-wynn-shield-open").style.display = "none";
+            document.getElementById("four-investment-ii-hq-wynn-shield-close").style.display = "";
+            document.getElementById("four-investment-ii-hq-wynn-shield-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-hq-wynn-shield-open").style.visibility = "hidden";
+        document.getElementById("four-investment-ii-hq-wynn-shield-open").style.display = "";
+        document.getElementById("four-investment-ii-hq-wynn-shield-close").style.display = "none";
+        document.getElementById("four-investment-ii-hq-wynn-shield-done").checked = false;
+    }
+
+    if(game.palacestat.talkbaliawynn === false){
+        document.getElementById("four-investment-ii-wynn-balia-open").style.display = "";
+        if(game.plotchoice.wynnjoin === true && game.palacestat.orclab === true){
+            document.getElementById("four-investment-ii-wynn-balia-open").style.visibility = "";
+            if(document.getElementById("four-investment-ii-wynn-balia-done").checked === true){
+                game.palacestat.talkbaliawynn = true;
+                game.peoplerp.wynn.rp += 2;
+                game.peoplerp.balia.rp += 2;
+            }
+        } else {
+            document.getElementById("four-investment-ii-wynn-balia-open").style.visibility = "hidden";
+            document.getElementById("four-investment-ii-wynn-balia-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-wynn-balia-open").style.display = "none";
+        document.getElementById("four-investment-ii-wynn-balia-done").checked = false;
+    }
+
+    if(game.customitem.variasteel === false){
+        document.getElementById("four-investment-ii-steel-varia-open").style.display = "";
+        if(document.getElementById("four-investment-ii-steel-varia-done").checked === true){
+            game.peoplerp.varia.rp += 5;
+            game.customitem.variasteel = true;
+        }
+    } else {
+        document.getElementById("four-investment-ii-steel-varia-open").style.display = "none";
+        document.getElementById("four-investment-ii-steel-varia-done").checked = false;
+    }
+
+    if(game.plotchoice.variamind === Variamind.RESHAPED && game.customitem.variabalde === false){
+        document.getElementById("four-investment-ii-weapons-varia-open").style.display = "";
+        document.getElementById("four-investment-ii-blade-varia-open").style.display = "none";
+        document.getElementById("four-investment-ii-blade-varia-done").checked = false;
+        document.getElementById("four-investment-ii-blade-varia-wynn-done").checked = false;
+        if(game.customitem.variasteel === true && game.ledgerlist.ledgergivini.givinismith !== Investmentround.NONE){
+            document.getElementById("four-investment-ii-weapons-varia-open").style.visibility = "";
+            if(document.getElementById("four-investment-ii-weapons-varia-done").checked === true){
+                game.peoplerp.varia.rp += 5;
+                game.customitem.variabalde = true;
+            }
+        } else {
+            document.getElementById("four-investment-ii-weapons-varia-open").style.visibility = "hidden";
+            document.getElementById("four-investment-ii-weapons-varia-done").checked = false;
+        }
+    } else if(game.plotchoice.variamind === Variamind.DOMINATED && game.customitem.variabalde === false){
+        document.getElementById("four-investment-ii-weapons-varia-open").style.display = "none";
+        document.getElementById("four-investment-ii-blade-varia-open").style.display = "";
+        document.getElementById("four-investment-ii-weapons-varia-done").checked = false;
+        if(game.customitem.variasteel === true){
+            document.getElementById("four-investment-ii-blade-varia-open").style.visibility = "";
+            if(document.getElementById("four-investment-ii-blade-varia-done").checked === true){
+                game.peoplerp.varia.rp += 5;
+                game.customitem.variabalde = true;
+            }
+            if(document.getElementById("four-investment-ii-blade-varia-wynn-done").checked === true){
+                game.peoplerp.wynn.rp += 5;
+            }
+        } else {
+            document.getElementById("four-investment-ii-blade-varia-open").style.visibility = "hidden";
+            document.getElementById("four-investment-ii-blade-varia-done").checked = false;
+            document.getElementById("four-investment-ii-blade-varia-wynn-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-weapons-varia-open").style.display = "none";
+        document.getElementById("four-investment-ii-weapons-varia-done").checked = false;
+        document.getElementById("four-investment-ii-blade-varia-open").style.display = "none";
+        document.getElementById("four-investment-ii-blade-varia-done").checked = false;
+    }
+
+    if(game.globalstat.orcentconvo.fightingbar === false){
+        document.getElementById("four-investment-ii-orcent-warrior-open").style.display = "";
+        if(game.ledgerlist.ledgeryhilin.fightring !== Investmentround.NONE){
+            document.getElementById("four-investment-ii-orcent-warrior-open").style.visibility = "";
+            if(document.getElementById("four-investment-ii-orcent-warrior-done").checked === true){
+                game.globalstat.orcentconvo.value += 1;
+                game.peoplerp.trin.rp += 2;
+                game.globalstat.orcentconvo.fightingbar = true;
+            }
+        } else {
+            document.getElementById("four-investment-ii-orcent-warrior-open").style.visibility = "hidden";
+            document.getElementById("four-investment-ii-orcent-warrior-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-orcent-warrior-open").style.display = "none";
+        document.getElementById("four-investment-ii-orcent-warrior-done").checked = false;
+    }
+
+    if(game.globalstat.orcentconvo.boozeshack === false){
+        document.getElementById("four-investment-ii-orcent-shack-open").style.display = "";
+        if(game.ledgerlist.ledgertakkan.boozeshack !== Investmentround.NONE){
+            document.getElementById("four-investment-ii-orcent-shack-open").style.visibility = "";
+            if(document.getElementById("four-investment-ii-orcent-shack-done").checked === true){
+                game.globalstat.orcentconvo.value += 1;
+                game.globalstat.orcentconvo.boozeshack = true;
+            }
+        } else {
+            document.getElementById("four-investment-ii-orcent-shack-open").style.visibility = "hidden";
+            document.getElementById("four-investment-ii-orcent-shack-done").checked = false;
+        }
+    } else {
+        document.getElementById("four-investment-ii-orcent-shack-open").style.display = "none";
+        document.getElementById("four-investment-ii-orcent-shack-done").checked = false;
+    }
+
+    if(game.peoplerp.uyae.cap === 100){
+    	document.getElementById("four-investment-ii-orcent-zirantia-open").style.visibility = "";
+    	if(document.getElementById("four-investment-ii-orcent-zirantia-done").ckecked === true){
+    		game.globalstat.orcentconvo.value += 1;
+    		game.globalstat.orcentconvo.zirantiabar = true;
+    	}
+    } else {
+    	document.getElementById("four-investment-ii-orcent-zirantia-open").style.visibility = "hidden";
+    	document.getElementById("four-investment-ii-orcent-zirantia-done").ckecked = false;
+    }
+
+    if(game.country.newgivini.value >= 15){
+    	document.getElementById("four-investment-ii-orcent-teahouse-open").style.visibility = "";
+    	if(document.getElementById("four-investment-ii-orcent-teahouse-done").ckecked === true){
+    		game.globalstat.orcentconvo.value += 1;
+    		game.globalstat.orcentconvo.teahouse = true;
+    	}
+    } else {
+    	document.getElementById("four-investment-ii-orcent-teahouse-open").style.visibility = "hidden";
+    	document.getElementById("four-investment-ii-orcent-teahouse-done").ckecked = false;
+    }
+
+    if(game.country.newgivini.value >= 15){
+        document.getElementById("four-investment-ii-teahouse-succubi-open").style.visibility = "";
+    } else {
+        document.getElementById("four-investment-ii-teahouse-succubi-open").style.visibility = "hidden";
+        document.getElementById("four-investment-ii-teahouse-succubi-done").checked = false;
+    }
+
+    if(game.country.newgivini.value >= 25 && game.plotchoice.teahouseknow === true){
+        document.getElementById("four-investment-ii-teahouse-connection-open").style.visibility = "";
+    } else {
+        document.getElementById("four-investment-ii-teahouse-connection-open").style.visibility = "hidden";
+        document.getElementById("four-investment-ii-teahouse-connection-done").checked = false;
+    }
+
+    if(game.palacestat.sexroom === false && game.globalstat.pron < 5000 && document.getElementById("four-investment-ii-hq-yarra-room-done").checked === false){
+        document.getElementById("four-investment-ii-hq-yarra-room-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-yarra-room-close").style.display = "";
+    }
+
+    if(game.palacestat.orclab === false && game.globalstat.pron < 25000 && document.getElementById("four-investment-ii-hq-balia-lab-done").checked === false){
+        document.getElementById("four-investment-ii-hq-balia-lab-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-balia-lab-close").style.display = "";
+    }
+
+    if(game.palacestat.orcpost === false && game.globalstat.pron < 5000 && document.getElementById("four-investment-ii-hq-orc-post-done").checked === false){
+        document.getElementById("four-investment-ii-hq-orc-post-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-orc-post-close").style.display = "";
+    }
+
+    if(game.palacestat.armor === false && game.globalstat.pron < 10000 && document.getElementById("four-investment-ii-hq-orcent-armory-done").checked === false){
+        document.getElementById("four-investment-ii-hq-orcent-armory-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-orcent-armory-close").style.display = "";
+    }
+
+    if(game.palacestat.supplies === false && game.globalstat.pron < 10000 && document.getElementById("four-investment-ii-hq-lynine-supply-done").checked === false){
+        document.getElementById("four-investment-ii-hq-lynine-supply-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-lynine-supply-close").style.display = "";
+    }
+
+    if(game.palacestat.robinshiled === false && game.globalstat.pron < 100000 && document.getElementById("four-investment-ii-hq-robin-shield-done").checked === false){
+        document.getElementById("four-investment-ii-hq-robin-shield-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-robin-shield-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.ironcudgel !== Investmentround.NONE && game.globalstat.pron < 15000 && document.getElementById("four-investment-ii-hq-cudgel-buidling-done").checked === false){
+        document.getElementById("four-investment-ii-hq-cudgel-buidling-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-cudgel-buidling-close").style.display = "";
+    }
+
+    if(game.palacestat.shrine === false && game.globalstat.pron < 5000 && document.getElementById("four-investment-ii-hq-carina-shrine-done").checked === false){
+        document.getElementById("four-investment-ii-hq-carina-shrine-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-carina-shrine-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgerstineford.tradepillars === Investmentround.NONE && game.globalstat.pron < 300000 && document.getElementById("four-investment-ii-merchant-pillar-done").checked === false){
+        document.getElementById("four-investment-ii-merchant-pillar-open").style.display = "none";
+        document.getElementById("four-investment-ii-merchant-pillar-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgerstineford.stinefordbank === Investmentround.NONE && game.globalstat.pron < 400000 && document.getElementById("four-investment-ii-stineford-bank-done").checked === false){
+        document.getElementById("four-investment-ii-stineford-bank-open").style.display = "none";
+        document.getElementById("four-investment-ii-stineford-bank-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgerstineford.weaponshop === Investmentround.NONE && game.globalstat.pron < 200000 && document.getElementById("four-investment-ii-stineford-weapons-done").checked === false){
+        document.getElementById("four-investment-ii-stineford-weapons-open").style.display = "none";
+        document.getElementById("four-investment-ii-stineford-weapons-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgerstineford.magicshop === Investmentround.NONE && game.globalstat.pron < 25000 && document.getElementById("four-investment-ii-stineford-magic-done").checked === false){
+        document.getElementById("four-investment-ii-stineford-magic-open").style.display = "none";
+        document.getElementById("four-investment-ii-stineford-magic-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.airshipone === Investmentround.NONE && game.globalstat.pron < 1000000 && document.getElementById("four-investment-ii-airship-fleet-done").checked === false){
+        document.getElementById("four-investment-ii-airship-fleet-open").style.display = "none";
+        document.getElementById("four-investment-ii-airship-fleet-close").style.display = "";
+    }
+
+    if(twopen === true && game.ledgerlist.ledgeryhilin.airshiptwo === Investmentround.NONE && game.globalstat.pron < 500000 && document.getElementById("four-investment-ii-airship-military-done").checked === false){
+    	document.getElementById("four-investment-ii-airship-military-open").style.display = "none";
+  		document.getElementById("four-investment-ii-airship-military-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgertakkan.hallstrength === Investmentround.NONE && game.globalstat.pron < 200000 && document.getElementById("four-investment-ii-hall-mental-done").checked === false){
+        document.getElementById("four-investment-ii-hall-mental-open").style.display = "none";
+        document.getElementById("four-investment-ii-hall-mental-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgertakkan.boozeshack === Investmentround.NONE && game.globalstat.pron < 150000 && document.getElementById("four-investment-ii-booze-shack-done").checked === false){
+        document.getElementById("four-investment-ii-booze-shack-open").style.display = "none";
+        document.getElementById("four-investment-ii-booze-shack-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgertakkan.tradesmasherguild === Investmentround.NONE && game.globalstat.pron < 350000 && document.getElementById("four-investment-ii-tradesmasher-guild-done").checked === false){
+        document.getElementById("four-investment-ii-tradesmasher-guild-open").style.display = "none";
+        document.getElementById("four-investment-ii-tradesmasher-guild-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgertakkan.lonelysailor === Investmentround.NONE && game.globalstat.pron < 250000 && document.getElementById("four-investment-ii-lonely-sailor-done").checked === false){
+        document.getElementById("four-investment-ii-lonely-sailor-open").style.display = "none";
+        document.getElementById("four-investment-ii-lonely-sailor-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgertakkan.ceekanshipping === Investmentround.NONE && game.globalstat.pron < 700000 && document.getElementById("four-investment-ii-ceekan-shipping-done").checked === false){
+        document.getElementById("four-investment-ii-ceekan-shipping-open").style.display = "none";
+        document.getElementById("four-investment-ii-ceekan-shipping-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgergivini.orcmerchant === Investmentround.NONE && game.country.newgivini.value < 50 && game.globalstat.pron < orcost && document.getElementById("four-investment-ii-givini-orc-done").checked === false){
+        document.getElementById("four-investment-ii-givini-orc-open").style.display = "none";
+        document.getElementById("four-investment-ii-givini-orc-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgergivini.givinismith === Investmentround.NONE && game.globalstat.pron < 200000 && document.getElementById("four-investment-ii-givini-smith-done").checked === false){
+        document.getElementById("four-investment-ii-givini-smith-open").style.display = "none";
+        document.getElementById("four-investment-ii-givini-smith-close").style.display = "";
+    }
+
+    if(game.country.newgivini.value >= 20){
+        document.getElementById("four-investment-ii-givini-tea-house-open").style.visibility = "";
+        if(game.ledgerlist.ledgergivini.teahouse === Investmentround.NONE && game.globalstat.pron < 275000 && document.getElementById("four-investment-ii-givini-tea-house-done").checked === false){
+            document.getElementById("four-investment-ii-givini-tea-house-open").style.display = "none";
+            document.getElementById("four-investment-ii-givini-tea-house-close").style.display = "";
+        }
+    } else {
+        document.getElementById("four-investment-ii-givini-tea-house-open").style.visibility = "hidden";
+        document.getElementById("four-investment-ii-givini-tea-house-open").style.display = "";
+        document.getElementById("four-investment-ii-givini-tea-house-close").style.display = "none";
+        document.getElementById("four-investment-ii-givini-tea-house-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgergivini.givinibank === Investmentround.NONE && game.globalstat.pron < 350000 && document.getElementById("four-investment-ii-givini-bank-done").checked === false){
+        document.getElementById("four-investment-ii-givini-bank-open").style.display = "none";
+        document.getElementById("four-investment-ii-givini-bank-close").style.display = "";
+    }
+
+    if(game.country.newgivini.value >= 25){
+        document.getElementById("four-investment-ii-givini-mage-open").style.visibility = "";
+        if(game.ledgerlist.ledgergivini.mageguild === Investmentround.NONE && game.globalstat.pron < 1000000 && document.getElementById("four-investment-ii-givini-mage-done").checked === false){
+            document.getElementById("four-investment-ii-givini-mage-open").style.display = "none";
+            document.getElementById("four-investment-ii-givini-mage-close").style.display = "";
+        }
+    } else {
+        document.getElementById("four-investment-ii-givini-mage-open").style.visibility = "hidden";
+        document.getElementById("four-investment-ii-givini-mage-open").style.display = "";
+        document.getElementById("four-investment-ii-givini-mage-close").style.display = "none";
+        document.getElementById("four-investment-ii-givini-mage-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerchalice.gasmaemorer === Investmentround.NONE && game.globalstat.pron < succubusarmorer && document.getElementById("four-investment-ii-armor-succubus-done").checked === false){
+        document.getElementById("four-investment-ii-armor-succubus-open").style.display = "none";
+        document.getElementById("four-investment-ii-armor-succubus-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgerchalice.potionmore === Investmentround.NONE && game.globalstat.pron < 20000 && document.getElementById("four-investment-ii-potion-more-done").checked === false){
+        document.getElementById("four-investment-ii-potion-more-open").style.display = "none";
+        document.getElementById("four-investment-ii-potion-more-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgerchalice.givinitunnel === Investmentround.NONE && game.globalstat.pron < 1500000 && document.getElementById("four-investment-ii-givini-tunnel-done").checked === false){
+        document.getElementById("four-investment-ii-givini-tunnel-open").style.display = "none";
+        document.getElementById("four-investment-ii-givini-tunnel-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.mercenaryoffice === Investmentround.NONE && game.globalstat.pron < mercenaryoffice && document.getElementById("four-investment-ii-mercenary-office-done").checked === false){
+        document.getElementById("four-investment-ii-mercenary-office-open").style.display = "none";
+        document.getElementById("four-investment-ii-mercenary-office-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.premiumsteeltwo === Investmentround.NONE && game.globalstat.pron < steel && document.getElementById("four-investment-ii-premium-steel-done").checked === false){
+        document.getElementById("four-investment-ii-premium-steel-open").style.display = "none";
+        document.getElementById("four-investment-ii-premium-steel-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.yhilinbanktwo === Investmentround.NONE && game.globalstat.pron < yhilinbank && document.getElementById("four-investment-ii-yhilin-bank-done").checked === false){
+        document.getElementById("four-investment-ii-yhilin-bank-open").style.display = "none";
+        document.getElementById("four-investment-ii-yhilin-bank-close").style.display = "";
+    }
+
+    if(game.plotchoice.min === true && game.ledgerlist.ledgeryhilin.minroute === Investmentround.NONE && game.globalstat.pron < 400000 && document.getElementById("four-investment-ii-min-route-done").checked === false){
+        document.getElementById("four-investment-ii-min-route-open").style.display = "none";
+        document.getElementById("four-investment-ii-min-route-close").style.display = "";
+    }
+
+    if(game.arclentwar.ikdmorale <= 60 && game.ledgerlist.ledgeryhilin.succubitrade === Investmentround.NONE && game.globalstat.pron < succubustrade && document.getElementById("four-investment-ii-yhilin-trade-done").checked === false){
+        document.getElementById("four-investment-ii-yhilin-trade-open").style.display = "none";
+        document.getElementById("four-investment-ii-yhilin-trade-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.fightring === Investmentround.NONE && game.globalstat.pron < 150000 && document.getElementById("four-investment-ii-slum-ring-done").checked === false){
+        document.getElementById("four-investment-ii-slum-ring-open").style.display = "none";
+        document.getElementById("four-investment-ii-slum-ring-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.sexring === Investmentround.NONE && game.ledgerlist.ledgeryhilin.fightring !== Investmentround.NONE && game.petitionhouse.nalilidea === true && game.globalstat.pron < 250000 && document.getElementById("four-investment-ii-sex-ring-done").checked === false){
+        document.getElementById("four-investment-ii-sex-ring-open").style.display = "none";
+        document.getElementById("four-investment-ii-sex-ring-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.sexshop === Investmentround.NONE && game.globalstat.pron < 350000 && document.getElementById("four-investment-i-sex-shop-done").checked === false){
+        document.getElementById("four-investment-i-sex-shop-open").style.display = "none";
+        document.getElementById("four-investment-i-sex-shop-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.sexshop === Investmentround.NONE && game.globalstat.pron < 350000 && document.getElementById("four-investment-ii-sex-shop-done").checked === false){
+        document.getElementById("four-investment-ii-sex-shop-open").style.display = "none";
+        document.getElementById("four-investment-ii-sex-shop-close").style.display = "";
+    }
+
+    if(game.opportunity.smithguild === true && game.ledgerlist.ledgereustrin.eustringuild === Investmentround.NONE && game.globalstat.pron < 600000 && document.getElementById("four-investment-ii-eustrin-guild-done").checked === false){
+        document.getElementById("four-investment-ii-eustrin-guild-open").style.display = "none";
+        document.getElementById("four-investment-ii-eustrin-guild-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgerelven.theltiarent === Investmentround.NONE && game.globalstat.pron < 425000 && document.getElementById("four-investment-ii-theltiar-rentals-done").checked === false){
+        document.getElementById("four-investment-ii-theltiar-rentals-open").style.display = "none";
+        document.getElementById("four-investment-ii-theltiar-rentals-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgerelven.theltiarflow === Investmentround.NONE && game.globalstat.pron < 250000 && document.getElementById("four-investment-ii-theltiar-flowhouse-done").checked === false){
+        document.getElementById("four-investment-ii-theltiar-flowhouse-open").style.display = "none";
+        document.getElementById("four-investment-ii-theltiar-flowhouse-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgerelven.denmielfarm === Investmentround.NONE && game.globalstat.pron < 105000 && document.getElementById("four-investment-ii-denmiel-mushrooms-done").checked === false){
+        document.getElementById("four-investment-ii-denmiel-mushrooms-open").style.display = "none";
+        document.getElementById("four-investment-ii-denmiel-mushrooms-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgerelven.denmielarchive === Investmentround.NONE && game.globalstat.pron < 250000 && document.getElementById("four-investment-ii-denmiel-archives-done").checked === false){
+        document.getElementById("four-investment-ii-denmiel-archives-open").style.display = "none";
+        document.getElementById("four-investment-ii-denmiel-archives-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgerchalice.gasmshop === Investmentround.NONE){
+        if(game.globalstat.pron < 275000 && document.getElementById("four-investment-ii-gasm-shop-done").checked === false){
+            document.getElementById("four-investment-ii-gasm-shop-open").style.display = "none";
+            document.getElementById("four-investment-ii-gasm-shop-close").style.display = "";
+        }
+    }
+
+    if(game.ledgerlist.ledgerstineford.succubustower === Investmentround.NONE && game.globalstat.pron < towermoney && document.getElementById("four-investment-ii-stineford-tower-done").checked === false){
+        document.getElementById("four-investment-ii-stineford-tower-open").style.display = "none";
+        document.getElementById("four-investment-ii-stineford-tower-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgereustrin.aramembassy === Investmentround.NONE && game.ledgerlist.ledgereustrin.eustrinembassy !== Investmentround.NONE && game.globalstat.pron < aramembassy && document.getElementById("four-investment-ii-aram-embassy-done").checked === false){
+        document.getElementById("four-investment-ii-aram-embassy-open").style.display = "none";
+        document.getElementById("four-investment-ii-aram-embassy-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgertakkan.impoffices === Investmentround.NONE && game.globalstat.pron < 100000 && document.getElementById("four-investment-ii-imp-offices-done").checked === false){
+        document.getElementById("four-investment-ii-imp-offices-open").style.display = "none";
+        document.getElementById("four-investment-ii-imp-offices-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgertakkan.orcpools === Investmentround.NONE && game.globalstat.pron < 500000 && document.getElementById("four-investment-ii-orc-pools-done").checked === false){
+        document.getElementById("four-investment-ii-orc-pools-open").style.display = "none";
+        document.getElementById("four-investment-ii-orc-pools-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgergivini.warmonument === Investmentround.NONE && game.globalstat.pron < 1000000 && document.getElementById("four-investment-ii-war-monument-done").checked === false){
+        document.getElementById("four-investment-ii-war-monument-open").style.display = "none";
+        document.getElementById("four-investment-ii-war-monument-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgerchalice.warehousedonation === Investmentround.NONE){
+        if(game.globalstat.pron < 100000 && document.getElementById("four-investment-ii-chalice-supplies-one-done").checked === false){
+            document.getElementById("four-investment-ii-chalice-supplies-one-open").style.display = "none";
+            document.getElementById("four-investment-ii-chalice-supplies-one-close").style.display = "";
+        }
+
+        if(game.globalstat.pron < 250000 && document.getElementById("four-investment-ii-chalice-supplies-two-done").checked === false){
+            document.getElementById("four-investment-ii-chalice-supplies-two-open").style.display = "none";
+            document.getElementById("four-investment-ii-chalice-supplies-two-close").style.display = "";
+        }
+
+        if(game.globalstat.pron < 500000 && document.getElementById("four-investment-ii-chalice-supplies-three-done").checked === false){
+            document.getElementById("four-investment-ii-chalice-supplies-three-open").style.display = "none";
+            document.getElementById("four-investment-ii-chalice-supplies-three-close").style.display = "";
+        }
+    }
+
+    if(game.ledgerlist.ledgerchalice.llstatues === Investmentround.NONE && game.globalstat.pron < 50000 && document.getElementById("four-investment-ii-lustlord-statue-done").checked === false){
+        document.getElementById("four-investment-ii-lustlord-statue-open").style.display = "none";
+        document.getElementById("four-investment-ii-lustlord-statue-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgerchalice.gasmclean === Investmentround.NONE && game.globalstat.pron < 250000 && document.getElementById("four-investment-ii-gasm-cleanup-done").checked === false){
+        document.getElementById("four-investment-ii-gasm-cleanup-open").style.display = "none";
+        document.getElementById("four-investment-ii-gasm-cleanup-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgerchalice.gasmorctunnel === Investmentround.NONE && game.globalstat.pron < 200000 && document.getElementById("four-investment-ii-orc-tunnel-done").checked === false){
+        document.getElementById("four-investment-ii-orc-tunnel-open").style.display = "none";
+        document.getElementById("four-investment-ii-orc-tunnel-close").style.display = "";
+    }
+
+    if(game.petitionhouse.nationaltrade === false && game.plotchoice.yhilinfinal === false && game.globalstat.pron < 250000 && document.getElementById("four-investment-ii-national-succubus-done").checked === false){
+        document.getElementById("four-investment-ii-national-succubus-open").style.display = "none";
+        document.getElementById("four-investment-ii-national-succubus-close").style.display = "";
+    }
+
+    if(game.petitionhouse.brothelsucc === false && game.plotchoice.yhilinfinal === false && game.globalstat.pron < 500000 && document.getElementById("four-investment-ii-succubus-brothel-done").checked === false){
+        document.getElementById("four-investment-ii-succubus-brothel-open").style.display = "none";
+        document.getElementById("four-investment-ii-succubus-brothel-close").style.display = "";
+    }
+
+    if(game.petitionhouse.brothelsucc === true && game.ledgerlist.ledgeryhilin.brothelsuccubi === Investmentround.NONE && game.globalstat.pron < 25000 && document.getElementById("four-investment-ii-brothel-reform-done").checked === false){
+        document.getElementById("four-investment-ii-brothel-reform-open").style.display = "none";
+        document.getElementById("four-investment-ii-brothel-reform-close").style.display = "";
+    }
+
+    if(game.petitionhouse.elvenimprove === false && game.plotchoice.yhilinfinal === false && game.globalstat.pron < 500000 && document.getElementById("four-investment-ii-elven-improvement-done").checked === false){
+        document.getElementById("four-investment-ii-elven-improvement-open").style.display = "none";
+        document.getElementById("four-investment-ii-elven-improvement-close").style.display = "";
+    }
+
+    if(game.petitionhouse.statuedone === false && game.globalstat.pron < 25000 && document.getElementById("four-investment-ii-dk-statue-done").checked === false){
+        document.getElementById("four-investment-ii-dk-statue-open").style.display = "none";
+        document.getElementById("four-investment-ii-dk-statue-close").style.display = "";
+    }
+
+    if(game.petitionhouse.magicstandard === false && game.globalstat.pron < 100000 && document.getElementById("four-investment-ii-magic-standardization-done").checked === false){
+        document.getElementById("four-investment-ii-magic-standardization-open").style.display = "none";
+        document.getElementById("four-investment-ii-magic-standardization-close").style.display = "";
+    }
+
+    if(game.petitionhouse.shrinecovert === false && game.petitionhouse.aidconvert === false && game.plotchoice.yhilinfinal === false){
+        if(game.globalstat.pron < 50000 && document.getElementById("four-investment-ii-monastery-shrine-done").checked === false){
+            document.getElementById("four-investment-ii-monastery-shrine-open").style.display = "none";
+            document.getElementById("four-investment-ii-monastery-shrine-close").style.display = "";
+        }
+
+        if(game.globalstat.pron < 25000 && document.getElementById("four-investment-ii-monastery-aid-done").checked === false){
+            document.getElementById("four-investment-ii-monastery-aid-open").style.display = "none";
+            document.getElementById("four-investment-ii-monastery-aid-close").style.display = "";
+        }
+    }
+
+    if(game.petitionhouse.sexarcane === false && game.plotchoice.yhilinfinal === false && game.globalstat.pron < 200000 && document.getElementById("four-investment-ii-arcane-sex-done").checked === false){
+        document.getElementById("four-investment-ii-arcane-sex-open").style.display = "none";
+        document.getElementById("four-investment-ii-arcane-sex-close").style.display = "";
+    }
+
+    if(buyacc > 0 && game.globalstat.pron < 250000 && document.getElementById("four-investment-ii-acc-buy-number").value === 0){
+        document.getElementById("four-investment-ii-acc-buy-open").style.display = "none";
+        document.getElementById("four-investment-ii-acc-buy-close").style.display = "";
+    }
+
+    if(game.decoration.chalicebanner === false && game.globalstat.pron < 1500 && document.getElementById("four-investment-ii-chalice-banner-done").checked === false){
+        document.getElementById("four-investment-ii-chalice-banner-open").style.display = "none";
+        document.getElementById("four-investment-ii-chalice-banner-close").style.display = "";
+    }
+
+    if(game.decoration.chalicestatue === false && game.globalstat.pron < 2000 && document.getElementById("four-investment-ii-chalice-statue-done").checked === false){
+        document.getElementById("four-investment-ii-chalice-statue-open").style.display = "none";
+        document.getElementById("four-investment-ii-chalice-statue-close").style.display = "";
+    }
+
+    if(game.decoration.givinidragon === false && game.globalstat.pron < 2500 && document.getElementById("four-investment-ii-givini-dragon-normal-done").checked === false){
+        document.getElementById("four-investment-ii-givini-dragon-normal-open").style.display = "none";
+        document.getElementById("four-investment-ii-givini-dragon-normal-close").style.display = "";
+    }
+
+    if(game.decoration.givinideluxdragon === false && game.globalstat.pron < 5000 && document.getElementById("four-investment-ii-givini-dragon-deluxe-done").checked === false){
+        document.getElementById("four-investment-ii-givini-dragon-deluxe-open").style.display = "none";
+        document.getElementById("four-investment-ii-givini-dragon-deluxe-close").style.display = "";
+    }
+
+    if(game.decoration.givinibanner === false && game.globalstat.pron < 1000 && document.getElementById("four-investment-ii-givini-banner-done").checked === false){
+        document.getElementById("four-investment-ii-givini-banner-open").style.display = "none";
+        document.getElementById("four-investment-ii-givini-banner-close").style.display = "";
+    }
+
+    if(game.country.takkan.value >= 10){
+        document.getElementById("four-investment-ii-takkan-black-drake-open").style.visibility = "";
+        if(game.decoration.takkandrake === false && game.globalstat.pron < 1000 && document.getElementById("four-investment-ii-takkan-black-drake-done").checked === false){
+            document.getElementById("four-investment-ii-takkan-black-drake-open").style.display = "none";
+            document.getElementById("four-investment-ii-takkan-black-drake-close").style.display = "";
+        }
+    } else {
+        document.getElementById("four-investment-ii-takkan-black-drake-open").style.visibility = "hidden";
+        document.getElementById("four-investment-ii-takkan-black-drake-open").style.display = "";
+        document.getElementById("four-investment-ii-takkan-black-drake-close").style.display = "none";
+        document.getElementById("four-investment-ii-takkan-black-drake-done").checked = false;
+    }
+
+    if(game.country.takkan.value >= 10){
+        document.getElementById("four-investment-ii-takkan-gargoyle-open").style.visibility = "";
+        if(game.decoration.takkangargoyle === false && game.globalstat.pron < 2000 && document.getElementById("four-investment-ii-takkan-gargoyle-done").checked === false){
+            document.getElementById("four-investment-ii-takkan-gargoyle-open").style.display = "none";
+            document.getElementById("four-investment-ii-takkan-gargoyle-close").style.display = "";
+        }
+    } else {
+        document.getElementById("four-investment-ii-takkan-gargoyle-open").style.visibility = "hidden";
+        document.getElementById("four-investment-ii-takkan-gargoyle-open").style.display = "";
+        document.getElementById("four-investment-ii-takkan-gargoyle-close").style.display = "none";
+        document.getElementById("four-investment-ii-takkan-gargoyle-done").checked = false;
+    }
+
+    if(game.country.takkan.value >= 30){
+        document.getElementById("four-investment-ii-takkan-golden-drake-open").style.visibility = "";
+        if(game.decoration.takkangoldendrake === false && game.globalstat.pron < 5000 && document.getElementById("four-investment-ii-takkan-golden-drake-done").checked === false){
+            document.getElementById("four-investment-ii-takkan-golden-drake-open").style.display = "none";
+            document.getElementById("four-investment-ii-takkan-golden-drake-close").style.display = "";
+        }
+    } else {
+        document.getElementById("four-investment-ii-takkan-golden-drake-open").style.visibility = "hidden";
+        document.getElementById("four-investment-ii-takkan-golden-drake-open").style.display = "";
+        document.getElementById("four-investment-ii-takkan-golden-drake-close").style.display = "none";
+        document.getElementById("four-investment-ii-takkan-golden-drake-done").checked = false;
+    }
+
+    if(game.plotchoice.yhilinfinal === true){
+        if(game.decoration.magicstatue === false && game.globalstat.pron < 10000 && document.getElementById("four-investment-ii-magic-statue-done").checked === false){
+            document.getElementById("four-investment-ii-magic-statue-open").style.display = "none";
+            document.getElementById("four-investment-ii-magic-statue-close").style.display = "";
+        }
+    }
+
+    if(game.ledgerlist.ledgertakkan.slumremodeled === Investmentround.NONE && game.globalstat.pron < 1000000 && document.getElementById("four-investment-ii-tarrankan-slum-done").checked === false){
+        document.getElementById("four-investment-ii-tarrankan-slum-open").style.display = "none";
+        document.getElementById("four-investment-ii-tarrankan-slum-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgertakkan.slumremodeled !== Investmentround.NONE && game.ledgerlist.ledgertakkan.tradeimprovment === Investmentround.NONE && game.globalstat.pron < 100000 && document.getElementById("four-investment-ii-tarrankan-trade-done").checked === false){
+        document.getElementById("four-investment-ii-tarrankan-trade-open").style.display = "none";
+        document.getElementById("four-investment-ii-tarrankan-trade-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgerchalice.lovetour === Investmentround.NONE && game.globalstat.pron < 100000 && document.getElementById("four-investment-ii-love-tour-done").checked === false){
+        document.getElementById("four-investment-ii-love-tour-open").style.display = "none";
+        document.getElementById("four-investment-ii-love-tour-close").style.display = "";
+    }
+
+    if(game.palacestat.rialafoundation === false && game.globalstat.pron < 225000 && document.getElementById("four-investment-ii-hq-riala-shield-done").checked === false){
+        document.getElementById("four-investment-ii-hq-riala-shield-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-riala-shield-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgertakkan.orcdemocracy === Investmentround.NONE && game.globalstat.pron < 1000000 && document.getElementById("four-investment-ii-orc-democracy-done").checked === false){
+        document.getElementById("four-investment-ii-orc-democracy-open").style.display = "none";
+        document.getElementById("four-investment-ii-orc-democracy-close").style.display = "";
+    }
+
+    if(game.palacestat.well === false && game.palacestat.military.value >= 6 && game.globalstat.pron < 10000 && document.getElementById("four-investment-ii-hq-iris-well-done").checked === false){
+        document.getElementById("four-investment-ii-hq-iris-well-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-iris-well-close").style.display = "";
+    }
+
+    if(game.ledgerlist.ledgerchalice.llexpansion === Investmentround.NONE && game.ledgerlist.ledgerchalice.llstatues !== Investmentround.NONE && game.globalstat.pron < 750000 && document.getElementById("four-investment-ii-lustlord-expansion-done").checked === false){
+        document.getElementById("four-investment-ii-lustlord-expansion-open").style.display = "none";
+        document.getElementById("four-investment-ii-lustlord-expansion-close").style.display = "";
+    }
+
+    if(game.palacestat.yhilinishield === false && game.plotchoice.yhilinfinal === true && game.globalstat.pron < 80000 && document.getElementById("four-investment-ii-hq-yhilin-shield-done").checked === false){
+        document.getElementById("four-investment-ii-hq-yhilin-shield-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-yhilin-shield-close").style.display = "";
+    }
+
+    if(game.decoration.lamiastatue === false && game.plotchoice.yhilinfinal === true && game.globalstat.pron < 1000 && document.getElementById("four-investment-ii-lamia-statue-done").checked === false){
+        document.getElementById("four-investment-ii-lamia-statue-open").style.display = "none";
+        document.getElementById("four-investment-ii-lamia-statue-close").style.display = "";
+    }
+
+    if(game.decoration.bookstatue === false && game.plotchoice.yhilinfinal === true && game.globalstat.pron < 2000 && document.getElementById("four-investment-ii-book-statue-done").checked === false){
+        document.getElementById("four-investment-ii-book-statue-open").style.display = "none";
+        document.getElementById("four-investment-ii-book-statue-close").style.display = "";
+    }
+
+    if(game.decoration.magicbed === false && game.plotchoice.yhilinfinal === true && game.globalstat.pron < 500 && document.getElementById("four-investment-ii-mage-bed-done").checked === false){
+        document.getElementById("four-investment-ii-mage-bed-open").style.display = "none";
+        document.getElementById("four-investment-ii-mage-bed-close").style.display = "";
+    }
+
+    if(game.plotchoice.wynnjoin === true && game.palacestat.wynnshiled === false && game.globalstat.pron < 100000 && document.getElementById("four-investment-ii-hq-wynn-shield-done").checked === false){
+        document.getElementById("four-investment-ii-hq-wynn-shield-open").style.display = "none";
+        document.getElementById("four-investment-ii-hq-wynn-shield-close").style.display = "";
+    }
+
+    if(document.getElementById("four-investment-ii-anak-meeting-done").checked === true){
+        if(game.palacestat.magic.value >= 30){
+            game.palacestat.magicdefence = Magicdefence.STRONG;
+            document.getElementById("four-investment-ii-magic-test").textContent = "Your defenses are... actually remarkably strong. Received an Eldritch Draught, Holy Draught, Huge Lust Draught, and a Sacred Revival Potion.";
+            document.getElementById("four-investment-ii-magic-test").style.color = "#00FF00";
+        } else if(game.palacestat.magic.value >= 20){
+            game.palacestat.magicdefence = Magicdefence.STRONG;
+            document.getElementById("four-investment-ii-magic-test").textContent = "Your defenses are actually rather strong. Received a Holy Draught and a Sacred Revival Potion.";
+            document.getElementById("four-investment-ii-magic-test").style.color = "#00FF00";
+        } else if(game.palacestat.magic.value >= 15){
+            game.palacestat.magicdefence = Magicdefence.AVERAGE;
+            document.getElementById("four-investment-ii-magic-test").textContent = "Your primary defenses are decent. Received a Huge Lust Draught.";
+            document.getElementById("four-investment-ii-magic-test").style.color = "";
+        } else if(game.palacestat.magic.value >= 10){
+            game.palacestat.magicdefence = Magicdefence.AVERAGE;
+            document.getElementById("four-investment-ii-magic-test").textContent = "Your primary defenses are less admirable.";
+            document.getElementById("four-investment-ii-magic-test").style.color = "";
+        } else if(game.palacestat.magic.value >= 5){
+            game.palacestat.magicdefence = Magicdefence.WEAK;
+            document.getElementById("four-investment-ii-magic-test").textContent = "your defenses are somewhat weak.";
+            document.getElementById("four-investment-ii-magic-test").style.color = "#FF0000";
+        } else {
+            game.palacestat.magicdefence = Magicdefence.WEAK;
+            document.getElementById("four-investment-ii-magic-test").textContent = "your defenses are pathetically weak.";
+            document.getElementById("four-investment-ii-magic-test").style.color = "#FF0000";
+        }
+    } else {
+        document.getElementById("four-investment-ii-magic-test").textContent = "";
+        document.getElementById("four-investment-ii-magic-test").style.color = "";
+    }
+
+    rpscriptlocker(game.peoplerp);
+
+    document.getElementById("four-investment-ii-hq-military").textContent = "" + game.palacestat.military.value;
+    document.getElementById("four-investment-ii-magic").textContent = "" + game.palacestat.magic.value;
+    document.getElementById("four-investment-ii-hq-hospitality").textContent = "" + game.palacestat.hospitality.value;
+
+    stampendvar("Strength: ", game.globalstat.orcstat.orcstrength, "stamp-orcs-str-four-investment-ii", true);
+    stampendvar("Intelligence: ", game.globalstat.orcstat.orcintelligence, "stamp-orcs-int-four-investment-ii", true);
+    stampendvar("Discipline: ", game.globalstat.orcstat.orcdiscipline, "stamp-orcs-disci-four-investment-ii", true);
+    stampendvar("Sapience: ", game.globalstat.orcstat.orcsapience, "stamp-orcs-sap-four-investment-ii", true);
+    stampendvar("Magic: ", game.globalstat.orcstat.orcmagic, "stamp-orcs-mag-four-investment-ii", true);
+    stampendvar("Attractiveness: ", game.globalstat.orcstat.orcattrativeness, "stamp-orcs-att-four-investment-ii", true);
+
+    stampartialvalue("HQ Military: ", game.palacestat.military, "stamp-hq-military-four-investment-ii");
+    stampartialvalue("HQ Magic:", game.palacestat.magic, "stamp-hq-magic-four-investment-ii");
+    stampartialvalue("HQ Hospitality: ", game.palacestat.hospitality, "stamp-hq-hospitality-four-investment-ii");
+
+    stampendvar("Shining Swords: ", game.globalstat.shiningword, "stamp-shining-sword-four-investment-ii", true);
+    stampendvar("ProN Available: ", game.globalstat.pron, "stamp-pron-four-investment-ii", true);
+    stampendvar("Army Size: ", game.globalstat.armystat.size, "stamp-army-four-investment-ii", true);
+    stampendvar("Army Quality: ", game.globalstat.armystat.quality, "stamp-quality-four-investment-ii", true);
+    stampendvar("Trin Copies: ", game.globalstat.trincopies.numbers, "stamp-trincopies-four-investment-ii", true);
+    stampendvar("Trin Max: ", game.globalstat.trincopies.trinmax, "stamp-trinmax-four-investment-ii", true);
+    stampendvar("Yhilin Acceptance: ", game.globalstat.yhilinacc, "stamp-yhilin-acc-four-investment-ii", true);
+    stampendvar("Arclent Acceptance: ", game.globalstat.arclentacc, "stamp-arclent-acc-four-investment-ii", true);
+    stampendvar("Palace Staff: ", game.globalstat.palacestaff.numbers, "stamp-palace-staff-four-investment-ii", true);
+    stampendvar("Wynn: Simon Anger: ", game.globalstat.wynnangry, "stamp-wynn-angry-four-investment-ii", game.peoplerp.wynn.stamp);
+
+    stampartialrp("Yarra RP: ", game.peoplerp.yarra, "stamp-yarra-rp-four-investment-ii");
+    stampartialrp("Qum RP: ", game.peoplerp.qum, "stamp-qum-rp-four-investment-ii");
+    stampartialrp("Aka RP: ", game.peoplerp.aka, "stamp-aka-rp-four-investment-ii");
+    stampartialrp("Robin RP: ", game.peoplerp.robin, "stamp-robin-rp-four-investment-ii");
+    stampartialrp("Megail RP: ", game.peoplerp.megail, "stamp-megail-rp-four-investment-ii");
+    stampartialrp("Carina RP: ", game.peoplerp.carina, "stamp-carina-rp-four-investment-ii");
+    stampartialrp("Hilstara RP: ", game.peoplerp.hilstara, "stamp-hilstara-rp-four-investment-ii");
+    stampartialrp("Trin RP: ", game.peoplerp.trin, "stamp-trin-rp-four-investment-ii");
+    stampartialrp("Janine RP: ", game.peoplerp.janine, "stamp-janine-rp-four-investment-ii");
+    stampartialrp("Sarai RP: ", game.peoplerp.sarai, "stamp-sarai-rp-four-investment-ii");
+    stampartialrp("Altina RP: ", game.peoplerp.altina, "stamp-altina-rp-four-investment-ii");
+    stampartialrp("Varia RP: ", game.peoplerp.varia, "stamp-varia-rp-four-investment-ii");
+    stampartialrp("Mestan RP: ", game.peoplerp.mestan, "stamp-mestan-rp-four-investment-ii");
+    stampartialrp("Esthera RP: ", game.peoplerp.esthera, "stamp-esthera-rp-four-investment-ii");
+    stampartialrp("Nalili RP: ", game.peoplerp.nalili, "stamp-nalili-rp-four-investment-ii");
+    stampartialrp("Balia RP: ", game.peoplerp.balia, "stamp-balia-rp-four-investment-ii");
+    stampartialrp("Vhala RP: ", game.peoplerp.vhala, "stamp-vhala-rp-four-investment-ii");
+    stampartialrp("Dari RP: ", game.peoplerp.dari, "stamp-dari-rp-four-investment-ii");
+    stampartialrp("Ginasta RP: ", game.peoplerp.ginasta, "stamp-ginasta-rp-four-investment-ii");
+    stampartialrp("Lynine RP: ", game.peoplerp.lynine, "stamp-lynine-rp-four-investment-ii");
+    stampartialrp("Orilise RP: ", game.peoplerp.orilise, "stamp-orilise-rp-four-investment-ii");
+    stampartialrp("Wynn RP: ", game.peoplerp.wynn, "stamp-wynn-rp-four-investment-ii");
+    stampartialrp("Uyae RP: ", game.peoplerp.uyae, "stamp-uyae-rp-four-investment-ii");
+    stampartialrp("Neranda RP: ", game.peoplerp.neranda, "stamp-neranda-rp-four-investment-ii");
+    stampartialrp("Elleani RP: ", game.peoplerp.elleani, "stamp-elleani-rp-four-investment-ii");
+    stampartialrp("Riala RP: ", game.peoplerp.riala, "stamp-riala-rp-four-investment-ii");
+    stampartialrp("Iris RP: ", game.peoplerp.iris, "stamp-iris-rp-four-investment-ii");
+
+    stampartialvalue("Yhilin Score: ", game.country.yhilin, "stamp-yhilin-four-investment-ii");
+    stampartialvalue("Ardoheim Score: ", game.country.ardoheim, "stamp-ardoheim-four-investment-ii");
+    stampartialvalue("Aram Score: ", game.country.aram, "stamp-aram-four-investment-ii");
+    stampartialvalue("Eustrin Score: ", game.country.eustrin, "stamp-eustrin-four-investment-ii");
+    stampartialvalue("Zirantia Score: ", game.country.zirantia, "stamp-zirantia-four-investment-ii");
+    stampartialvalue("Ghenalon Score: ", game.country.ghenalon, "stamp-ghenalon-four-investment-ii");
+    stampartialvalue("Darghelon Score: ", game.country.darghelon, "stamp-darghelon-four-investment-ii");
+    stampartialvalue("Gheldaron Score: ", game.country.gheldaron, "stamp-gheldaron-four-investment-ii");
+    stampartialvalue("Orgasmic Empire Score: ", game.country.orgasmicempire, "stamp-orgasmic-four-investment-ii");
+    stampartialvalue("Chalice States Score: ", game.country.chalicestates, "stamp-chalice-four-investment-ii");
+    stampartialvalue("New Givini Score: ", game.country.newgivini, "stamp-givini-four-investment-ii");
+    stampartialvalue("Tak'Kan Score: ", game.country.takkan, "stamp-takkan-four-investment-ii");
+
+    stampartialvalue("Economy Score: ", game.simonstat.economy, "stamp-economy-four-investment-ii");
+    stampartialvalue("Social Score: ", game.simonstat.social, "stamp-social-four-investment-ii");
+    stampartialvalue("Religion Score: ", game.simonstat.religion, "stamp-religion-four-investment-ii");
+
+    stampenditem(game.simonstat.keyitem.armor, "stamp-key-armor-four-investment-ii");
+    stampenditem(game.simonstat.keyitem.helm, "stamp-key-helm-four-investment-ii");
+    stampenditem(game.simonstat.keyitem.shield, "stamp-key-shield-four-investment-ii");
+
+    stampendvar("HP: +", game.simonstat.bonustat.hp, "stamp-stat-hp-four-investment-ii", true);
+    stampendvar("MP: +", game.simonstat.bonustat.mp, "stamp-stat-mp-four-investment-ii", true);
+    stampendvar("ATK: +", game.simonstat.bonustat.atk, "stamp-stat-atk-four-investment-ii", true);
+    stampendvar("DEF: +", game.simonstat.bonustat.def, "stamp-stat-def-four-investment-ii", true);
+    stampendvar("MAG: +", game.simonstat.bonustat.mag, "stamp-stat-mag-four-investment-ii", true);
+    stampendvar("MDF: +", game.simonstat.bonustat.mdf, "stamp-stat-mdf-four-investment-ii", true);
+    stampendvar("AGI: +", game.simonstat.bonustat.agi, "stamp-stat-agi-four-investment-ii", true);
+    stampendvar("LUK: +", game.simonstat.bonustat.luk, "stamp-stat-luk-four-investment-ii", true);
+    stampendlust(game.simonstat.bonustat.sp, "stamp-stat-sp-four-investment-ii", true);
+}
+
+function skipfourinvestmentii(game){
+
+    rpscriptstart(game.peoplerp);
+    scorescriptstart(game.simonstat);
+    countryscriptstart(game.country);
+    palacescriptstart(game.palacestat);
+
+    if(game.globalstat.yhilinacc >= 50){
+        game.plotchoice.yhilinfinal = true;
+    }
+
+    if(game.research.orcdiversification === Timeslot.AFTERWAR){
+        game.globalstat.orcstat.orcstrength = 12;
+        game.globalstat.orcstat.orcintelligence = 12;
+        game.globalstat.orcstat.orcdiscipline = 12;
+        game.country.takkan.value += 5;
+    }
+
+    if(game.research.dariritual !== Timeslot.NONE){
+        if(game.research.daricondition !== Timeslot.NONE){
+            game.plotchoice.dariheal = true;
+        } else {
+            game.research.daricondition = Timeslot.AFTERWAR;
+        }
+    }
+
+    if(game.research.basedefense === Timeslot.AFTERWAR){
+        game.palacestat.military.value += 5;
+        game.palacestat.magic.value += 10;
+    }
+
+    var profitotal = 0;
+
+    //Yhilini Arm Dealer
+    profitotal += 20000;
+
+    if(game.ledgerlist.ledgeryhilin.premiumsteeltwo !== Investmentround.NONE){
+        profitotal += 10000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.yhilinbanktwo !== Investmentround.NONE){
+        profitotal += 150000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.giftmegail !== Investmentround.NONE){
+        profitotal += 25000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.mineprocess !== Investmentround.NONE){
+        profitotal += 100000;
+    }
+
+    if(game.ledgerlist.ledgerstineford.magicshop !== Investmentround.NONE){
+        profitotal += 25000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.magictrade !== Investmentround.NONE){
+        profitotal += 65000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.yhilinsupplier !== Investmentround.NONE){
+        profitotal += 5000;
+    }
+
+    if(game.ledgerlist.ledgereustrin.aramitesupplier !== Investmentround.NONE){
+        profitotal += 5000;
+    }
+
+    if(game.ledgerlist.ledgereustrin.bountyoffice !== Investmentround.NONE){
+        profitotal += 5000;
+    }
+
+    if(game.ledgerlist.ledgereustrin.eustrinsupplier !== Investmentround.NONE){
+        profitotal += 5000;
+    }
+
+    if(game.ledgerlist.ledgereustrin.eustrinprocessor !== Investmentround.NONE){
+        profitotal += 20000;
+    }
+
+    if(game.ledgerlist.ledgereustrin.eustrinmanufacturer !== Investmentround.NONE){
+        profitotal += 25000;
+    }
+
+    if(game.ledgerlist.ledgerardford.ivalanbank !== Investmentround.NONE){
+        profitotal += 225000;
+    }
+
+    if(game.ledgerlist.ledgerardford.adranbank !== Investmentround.NONE){
+        profitotal += 300000;
+    }
+
+    if(game.ledgerlist.ledgerardford.ardfordsupplier !== Investmentround.NONE){
+        profitotal += 5000;
+    }
+
+    if(game.ledgerlist.ledgerardford.shitmage !== Investmentround.NONE){
+        profitotal += 5000;
+    }
+
+    if(game.ledgerlist.ledgerardford.ardfordresturant !== Investmentround.NONE){
+        profitotal += 10000;
+    }
+
+    if(game.ledgerlist.ledgerardford.crystalrefinery !== Investmentround.NONE){
+        profitotal += 55000;
+    }
+
+    if(game.ledgerlist.ledgerardford.flotilla !== Investmentround.NONE){
+        profitotal += 25000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.fightring !== Investmentround.NONE){
+        profitotal += 40000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.sexring !== Investmentround.NONE){
+        profitotal += 60000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.sexshop !== Investmentround.NONE){
+        profitotal += 75000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.mineshaft !== Investmentround.NONE){
+        profitotal += 130000;
+    }
+
+    if(game.ledgerlist.ledgergivini.givininetwork !== Investmentround.NONE){
+        profitotal += 100000;
+        game.country.newgivini.value += 1;
+    }
+
+    if(game.ledgerlist.ledgerchalice.chalicenetwork !== Investmentround.NONE){
+        profitotal += 100000;
+        game.country.chalicestates.value += 1;
+    }
+
+    if(game.ledgerlist.ledgertakkan.takkanetwork !== Investmentround.NONE){
+        profitotal += 100000;
+        game.country.takkan.value += 1;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.mercenaryoffice !== Investmentround.NONE){
+        profitotal += 15000;
+    }
+
+    if(game.ledgerlist.ledgerchalice.gasmshop !== Investmentround.NONE){
+        profitotal += 110000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.succubitrade !== Investmentround.NONE){
+        profitotal += 200000;
+    }
+
+    if(game.ledgerlist.ledgereustrin.eustringuild !== Investmentround.NONE){
+        profitotal += 250000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.minroute !== Investmentround.NONE){
+        profitotal += 185000;
+    }
+
+    if(game.ledgerlist.ledgerelven.theltiarflow !== Investmentround.NONE){
+        profitotal += 80000;
+    }
+
+    if(game.ledgerlist.ledgerelven.theltiarent !== Investmentround.NONE){
+        profitotal += 95000;
+    }
+
+    if(game.ledgerlist.ledgerelven.denmielarchive !== Investmentround.NONE){
+        profitotal += 20000;
+    }
+
+    if(game.ledgerlist.ledgerelven.denmielfarm !== Investmentround.NONE){
+        profitotal += 40000;
+    }
+
+    if(game.ledgerlist.ledgerchalice.llexpansion !== Investmentround.NONE){
+        profitotal += 50000;
+    }
+
+    if(game.ledgerlist.ledgerchalice.lovetour !== Investmentround.NONE){
+        profitotal += 2000;
+    }
+
+    if(game.ledgerlist.ledgerchalice.gasmaemorer !== Investmentround.NONE){
+        profitotal += 10000;
+    }
+
+    if(game.ledgerlist.ledgerchalice.potionmore !== Investmentround.NONE){
+        profitotal += 100;
+    }
+
+    if(game.ledgerlist.ledgertakkan.slumremodeled !== Investmentround.NONE){
+        profitotal += 50000;
+    }
+
+    if(game.ledgerlist.ledgertakkan.hallstrength !== Investmentround.NONE){
+        profitotal += 25000;
+    }
+
+    if(game.ledgerlist.ledgertakkan.boozeshack !== Investmentround.NONE){
+        profitotal += 50000;
+    }
+
+    if(game.ledgerlist.ledgertakkan.tradeimprovment !== Investmentround.NONE){
+        profitotal += 50000;
+    }
+
+    if(game.ledgerlist.ledgertakkan.ceekanshipping !== Investmentround.NONE){
+        profitotal += 200000;
+    }
+
+    if(game.ledgerlist.ledgertakkan.lonelysailor !== Investmentround.NONE){
+        profitotal += 100000;
+    }
+
+    var smasherguild = 0;
+    var smashermoney = 0;
+
+    if(game.plotchoice.tradersmasher === true){
+        smasherguild += 1;
+    }
+
+    if(game.ledgerlist.ledgertakkan.ceekanshipping !== Investmentround.NONE){
+        smasherguild += 1;
+    }
+
+    if(game.ledgerlist.ledgertakkan.lonelysailor !== Investmentround.NONE){
+        smasherguild += 1;
+    }
+
+    if(game.ledgerlist.ledgertakkan.orcdemocracy !== Investmentround.NONE){
+        smasherguild += 1;
+    }
+
+    if(game.ledgerlist.ledgertakkan.orcpools !== Investmentround.NONE){
+        smasherguild += 1;
+    }
+
+    if(game.ledgerlist.ledgergivini.orcmerchant !== Investmentround.NONE){
+        smasherguild += 1;
+    }
+
+    if(smasherguild >= 6){
+        smashermoney = 200000;
+    } else if(smasherguild >= 5){
+        smashermoney = 175000;
+    } else if(smasherguild >= 4){
+        smashermoney = 150000;
+    } else if(smasherguild >= 3){
+        smashermoney = 125000;
+    } else if(smasherguild >= 2){
+        smashermoney = 75000;
+    } else if(smasherguild >= 1){
+        smashermoney = 50000;
+    } else {
+        smashermoney = 10000;
+    }
+
+    if(game.ledgerlist.ledgertakkan.tradesmasherguild !== Investmentround.NONE){
+        profitotal += smashermoney;
+    }
+
+    if(game.ledgerlist.ledgerchalice.givinitunnel !== Investmentround.NONE){
+        profitotal += 300000;
+    }
+
+    if(game.ledgerlist.ledgergivini.givinismith !== Investmentround.NONE){
+        profitotal += 10000;
+    }
+
+    var giviniorc = 0;
+
+    if(game.country.newgivini.value >= 50){
+        giviniorc = 200000;
+    } else if(game.country.newgivini.value >= 40){
+        giviniorc = 150000;
+    } else if(game.country.newgivini.value >= 30){
+        giviniorc = 100000;
+    } else if(game.country.newgivini.value >= 20){
+        giviniorc = 50000;
+    } else {
+        giviniorc = 25000;
+    }
+
+    if(game.ledgerlist.ledgergivini.orcmerchant !== Investmentround.NONE){
+        profitotal += giviniorc;
+    }
+
+    if(game.ledgerlist.ledgergivini.givinibank !== Investmentround.NONE){
+        profitotal += 300000;
+    }
+
+    if(game.ledgerlist.ledgergivini.mageguild !== Investmentround.NONE){
+        profitotal += 40000;
+    }
+
+    if(game.ledgerlist.ledgergivini.teahouse !== Investmentround.NONE){
+        profitotal += 30000;
+    }
+
+    if(game.ledgerlist.ledgerstineford.tradepillars !== Investmentround.NONE){
+        profitotal += 100000;
+    }
+
+    if(game.ledgerlist.ledgerstineford.stinefordbank !== Investmentround.NONE){
+        profitotal += 240000;
+    }
+
+    if(game.ledgerlist.ledgerstineford.weaponshop !== Investmentround.NONE){
+        profitotal += 75000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.airshipone !== Investmentround.NONE){
+        profitotal += 100000;
+    }
+
+    var brothelmoney = 0;
+
+    if(game.plotchoice.yhilinfinal === true){
+        brothelmoney =  35000;
+    } else {
+        brothelmoney = 15000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.brothelsuccubi !== Investmentround.NONE){
+        profitotal += brothelmoney;
+    }
+
+    document.getElementById("skip-four-investment-ii-profit-result").textContent = "" + profitotal;
+    game.globalstat.pron += profitotal;
+
+    if(game.country.chalicestates.value >= 40){
+        game.peoplerp.iris.cap = 100;
+        if((game.peoplerp.iris.initial + game.peoplerp.iris.rp)>= 99){
+            game.peoplerp.iris.rp += 1;
+        }
+    }
+
+    if(game.palacestat.sexroom === false){
+        document.getElementById("skip-four-investment-ii-hq-yarra-room-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-hq-yarra-room-done").checked === true){
+            game.globalstat.pron -= 5000;
+            game.palacestat.hospitality.value += 5;
+            game.palacestat.sexroom = true;
+            game.peoplerp.yarra.rp += 5;
+            game.peoplerp.nalili.rp += 3;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-hq-yarra-room-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-hq-yarra-room-done").checked = false;
+    }
+
+    if(game.palacestat.orclab === false){
+        document.getElementById("skip-four-investment-ii-hq-balia-lab-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-hq-balia-lab-done").checked === true){
+            game.globalstat.pron -= 25000;
+            game.palacestat.military.value += 5;
+            game.palacestat.magic.value += 2;
+            game.palacestat.hospitality.value += 1;
+            game.palacestat.orclab = true;
+            game.peoplerp.balia.rp += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-hq-balia-lab-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-hq-balia-lab-done").checked = false;
+    }
+
+    if(game.palacestat.orcpost === false){
+        document.getElementById("skip-four-investment-ii-hq-orc-post-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-hq-orc-post-done").checked === true){
+            game.globalstat.pron -= 5000;
+            game.palacestat.military.value += 3;
+            game.palacestat.orcpost = true;
+            game.peoplerp.balia.rp += 2;
+            if(game.globalstat.orcstat.orcdiscipline < 10){
+                game.palacestat.hospitality.value -= 1;
+            }
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-hq-orc-post-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-hq-orc-post-done").checked = false;
+    }
+
+    if(game.palacestat.armory === false){
+        document.getElementById("skip-four-investment-ii-hq-orcent-armory-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-hq-orcent-armory-done").checked === true){
+            game.globalstat.pron -= 10000;
+            game.palacestat.military.value += 5;
+            game.peoplerp.hilstara.rp += 2;
+            game.palacestat.armory = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-hq-orcent-armory-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-hq-orcent-armory-done").checked = false;
+    }
+
+    if(game.palacestat.supplies === false){
+        document.getElementById("skip-four-investment-ii-hq-lynine-supply-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-hq-lynine-supply-done").checked === true){
+            game.globalstat.pron -= 10000;
+            game.palacestat.military.value += 2;
+            game.palacestat.hospitality.value += 2;
+            game.peoplerp.lynine.rp += 2;
+            game.palacestat.supplies = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-hq-lynine-supply-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-hq-lynine-supply-done").checked = false;
+    }
+
+    if(game.palacestat.robinshiled === false){
+        document.getElementById("skip-four-investment-ii-hq-robin-shield-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-hq-robin-shield-done").checked === true){
+            game.globalstat.pron -= 100000;
+            game.palacestat.magic.value += 5;
+            game.palacestat.robinshiled = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-hq-robin-shield-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-hq-robin-shield-done").checked = false;
+    }
+
+    if(game.palacestat.rialafoundation === false){
+        document.getElementById("skip-four-investment-ii-hq-riala-shield-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-hq-riala-shield-done").checked === true){
+            game.globalstat.pron -= 225000;
+            game.palacestat.rialafoundation = true;
+            game.palacestat.military.value += 5;
+            game.palacestat.magic.value += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-hq-riala-shield-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-hq-riala-shield-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.ironcudgel !== Investmentround.NONE && game.palacestat.cudgel === false){
+        document.getElementById("skip-four-investment-ii-hq-cudgel-buidling-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-hq-cudgel-buidling-done").checked === true){
+            game.globalstat.pron -= 15000;
+            game.palacestat.military.value += 4;
+            game.palacestat.cudgel = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-hq-cudgel-buidling-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-hq-cudgel-buidling-done").checked = false;
+    }
+
+    if(game.palacestat.shrine === false){
+        document.getElementById("skip-four-investment-ii-hq-carina-shrine-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-hq-carina-shrine-done").checked === true){
+            game.globalstat.pron -= 5000;
+            game.palacestat.magic.value += 1;
+            game.palacestat.hospitality.value += 3;
+            game.peoplerp.carina.rp += 5;
+            game.palacestat.shrine = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-hq-carina-shrine-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-hq-carina-shrine-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerstineford.tradepillars === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-merchant-pillar-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-merchant-pillar-done").checked === true){
+            game.globalstat.pron -= 300000;
+            game.ledgerlist.ledgerstineford.tradepillars = Investmentround.AFTERSUCCESSION;
+            game.simonstat.economy.value += 2;
+            game.country.ardoheim.value += 2;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-merchant-pillar-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-merchant-pillar-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerstineford.stinefordbank === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-stineford-bank-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-stineford-bank-done").checked === true){
+            game.globalstat.pron -= 400000;
+            game.ledgerlist.ledgerstineford.stinefordbank = Investmentround.AFTERSUCCESSION;
+            game.simonstat.economy.value += 5;
+            game.country.ardoheim.value += 3;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-stineford-bank-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-stineford-bank-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerstineford.weaponshop === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-stineford-weapons-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-stineford-weapons-done").checked === true){
+            game.globalstat.pron -= 200000;
+            game.ledgerlist.ledgerstineford.weaponshop = Investmentround.AFTERSUCCESSION;
+            game.simonstat.economy.value += 2;
+            game.country.ardoheim.value += 2;
+            game.peoplerp.megail.rp += 3;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-stineford-weapons-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-stineford-weapons-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerstineford.magicshop === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-stineford-magic-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-stineford-magic-done").checked === true){
+            game.ledgerlist.ledgerstineford.magicshop = Investmentround.AFTERSUCCESSION;
+            game.globalstat.pron -= 25000;
+            game.peoplerp.megail.rp += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-stineford-magic-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-stineford-magic-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.airshipone !== Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-airship-military-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-airship-military-done").checked === true){
+            game.globalstat.pron -= 500000;
+            game.ledgerlist.ledgeryhilin.airshiptwo = Investmentround.AFTERSUCCESSION;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-airship-military-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-airship-military-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.airshipone === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-airship-fleet-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-airship-fleet-done").checked === true){
+            game.globalstat.pron -= 1000000;
+            game.ledgerlist.ledgeryhilin.airshipone = Investmentround.AFTERSUCCESSION;
+            game.simonstat.economy.value += 5;
+            game.globalstat.arclentacc += 2;
+            game.peoplerp.janine.rp += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-airship-fleet-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-airship-fleet-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.hallstrength === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-hall-mental-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-hall-mental-done").checked === true){
+            game.globalstat.pron -= 200000;
+            game.ledgerlist.ledgertakkan.hallstrength = Investmentround.AFTERSUCCESSION;
+            game.simonstat.social.value += 1;
+            game.country.takkan.value += 3;
+            game.peoplerp.balia.rp += 5;
+            game.peoplerp.orilise.rp += 3;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-hall-mental-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-hall-mental-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.boozeshack === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-booze-shack-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-booze-shack-done").checked === true){
+            game.globalstat.pron -= 150000;
+            game.ledgerlist.ledgertakkan.boozeshack = Investmentround.AFTERSUCCESSION;
+            game.simonstat.social.value += 1;
+            game.country.takkan.value += 2;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-booze-shack-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-booze-shack-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.tradesmasherguild === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-tradesmasher-guild-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-tradesmasher-guild-done").checked === true){
+            game.globalstat.pron -= 350000;
+            game.ledgerlist.ledgertakkan.tradesmasherguild = Investmentround.AFTERSUCCESSION;
+            game.simonstat.economy.value += 3;
+            game.country.takkan.value += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-tradesmasher-guild-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-tradesmasher-guild-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.lonelysailor === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-lonely-sailor-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-lonely-sailor-done").checked === true){
+            game.globalstat.pron -= 250000;
+            game.ledgerlist.ledgertakkan.lonelysailor = Investmentround.AFTERSUCCESSION;
+            game.simonstat.economy.value += 1;
+            game.simonstat.social.value += 1;
+            game.country.takkan.value += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-lonely-sailor-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-lonely-sailor-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.ceekanshipping === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-ceekan-shipping-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-ceekan-shipping-done").checked === true){
+            game.globalstat.pron -= 700000;
+            game.ledgerlist.ledgertakkan.ceekanshipping = Investmentround.AFTERSUCCESSION;
+            game.simonstat.economy.value += 2;
+            game.country.takkan.value += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-ceekan-shipping-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-ceekan-shipping-done").checked = false;
+    }
+
+    var orcost = 0;
+    if(game.ledgerlist.ledgergivini.givininetwork !== Investmentround.NONE){
+        if(game.country.newgivini.value < 20){
+            orcost = 100000;
+        } else if(game.country.newgivini.value < 25){
+            orcost = 200000;
+        } else if(game.country.newgivini.value < 35){
+            orcost = 300000;
+        } else if(game.country.newgivini.value < 45){
+            orcost = 400000;
+        } else {
+            orcost = 500000;
+        }
+    } else {
+        if(game.country.newgivini.value < 10){
+            orcost = 100000;
+        } else if(game.country.newgivini.value < 15){
+            orcost = 200000;
+        } else if(game.country.newgivini.value < 25){
+            orcost = 300000;
+        } else if(game.country.newgivini.value < 35){
+            orcost = 400000;
+        } else {
+            orcost = 500000;
+        }
+    }
+
+    if(game.ledgerlist.ledgergivini.orcmerchant === Investmentround.NONE){
+        if(game.country.newgivini.value >= 50){
+            document.getElementById("skip-four-investment-ii-givini-orc-open").style.visibility = "hidden";
+            document.getElementById("skip-four-investment-ii-givini-orc-open").style.display = "";
+            document.getElementById("skip-four-investment-ii-givini-orc-done").checked = false;
+        } else {
+            document.getElementById("skip-four-investment-ii-givini-orc-open").style.visibility = "";
+            document.getElementById("skip-four-investment-ii-givini-orc-open").style.display = "";
+            document.getElementById("skip-four-investment-ii-givini-orc-money").textContent = "" + orcost;
+            if (document.getElementById("skip-four-investment-ii-givini-orc-done").checked === true){
+                game.globalstat.pron -= orcost;
+                game.ledgerlist.ledgergivini.orcmerchant = Investmentround.AFTERSUCCESSION;
+                game.country.newgivini.value += 5;
+                game.peoplerp.elleani.rp += 3;
+            }
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-givini-orc-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-givini-orc-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgergivini.givinismith === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-givini-smith-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-givini-smith-done").checked === true){
+            game.globalstat.pron -= 200000;
+            game.ledgerlist.ledgergivini.givinismith = Investmentround.AFTERSUCCESSION;
+            game.country.newgivini.value += 2;
+            game.peoplerp.elleani.rp += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-givini-smith-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-givini-smith-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgergivini.teahouse === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-givini-tea-house-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-givini-tea-house-done").checked === true){
+            game.globalstat.pron -= 275000;
+            game.ledgerlist.ledgergivini.teahouse = Investmentround.AFTERSUCCESSION;
+            game.simonstat.economy.value += 1;
+            game.simonstat.social.value += 1;
+            game.country.newgivini.value += 2;
+            game.country.chalicestates.value += 1;
+            game.country.takkan.value += 1;
+            game.peoplerp.elleani.rp += 3;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-givini-tea-house-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-givini-tea-house-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgergivini.givinibank === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-givini-bank-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-givini-bank-done").checked === true){
+            game.globalstat.pron -= 350000;
+            game.ledgerlist.ledgergivini.givinibank = Investmentround.AFTERSUCCESSION;
+            game.simonstat.economy.value += 5;
+            game.country.newgivini.value += 5;
+            game.country.chalicestates.value += 2;
+            game.country.takkan.value += 2;
+            game.country.ardoheim.value += 2;
+            game.peoplerp.megail.rp += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-givini-bank-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-givini-bank-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgergivini.mageguild === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-givini-mage-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-givini-mage-done").checked === true){
+            game.globalstat.pron -= 1000000;
+            game.ledgerlist.ledgergivini.mageguild = Investmentround.AFTERSUCCESSION;
+            game.country.newgivini.value += 5;
+            game.peoplerp.wynn.rp += 5;
+            game.peoplerp.elleani.rp += 3;
+            game.peoplerp.robin.rp += 1;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-givini-mage-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-givini-mage-done").checked = false;
+    }
+
+    var succubusarmorer = 0;
+    if(game.opportunity.gasmarmor === true){
+        succubusarmorer = 100000;
+    } else {
+        succubusarmorer = 150000;
+    }
+    document.getElementById("skip-four-investment-ii-armor-succubus-money").textContent = "" + succubusarmorer;
+
+    if(game.ledgerlist.ledgerchalice.gasmaemorer === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-armor-succubus-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-armor-succubus-done").checked === true){
+            game.globalstat.pron -= succubusarmorer;
+            game.ledgerlist.ledgerchalice.gasmaemorer = Investmentround.AFTERSUCCESSION;
+            game.simonstat.economy.value += 1;
+            game.country.chalicestates.value += 2;
+            game.peoplerp.nalili.rp += 2;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-armor-succubus-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-armor-succubus-done").checked = false;
+    }
+
+    rpscriptlocker(game.peoplerp);
+
+    if(game.ledgerlist.ledgerchalice.potionmore === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-potion-more-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-potion-more-done").checked === true){
+            game.globalstat.pron -= 20000;
+            game.ledgerlist.ledgerchalice.potionmore = Investmentround.AFTERSUCCESSION;
+            game.peoplerp.aka.rp += 5;
+            game.peoplerp.megail.rp -= 2;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-potion-more-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-potion-more-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerchalice.givinitunnel === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-givini-tunnel-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-givini-tunnel-done").checked === true){
+            game.globalstat.pron -= 1500000;
+            game.ledgerlist.ledgerchalice.givinitunnel = Investmentround.AFTERSUCCESSION;
+            game.simonstat.economy.value += 5;
+            game.country.chalicestates.value += 3;
+            game.country.newgivini.value += 3;
+            game.country.takkan.value += 3;
+            game.peoplerp.elleani.rp += 5;
+            game.peoplerp.megail.rp += 5;
+            game.peoplerp.yarra.rp += 2;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-givini-tunnel-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-givini-tunnel-done").checked = false;
+    }
+
+    var mercenaryoffice = 0;
+    if(game.petitionhouse.infrasctuctureproject === true){
+        mercenaryoffice = 150000;
+    } else {
+        mercenaryoffice = 250000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.mercenaryoffice === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-mercenary-office-money").textContent = "" + mercenaryoffice;
+        document.getElementById("skip-four-investment-ii-mercenary-office-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-mercenary-office-done").checked === true){
+            game.globalstat.pron -= mercenaryoffice;
+            game.ledgerlist.ledgeryhilin.mercenaryoffice = Investmentround.AFTERSUCCESSION;
+            game.country.yhilin.value += 2;
+            game.simonstat.social.value += 2;
+            game.peoplerp.janine.rp += 5;
+            game.peoplerp.hilstara.rp += 2;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-mercenary-office-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-mercenary-office-done").checked = false;
+    }
+
+    var steel = 0;
+    if(game.ledgerlist.ledgeryhilin.premiumsteelone !== Investmentround.NONE){
+        steel = 75000;
+    } else {
+        steel = 100000;
+    }
+
+    document.getElementById("skip-four-investment-ii-premium-steel-money").textContent = "" + steel;
+
+    if(game.ledgerlist.ledgeryhilin.premiumsteeltwo === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-premium-steel-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-premium-steel-done").checked === true){
+            game.ledgerlist.ledgeryhilin.premiumsteeltwo = Investmentround.AFTERSUCCESSION;
+            game.globalstat.pron -= steel;
+            game.peoplerp.hilstara.rp += 2;
+            game.peoplerp.aka.rp += 2;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-premium-steel-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-premium-steel-done").checked = false;
+    }
+
+    var yhilinbank = 0;
+    if(game.ledgerlist.ledgeryhilin.yhilinbankone !== Investmentround.NONE){
+        yhilinbank = 450000;
+    } else {
+        yhilinbank = 500000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.yhilinbanktwo === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-yhilin-bank-money").textContent = "" + yhilinbank;
+        document.getElementById("skip-four-investment-ii-yhilin-bank-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-yhilin-bank-done").checked === true){
+            game.ledgerlist.ledgeryhilin.yhilinbanktwo = Investmentround.AFTERSUCCESSION;
+            game.globalstat.pron -= yhilinbank;
+            game.peoplerp.megail.rp += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-yhilin-bank-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-yhilin-bank-done").checked = false;
+    }
+
+    if(game.plotchoice.min === true && game.ledgerlist.ledgeryhilin.minroute === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-min-route-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-min-route-done").checked === true){
+            game.globalstat.pron -= 400000;
+            game.ledgerlist.ledgeryhilin.minroute = Investmentround.AFTERSUCCESSION;
+            game.simonstat.economy.value += 3;
+            game.country.ardoheim.value += 1;
+            game.country.darghelon.value += 1;
+            game.country.gheldaron.value += 1;
+            game.country.newgivini.value += 1;
+            game.country.chalicestates.value += 1;
+            game.peoplerp.megail.rp += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-min-route-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-min-route-done").checked = false;
+    }
+
+    var succubustrade = 0;
+    if(game.petitionhouse.infrasctuctureproject === true){
+        succubustrade = 400000;
+    } else {
+        succubustrade = 550000;
+    }
+
+    document.getElementById("skip-four-investment-ii-yhilin-trade-money").textContent = "" + succubustrade;
+
+    if(game.arclentwar.ikdmorale <= 60 && game.ledgerlist.ledgeryhilin.succubitrade === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-yhilin-trade-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-yhilin-trade-done").checked === true){
+            game.ledgerlist.ledgeryhilin.succubitrade = Investmentround.AFTERSUCCESSION;
+            game.globalstat.pron -= succubustrade;
+            game.country.chalicestates.value += 2;
+            game.simonstat.economy.value += 2;
+            game.peoplerp.iris.rp += 3;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-yhilin-trade-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-yhilin-trade-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.fightring === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-slum-ring-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-slum-ring-done").checked === true){
+            game.globalstat.pron -= 150000;
+            game.ledgerlist.ledgeryhilin.fightring = Investmentround.AFTERSUCCESSION;
+            game.peoplerp.janine.rp += 1;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-slum-ring-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-slum-ring-done").checked = false;
+    }
+
+    if(game.petitionhouse.nalilidea === false){
+        document.getElementById("skip-four-investment-ii-nalili-open").style.display = "";
+        if(game.ledgerlist.ledgeryhilin.fightring !== Investmentround.NONE){
+            document.getElementById("skip-four-investment-ii-nalili-open").style.visibility = "";
+            if(document.getElementById("skip-four-investment-ii-nalili-done").checked === true){
+                game.petitionhouse.nalilidea = true;
+                game.peoplerp.nalili.rp += 5;
+            }
+        } else {
+            document.getElementById("skip-four-investment-ii-nalili-open").style.visibility = "hidden";
+            document.getElementById("skip-four-investment-ii-nalili-done").checked = false;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-nalili-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-nalili-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.sexring === Investmentround.NONE){
+        if(game.ledgerlist.ledgeryhilin.fightring !== Investmentround.NONE && game.petitionhouse.nalilidea === true){
+            document.getElementById("skip-four-investment-ii-sex-ring-open").style.visibility = "";
+            document.getElementById("skip-four-investment-ii-sex-ring-open").style.display = "";
+            if (document.getElementById("skip-four-investment-ii-sex-ring-done").checked === true){
+                game.globalstat.pron -= 250000;
+                game.ledgerlist.ledgeryhilin.sexring = Investmentround.AFTERSUCCESSION;
+                game.peoplerp.janine.rp += 1;
+                game.peoplerp.nalili.rp += 10;
+            }
+        } else {
+            document.getElementById("skip-four-investment-ii-sex-ring-open").style.visibility = "hidden";
+            document.getElementById("skip-four-investment-ii-sex-ring-open").style.display = "";
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-sex-ring-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-sex-ring-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.sexshop === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-sex-shop-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-sex-shop-done").checked === true){
+            game.globalstat.pron -= 350000;
+            game.ledgerlist.ledgeryhilin.sexshop = Investmentround.AFTERWAR;
+            game.peoplerp.janine.rp += 2;
+            game.peoplerp.megail.rp += 2;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-sex-shop-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-sex-shop-done").checked = false;
+    }
+
+    if(game.opportunity.smithguild === true && game.ledgerlist.ledgereustrin.eustringuild === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-eustrin-guild-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-eustrin-guild-done").checked === true){
+            game.globalstat.pron -= 600000;
+            game.ledgerlist.ledgereustrin.eustringuild = Investmentround.AFTERSUCCESSION;
+            game.peoplerp.neranda.rp += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-eustrin-guild-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-eustrin-guild-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerelven.theltiarent === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-theltiar-rentals-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-theltiar-rentals-done").checked === true){
+            game.globalstat.pron -= 425000;
+            game.ledgerlist.ledgerelven.theltiarent = Investmentround.AFTERSUCCESSION;
+            game.simonstat.economy.value += 1;
+            game.simonstat.social.value += 1;
+            game.country.darghelon.value += 2;
+            game.peoplerp.lynine.rp += 2;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-theltiar-rentals-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-theltiar-rentals-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerelven.theltiarflow === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-theltiar-flowhouse-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-theltiar-flowhouse-done").checked === true){
+            game.globalstat.pron -= 250000;
+            game.ledgerlist.ledgerelven.theltiarflow = Investmentround.AFTERSUCCESSION;
+            game.simonstat.economy.value += 1;
+            game.country.darghelon.value += 3;
+            game.peoplerp.lynine.rp += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-theltiar-flowhouse-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-theltiar-flowhouse-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerelven.denmielfarm === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-denmiel-mushrooms-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-denmiel-mushrooms-done").checked === true){
+            game.globalstat.pron -= 105000;
+            game.ledgerlist.ledgerelven.denmielfarm = Investmentround.AFTERSUCCESSION;
+            game.simonstat.economy.value += 2;
+            game.country.gheldaron.value += 2;
+            game.peoplerp.orilise.rp += 2;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-denmiel-mushrooms-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-denmiel-mushrooms-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerelven.denmielarchive === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-denmiel-archives-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-denmiel-archives-done").checked === true){
+            game.globalstat.pron -= 250000;
+            game.ledgerlist.ledgerelven.denmielarchive = Investmentround.AFTERSUCCESSION;
+            game.simonstat.social.value += 1;
+            game.simonstat.religion.value += 1;
+            game.country.gheldaron.value += 5;
+            game.peoplerp.orilise.rp += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-denmiel-archives-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-denmiel-archives-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerchalice.gasmshop === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-gasm-shop-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-gasm-shop-done").checked === true){
+            game.globalstat.pron -= 275000;
+            game.ledgerlist.ledgerchalice.gasmshop = Investmentround.AFTERSUCCESSION;
+            game.simonstat.economy.value += 2;
+            game.country.chalicestates.value += 2;
+            game.peoplerp.iris.rp += 3;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-gasm-shop-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-gasm-shop-done").checked = false;
+    }
+
+    var towermoney = 0;
+    if(game.plotchoice.succubitowerdialogue === true){
+        towermoney = 800000;
+    } else {
+        towermoney = 1000000;
+    }
+
+    if(game.ledgerlist.ledgerstineford.succubustower === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-stineford-tower-money").textContent = "" + towermoney;
+        document.getElementById("skip-four-investment-ii-stineford-tower-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-stineford-tower-done").checked === true){
+            game.globalstat.pron -= towermoney;
+            game.ledgerlist.ledgerstineford.succubustower = Investmentround.AFTERSUCCESSION;
+            game.simonstat.social.value += 2;
+            game.country.ardoheim.value += 5;
+            game.globalstat.arclentacc += 1;
+            game.peoplerp.yarra.rp += 5;
+            game.peoplerp.qum.rp += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-stineford-tower-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-stineford-tower-done").checked = false;
+    }
+
+    var aramembassy = 0;
+    if(game.arclentwar.aramcd >= 30){
+        aramembassy = 150000;
+    } else if(game.arclentwar.aramcd >= 20){
+        aramembassy = 200000;
+    } else if(game.arclentwar.aramcd >= 15){
+        aramembassy = 250000;
+    } else if(game.arclentwar.aramcd >= 10){
+        aramembassy = 300000;
+    } else {
+        aramembassy = 400000;
+    }
+
+    if(game.ledgerlist.ledgereustrin.eustrinembassy !== Investmentround.NONE && game.ledgerlist.ledgereustrin.aramembassy === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-aram-embassy-money").textContent = "" + aramembassy;
+        document.getElementById("skip-four-investment-ii-aram-embassy-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-aram-embassy-done").checked === true){
+            game.globalstat.pron -= aramembassy;
+            game.ledgerlist.ledgereustrin.aramembassy = Investmentround.AFTERSUCCESSION;
+            game.country.eustrin.value += 2;
+            game.country.aram.value += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-aram-embassy-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-aram-embassy-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.impoffices === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-imp-offices-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-imp-offices-done").checked === true){
+            game.globalstat.pron -= 100000;
+            game.ledgerlist.ledgertakkan.impoffices = Investmentround.AFTERSUCCESSION;
+            game.simonstat.social.value += 1;
+            game.country.takkan.value += 1;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-imp-offices-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-imp-offices-done").checked = false;
+
+    }
+
+    if(game.ledgerlist.ledgertakkan.orcpools === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-orc-pools-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-orc-pools-done").checked === true){
+            game.globalstat.pron -= 500000;
+            game.ledgerlist.ledgertakkan.orcpools = Investmentround.AFTERSUCCESSION;
+            game.simonstat.social.value += 2;
+            game.country.takkan.value += 5;
+            game.peoplerp.balia.rp += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-orc-pools-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-orc-pools-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgergivini.warmonument === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-war-monument-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-war-monument-done").checked === true){
+            game.globalstat.pron -= 1000000;
+            game.ledgerlist.ledgergivini.warmonument = Investmentround.AFTERSUCCESSION;
+            game.simonstat.social.value += 3;
+            game.country.newgivini.value += 10;
+            game.country.chalicestates.value += 2;
+            game.country.takkan.value += 2;
+            game.country.ardoheim.value += 1;
+            game.country.yhilin.value += 1;
+            game.country.aram.value += 1;
+            game.country.eustrin.value += 1;
+            game.country.zirantia.value += 1;
+            game.country.darghelon.value += 1;
+            game.country.gheldaron.value += 1;
+            game.peoplerp.hilstara.rp += 5;
+            game.peoplerp.sarai.rp -= 2;
+            game.peoplerp.vhala.rp += 1;
+            game.peoplerp.elleani.rp += 2;
+            game.peoplerp.riala.rp += 2;
+            game.peoplerp.iris.rp += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-war-monument-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-war-monument-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerchalice.warehousedonation === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-chalice-supplies-one-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-chalice-supplies-one-done").checked === true){
+            game.globalstat.pron -= 100000;
+            game.ledgerlist.ledgerchalice.warehousedonation = Investmentround.AFTERSUCCESSION;
+            game.country.chalicestates.value += 2;
+        }
+
+        document.getElementById("skip-four-investment-ii-chalice-supplies-two-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-chalice-supplies-two-done").checked === true){
+            game.globalstat.pron -= 250000;
+            game.ledgerlist.ledgerchalice.warehousedonation = Investmentround.AFTERSUCCESSION;
+            game.country.chalicestates.value += 5;
+        }
+
+        document.getElementById("skip-four-investment-ii-chalice-supplies-three-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-chalice-supplies-three-done").checked === true){
+            game.globalstat.pron -= 500000;
+            game.ledgerlist.ledgerchalice.warehousedonation = Investmentround.AFTERSUCCESSION;
+            game.country.chalicestates.value += 10;
+        }
+
+        if(game.ledgerlist.ledgerchalice.warehousedonation !== Investmentround.NONE){
+            document.getElementById("skip-four-investment-ii-chalice-supplies-one-done").disabled = !(document.getElementById("skip-four-investment-ii-chalice-supplies-one-done").checked);
+            document.getElementById("skip-four-investment-ii-chalice-supplies-two-done").disabled = !(document.getElementById("skip-four-investment-ii-chalice-supplies-two-done").checked);
+            document.getElementById("skip-four-investment-ii-chalice-supplies-three-done").disabled = !(document.getElementById("skip-four-investment-ii-chalice-supplies-three-done").checked);
+            document.getElementById("skip-four-investment-ii-chalice-supplies-one-open").style.display = "";
+            document.getElementById("skip-four-investment-ii-chalice-supplies-two-open").style.display = "";
+            document.getElementById("skip-four-investment-ii-chalice-supplies-three-open").style.display = "";
+        } else {
+            document.getElementById("skip-four-investment-ii-chalice-supplies-one-done").disabled = false;
+            document.getElementById("skip-four-investment-ii-chalice-supplies-two-done").disabled = false;
+            document.getElementById("skip-four-investment-ii-chalice-supplies-three-done").disabled = false;
+        }
+
+    } else {
+        document.getElementById("skip-four-investment-ii-chalice-supplies-one-done").checked = false;
+        document.getElementById("skip-four-investment-ii-chalice-supplies-two-done").checked = false;
+        document.getElementById("skip-four-investment-ii-chalice-supplies-three-done").checked = false;
+        document.getElementById("skip-four-investment-ii-chalice-supplies-one-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-chalice-supplies-two-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-chalice-supplies-three-open").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerchalice.llstatues === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-lustlord-statue-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-lustlord-statue-done").checked === true){
+            game.globalstat.pron -= 50000;
+            game.ledgerlist.ledgerchalice.llstatues = Investmentround.AFTERSUCCESSION;
+            game.simonstat.religion.value += 2;
+            game.country.chalicestates.value += 2;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-lustlord-statue-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-lustlord-statue-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerchalice.gasmclean === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-gasm-cleanup-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-gasm-cleanup-done").checked === true){
+            game.globalstat.pron -= 250000;
+            game.ledgerlist.ledgerchalice.gasmclean = Investmentround.AFTERSUCCESSION;
+            game.simonstat.social.value += 1;
+            game.country.chalicestates.value += 5;
+            game.peoplerp.iris.rp += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-gasm-cleanup-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-gasm-cleanup-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerchalice.gasmorctunnel === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-orc-tunnel-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-orc-tunnel-done").checked === true){
+            game.globalstat.pron -= 200000;
+            game.ledgerlist.ledgerchalice.gasmorctunnel = Investmentround.AFTERSUCCESSION;
+            game.simonstat.social.value += 1;
+            game.country.chalicestates.value += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-orc-tunnel-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-orc-tunnel-done").checked = false;
+    }
+
+    if(game.petitionhouse.nationaltrade === false && game.plotchoice.yhilinfinal === false){
+        document.getElementById("skip-four-investment-ii-national-succubus-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-national-succubus-done").checked === true){
+            game.globalstat.pron -= 250000;
+            game.petitionhouse.nationaltrade = true;
+            game.globalstat.yhilinacc += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-national-succubus-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-national-succubus-done").checked = false;
+    }
+
+    if(game.petitionhouse.brothelsucc === false && game.plotchoice.yhilinfinal === false){
+        document.getElementById("skip-four-investment-ii-succubus-brothel-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-succubus-brothel-done").checked === true){
+            game.globalstat.pron -= 50000;
+            game.petitionhouse.brothelsucc = true;
+            game.globalstat.yhilinacc += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-succubus-brothel-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-succubus-brothel-done").checked = false;
+    }
+
+    if(game.petitionhouse.brothelsucc === true && game.ledgerlist.ledgeryhilin.brothelsuccubi === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-brothel-reform-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-brothel-reform-done").checked === true){
+            game.globalstat.pron -= 25000;
+            game.ledgerlist.ledgeryhilin.brothelsuccubi = Investmentround.AFTERSUCCESSION;
+            game.globalstat.yhilinacc += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-brothel-reform-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-brothel-reform-done").checked = false;
+    }
+
+    if(game.petitionhouse.elvenimprove === false && game.plotchoice.yhilinfinal === false){
+        document.getElementById("skip-four-investment-ii-elven-improvement-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-elven-improvement-done").checked === true){
+            game.globalstat.pron -= 500000;
+            game.petitionhouse.elvenimprove = true;
+            game.globalstat.yhilinacc += 10;
+            game.peoplerp.altina.rp += 2;
+            game.peoplerp.lynine.rp += 2;
+            game.peoplerp.orilise.rp += 2;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-elven-improvement-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-elven-improvement-done").checked = false;
+    }
+
+    if(game.petitionhouse.statuedone === false){
+        document.getElementById("skip-four-investment-ii-dk-statue-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-dk-statue-done").checked === true){
+            game.globalstat.pron -= 25000;
+            game.petitionhouse.statuedone = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-dk-statue-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-dk-statue-done").checked = false;
+    }
+
+    if(game.petitionhouse.magicstandard === false && game.plotchoice.yhilinfinal === false){
+        document.getElementById("skip-four-investment-ii-magic-standardization-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-magic-standardization-done").checked === true){
+            game.globalstat.pron -= 100000;
+            game.petitionhouse.magicstandard = true;
+            game.simonstat.social.value += 1;
+            game.country.yhilin.value += 2;
+            game.globalstat.yhilinacc += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-magic-standardization-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-magic-standardization-done").checked = false;
+    }
+
+    if(game.petitionhouse.shrinecovert === false && game.petitionhouse.aidconvert === false && game.plotchoice.yhilinfinal === false){
+        document.getElementById("skip-four-investment-ii-monastery-shrine-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-monastery-shrine-done").checked === true){
+            game.globalstat.pron -= 50000;
+            game.petitionhouse.shrinecovert = true;
+            game.simonstat.religion.value += 2;
+            game.country.yhilin.value += 1;
+            game.globalstat.yhilinacc += 10;
+            game.peoplerp.carina.rp += 5;
+            game.peoplerp.sarai.rp -= 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-monastery-shrine-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-monastery-shrine-done").checked = false;
+    }
+
+    if(game.petitionhouse.shrinecovert === false && game.petitionhouse.aidconvert === false && game.plotchoice.yhilinfinal === false){
+        document.getElementById("skip-four-investment-ii-monastery-aid-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-monastery-aid-done").checked === true){
+            game.globalstat.pron -= 25000;
+            game.petitionhouse.aidconvert = true;
+            game.simonstat.religion.value += 2;
+            game.country.yhilin.value += 1;
+            game.globalstat.yhilinacc += 2;
+            game.peoplerp.carina.rp += 2;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-monastery-aid-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-monastery-aid-done").checked = false;
+    }
+
+    if((game.petitionhouse.shrinecovert === true || game.petitionhouse.aidconvert === true) && (document.getElementById("skip-four-investment-ii-monastery-shrine-done").checked === true || document.getElementById("skip-four-investment-ii-monastery-aid-done").checked === true)){
+        document.getElementById("skip-four-investment-ii-monastery-shrine-done").disabled = !(document.getElementById("skip-four-investment-ii-monastery-shrine-done").checked);
+        document.getElementById("skip-four-investment-ii-monastery-aid-done").disabled = !(document.getElementById("skip-four-investment-ii-monastery-aid-done").checked);
+        document.getElementById("skip-four-investment-ii-monastery-shrine-open").style.display = "";
+        document.getElementById("skip-four-investment-ii-monastery-aid-open").style.display = "";
+    } else {
+        document.getElementById("skip-four-investment-ii-monastery-shrine-done").disabled = false;
+        document.getElementById("skip-four-investment-ii-monastery-aid-done").disabled = false;
+    }
+
+    if(game.petitionhouse.sexarcane === false && game.plotchoice.yhilinfinal === false){
+        document.getElementById("skip-four-investment-ii-arcane-sex-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-arcane-sex-done").checked === true){
+            game.globalstat.pron -= 200000;
+            game.petitionhouse.sexarcane = true;
+            game.globalstat.yhilinacc += 3;
+            game.peoplerp.janine.rp += 2;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-arcane-sex-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-arcane-sex-done").checked = false;
+    }
+
+    var buyacc = Math.ceil((50 - game.globalstat.yhilinacc)/5);
+    var buynumber = 0;
+    if(buyacc > 0){
+        document.getElementById("skip-four-investment-ii-acc-buy-open").style.display = "";
+        document.getElementById("skip-four-investment-ii-acc-buy-number").max = buyacc;
+        document.getElementById("skip-four-investment-ii-acc-buy-max").textContent = "" + buyacc;
+        buynumber = +document.getElementById("skip-four-investment-ii-acc-buy-number").value;
+        game.globalstat.yhilinacc += (buynumber * 5);
+        game.globalstat.pron -= (buynumber * 250000);
+    } else {
+        document.getElementById("skip-four-investment-ii-acc-buy-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-acc-buy-number").value = 0;
+    }
+
+    if(game.decoration.chalicebanner === false){
+        document.getElementById("skip-four-investment-ii-chalice-banner-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-chalice-banner-done").checked === true){
+            game.globalstat.pron -= 1500;
+            game.decoration.chalicebanner = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-chalice-banner-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-chalice-banner-done").checked = false;
+    }
+
+    if(game.decoration.chalicestatue === false){
+        document.getElementById("skip-four-investment-ii-chalice-statue-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-chalice-statue-done").checked === true){
+            game.globalstat.pron -= 2000;
+            game.palacestat.hospitality.value += 1;
+            game.decoration.chalicestatue = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-chalice-statue-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-chalice-statue-done").checked = false;
+    }
+
+    if(game.decoration.givinidragon === false){
+        document.getElementById("skip-four-investment-ii-givini-dragon-normal-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-givini-dragon-normal-done").checked === true){
+            game.globalstat.pron -= 2500;
+            game.decoration.givinidragon = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-givini-dragon-normal-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-givini-dragon-normal-done").checked = false;
+    }
+
+    if(game.decoration.givinideluxdragon === false){
+        document.getElementById("skip-four-investment-ii-givini-dragon-deluxe-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-givini-dragon-deluxe-done").checked === true){
+            game.globalstat.pron -= 5000;
+            game.decoration.givinideluxdragon = true;
+            game.palacestat.magic.value += 1;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-givini-dragon-deluxe-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-givini-dragon-deluxe-done").checked = false;
+    }
+
+    if(game.decoration.givinibanner === false){
+        document.getElementById("skip-four-investment-ii-givini-banner-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-givini-banner-done").checked === true){
+            game.globalstat.pron -= 1000;
+            game.decoration.givinibanner = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-givini-banner-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-givini-banner-done").checked = false;
+    }
+
+    if(game.decoration.givinidragon === true && game.decoration.givinideluxdragon === true && game.decoration.givinibanner === true && game.decoration.giviniall ===  false){
+        document.getElementById("skip-four-investment-ii-givini-decoration-all").style.visibility = "";
+        game.palacestat.hospitality.value += 1;
+        game.country.newgivini.value += 1;
+        game.decoration.giviniall = true;
+    } else {
+        document.getElementById("skip-four-investment-ii-givini-decoration-all").style.visibility = "hidden";
+    }
+
+    if(game.decoration.takkandrake === false){
+        document.getElementById("skip-four-investment-ii-takkan-black-drake-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-takkan-black-drake-done").checked === true){
+            game.globalstat.pron -= 1000;
+            game.decoration.takkandrake = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-takkan-black-drake-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-takkan-black-drake-done").checked = false;
+    }
+
+    if(game.decoration.takkangoldendrake === false){
+        document.getElementById("skip-four-investment-ii-takkan-golden-drake-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-takkan-golden-drake-done").checked === true){
+            game.globalstat.pron -= 5000;
+            game.decoration.takkangoldendrake = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-takkan-golden-drake-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-takkan-golden-drake-done").checked = false;
+    }
+
+    if(game.decoration.takkangargoyle === false){
+        document.getElementById("skip-four-investment-ii-takkan-gargoyle-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-takkan-gargoyle-done").checked === true){
+            game.globalstat.pron -= 2000;
+            game.decoration.takkangargoyle = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-takkan-gargoyle-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-takkan-gargoyle-done").checked = false;
+    }
+
+
+    if(game.decoration.takkandrake === true && game.decoration.takkangoldendrake === true && game.decoration.takkangargoyle === true && game.decoration.takkanall === false){
+        document.getElementById("skip-four-investment-ii-takkan-decoration-all").style.visibility = "";
+        game.decoration.takkanall = true;
+        game.simonstat.economy.value += 1;
+        game.country.takkan.value += 1;
+    } else {
+        document.getElementById("skip-four-investment-ii-takkan-decoration-all").style.visibility = "hidden";
+    }
+
+    if(game.plotchoice.yhilinfinal === true && game.decoration.magicstatue === false){
+        document.getElementById("skip-four-investment-ii-magic-statue-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-magic-statue-done").checked === true){
+            game.globalstat.pron -= 10000;
+            game.decoration.magicstatue = true;
+            game.simonstat.religion.value += 1;
+            game.globalstat.yhilinacc += 2;
+            game.peoplerp.sarai.rp += 2;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-magic-statue-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-magic-statue-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.slumremodeled === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-tarrankan-slum-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-tarrankan-slum-done").checked === true){
+            game.globalstat.pron -= 1000000;
+            game.ledgerlist.ledgertakkan.slumremodeled = Investmentround.AFTERSUCCESSION;
+            game.simonstat.economy.value += 1;
+            game.simonstat.social.value += 1;
+            game.country.takkan.value += 1;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-tarrankan-slum-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-tarrankan-slum-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.tradeimprovment === Investmentround.NONE){
+        if(game.ledgerlist.ledgertakkan.slumremodeled !== Investmentround.NONE){
+            document.getElementById("skip-four-investment-ii-tarrankan-trade-open").style.visibility = "";
+            document.getElementById("skip-four-investment-ii-tarrankan-trade-open").style.display = "";
+            if (document.getElementById("skip-four-investment-ii-tarrankan-trade-done").checked === true){
+                game.globalstat.pron -= 100000;
+                game.ledgerlist.ledgertakkan.tradeimprovment = Investmentround.AFTERSUCCESSION;
+                game.simonstat.economy.value += 2;
+                game.country.takkan.value += 2;
+            }
+        } else {
+            document.getElementById("skip-four-investment-ii-tarrankan-trade-open").style.visibility = "hidden";
+            document.getElementById("skip-four-investment-ii-tarrankan-trade-open").style.display = "";
+            document.getElementById("skip-four-investment-ii-tarrankan-trade-done").checked = false;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-tarrankan-trade-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-tarrankan-trade-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerchalice.lovetour === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-love-tour-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-love-tour-done").checked === true){
+            game.globalstat.pron -= 100000;
+            game.ledgerlist.ledgerchalice.lovetour = Investmentround.AFTERSUCCESSION;
+            game.globalstat.arclentacc += 5;
+            game.simonstat.social.value += 1;
+            game.country.chalicestates.value += 2;
+            game.country.newgivini.value += 2;
+            game.country.takkan.value += 2;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-love-tour-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-love-tour-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.orcdemocracy === Investmentround.NONE){
+        document.getElementById("skip-four-investment-ii-orc-democracy-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-orc-democracy-done").checked === true){
+            game.globalstat.pron -= 1000000;
+            game.ledgerlist.ledgertakkan.orcdemocracy = Investmentround.AFTERSUCCESSION;
+            game.simonstat.social.value += 5;
+            game.country.takkan.value += 10;
+            game.peoplerp.balia.rp += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-orc-democracy-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-orc-democracy-done").checked = false;
+    }
+
+    if(game.palacestat.well === false){
+        if(game.palacestat.military.value >= 6){
+            document.getElementById("skip-four-investment-ii-hq-iris-well-open").style.visibility = "";
+            document.getElementById("skip-four-investment-ii-hq-iris-well-open").style.display = "";
+            if (document.getElementById("skip-four-investment-ii-hq-iris-well-done").checked === true){
+                game.globalstat.pron -= 10000;
+                game.palacestat.well = true;
+                game.palacestat.military.value += 3;
+                game.palacestat.hospitality.value += 1;
+                game.peoplerp.iris.rp += 2;
+            }
+        } else {
+            document.getElementById("skip-four-investment-ii-hq-iris-well-open").style.visibility = "hidden";
+            document.getElementById("skip-four-investment-ii-hq-iris-well-open").style.display = "";
+            document.getElementById("skip-four-investment-ii-hq-iris-well-done").checked = false;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-hq-iris-well-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-hq-iris-well-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgerchalice.llexpansion === Investmentround.NONE){
+        if(game.ledgerlist.ledgerchalice.llstatues !== Investmentround.NONE){
+            document.getElementById("skip-four-investment-ii-lustlord-expansion-open").style.visibility = "";
+            document.getElementById("skip-four-investment-ii-lustlord-expansion-open").style.display = "";
+            if(document.getElementById("skip-four-investment-ii-lustlord-expansion-done").checked === true){
+                game.globalstat.pron -= 750000;
+                game.ledgerlist.ledgerchalice.llexpansion = Investmentround.AFTERSUCCESSION;
+                game.simonstat.religion.value += 5;
+                game.country.chalicestates.value += 5;
+                game.peoplerp.yarra.rp += 5;
+                game.peoplerp.carina.rp -= 2;
+                game.peoplerp.sarai.rp += 2;
+                game.peoplerp.nalili.rp += 5;
+                game.peoplerp.riala.rp += 2;
+                game.peoplerp.iris.rp += 5;
+            }
+        } else {
+            document.getElementById("skip-four-investment-ii-lustlord-expansion-open").style.visibility = "hidden";
+            document.getElementById("skip-four-investment-ii-lustlord-expansion-open").style.display = "";
+            document.getElementById("skip-four-investment-ii-lustlord-expansion-done").checked = false;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-lustlord-expansion-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-lustlord-expansion-done").checked = false;
+    }
+
+    if(game.plotchoice.yhilinfinal === true && game.palacestat.yhilinishield === false){
+        document.getElementById("skip-four-investment-ii-hq-yhilin-shield-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-hq-yhilin-shield-done").checked === true){
+            game.globalstat.pron -= 80000;
+            game.palacestat.yhilinishield = true;
+            game.palacestat.magic.value += 4;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-hq-yhilin-shield-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-hq-yhilin-shield-done").checked = false;
+    }
+
+    if(game.plotchoice.yhilinfinal === true && game.decoration.lamiastatue === false){
+        document.getElementById("skip-four-investment-ii-lamia-statue-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-lamia-statue-done").checked === true){
+            game.globalstat.pron -= 1000;
+            game.decoration.lamiastatue = true;
+            game.globalstat.yhilinacc += 2;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-lamia-statue-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-lamia-statue-done").checked = false;
+    }
+
+    if(game.plotchoice.yhilinfinal === true && game.decoration.bookstatue === false){
+        document.getElementById("skip-four-investment-ii-book-statue-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-book-statue-done").checked === true){
+            game.globalstat.pron -= 2000;
+            game.decoration.bookstatue = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-book-statue-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-book-statue-done").checked = false;
+    }
+
+    if(game.plotchoice.yhilinfinal === true && game.decoration.magicbed === false){
+        document.getElementById("skip-four-investment-ii-mage-bed-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-mage-bed-done").checked === true){
+            game.globalstat.pron -= 500;
+            game.decoration.magicbed = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-mage-bed-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-mage-bed-done").checked = false;
+    }
+
+    if(document.getElementById("skip-four-investment-ii-anak-sword-done").checked === true){
+        game.globalstat.shiningword += 1;
+    }
+
+    var reserchselect = false;
+    if(game.research.orcdiversification === Timeslot.NONE){
+        document.getElementById("skip-four-investment-ii-research-diversification-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-research-diversification-done").checked === true){
+            game.research.orcdiversification = Timeslot.AFTERSUCCESSION;
+            reserchselect = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-research-diversification-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-research-diversification-done").checked = false;
+    }
+
+    if(game.research.dariritual === Timeslot.NONE){
+        document.getElementById("skip-four-investment-ii-research-unpeople-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-research-unpeople-done").checked === true){
+            game.research.dariritual = Timeslot.AFTERSUCCESSION;
+            reserchselect = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-research-unpeople-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-research-unpeople-done").checked = false;
+    }
+
+    if(game.research.sexpurity === Timeslot.NONE){
+        document.getElementById("skip-four-investment-ii-research-purity-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-research-purity-done").checked === true){
+            game.research.sexpurity = Timeslot.AFTERSUCCESSION;
+            reserchselect = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-research-purity-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-research-purity-done").checked = false;
+    }
+
+    if(game.research.basedefense === Timeslot.NONE){
+        document.getElementById("skip-four-investment-ii-research-defence-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-research-defence-done").checked === true){
+            game.research.basedefense = Timeslot.AFTERSUCCESSION;
+            reserchselect = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-research-defence-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-research-defence-done").checked = false;
+    }
+
+    if(reserchselect === true){
+        document.getElementById("skip-four-investment-ii-research-diversification-done").disabled = !(document.getElementById("skip-four-investment-ii-research-diversification-done").checked);
+        document.getElementById("skip-four-investment-ii-research-unpeople-done").disabled = !(document.getElementById("skip-four-investment-ii-research-unpeople-done").checked);
+        document.getElementById("skip-four-investment-ii-research-purity-done").disabled = !(document.getElementById("skip-four-investment-ii-research-purity-done").checked);
+        document.getElementById("skip-four-investment-ii-research-defence-done").disabled = !(document.getElementById("skip-four-investment-ii-research-defence-done").checked);
+    } else {
+        document.getElementById("skip-four-investment-ii-research-diversification-done").disabled = false;
+        document.getElementById("skip-four-investment-ii-research-unpeople-done").disabled = false;
+        document.getElementById("skip-four-investment-ii-research-purity-done").disabled = false;
+        document.getElementById("skip-four-investment-ii-research-defence-done").disabled = false;
+    }
+
+    if(game.plotchoice.yhilinfinal === true && game.peoplerp.janine.cap !== 100){
+        document.getElementById("skip-four-investment-ii-yhilin-final-open").style.visibility = "";
+        if (document.getElementById("skip-four-investment-ii-yhilin-final-done").checked === true){
+            game.peoplerp.janine.cap = 100;
+            game.peoplerp.janine.rp += 10;
+
+            if(game.globalstat.trincopies.janineuncle === true){
+                game.globalstat.trincopies.numbers -= 1;
+                game.globalstat.trincopies.janineuncle = false;
+            }
+
+            if(game.globalstat.trincopies.negotiationsouthern === true){
+                game.globalstat.trincopies.numbers -= 1;
+                game.globalstat.trincopies.negotiationsouthern = false;
+            }
+
+            if(game.globalstat.trincopies.negotiationeastern === true){
+                game.globalstat.trincopies.numbers -= 1;
+                game.globalstat.trincopies.negotiationeastern = false;
+            }
+
+            if(game.globalstat.trincopies.negotiationyoung === true){
+                game.globalstat.trincopies.numbers -= 1;
+                game.globalstat.trincopies.negotiationyoung = false;
+            }
+
+            if(game.globalstat.trincopies.negotationold === true){
+                game.globalstat.trincopies.numbers -= 1;
+                game.globalstat.trincopies.negotationold = false;
+            }
+
+            if(game.globalstat.trincopies.negotiationjade === true){
+                game.globalstat.trincopies.numbers -= 1;
+                game.globalstat.trincopies.negotiationjade = false;
+            }
+
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-yhilin-final-open").style.visibility = "hidden";
+        document.getElementById("skip-four-investment-ii-yhilin-final-done").checked = false;
+    }
+
+    rpscriptlocker(game.peoplerp);
+
+    if(game.peoplerp.megail.lock === true){
+        game.peoplerp.megail.rp = 100 - game.peoplerp.megail.initial
+    }
+
+    if(game.peoplerp.aka.lock === true){
+        game.peoplerp.aka.rp = 100 - game.peoplerp.aka.initial
+    }
+
+    if(game.peoplerp.yarra.lock === true){
+        game.peoplerp.yarra.rp = 100 - game.peoplerp.yarra.initial
+    }
+
+    if(game.peoplerp.qum.lock === true){
+        game.peoplerp.qum.rp = 100 - game.peoplerp.qum.initial
+    }
+
+    if(game.peoplerp.iris.lock === true){
+        game.peoplerp.iris.rp = 100 - game.peoplerp.iris.initial
+    }
+
+    if(game.palacestat.megailxiris === false){
+        document.getElementById("skip-four-investment-ii-megail-iris-bed-open").style.display = "";
+        if((game.peoplerp.megail.initial + game.peoplerp.megail.rp) >= 100 && (game.peoplerp.iris.initial + game.peoplerp.iris.rp) >= 99){
+            document.getElementById("skip-four-investment-ii-megail-iris-bed-open").style.visibility = "";
+            if(document.getElementById("skip-four-investment-ii-megail-iris-bed-done").checked === true){
+                game.palacestat.megailxiris = true;
+            }
+        } else {
+            document.getElementById("skip-four-investment-ii-megail-iris-bed-open").style.visibility = "hidden";
+            document.getElementById("skip-four-investment-ii-megail-iris-bed-done").checked = false;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-megail-iris-bed-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-megail-iris-bed-done").checked = false;
+    }
+
+    if(game.palacestat.akaxyarra === false){
+        document.getElementById("skip-four-investment-ii-yarra-aka-bed-open").style.display = "";
+        if((game.peoplerp.yarra.initial + game.peoplerp.yarra.rp)>= 100 && (game.peoplerp.aka.initial + game.peoplerp.aka.rp)>= 100){
+            document.getElementById("skip-four-investment-ii-yarra-aka-bed-open").style.visibility = "";
+            if(document.getElementById("skip-four-investment-ii-yarra-aka-bed-done").checked === true){
+                game.palacestat.akaxyarra = true;
+            }
+        } else {
+            document.getElementById("skip-four-investment-ii-yarra-aka-bed-open").style.visibility = "hidden";
+            document.getElementById("skip-four-investment-ii-yarra-aka-bed-done").checked = false;
+        }
+    }  else {
+        document.getElementById("skip-four-investment-ii-yarra-aka-bed-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-yarra-aka-bed-done").checked = false;
+    }
+
+    if(game.palacestat.megailxqum === false){
+        document.getElementById("skip-four-investment-ii-megail-qum-bed-open").style.display = "";
+        if((game.peoplerp.megail.initial + game.peoplerp.megail.rp)>= 100 && (game.peoplerp.qum.initial + game.peoplerp.qum.rp)>= 100){
+            document.getElementById("skip-four-investment-ii-megail-qum-bed-open").style.visibility = "";
+            if(document.getElementById("skip-four-investment-ii-megail-qum-bed-done").checked === true){
+                game.palacestat.megailxqum = true;
+            }
+        } else {
+            document.getElementById("skip-four-investment-ii-megail-qum-bed-open").style.visibility = "hidden";
+            document.getElementById("skip-four-investment-ii-megail-qum-bed-done").checked = false;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-megail-qum-bed-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-megail-qum-bed-done").checked = false;
+    }
+
+    if(game.arclentwar.aramitefront >= 10){
+        document.getElementById("skip-four-investment-ii-hilstara-scene-type").textContent = "Simon Help Hilstara with a Cramp";
+    } else {
+        document.getElementById("skip-four-investment-ii-hilstara-scene-type").textContent = "Simon Give a Massage to Help Hilstara with Residual Pain";
+    }
+
+    if(document.getElementById("skip-four-investment-ii-hilstara-scene-done").checked === true){
+        game.peoplerp.hilstara.rp += 2;
+    }
+
+    if(document.getElementById("skip-four-investment-ii-vhala-scene").checked === true){
+        game.peoplerp.vhala.rp += 1;
+    }
+
+    if(game.research.robinproject !== Timeslot.NONE){
+        document.getElementById("skip-four-investment-ii-robin-scene-type").textContent = "Her Secondary State Used in the tower before Alonon Confrontation";
+        if(document.getElementById("skip-four-investment-ii-robin-scene-done").checked === true){
+            game.peoplerp.robin.rp += 1;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-robin-scene-type").textContent = "the Special Project She Want Pursue";
+    }
+
+    if(document.getElementById("skip-four-investment-ii-uyae-join").checked === true){
+        game.peoplerp.uyae.cap = 100;
+        game.peoplerp.uyae.rp += 5;
+    }
+
+    if(game.plotchoice.dariheal === true){
+        document.getElementById("skip-four-investment-ii-dari-ritual-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-dari-ritual-done").checked === true){
+            game.plotchoice.daricured = true;
+            game.peoplerp.dari.rp += 5;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-dari-ritual-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-dari-ritual-done").checked = false;
+    }
+
+    if(game.plotchoice.dariheal === true){
+        document.getElementById("skip-four-investment-ii-dari-join-open").style.display = "";
+        if(game.plotchoice.daricured === true && (game.peoplerp.dari.initial + game.peoplerp.dari.rp) >= 80){
+            document.getElementById("skip-four-investment-ii-dari-join-open").style.visibility = "";
+            if(document.getElementById("skip-four-investment-ii-dari-join-done").checked === true){
+                game.peoplerp.dari.cap = 100;
+                game.peoplerp.dari.rp += 5;
+            }
+        } else {
+            document.getElementById("skip-four-investment-ii-dari-join-open").style.visibility = "hidden";
+            document.getElementById("skip-four-investment-ii-dari-join-done").checked = false;
+        }
+
+    } else {
+        document.getElementById("skip-four-investment-ii-dari-join-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-dari-join-done").checked = false;
+    }
+
+    if(game.plotchoice.campresolution === false){
+        if(game.simonstat.social.value >= 40){
+            document.getElementById("skip-four-investment-ii-merchant-regulation-high-open").style.display = "";
+            document.getElementById("skip-four-investment-ii-merchant-regulation-low-open").style.display = "none";
+            document.getElementById("skip-four-investment-ii-merchant-regulation-low-done").value = "";
+            const regulation = document.getElementById("skip-four-investment-ii-merchant-regulation-high-done");
+            if(regulation.value === "yhilin"){
+                game.peoplerp.iris.rp += 2;
+                game.peoplerp.megail.rp += 2;
+                game.simonstat.economy.value += 1;
+                game.country.yhilin.value += 2;
+                game.country.ardoheim.value -= 1;
+                game.country.newgivini.value -= 1;
+                game.globalstat.yhilinacc += 5;
+                game.plotchoice.campresolution = true;
+            } else if(regulation.value === "ardoheim"){
+                game.peoplerp.iris.rp += 2;
+                game.peoplerp.megail.rp += 2;
+                game.simonstat.economy.value += 1;
+                game.country.yhilin.value -= 1;
+                game.country.ardoheim.value += 2;
+                game.country.newgivini.value -= 1;
+                game.plotchoice.campresolution = true;
+            } else if(regulation.value === "givini"){
+                game.peoplerp.iris.rp += 2;
+                game.peoplerp.megail.rp += 2;
+                game.simonstat.economy.value += 1;
+                game.country.yhilin.value -= 1;
+                game.country.ardoheim.value -= 1;
+                game.country.newgivini.value += 2;
+                game.plotchoice.campresolution = true;
+            } else if(regulation.value === "neutral"){
+                game.peoplerp.iris.rp += 2;
+                game.peoplerp.megail.rp += 2;
+                game.simonstat.economy.value += 1;
+                game.globalstat.arclentacc += 1;
+                game.country.yhilin.value += 1;
+                game.country.ardoheim.value += 1;
+                game.country.newgivini.value += 1;
+                game.plotchoice.campresolution = true;
+            }
+        } else{
+            document.getElementById("skip-four-investment-ii-merchant-regulation-high-open").style.display = "none";
+            document.getElementById("skip-four-investment-ii-merchant-regulation-low-open").style.display = "";
+            document.getElementById("skip-four-investment-ii-merchant-regulation-high-done").value = "";
+            const regulation = document.getElementById("skip-four-investment-ii-merchant-regulation-low-done");
+            if(regulation.value === "yhilin"){
+                game.peoplerp.iris.rp += 2;
+                game.peoplerp.megail.rp += 2;
+                game.simonstat.economy.value += 1;
+                game.country.yhilin.value += 2;
+                game.country.ardoheim.value -= 1;
+                game.country.newgivini.value -= 1;
+                game.plotchoice.campresolution = true;
+            } else if(regulation.value === "ardoheim"){
+                game.peoplerp.iris.rp += 2;
+                game.peoplerp.megail.rp += 2;
+                game.simonstat.economy.value += 1;
+                game.country.yhilin.value -= 1;
+                game.country.ardoheim.value += 2;
+                game.country.newgivini.value -= 1;
+                game.plotchoice.campresolution = true;
+            } else if(regulation.value === "givini"){
+                game.peoplerp.iris.rp += 2;
+                game.peoplerp.megail.rp += 2;
+                game.simonstat.economy.value += 1;
+                game.country.yhilin.value -= 1;
+                game.country.ardoheim.value -= 1;
+                game.country.newgivini.value += 2;
+                game.plotchoice.campresolution = true;
+            }
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-merchant-regulation-high-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-merchant-regulation-low-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-merchant-regulation-high-done").value = "";
+        document.getElementById("skip-four-investment-ii-merchant-regulation-low-done").value = "";
+    }
+
+
+
+    if(game.petitionhouse.statueseen === false){
+        document.getElementById("skip-four-investment-ii-statue-open").style.display = "";
+        if(game.petitionhouse.statuedone === true){
+            document.getElementById("skip-four-investment-ii-statue-open").style.visibility = "";
+            if(document.getElementById("skip-four-investment-ii-statue-done").checked === true){
+                game.petitionhouse.statueseen = true;
+                game.peoplerp.esthera.rp += 5;
+
+                if(game.plotchoice.altinastat === Altinastatus.COCKWHORE){
+                    game.peoplerp.altina.rp += 5;
+                }
+
+                if(game.plotchoice.variamind === Variamind.DOMINATED){
+                    game.peoplerp.varia.rp += 5;
+                }
+
+            }
+
+        } else {
+            document.getElementById("skip-four-investment-ii-statue-open").style.visibility = "hidden";
+            document.getElementById("skip-four-investment-ii-statue-done").checked = false;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-statue-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-statue-done").checked = false;
+    }
+
+    if(game.plotchoice.yhilinfinal === true && game.plotchoice.andrasee === false){
+        document.getElementById("skip-four-investment-ii-andra-mine-open").style.display = "";
+        if (document.getElementById("skip-four-investment-ii-andra-mine-done").checked === true){
+            game.peoplerp.sarai.rp += 5;
+            game.plotchoice.andrasee = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-andra-mine-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-andra-mine-done").checked = false;
+    }
+
+    if(game.plotchoice.wendismausoleum === false){
+        document.getElementById("skip-four-investment-ii-wynn-talk-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-wynn-talk-done").checked === true){
+            game.globalstat.wynnangry -= 5;
+            game.plotchoice.wendismausoleum = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-wynn-talk-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-wynn-talk-done").checked = false;
+    }
+
+    if(game.plotchoice.bertriciaquest === false){
+        document.getElementById("skip-four-investment-ii-bertricia-succubus-open").style.display = "";
+        if(game.plotchoice.bertriciaopen === true && game.country.chalicestates.value >= 40){
+            document.getElementById("skip-four-investment-ii-bertricia-succubus-open").style.visibility = "";
+            if(document.getElementById("skip-four-investment-ii-bertricia-succubus-done").checked === true){
+                game.plotchoice.bertriciaquest = true;
+                game.globalstat.arclentacc += 3;
+                game.simonstat.religion.value += 1;
+                game.country.darghelon.value += 1;
+                game.country.gheldaron.value += 1;
+                game.peoplerp.carina.rp += 5;
+                game.peoplerp.lynine.rp += 2;
+                game.peoplerp.altina.rp += 2;
+            }
+        } else {
+            document.getElementById("skip-four-investment-ii-bertricia-succubus-open").style.visibility = "hidden";
+            document.getElementById("skip-four-investment-ii-bertricia-succubus-done").checked = false;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-bertricia-succubus-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-bertricia-succubus-done").checked = false;
+    }
+
+    if(game.plotchoice.teahouseknow === false){
+        document.getElementById("skip-four-investment-ii-teahouse-succubi-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-teahouse-succubi-done").checked === true){
+            game.plotchoice.teahouseknow = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-teahouse-succubi-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-teahouse-succubi-done").checked = false;
+    }
+
+    if(game.plotchoice.teahouseconnection === false){
+        document.getElementById("skip-four-investment-ii-teahouse-connection-open").style.display = "";
+        if(game.plotchoice.teahouseknow === true && game.country.newgivini.value >= 25){
+            document.getElementById("skip-four-investment-ii-teahouse-connection-open").style.visibility = "";
+            if(document.getElementById("skip-four-investment-ii-teahouse-connection-done").checked === true){
+                game.plotchoice.teahouseconnection = true;
+                game.country.newgivini.value += 1;
+            }
+        } else {
+            document.getElementById("skip-four-investment-ii-teahouse-connection-open").style.visibility = "hidden";
+            document.getElementById("skip-four-investment-ii-teahouse-connection-done").checked = false;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-teahouse-connection-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-teahouse-connection-done").checked = false;
+    }
+
+    if(game.plotchoice.wynnjoin === false){
+        document.getElementById("skip-four-investment-ii-wynn-join-open").style.display = "";
+        if(game.globalstat.wynnangry <= 0){
+            if(game.plotchoice.wendismausoleum === true){
+                document.getElementById("skip-four-investment-ii-wynn-join-open").style.visibility = "";
+                if(document.getElementById("skip-four-investment-ii-wynn-join-done").checked === true){
+                    game.plotchoice.wynnjoin = true;
+                    game.peoplerp.wynn.rp += 5;
+                    game.peoplerp.wynn.cap = 100;
+                }
+            } else {
+                document.getElementById("skip-four-investment-ii-wynn-join-open").style.visibility = "hidden";
+                document.getElementById("skip-four-investment-ii-wynn-join-done").checked = false;
+                game.globalstat.wynnangry = 1;
+            }
+        } else {
+            document.getElementById("skip-four-investment-ii-wynn-join-open").style.visibility = "hidden";
+            document.getElementById("skip-four-investment-ii-wynn-join-done").checked = false;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-wynn-join-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-wynn-join-done").checked = false;
+    }
+
+    if(game.plotchoice.wynnjoin === true){
+        document.getElementById("skip-four-investment-ii-hq-wynn-shield-open").style.visibility = "";
+        document.getElementById("skip-four-investment-ii-hq-wynn-shield-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-hq-wynn-shield-done").checked === true){
+            game.globalstat.pron -= 100000;
+            game.palacestat.magic.value += 5;
+            game.palacestat.wynnshiled = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-hq-wynn-shield-open").style.visibility = "hidden";
+        document.getElementById("skip-four-investment-ii-hq-wynn-shield-open").style.display = "";
+        document.getElementById("skip-four-investment-ii-hq-wynn-shield-done").checked = false;
+    }
+
+    if(game.palacestat.talkbaliawynn === false){
+        document.getElementById("skip-four-investment-ii-wynn-balia-open").style.display = "";
+        if(game.plotchoice.wynnjoin === true && game.palacestat.orclab === true){
+            document.getElementById("skip-four-investment-ii-wynn-balia-open").style.visibility = "";
+            if(document.getElementById("skip-four-investment-ii-wynn-balia-done").checked === true){
+                game.palacestat.talkbaliawynn = true;
+                game.peoplerp.wynn.rp += 2;
+                game.peoplerp.balia.rp += 2;
+            }
+        } else {
+            document.getElementById("skip-four-investment-ii-wynn-balia-open").style.visibility = "hidden";
+            document.getElementById("skip-four-investment-ii-wynn-balia-done").checked = false;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-wynn-balia-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-wynn-balia-done").checked = false;
+    }
+
+    if(game.customitem.variasteel === false){
+        document.getElementById("skip-four-investment-ii-steel-varia-open").style.display = "";
+        if(document.getElementById("skip-four-investment-ii-steel-varia-done").checked === true){
+            game.peoplerp.varia.rp += 5;
+            game.customitem.variasteel = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-steel-varia-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-steel-varia-done").checked = false;
+    }
+
+    if(game.plotchoice.variamind === Variamind.RESHAPED && game.customitem.variabalde === false){
+        document.getElementById("skip-four-investment-ii-weapons-varia-open").style.display = "";
+        document.getElementById("skip-four-investment-ii-blade-varia-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-blade-varia-done").checked = false;
+        document.getElementById("skip-four-investment-ii-blade-varia-wynn-done").checked = false;
+        if(game.customitem.variasteel === true && game.ledgerlist.ledgergivini.givinismith !== Investmentround.NONE){
+            document.getElementById("skip-four-investment-ii-weapons-varia-open").style.visibility = "";
+            if(document.getElementById("skip-four-investment-ii-weapons-varia-done").checked === true){
+                game.peoplerp.varia.rp += 5;
+                game.customitem.variabalde = true;
+            }
+        } else {
+            document.getElementById("skip-four-investment-ii-weapons-varia-open").style.visibility = "hidden";
+            document.getElementById("skip-four-investment-ii-weapons-varia-done").checked = false;
+        }
+    } else if(game.plotchoice.variamind === Variamind.DOMINATED && game.customitem.variabalde === false){
+        document.getElementById("skip-four-investment-ii-weapons-varia-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-blade-varia-open").style.display = "";
+        document.getElementById("skip-four-investment-ii-weapons-varia-done").checked = false;
+        if(game.customitem.variasteel === true){
+            document.getElementById("skip-four-investment-ii-blade-varia-open").style.visibility = "";
+            if(document.getElementById("skip-four-investment-ii-blade-varia-done").checked === true){
+                game.peoplerp.varia.rp += 5;
+                game.customitem.variabalde = true;
+            }
+            if(document.getElementById("skip-four-investment-ii-blade-varia-wynn-done").checked === true){
+                game.peoplerp.wynn.rp += 5;
+            }
+        } else {
+            document.getElementById("skip-four-investment-ii-blade-varia-open").style.visibility = "hidden";
+            document.getElementById("skip-four-investment-ii-blade-varia-done").checked = false;
+            document.getElementById("skip-four-investment-ii-blade-varia-wynn-done").checked = false;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-weapons-varia-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-weapons-varia-done").checked = false;
+        document.getElementById("skip-four-investment-ii-blade-varia-open").style.display = "none";
+        document.getElementById("skip-four-investment-ii-blade-varia-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.fightring !== Investmentround.NONE && game.globalstat.orcentconvo.fightingbar === false){
+        document.getElementById("skip-four-investment-ii-orcent-warrior-open").style.visibility = "";
+        if(document.getElementById("skip-four-investment-ii-orcent-warrior-done").checked === true){
+            game.globalstat.orcentconvo.value += 1;
+            game.peoplerp.trin.rp += 2;
+            game.globalstat.orcentconvo.fightingbar = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-orcent-warrior-open").style.visibility = "hidden";
+        document.getElementById("skip-four-investment-ii-orcent-warrior-done").checked = false;
+    }
+
+    if(game.ledgerlist.ledgertakkan.boozeshack !== Investmentround.NONE && game.globalstat.orcentconvo.boozeshack === false){
+        document.getElementById("skip-four-investment-ii-orcent-shack-open").style.visibility = "";
+        if(document.getElementById("skip-four-investment-ii-orcent-shack-done").checked === true){
+            game.globalstat.orcentconvo.value += 1;
+            game.globalstat.orcentconvo.boozeshack = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-orcent-shack-open").style.visibility = "hidden";
+        document.getElementById("skip-four-investment-ii-orcent-shack-done").checked = false;
+    }
+
+    if(game.peoplerp.uyae.cap === 100){
+        document.getElementById("skip-four-investment-ii-orcent-zirantia-open").style.visibility = "";
+        if(document.getElementById("skip-four-investment-ii-orcent-zirantia-done").ckecked === true){
+            game.globalstat.orcentconvo.value += 1;
+            game.globalstat.orcentconvo.zirantiabar = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-orcent-zirantia-open").style.visibility = "hidden";
+        document.getElementById("skip-four-investment-ii-orcent-zirantia-done").ckecked = false;
+    }
+
+    if(game.country.newgivini.value >= 15){
+        document.getElementById("skip-four-investment-ii-orcent-teahouse-open").style.visibility = "";
+        if(document.getElementById("skip-four-investment-ii-orcent-teahouse-done").ckecked === true){
+            game.globalstat.orcentconvo.value += 1;
+            game.globalstat.orcentconvo.teahouse = true;
+        }
+    } else {
+        document.getElementById("skip-four-investment-ii-orcent-teahouse-open").style.visibility = "hidden";
+        document.getElementById("skip-four-investment-ii-orcent-teahouse-done").ckecked = false;
+    }
+
+    rpscriptlocker(game.peoplerp);
+
+    if(game.country.newgivini.value >= 15){
+        document.getElementById("skip-four-investment-ii-teahouse-succubi-open").style.visibility = "";
+    } else {
+        document.getElementById("skip-four-investment-ii-teahouse-succubi-open").style.visibility = "hidden";
+        document.getElementById("skip-four-investment-ii-teahouse-succubi-done").checked = false;
+    }
+
+    if(game.country.newgivini.value >= 25 && game.plotchoice.teahouseknow === true){
+        document.getElementById("skip-four-investment-ii-teahouse-connection-open").style.visibility = "";
+    } else {
+        document.getElementById("skip-four-investment-ii-teahouse-connection-open").style.visibility = "hidden";
+        document.getElementById("skip-four-investment-ii-teahouse-connection-done").checked = false;
+    }
+
+    if(game.country.newgivini.value >= 20){
+        document.getElementById("skip-four-investment-ii-givini-tea-house-open").style.visibility = "";
+    } else {
+        document.getElementById("skip-four-investment-ii-givini-tea-house-open").style.visibility = "hidden";
+        document.getElementById("skip-four-investment-ii-givini-tea-house-done").checked = false;
+    }
+
+    if(game.country.newgivini.value >= 25){
+        document.getElementById("skip-four-investment-ii-givini-mage-open").style.visibility = "";
+    } else {
+        document.getElementById("skip-four-investment-ii-givini-mage-open").style.visibility = "hidden";
+        document.getElementById("skip-four-investment-ii-givini-mage-done").checked = false;
+    }
+
+    if(game.country.takkan.value >= 10){
+        document.getElementById("skip-four-investment-ii-takkan-black-drake-open").style.visibility = "";
+    } else {
+        document.getElementById("skip-four-investment-ii-takkan-black-drake-open").style.visibility = "hidden";
+        document.getElementById("skip-four-investment-ii-takkan-black-drake-done").checked = false;
+    }
+
+    if(game.country.takkan.value >= 10){
+        document.getElementById("skip-four-investment-ii-takkan-gargoyle-open").style.visibility = "";
+    } else {
+        document.getElementById("skip-four-investment-ii-takkan-gargoyle-open").style.visibility = "hidden";
+        document.getElementById("skip-four-investment-ii-takkan-gargoyle-done").checked = false;
+    }
+
+    if(game.country.takkan.value >= 30){
+        document.getElementById("skip-four-investment-ii-takkan-golden-drake-open").style.visibility = "";
+    } else {
+        document.getElementById("skip-four-investment-ii-takkan-golden-drake-open").style.visibility = "hidden";
+        document.getElementById("skip-four-investment-ii-takkan-golden-drake-done").checked = false;
+    }
+
+    if(game.palacestat.magic.value >= 30){
+        game.palacestat.magicdefence = Magicdefence.STRONG;
+        document.getElementById("skip-four-investment-ii-magic-test").textContent = "Your defenses are... actually remarkably strong. Received an Eldritch Draught, Holy Draught, Huge Lust Draught, and a Sacred Revival Potion.";
+        document.getElementById("skip-four-investment-ii-magic-test").style.color = "#00FF00";
+    } else if(game.palacestat.magic.value >= 20){
+        game.palacestat.magicdefence = Magicdefence.STRONG;
+        document.getElementById("skip-four-investment-ii-magic-test").textContent = "Your defenses are actually rather strong. Received a Holy Draught and a Sacred Revival Potion.";
+        document.getElementById("skip-four-investment-ii-magic-test").style.color = "#00FF00";
+    } else if(game.palacestat.magic.value >= 15){
+        game.palacestat.magicdefence = Magicdefence.AVERAGE;
+        document.getElementById("skip-four-investment-ii-magic-test").textContent = "Your primary defenses are decent. Received a Huge Lust Draught.";
+        document.getElementById("skip-four-investment-ii-magic-test").style.color = "";
+    } else if(game.palacestat.magic.value >= 10){
+        game.palacestat.magicdefence = Magicdefence.AVERAGE;
+        document.getElementById("skip-four-investment-ii-magic-test").textContent = "Your primary defenses are less admirable.";
+        document.getElementById("skip-four-investment-ii-magic-test").style.color = "";
+    } else if(game.palacestat.magic.value >= 5){
+        game.palacestat.magicdefence = Magicdefence.WEAK;
+        document.getElementById("skip-four-investment-ii-magic-test").textContent = "your defenses are somewhat weak.";
+        document.getElementById("skip-four-investment-ii-magic-test").style.color = "#FF0000";
+    } else {
+        game.palacestat.magicdefence = Magicdefence.WEAK;
+        document.getElementById("skip-four-investment-ii-magic-test").textContent = "your defenses are pathetically weak.";
+        document.getElementById("skip-four-investment-ii-magic-test").style.color = "#FF0000";
+    }
+
+    if(game.globalstat.pron < 0){
+        document.getElementById("skip-four-investment-ii-pron-negative").style.visibility = "";
+        game.globalstat.pron = +document.getElementById("skip-four-investment-ii-pron-left").value;
+    } else {
+        document.getElementById("skip-four-investment-ii-pron-negative").style.visibility = "hidden";
+        document.getElementById("skip-four-investment-ii-pron-left").value = 0;
+    }
+
+    document.getElementById("skip-four-investment-ii-hq-military").textContent = "" + game.palacestat.military.value;
+    document.getElementById("skip-four-investment-ii-magic").textContent = "" + game.palacestat.magic.value;
+    document.getElementById("skip-four-investment-ii-hq-hospitality").textContent = "" + game.palacestat.hospitality.value;
+
+    stampendvar("Strength: ", game.globalstat.orcstat.orcstrength, "stamp-orcs-str-four-investment-ii", true);
+    stampendvar("Intelligence: ", game.globalstat.orcstat.orcintelligence, "stamp-orcs-int-four-investment-ii", true);
+    stampendvar("Discipline: ", game.globalstat.orcstat.orcdiscipline, "stamp-orcs-disci-four-investment-ii", true);
+    stampendvar("Sapience: ", game.globalstat.orcstat.orcsapience, "stamp-orcs-sap-four-investment-ii", true);
+    stampendvar("Magic: ", game.globalstat.orcstat.orcmagic, "stamp-orcs-mag-four-investment-ii", true);
+    stampendvar("Attractiveness: ", game.globalstat.orcstat.orcattrativeness, "stamp-orcs-att-four-investment-ii", true);
+
+    stampartialvalue("HQ Military: ", game.palacestat.military, "stamp-hq-military-four-investment-ii");
+    stampartialvalue("HQ Magic:", game.palacestat.magic, "stamp-hq-magic-four-investment-ii");
+    stampartialvalue("HQ Hospitality: ", game.palacestat.hospitality, "stamp-hq-hospitality-four-investment-ii");
+
+    stampendvar("Shining Swords: ", game.globalstat.shiningword, "stamp-shining-sword-four-investment-ii", true);
+    stampendvar("ProN Available: ", game.globalstat.pron, "stamp-pron-four-investment-ii", true);
+    stampendvar("Army Size: ", game.globalstat.armystat.size, "stamp-army-four-investment-ii", true);
+    stampendvar("Army Quality: ", game.globalstat.armystat.quality, "stamp-quality-four-investment-ii", true);
+    stampendvar("Trin Copies: ", game.globalstat.trincopies.numbers, "stamp-trincopies-four-investment-ii", true);
+    stampendvar("Trin Max: ", game.globalstat.trincopies.trinmax, "stamp-trinmax-four-investment-ii", true);
+    stampendvar("Yhilin Acceptance: ", game.globalstat.yhilinacc, "stamp-yhilin-acc-four-investment-ii", true);
+    stampendvar("Arclent Acceptance: ", game.globalstat.arclentacc, "stamp-arclent-acc-four-investment-ii", true);
+    stampendvar("Palace Staff: ", game.globalstat.palacestaff.numbers, "stamp-palace-staff-four-investment-ii", true);
+    stampendvar("Wynn: Simon Anger: ", game.globalstat.wynnangry, "stamp-wynn-angry-four-investment-ii", game.peoplerp.wynn.stamp);
+
+    stampartialrp("Yarra RP: ", game.peoplerp.yarra, "stamp-yarra-rp-four-investment-ii");
+    stampartialrp("Qum RP: ", game.peoplerp.qum, "stamp-qum-rp-four-investment-ii");
+    stampartialrp("Aka RP: ", game.peoplerp.aka, "stamp-aka-rp-four-investment-ii");
+    stampartialrp("Robin RP: ", game.peoplerp.robin, "stamp-robin-rp-four-investment-ii");
+    stampartialrp("Megail RP: ", game.peoplerp.megail, "stamp-megail-rp-four-investment-ii");
+    stampartialrp("Carina RP: ", game.peoplerp.carina, "stamp-carina-rp-four-investment-ii");
+    stampartialrp("Hilstara RP: ", game.peoplerp.hilstara, "stamp-hilstara-rp-four-investment-ii");
+    stampartialrp("Trin RP: ", game.peoplerp.trin, "stamp-trin-rp-four-investment-ii");
+    stampartialrp("Janine RP: ", game.peoplerp.janine, "stamp-janine-rp-four-investment-ii");
+    stampartialrp("Sarai RP: ", game.peoplerp.sarai, "stamp-sarai-rp-four-investment-ii");
+    stampartialrp("Altina RP: ", game.peoplerp.altina, "stamp-altina-rp-four-investment-ii");
+    stampartialrp("Varia RP: ", game.peoplerp.varia, "stamp-varia-rp-four-investment-ii");
+    stampartialrp("Mestan RP: ", game.peoplerp.mestan, "stamp-mestan-rp-four-investment-ii");
+    stampartialrp("Esthera RP: ", game.peoplerp.esthera, "stamp-esthera-rp-four-investment-ii");
+    stampartialrp("Nalili RP: ", game.peoplerp.nalili, "stamp-nalili-rp-four-investment-ii");
+    stampartialrp("Balia RP: ", game.peoplerp.balia, "stamp-balia-rp-four-investment-ii");
+    stampartialrp("Vhala RP: ", game.peoplerp.vhala, "stamp-vhala-rp-four-investment-ii");
+    stampartialrp("Dari RP: ", game.peoplerp.dari, "stamp-dari-rp-four-investment-ii");
+    stampartialrp("Ginasta RP: ", game.peoplerp.ginasta, "stamp-ginasta-rp-four-investment-ii");
+    stampartialrp("Lynine RP: ", game.peoplerp.lynine, "stamp-lynine-rp-four-investment-ii");
+    stampartialrp("Orilise RP: ", game.peoplerp.orilise, "stamp-orilise-rp-four-investment-ii");
+    stampartialrp("Wynn RP: ", game.peoplerp.wynn, "stamp-wynn-rp-four-investment-ii");
+    stampartialrp("Uyae RP: ", game.peoplerp.uyae, "stamp-uyae-rp-four-investment-ii");
+    stampartialrp("Neranda RP: ", game.peoplerp.neranda, "stamp-neranda-rp-four-investment-ii");
+    stampartialrp("Elleani RP: ", game.peoplerp.elleani, "stamp-elleani-rp-four-investment-ii");
+    stampartialrp("Riala RP: ", game.peoplerp.riala, "stamp-riala-rp-four-investment-ii");
+    stampartialrp("Iris RP: ", game.peoplerp.iris, "stamp-iris-rp-four-investment-ii");
+
+    stampartialvalue("Yhilin Score: ", game.country.yhilin, "stamp-yhilin-four-investment-ii");
+    stampartialvalue("Ardoheim Score: ", game.country.ardoheim, "stamp-ardoheim-four-investment-ii");
+    stampartialvalue("Aram Score: ", game.country.aram, "stamp-aram-four-investment-ii");
+    stampartialvalue("Eustrin Score: ", game.country.eustrin, "stamp-eustrin-four-investment-ii");
+    stampartialvalue("Zirantia Score: ", game.country.zirantia, "stamp-zirantia-four-investment-ii");
+    stampartialvalue("Ghenalon Score: ", game.country.ghenalon, "stamp-ghenalon-four-investment-ii");
+    stampartialvalue("Darghelon Score: ", game.country.darghelon, "stamp-darghelon-four-investment-ii");
+    stampartialvalue("Gheldaron Score: ", game.country.gheldaron, "stamp-gheldaron-four-investment-ii");
+    stampartialvalue("Orgasmic Empire Score: ", game.country.orgasmicempire, "stamp-orgasmic-four-investment-ii");
+    stampartialvalue("Chalice States Score: ", game.country.chalicestates, "stamp-chalice-four-investment-ii");
+    stampartialvalue("New Givini Score: ", game.country.newgivini, "stamp-givini-four-investment-ii");
+    stampartialvalue("Tak'Kan Score: ", game.country.takkan, "stamp-takkan-four-investment-ii");
+
+    stampartialvalue("Economy Score: ", game.simonstat.economy, "stamp-economy-four-investment-ii");
+    stampartialvalue("Social Score: ", game.simonstat.social, "stamp-social-four-investment-ii");
+    stampartialvalue("Religion Score: ", game.simonstat.religion, "stamp-religion-four-investment-ii");
+
+    stampenditem(game.simonstat.keyitem.armor, "stamp-key-armor-four-investment-ii");
+    stampenditem(game.simonstat.keyitem.helm, "stamp-key-helm-four-investment-ii");
+    stampenditem(game.simonstat.keyitem.shield, "stamp-key-shield-four-investment-ii");
+
+    stampendvar("HP: +", game.simonstat.bonustat.hp, "stamp-stat-hp-four-investment-ii", true);
+    stampendvar("MP: +", game.simonstat.bonustat.mp, "stamp-stat-mp-four-investment-ii", true);
+    stampendvar("ATK: +", game.simonstat.bonustat.atk, "stamp-stat-atk-four-investment-ii", true);
+    stampendvar("DEF: +", game.simonstat.bonustat.def, "stamp-stat-def-four-investment-ii", true);
+    stampendvar("MAG: +", game.simonstat.bonustat.mag, "stamp-stat-mag-four-investment-ii", true);
+    stampendvar("MDF: +", game.simonstat.bonustat.mdf, "stamp-stat-mdf-four-investment-ii", true);
+    stampendvar("AGI: +", game.simonstat.bonustat.agi, "stamp-stat-agi-four-investment-ii", true);
+    stampendvar("LUK: +", game.simonstat.bonustat.luk, "stamp-stat-luk-four-investment-ii", true);
+    stampendlust(game.simonstat.bonustat.sp, "stamp-stat-sp-four-investment-ii", true);
+}
+
+function erosiaprelude(game){
+
+    game.peoplerp.fheliel.initial = 40;
+    game.peoplerp.fheliel.cap = 101;
+
+    rpscriptstart(game.peoplerp);
+    scorescriptstart(game.simonstat);
+    countryscriptstart(game.country);
+    palacescriptstart(game.palacestat);
+
+    var confrontation = 0;
+    var captive = 0;
+
+    if(document.getElementById("erosia-prelude-riala-start").checked === true){
+        document.getElementById("erosia-prelude-pre-talk").style.visibility = "";
+        if(document.getElementById("erosia-prelude-carina-start").checked === true){
+            game.peoplerp.carina.rp += 1;
+        }
+        if(document.getElementById("erosia-prelude-qum-start").checked === true){
+            game.peoplerp.qum.rp += 1;
+        }
+        if(document.getElementById("erosia-prelude-yarra-start").checked === true){
+            game.peoplerp.yarra.rp += 1;
+        }
+        if(document.getElementById("erosia-prelude-esthera-start").checked === true){
+            game.peoplerp.esthera.rp += 3;
+        }
+    } else {
+        document.getElementById("erosia-prelude-pre-talk").style.visibility = "hidden";
+        document.getElementById("erosia-prelude-carina-start").checked = false;
+        document.getElementById("erosia-prelude-qum-start").checked = false;
+        document.getElementById("erosia-prelude-yarra-start").checked = false;
+        document.getElementById("erosia-prelude-esthera-start").checked = false;
+        document.getElementById("erosia-prelude-robin-start").checked = false;
+    }
+
+    if(document.getElementById("erosia-prelude-robin-start").checked){
+        document.getElementById("erosia-prelude-ramasta-open").style.visibility = "";
+    } else {
+        document.getElementById("erosia-prelude-ramasta-open").style.visibility = "hidden";
+        document.getElementById("erosia-prelude-guild-start").checked = false;
+    }
+
+    var copydone = false;
+    if(game.globalstat.trincopies.numbers < (game.globalstat.trincopies.trinmax - 1)){
+        document.getElementById("erosia-prelude-trin-copy-open").style.display = "";
+        document.getElementById("erosia-prelude-trin-priestess-open").style.display = "";
+        document.getElementById("erosia-prelude-trin-priestess-close").style.display = "none";
+        if(document.getElementById("erosia-prelude-trin-priestess-done").checked === true){
+            document.getElementById("erosia-prelude-trin-copy-open").style.visibility = "";
+            game.globalstat.trincopies.numbers += 2;
+            //game.globalstat.trincopies.greedy = true;
+            game.peoplerp.trin.rp += 5;
+            game.globalstat.aramtower += 1;
+            game.country.aram.value += 2;
+            game.simonstat.social.value += 1;
+            copydone = true;
+        } else {
+            document.getElementById("erosia-prelude-trin-copy-open").style.visibility = "hidden";
+        }
+    } else {
+        document.getElementById("erosia-prelude-trin-copy-open").style.display = "none";
+        document.getElementById("erosia-prelude-trin-priestess-open").style.display = "none";
+        document.getElementById("erosia-prelude-trin-priestess-close").style.display = "";
+        document.getElementById("erosia-prelude-trin-priestess-done").checked = false;
+    }
+
+    if(document.getElementById("erosia-prelude-ingredient-orilise-done").checked === true){
+        game.globalstat.arclentacc += 1;
+        game.peoplerp.lynine.rp += 5;
+        game.country.aram.value += 1;
+    }
+
+    const religioncopy = document.getElementById("erosia-prelude-trin-copy-religion");
+
+    if(document.getElementById("erosia-prelude-guild-start").checked === true){
+
+        if(game.globalstat.trincopies.jadearamite === true){
+            document.getElementById("erosia-prelude-jade-copy").style.display = "";
+            document.getElementById("erosia-prelude-jade-copy").style.visibility = "";
+            game.globalstat.aramtower += 1;
+        } else {
+            document.getElementById("erosia-prelude-jade-copy").style.display = "none";
+        }
+
+        if(game.ledgerlist.ledgereustrin.aramembassy !== Investmentround.NONE){
+            document.getElementById("erosia-prelude-aram-dwarren").style.display = "";
+            document.getElementById("erosia-prelude-aram-dwarren").style.visibility = "";
+            game.globalstat.aramtower += 1;
+        } else {
+            document.getElementById("erosia-prelude-aram-dwarren").style.display = "none";
+        }
+
+        document.getElementById("erosia-prelude-talk-open").style.visibility = "";
+
+    } else {
+
+        if(game.globalstat.trincopies.jadearamite === true){
+            document.getElementById("erosia-prelude-jade-copy").style.display = "";
+            document.getElementById("erosia-prelude-jade-copy").style.visibility = "hidden";
+            game.globalstat.aramtower += 1;
+        } else {
+            document.getElementById("erosia-prelude-jade-copy").style.display = "none";
+        }
+
+        if(game.ledgerlist.ledgereustrin.aramembassy !== Investmentround.NONE){
+            document.getElementById("erosia-prelude-aram-dwarren").style.display = "";
+            document.getElementById("erosia-prelude-aram-dwarren").style.visibility = "hidden";
+            game.globalstat.aramtower += 1;
+        } else {
+            document.getElementById("erosia-prelude-aram-dwarren").style.display = "none";
+
+            document.getElementById("erosia-prelude-talk-open").style.visibility = "hidden";
+            document.getElementById("erosia-prelude-unpeople-talk").checked = false;
+            document.getElementById("erosia-prelude-church-talk").checked = false;
+        }
+    }
+
+    if(document.getElementById("erosia-prelude-unpeople-talk").checked === true){
+        if(game.summitresult.unpmotion === false){
+            game.globalstat.aramtower += 1;
+        }
+    }
+
+    if(copydone === true && religioncopy.value === "before"){
+        game.simonstat.religion.value += 2;
+    }
+
+    if(document.getElementById("erosia-prelude-church-talk").checked === true){
+        if(game.simonstat.religion.value >= 20){
+            game.globalstat.aramtower += 1;
+        }
+    }
+
+    if(copydone === true && religioncopy.value === "after"){
+        game.simonstat.religion.value += 2;
+    }
+
+    if(game.suitor.farnancontrol >= 5){
+        document.getElementById("erosia-prelude-farnan-servant-open").style.display = "";
+        if(document.getElementById("erosia-prelude-farnan-servant-done").checked === true){
+            game.globalstat.aramtower += 1;
+        }
+    } else {
+        document.getElementById("erosia-prelude-farnan-servant-open").style.display = "none";
+        document.getElementById("erosia-prelude-farnan-servant-done").checked = false;
+    }
+
+    var ramastaend = false;
+    if(document.getElementById("erosia-prelude-church-talk").checked === true && document.getElementById("erosia-prelude-unpeople-talk").checked === true){
+        document.getElementById("erosia-prelude-ramasta-end-open").style.visibility = "";
+
+        if(document.getElementById("erosia-prelude-ramasta-end-done").checked === true){
+
+            ramastaend = true;
+            if(game.country.aram.value >= 10){
+                document.getElementById("erosia-prelude-aram-score").style.visibility = "";
+                game.globalstat.aramtower += 1;
+            } else {
+                document.getElementById("erosia-prelude-aram-score").style.visibility = "hidden";
+            }
+
+            if(game.globalstat.aramtower >= 6){
+                document.getElementById("erosia-prelude-ramasta-end-report").textContent = "You did far better than I expected influencing people";
+                document.getElementById("erosia-prelude-ramasta-end-report").style.color = "#00FF00";
+                confrontation += 1;
+                game.peoplerp.carina.rp += 2;
+                game.peoplerp.orilise.rp += 2;
+                game.peoplerp.altina.rp += 2;
+                game.peoplerp.vhala.rp += 1;
+
+            } else if(game.globalstat.aramtower >= 4){
+                document.getElementById("erosia-prelude-ramasta-end-report").textContent = "You did better than I expected influencing people";
+                document.getElementById("erosia-prelude-ramasta-end-report").style.color = "#00FF00";
+                game.peoplerp.carina.rp += 2;
+                game.peoplerp.orilise.rp += 2;
+                game.peoplerp.altina.rp += 2;
+                game.peoplerp.vhala.rp += 1;
+            } else if(game.globalstat.aramtower >= 2){
+                document.getElementById("erosia-prelude-ramasta-end-report").textContent = "We have some legitimacy, but not much.";
+                document.getElementById("erosia-prelude-ramasta-end-report").style.color = "";
+            } else {
+                document.getElementById("erosia-prelude-ramasta-end-report").textContent = "This is barely legitimate.";
+                document.getElementById("erosia-prelude-ramasta-end-report").style.color = "#FF0000";
+            }
+        } else {
+            document.getElementById("erosia-prelude-ramasta-end-report").textContent = "";
+            document.getElementById("erosia-prelude-ramasta-end-report").style.color = "";
+        }
+    } else {
+        document.getElementById("erosia-prelude-ramasta-end-open").style.visibility = "hidden";
+        document.getElementById("erosia-prelude-aram-score").style.visibility = "hidden";
+        document.getElementById("erosia-prelude-ramasta-end-done").checked = false;
+    }
+
+    if(ramastaend === true){
+        document.getElementById("erosia-prelude-order-open").style.visibility = "";
+        if(game.plotchoice.newtrial.final === true){
+            document.getElementById("erosia-prelude-order-trial").style.display = "";
+            game.globalstat.yhilintower += 1;
+        } else {
+            document.getElementById("erosia-prelude-order-trial").style.display = "none";
+        }
+    } else {
+        document.getElementById("erosia-prelude-order-open").style.visibility = "hidden";
+        document.getElementById("erosia-prelude-talk-sarai").checked = false;
+        document.getElementById("erosia-prelude-talk-vera").checked = false;
+        document.getElementById("erosia-prelude-yhilin-final-done").checked = false;
+        document.getElementById("erosia-prelude-flame-interact").checked = false;
+    }
+
+    if(document.getElementById("erosia-prelude-talk-sarai").checked === true){
+        if((game.peoplerp.sarai.initial + game.peoplerp.sarai.rp) >= 70){
+            game.globalstat.yhilintower += 1;
+        }
+    }
+
+    if(document.getElementById("erosia-prelude-talk-vera").checked === true){
+        if(game.plotchoice.secondritual === true){
+            game.globalstat.yhilintower += 1;
+        }
+    }
+
+    if(game.plotchoice.yhilinfinal === true){
+        document.getElementById("erosia-prelude-yhilin-final-open").style.display = "";
+        if(document.getElementById("erosia-prelude-yhilin-final-done").checked === true){
+            game.globalstat.yhilintower += 2;
+        }
+    } else {
+        document.getElementById("erosia-prelude-yhilin-final-open").style.display = "none";
+        document.getElementById("erosia-prelude-yhilin-final-done").checked = false;
+    }
+
+    var orderend = false;
+    if(document.getElementById("erosia-prelude-flame-interact").checked === true){
+        orderend = true;
+        if(game.globalstat.yhilintower >= 5){
+            document.getElementById("erosia-prelude-flame-report").textContent = "We've formed an excellent foundation for our work here in Yhilin.";
+            document.getElementById("erosia-prelude-flame-report").style.color = "#00FF00";
+            confrontation += 1;
+            game.peoplerp.aka.rp += 2;
+            game.peoplerp.qum.rp += 2;
+            game.peoplerp.robin.rp += 1;
+            game.peoplerp.megail.rp += 2;
+            game.peoplerp.janine.rp += 2;
+            game.peoplerp.sarai.rp += 2;
+        } else if(game.globalstat.yhilintower >= 3){
+            document.getElementById("erosia-prelude-flame-report").textContent = "We've formed a solid foundation for our work here in Yhilin.";
+            document.getElementById("erosia-prelude-flame-report").style.color = "";
+        } else {
+            document.getElementById("erosia-prelude-flame-report").textContent = "I had hoped we would be able to support our work more thoroughly";
+            document.getElementById("erosia-prelude-flame-report").style.color = "#FF0000";
+        }
+    } else {
+        document.getElementById("erosia-prelude-flame-report").textContent = "";
+        document.getElementById("erosia-prelude-flame-report").style.color = "";
+    }
+
+    var yhilintower = false;
+    if(orderend === true){
+        document.getElementById("erosia-prelude-yhilin-tower-start").style.visibility = "";
+        yhilintower = document.getElementById("erosia-prelude-yhilin-ritual").checked;
+        if(document.getElementById("erosia-prelude-yhilin-chaos").checked === true){
+            game.globalstat.yhilintower += 1;
+            game.globalstat.abyssal += 1;
+        }
+        if(document.getElementById("erosia-prelude-yhilin-monster").checked === true){
+            game.globalstat.yhilintower += 1;
+        }
+    } else {
+        document.getElementById("erosia-prelude-yhilin-tower-start").style.visibility = "hidden";
+        document.getElementById("erosia-prelude-yhilin-chaos").checked = false;
+        document.getElementById("erosia-prelude-yhilin-monster").checked = false;
+        document.getElementById("erosia-prelude-yhilin-ritual").checked = false;
+    }
+
+    if(yhilintower === true){
+        document.getElementById("erosia-prelude-hall-order-open").style.visibility = "";
+    } else {
+        document.getElementById("erosia-prelude-hall-order-open").style.visibility = "hidden";
+        document.getElementById("erosia-prelude-takkan-elleani").checked = false;
+        document.getElementById("erosia-prelude-takkan-impaler-done").checked = false;
+        document.getElementById("erosia-prelude-takkan-orgont-done").checked = false;
+        document.getElementById("erosia-prelude-takkan-imp-done").checked = false;
+        document.getElementById("erosia-prelude-takkan-sho").checked = false;
+        document.getElementById("erosia-prelude-takkan-vote-start").checked = false;
+    }
+
+    var impalervote = false;
+    if(game.globalstat.orcstat.impaleralive === true){
+        document.getElementById("erosia-prelude-takkan-impaler-open").style.display = "";
+        document.getElementById("erosia-prelude-takkan-impaler-vote").style.display = "";
+        impalervote = document.getElementById("erosia-prelude-takkan-impaler-done").checked;
+    } else {
+        document.getElementById("erosia-prelude-takkan-impaler-open").style.display = "none";
+        document.getElementById("erosia-prelude-takkan-impaler-vote").style.display = "none";
+        document.getElementById("erosia-prelude-takkan-impaler-done").checked = false;
+    }
+
+    var orgontvote = false;
+    if(game.ledgerlist.ledgertakkan.hallstrength !== Investmentround.NONE){
+        document.getElementById("erosia-prelude-takkan-orgont-open").style.display = "";
+        document.getElementById("erosia-prelude-takkan-orgont-vote").style.display = "";
+        orgontvote = document.getElementById("erosia-prelude-takkan-orgont-done").checked;
+    } else {
+        document.getElementById("erosia-prelude-takkan-orgont-open").style.display = "none";
+        document.getElementById("erosia-prelude-takkan-orgont-vote").style.display = "none";
+        document.getElementById("erosia-prelude-takkan-orgont-done").checked = false;
+    }
+
+    var impvote = false;
+    if(game.ledgerlist.ledgertakkan.impoffices !== Investmentround.NONE){
+        document.getElementById("erosia-prelude-takkan-imp-open").style.display = "";
+        impvote = document.getElementById("erosia-prelude-takkan-imp-done").checked;
+    } else {
+        document.getElementById("erosia-prelude-takkan-imp-open").style.display = "none";
+        document.getElementById("erosia-prelude-takkan-imp-done").checked = false;
+    }
+
+    var shotalk = document.getElementById("erosia-prelude-takkan-sho").checked;
+    var votedone = false;
+
+    var yes = 3;
+    var nay = 2;
+    if(document.getElementById("erosia-prelude-takkan-vote-start").checked === true){
+        document.getElementById("erosia-prelude-takkan-vote-open").style.visibility = "";
+        votedone = true;
+        var mark = 0;
+        if(game.ledgerlist.ledgertakkan.orcpools !== Investmentround.NONE){
+            mark += 1;
+        }
+        if(game.ledgerlist.ledgertakkan.slumremodeled !== Investmentround.NONE){
+            mark += 1;
+        }
+        if(mark >= 2){
+            if(document.getElementById("erosia-prelude-takkan-elleani").checked === true){
+                yes += 3;
+                document.getElementById("erosia-prelude-tarrankan-yes").textContent = "3";
+                document.getElementById("erosia-prelude-tarrankan-nay").textContent = "0";
+                document.getElementById("erosia-prelude-tarrankan-detail").textContent = "Tarran'Kan Slum Remodeled and Orc Pools Investments Done and Gained Elleani Support";
+            } else {
+                yes += 2;
+                nay += 1;
+                document.getElementById("erosia-prelude-tarrankan-yes").textContent = "2";
+                document.getElementById("erosia-prelude-tarrankan-nay").textContent = "1";
+                document.getElementById("erosia-prelude-tarrankan-detail").textContent = "Tarran'Kan Slum Remodeled and Orc Pools Investment Done and without Elleani Support";
+            }
+        } else if(mark >= 1){
+            if(document.getElementById("erosia-prelude-takkan-elleani").checked === true){
+                yes += 2;
+                document.getElementById("erosia-prelude-tarrankan-yes").textContent = "2";
+                document.getElementById("erosia-prelude-tarrankan-nay").textContent = "0";
+                if(game.ledgerlist.ledgertakkan.orcpools !== Investmentround.NONE){
+                    document.getElementById("erosia-prelude-tarrankan-detail").textContent = "Orc Pools Investment Done and Gained Elleani Support";
+                }
+                if(game.ledgerlist.ledgertakkan.slumremodeled !== Investmentround.NONE){
+                    document.getElementById("erosia-prelude-tarrankan-detail").textContent = "Tarran'Kan Slum Remodeled Investment Done and Gained Elleani Support";
+                }
+            } else {
+                yes += 1;
+                nay += 1;
+                document.getElementById("erosia-prelude-tarrankan-yes").textContent = "1";
+                document.getElementById("erosia-prelude-tarrankan-nay").textContent = "1";
+                if(game.ledgerlist.ledgertakkan.orcpools !== Investmentround.NONE){
+                    document.getElementById("erosia-prelude-tarrankan-detail").textContent = "Orc Pools Investment Done and without Elleani Support";
+                }
+                if(game.ledgerlist.ledgertakkan.slumremodeled !== Investmentround.NONE){
+                    document.getElementById("erosia-prelude-tarrankan-detail").textContent = "Tarran'Kan Slum Remodeled Investment Done and without Elleani Support";
+                }
+            }
+        } else {
+            if(document.getElementById("erosia-prelude-takkan-elleani").checked === true){
+                yes += 1;
+                document.getElementById("erosia-prelude-tarrankan-yes").textContent = "1";
+                document.getElementById("erosia-prelude-tarrankan-nay").textContent = "0";
+                document.getElementById("erosia-prelude-tarrankan-detail").textContent = "Gained Elleani Support";
+            } else {
+                nay += 1;
+                document.getElementById("erosia-prelude-tarrankan-yes").textContent = "0";
+                document.getElementById("erosia-prelude-tarrankan-nay").textContent = "1";
+                document.getElementById("erosia-prelude-tarrankan-detail").textContent = "Without Elleani Support";
+            }
+        }
+
+        if(game.country.takkan.value >= 40){
+            yes += 4;
+            document.getElementById("erosia-prelude-cee-yes").textContent = "4";
+            document.getElementById("erosia-prelude-cee-nay").textContent = "0";
+            document.getElementById("erosia-prelude-cee-detail").textContent = "Tak'Kan Country Score 40+ (" + game.country.takkan.value + ")";
+        } else if(game.country.takkan.value >= 30){
+            yes += 3;
+            nay += 1;
+            document.getElementById("erosia-prelude-cee-yes").textContent = "3";
+            document.getElementById("erosia-prelude-cee-nay").textContent = "1";
+            document.getElementById("erosia-prelude-cee-detail").textContent = "Tak'Kan Country Score Between 30 and 39 (" + game.country.takkan.value + ")";
+        } else if(game.country.takkan.value >= 20){
+            yes += 2;
+            nay += 2;
+            document.getElementById("erosia-prelude-cee-yes").textContent = "2";
+            document.getElementById("erosia-prelude-cee-nay").textContent = "2";
+            document.getElementById("erosia-prelude-cee-detail").textContent = "Tak'Kan Country Score Between 20 and 29 (" + game.country.takkan.value + ")";
+        } else if(game.country.takkan.value >= 10){
+            yes += 1;
+            nay += 3;
+            document.getElementById("erosia-prelude-cee-yes").textContent = "1";
+            document.getElementById("erosia-prelude-cee-nay").textContent = "3";
+            document.getElementById("erosia-prelude-cee-detail").textContent = "Tak'Kan Country Score Between 10 and 19 (" + game.country.takkan.value + ")";
+        } else {
+            nay += 4;
+            document.getElementById("erosia-prelude-cee-yes").textContent = "0";
+            document.getElementById("erosia-prelude-cee-nay").textContent = "4";
+            document.getElementById("erosia-prelude-cee-detail").textContent = "Tak'Kan Country Score 9- (" + game.country.takkan.value + ")";
+        }
+
+        if(game.ledgerlist.ledgertakkan.orcdemocracy !== Investmentround.NONE){
+            document.getElementById("erosia-prelude-takkan-democracy-open").style.display = "";
+            yes += 2;
+        } else {
+            document.getElementById("erosia-prelude-takkan-democracy-open").style.display = "none";
+        }
+
+        if(orgontvote === true) {
+            document.getElementById("erosia-prelude-takkan-orgont-vote").style.visibility = "";
+            yes += 1
+        } else {
+            document.getElementById("erosia-prelude-takkan-orgont-vote").style.visibility = "hidden";
+        }
+
+        if(game.research.orcdiversification === Timeslot.AFTERWAR){
+            document.getElementById("erosia-prelude-research-vote").textContent = "Yes";
+            document.getElementById("erosia-prelude-research-detail").textContent = "Orc Diversification Research Done";
+            yes += 1;
+        } else {
+            document.getElementById("erosia-prelude-research-vote").textContent = "Nay";
+            document.getElementById("erosia-prelude-research-detail").textContent = "Orc Diversification Research Not Completed";
+            nay += 1;
+        }
+
+        if(game.globalstat.orcstat.impaleralive === true){
+            if(impalervote === true) {
+                document.getElementById("erosia-prelude-takkan-impaler-result").textContent = "The Impaler Vote For the Motion";
+                yes += 1
+            } else {
+                document.getElementById("erosia-prelude-takkan-impaler-result").textContent = "The Impaler Vote Against the Motion";
+                nay += 1;
+            }
+        }
+
+        if(impvote === true) {
+            document.getElementById("erosia-prelude-takkan-imp-vote").style.visibility = "";
+            yes += 1
+        } else {
+            document.getElementById("erosia-prelude-takkan-imp-vote").style.visibility = "hidden";
+        }
+
+        var total = yes + nay;
+        var result = (yes*100)/total | 0;
+
+        document.getElementById("erosia-prelude-vote-yes").textContent = "" + yes;
+        document.getElementById("erosia-prelude-vote-nay").textContent = "" + nay;
+        document.getElementById("erosia-prelude-vote-total").textContent = "" + total;
+
+        if(result >= 80){
+            game.globalstat.takkantower += 3;
+            game.peoplerp.yarra.rp += 3;
+            game.peoplerp.hilstara.rp += 3;
+            game.peoplerp.nalili.rp += 3;
+            game.peoplerp.balia.rp += 3;
+            game.peoplerp.elleani.rp += 5;
+            game.peoplerp.iris.rp += 5;
+            if(shotalk === true){
+                game.globalstat.palacestaff.shojoin = true;
+                document.getElementById("erosia-prelude-vote-result").textContent = "" + result + "% Vote For the Motion: Overwhelming Majority, Sho Join the Palace Staff and Gained the Formal Tarran Club";
+                document.getElementById("erosia-prelude-vote-result").style.color = "#00FF00";
+            } else {
+                document.getElementById("erosia-prelude-vote-result").textContent = "" + result + "% Vote For the Motion: Overwhelming Majority, Gained the Formal Tarran Club";
+                document.getElementById("erosia-prelude-vote-result").style.color = "#00FF00";
+            }
+        } else if(result >= 65){
+            game.globalstat.takkantower += 2;
+            game.peoplerp.yarra.rp += 2;
+            game.peoplerp.hilstara.rp += 2;
+            game.peoplerp.nalili.rp += 2;
+            game.peoplerp.balia.rp += 2;
+            game.peoplerp.elleani.rp += 2;
+            game.peoplerp.iris.rp += 2;
+            if(shotalk === true){
+                game.globalstat.palacestaff.shojoin = true;
+                document.getElementById("erosia-prelude-vote-result").textContent = "" + result + "% Vote For the Motion: Large Majority, Sho Join the Palace Staff";
+                document.getElementById("erosia-prelude-vote-result").style.color = "#00FF00";
+            } else {
+                document.getElementById("erosia-prelude-vote-result").textContent = "" + result + "% Vote For the Motion: Large Majority";
+                document.getElementById("erosia-prelude-vote-result").style.color = "#00FF00";
+            }
+        } else if(result > 50){
+            game.globalstat.takkantower += 1;
+            document.getElementById("erosia-prelude-vote-result").textContent = "" + result + "% Vote For the Motion: Barely Pass";
+            document.getElementById("erosia-prelude-vote-result").style.color = "";
+        } else {
+            game.country.takkan.value -= 5;
+            game.country.newgivini.value -= 1;
+            game.globalstat.arclentacc -= 2;
+            document.getElementById("erosia-prelude-vote-result").textContent = "" + result + "% Vote For the Motion: Rejected";
+            document.getElementById("erosia-prelude-vote-result").style.color = "#FF0000";
+        }
+
+        if(game.globalstat.trincopies.numbers < game.globalstat.trincopies.trinmax){
+            document.getElementById("erosia-prelude-trin-orc-open").style.display = "";
+            document.getElementById("erosia-prelude-trin-orc-close").style.display = "none";
+            if(document.getElementById("erosia-prelude-trin-orc-done").checked === true){
+                game.globalstat.trincopies.numbers += 1;
+                //game.globalstat.trincopies.obnoxiousorc = true;
+                game.peoplerp.trin.rp += 5;
+                game.peoplerp.balia.rp += 5;
+
+            }
+        } else {
+            document.getElementById("erosia-prelude-trin-orc-open").style.display = "none";
+            document.getElementById("erosia-prelude-trin-orc-close").style.display = "";
+            document.getElementById("erosia-prelude-trin-orc-done").checked = false;
+        }
+
+    } else {
+        document.getElementById("erosia-prelude-takkan-vote-open").style.visibility = "hidden";
+    }
+
+    var orbdone = false;
+    if(votedone === true){
+        document.getElementById("erosia-prelude-takkan-tower-open").style.visibility = "";
+        if(document.getElementById("erosia-prelude-takkan-tower-leech").checked === true){
+            game.globalstat.abyssal += 1;
+            game.globalstat.takkantower += 1;
+        }
+
+        if(document.getElementById("erosia-prelude-takkan-tower-monster").checked === true){
+            game.globalstat.takkantower += 1;
+        }
+
+        if(document.getElementById("erosia-prelude-takkan-tower-yarra").checked === true){
+            orbdone = true;
+        }
+
+    } else {
+        document.getElementById("erosia-prelude-takkan-tower-open").style.visibility = "hidden";
+        document.getElementById("erosia-prelude-takkan-tower-leech").checked = false;
+        document.getElementById("erosia-prelude-takkan-tower-monster").checked = false;
+        document.getElementById("erosia-prelude-takkan-tower-yarra").checked = false;
+    }
+
+    var ginastadone = false;
+    var ginastastay = false;
+    if(orbdone === true){
+        document.getElementById("erosia-prelude-zirantia-tower-open").style.visibility = "";
+        if(game.plotchoice.zirantiasupport === Zirantiasupport.NUP){
+            document.getElementById("erosia-prelude-zirantia-nup-support").style.display = "";
+            game.globalstat.zirantiatower += 1;
+        } else {
+            document.getElementById("erosia-prelude-zirantia-nup-support").style.display = "none";
+        }
+
+        if(game.plotchoice.wynnjoin === true){
+            document.getElementById("erosia-prelude-wynn-detail").textContent = "Zirantia Tower Score +1";
+            game.globalstat.zirantiatower += 1;
+        } else {
+            document.getElementById("erosia-prelude-wynn-detail").textContent = "Simon Angry -5";
+            game.globalstat.wynnangry -= 5;
+        }
+
+        if(document.getElementById("erosia-prelude-zirantia-tower-monster").checked === true){
+            game.globalstat.zirantiatower += 1;
+        }
+
+        if(document.getElementById("erosia-prelude-zirantia-tower-setup-done").checked === true){
+            if(game.globalstat.zirantiatower >= 3){
+                document.getElementById("erosia-prelude-zirantia-tower-setup-report").textContent = "This sort of ritual isn't difficult for me, and things have gone extremely smoothly.";
+                document.getElementById("erosia-prelude-zirantia-tower-setup-report").style.color = "#00FF00";
+                confrontation += 1;
+                game.peoplerp.uyae.rp += 2;
+                game.peoplerp.riala.rp += 2;
+                game.peoplerp.varia.rp += 2;
+                game.peoplerp.dari.rp += 2;
+                game.peoplerp.lynine.rp += 2;
+                game.peoplerp.wynn.rp += 2;
+            } else {
+                document.getElementById("erosia-prelude-zirantia-tower-setup-report").textContent = "Even if things didn't go perfectly, this sort of ritual isn't difficult for me.";
+                document.getElementById("erosia-prelude-zirantia-tower-setup-report").style.color = "";
+            }
+
+            if(game.plotchoice.variamind === Variamind.RESHAPED){
+                game.peoplerp.varia.rp += 5;
+                game.peoplerp.ginasta.rp += 2;
+            } else if(game.plotchoice.variamind === Variamind.DOMINATED){
+                game.peoplerp.varia.rp += 2;
+                game.peoplerp.ginasta.rp += 5;
+            }
+
+            if(game.peoplerp.dari.cap === 100){
+                game.peoplerp.ginasta.rp += 2;
+            }
+
+            if((game.peoplerp.lynine.initial + game.peoplerp.lynine.rp) >= 90){
+                game.peoplerp.ginasta.rp += 2;
+            }
+
+            if(game.research.sexpurity === Timeslot.AFTERWAR){
+                game.peoplerp.ginasta.rp += 5;
+            }
+
+            document.getElementById("erosia-prelude-zirantia-ginasta-open").style.visibility = "";
+            const ginastareply = document.getElementById("erosia-prelude-zirantia-ginasta-done");
+            if(ginastareply.value === "barrier"){
+                ginastadone = true;
+            } else if(ginastareply.value === "stay"){
+                ginastadone = true;
+                ginastastay = true;
+                game.peoplerp.ginasta.rp += 5;
+            }
+        } else {
+            document.getElementById("erosia-prelude-zirantia-ginasta-open").style.visibility = "hidden";
+            document.getElementById("erosia-prelude-zirantia-tower-setup-report").textContent = "";
+            document.getElementById("erosia-prelude-zirantia-tower-setup-report").style.color = "";
+            document.getElementById("erosia-prelude-zirantia-ginasta-done").value = "";
+        }
+    } else {
+        document.getElementById("erosia-prelude-zirantia-tower-open").style.visibility = "hidden";
+        document.getElementById("erosia-prelude-zirantia-tower-monster").checked = false;
+        document.getElementById("erosia-prelude-zirantia-tower-setup-done").checked = false;
+        document.getElementById("erosia-prelude-zirantia-ginasta-done").value = "";
+    }
+
+    var sparkdone = false;
+    if(ginastadone === true){
+        document.getElementById("erosia-prelude-aram-tower-open").style.visibility = "";
+        if(document.getElementById("erosia-prelude-aram-monster").checked === true){
+           game.globalstat.aramtower += 1;
+        }
+        if(document.getElementById("erosia-prelude-aram-leech").checked === true){
+           game.globalstat.aramtower += 1;
+           game.globalstat.abyssal += 1;
+        }
+
+        if(document.getElementById("erosia-prelude-aram-end").checked === true){
+            sparkdone = true;
+            if(game.plotchoice.altinastat === Altinastatus.SANER || game.plotchoice.altinastat === Altinastatus.COCKWHORE){
+                document.getElementById("erosia-prelude-aram-altina-open").style.visibility = "";
+                document.getElementById("erosia-prelude-aram-altina-open").style.display = "";
+                game.globalstat.aramtower += 1;
+                if((game.peoplerp.orilise.initial + game.peoplerp.orilise.rp) >= 90){
+                    game.globalstat.aramtower += 1;
+                    game.peoplerp.orilise.rp += 2;
+                    game.peoplerp.altina.rp += 5;
+                } else {
+                    game.peoplerp.orilise.rp += 5;
+                    game.peoplerp.altina.rp += 2;
+                }
+            } else {
+                document.getElementById("erosia-prelude-aram-altina-open").style.display = "none";
+            }
+        }
+    } else {
+        if(game.plotchoice.altinastat === Altinastatus.SANER || game.plotchoice.altinastat === Altinastatus.COCKWHORE){
+            document.getElementById("erosia-prelude-aram-altina-open").style.visibility = "hidden";
+        } else {
+            document.getElementById("erosia-prelude-aram-altina-open").style.display = "none";
+        }
+        document.getElementById("erosia-prelude-aram-tower-open").style.visibility = "hidden";
+        document.getElementById("erosia-prelude-aram-monster").checked = false;
+        document.getElementById("erosia-prelude-aram-leech").checked = false;
+        document.getElementById("erosia-prelude-aram-end").checked = false;
+    }
+
+    var ulrissadone = false;
+    var nodepower = false;
+    if(sparkdone === true){
+        document.getElementById("erosia-prelude-placid-tower-open").style.visibility = "";
+        if(document.getElementById("erosia-prelude-placid-start").checked === true){
+            document.getElementById("erosia-prelude-placid-node-open").style.visibility = "";
+            var nodedeal = false;
+            const nodedecision = document.getElementById("erosia-prelude-placid-node-done");
+            if(nodedecision.value === "fight"){
+                nodedeal = true;
+            } else if(nodedecision.value === "power"){
+                nodedeal = true;
+                nodepower = true;
+                confrontation -= 1;
+            }
+            if(nodedeal === true){
+                document.getElementById("erosia-prelude-placid-end-open").style.visibility = "";
+                if(document.getElementById("erosia-prelude-placid-end-done").checked === true){
+                    ulrissadone = true;
+                }
+            } else {
+                document.getElementById("erosia-prelude-placid-end-open").style.visibility = "hidden";
+                document.getElementById("erosia-prelude-placid-end-done").checked = false;
+            }
+        } else {
+            document.getElementById("erosia-prelude-placid-node-open").style.visibility = "hidden";
+            document.getElementById("erosia-prelude-placid-end-open").style.visibility = "hidden";
+            document.getElementById("erosia-prelude-placid-node-done").value = "";
+            document.getElementById("erosia-prelude-placid-end-done").checked = false;
+        }
+
+    } else {
+        document.getElementById("erosia-prelude-placid-tower-open").style.visibility = "hidden";
+        document.getElementById("erosia-prelude-placid-start").checked = false;
+        document.getElementById("erosia-prelude-placid-node-done").value = "";
+        document.getElementById("erosia-prelude-placid-end-done").checked = false;
+    }
+
+    var elvenselect = false;
+    if(ulrissadone === true){
+        document.getElementById("erosia-prelude-yhilin-fucklord-open").style.visibility = "";
+
+        var robinpower = 0;
+        if(game.research.robinproject !== Timeslot.NONE){
+            robinpower += 2;
+        }
+
+        var robinlevel = +document.getElementById("erosia-prelude-robin-level").value;
+        if(robinlevel >= 55){
+            robinpower += 2;
+        } else if(robinlevel >= 50){
+            robinpower += 1;
+        }
+
+        if(game.peoplerp.robin.lock === true){
+            robinpower += 2;
+        } else if((game.peoplerp.robin.initial + game.peoplerp.robin.rp)>= 95){
+            robinpower += 1;
+        }
+
+        if(robinpower >= 6){
+            confrontation += 2;
+            game.globalstat.yhilintower += 2;
+            document.getElementById("erosia-prelude-robin-result").textContent = "Even if it was faking it, you really made it believable!";
+            document.getElementById("erosia-prelude-robin-result").style.color = "#00FF00";
+        } else if(robinpower >= 4){
+            confrontation += 1;
+            game.globalstat.yhilintower += 1;
+            document.getElementById("erosia-prelude-robin-result").textContent = "Even if it was faking it, you made it believable!";
+            document.getElementById("erosia-prelude-robin-result").style.color = "";
+        } else if(robinpower >= 2){
+            game.globalstat.yhilintower -= 1;
+            document.getElementById("erosia-prelude-robin-result").textContent = "It looked like you took a bit of a beating there.";
+            document.getElementById("erosia-prelude-robin-result").style.color = "#FF0000";
+        } else {
+            game.globalstat.yhilintower -= 2;
+            document.getElementById("erosia-prelude-robin-result").textContent = "It looked like you took a real beating there. [Robin Drained]";
+            document.getElementById("erosia-prelude-robin-result").style.color = "#FF0000";
+        }
+
+        var groupdone = false;
+        const groupdeal = document.getElementById("erosia-prelude-yhilin-distruption");
+        if(groupdeal.value === "merchant"){
+            //game.plotchoice.distruption = Distruption.MERCHANT;
+            groupdone = true;
+        } else if(groupdeal.value === "church"){
+            //game.plotchoice.distruption = Distruption.CHURCH;
+            groupdone = true;
+        } else if(groupdeal.value === "magic"){
+            //game.plotchoice.distruption = Distruption.MAGIC;
+            groupdone = true;
+        }
+
+        var frontpick = false;
+        if(groupdone === true){
+            document.getElementById("erosia-prelude-front-lost-open").style.visibility = "";
+            const frontarget = document.getElementById("erosia-prelude-front-lost-done");
+            if(frontarget.value === "aram"){
+                game.plotchoice.frontlost = Frontlost.ZIRANTIA;
+                game.country.zirantia.value -= 1;
+                frontpick = true;
+            } else if(frontarget.value === "zirantia"){
+                game.plotchoice.frontlost = Frontlost.ARAM;
+                game.country.aram.value -= 1;
+                frontpick = true;
+            }
+        } else {
+            document.getElementById("erosia-prelude-front-lost-open").style.visibility = "hidden";
+            document.getElementById("erosia-prelude-front-lost-done").value = "";
+        }
+
+        if(frontpick === true){
+            document.getElementById("erosia-prelude-elven-hit-open").style.visibility = "";
+            const elvenprotect = document.getElementById("erosia-prelude-elven-hit-done");
+            if(elvenprotect.value === "darghelon"){
+                game.plotchoice.elvenhit = Elvenhit.GHELDARON;
+                game.country.gheldaron.value -= 1;
+                elvenselect = true;
+            } else if(elvenprotect.value === "gheldaron"){
+                game.plotchoice.elvenhit = Elvenhit.DARGHELON;
+                game.country.darghelon.value -= 1;
+                elvenselect = true;
+            }
+        } else {
+            document.getElementById("erosia-prelude-elven-hit-open").style.visibility = "hidden";
+            document.getElementById("erosia-prelude-elven-hit-done").value = "";
+        }
+
+    } else {
+        document.getElementById("erosia-prelude-yhilin-fucklord-open").style.visibility = "hidden";
+        document.getElementById("erosia-prelude-robin-level").value = 0;
+        document.getElementById("erosia-prelude-yhilin-distruption").value = "";
+        document.getElementById("erosia-prelude-front-lost-done").value = "";
+        document.getElementById("erosia-prelude-elven-hit-done").value = "";
+    }
+
+    var aramdone = false;
+    if(elvenselect === true){
+        document.getElementById("erosia-prelude-aram-fight-win").style.visibility = "";
+        if(game.plotchoice.frontlost === Frontlost.ZIRANTIA){
+            document.getElementById("erosia-prelude-aram-fight-win").style.display = "";
+            document.getElementById("erosia-prelude-aram-fight-lost").style.display = "none";
+            document.getElementById("erosia-prelude-aram-lost-captain").checked = false;
+            document.getElementById("erosia-prelude-aram-lost-option").value = "";
+            if(document.getElementById("erosia-prelude-aram-abyssal").checked === true){
+                game.globalstat.abyssal += 1;
+            }
+            if(document.getElementById("erosia-prelude-aram-win-captain").checked === true){
+                document.getElementById("erosia-prelude-aram-win-fucklord").style.visibility = "";
+                const aramwinoption = document.getElementById("erosia-prelude-aram-win-option");
+                if(aramwinoption.value === "impeding"){
+                    confrontation += 2;
+                    captive += 2;
+                    aramdone = true;
+                } else if(aramwinoption.value === "captive"){
+                    game.globalstat.aramtower -= 3;
+                    captive += 5;
+                    aramdone = true;
+                } else if(aramwinoption.value === "protect"){
+                    game.globalstat.aramtower += 2;
+                    captive += 2;
+                    aramdone = true;
+                }
+            } else {
+                document.getElementById("erosia-prelude-aram-win-fucklord").style.visibility = "hidden";
+                document.getElementById("erosia-prelude-aram-win-option").value = "";
+            }
+        } else if(game.plotchoice.frontlost === Frontlost.ARAM){
+            document.getElementById("erosia-prelude-aram-fight-win").style.display = "none";
+            document.getElementById("erosia-prelude-aram-fight-lost").style.display = "";
+            document.getElementById("erosia-prelude-aram-abyssal").checked = false;
+            document.getElementById("erosia-prelude-aram-win-captain").checked = false;
+            document.getElementById("erosia-prelude-aram-win-option").value = "";
+            if(document.getElementById("erosia-prelude-aram-lost-captain").checked === true){
+                document.getElementById("erosia-prelude-aram-lost-fucklord").style.visibility = "";
+                const aramlostoption = document.getElementById("erosia-prelude-aram-lost-option");
+                if(aramlostoption.value === "impeding"){
+                    game.globalstat.aramtower -= 3;
+                    captive += 1;
+                    aramdone = true;
+                } else if(aramlostoption.value === "captive"){
+                    game.globalstat.aramtower -= 3;
+                    confrontation -= 1;
+                    captive += 3;
+                    aramdone = true;
+                } else if(aramlostoption.value === "protect"){
+                    confrontation -= 1;
+                    captive += 1;
+                    aramdone = true;
+                }
+            } else {
+                document.getElementById("erosia-prelude-aram-lost-fucklord").style.visibility = "hidden";
+                document.getElementById("erosia-prelude-aram-lost-option").value = "";
+            }
+        }
+    } else {
+        document.getElementById("erosia-prelude-aram-fight-win").style.visibility = "hidden";
+        document.getElementById("erosia-prelude-aram-fight-win").style.display = "";
+        document.getElementById("erosia-prelude-aram-fight-lost").style.display = "none";
+    }
+
+    var hqdone = false;
+    if(aramdone === true){
+        var hqbattle = 0;
+        document.getElementById("erosia-prelude-hq-sige").style.visibility = "";
+        if(game.palacestat.magicdefence === Magicdefence.STRONG){
+            document.getElementById("erosia-prelude-hq-magic").textContent = "Fortunately, your core defenses are stronger than the invaders were counting on.";
+            document.getElementById("erosia-prelude-hq-magic").style.color = "#00FF00";
+            hqbattle += 2;
+        } else if(game.palacestat.magicdefence === Magicdefence.AVERAGE){
+            document.getElementById("erosia-prelude-hq-magic").textContent = "Your defenses are holding. The invaders might break through eventually";
+            document.getElementById("erosia-prelude-hq-magic").style.color = "";
+            hqbattle += 1;
+        } else if(game.palacestat.magicdefence === Magicdefence.WEAK){
+            document.getElementById("erosia-prelude-hq-magic").textContent = "Unfortunately, they're tearing through your defenses pretty quick.";
+            document.getElementById("erosia-prelude-hq-magic").style.color = "#FF0000";
+            hqbattle -= 1;
+        }
+
+        if(game.palacestat.military.value >= 20){
+            document.getElementById("erosia-prelude-hq-military").textContent = "Heh, we're going to be just fine. The strategy should work well.";
+            document.getElementById("erosia-prelude-hq-military").style.color = "#00FF00";
+            hqbattle += 1;
+        } else if(game.palacestat.military.value >= 5){
+            document.getElementById("erosia-prelude-hq-military").textContent = "Yes, we have some here. It's a viable strategy, and it could help.";
+            document.getElementById("erosia-prelude-hq-military").style.color = "";
+        } else {
+            document.getElementById("erosia-prelude-hq-military").textContent = "I don't think we should. We're thin on the ground here. [HQ Damaged]";
+            document.getElementById("erosia-prelude-hq-military").style.color = "#FF0000";
+            game.palacestat.damagedone = true;
+            hqbattle -= 1;
+        }
+
+        if(document.getElementById("erosia-prelude-hq-battle").checked === true){
+            hqdone = true;
+            if(hqbattle >= 3){
+                document.getElementById("erosia-prelude-hq-report").textContent = "Things went great overall!";
+                document.getElementById("erosia-prelude-hq-report").style.color = "#00FF00";
+                confrontation += 3;
+                captive += 3;
+            } else if(hqbattle >= 2){
+                document.getElementById("erosia-prelude-hq-report").textContent = "Overall, you did very well.";
+                document.getElementById("erosia-prelude-hq-report").style.color = "#00FF00";
+                confrontation += 2;
+                captive += 3;
+            } else if(hqbattle >= 1){
+                document.getElementById("erosia-prelude-hq-report").textContent = "Overall... you managed.";
+                document.getElementById("erosia-prelude-hq-report").style.color = "";
+                confrontation += 1;
+                captive += 1;
+            } else {
+                document.getElementById("erosia-prelude-hq-report").textContent = "Overall... you won, but they did a distressing amount of damage.";
+                document.getElementById("erosia-prelude-hq-report").style.color = "#FF0000";
+                confrontation -= 1;
+                captive += 1;
+            }
+        } else {
+            document.getElementById("erosia-prelude-hq-report").textContent = "";
+            document.getElementById("erosia-prelude-hq-report").style.color = "";
+        }
+
+    } else {
+        document.getElementById("erosia-prelude-hq-sige").style.visibility = "hidden";
+        document.getElementById("erosia-prelude-hq-sige").style.visibility = "hidden";
+    }
+
+    var zirantiadone = false;
+    if(hqdone === true){
+        document.getElementById("erosia-prelude-zirantia-fight-win").style.visibility = "";
+        if(game.plotchoice.frontlost === Frontlost.ARAM){
+            document.getElementById("erosia-prelude-zirantia-fight-win").style.display = "";
+            document.getElementById("erosia-prelude-zirantia-fight-lost").style.display = "none";
+            document.getElementById("erosia-prelude-zirantia-lost-captain").checked = false;
+            document.getElementById("erosia-prelude-zirantia-lost-option").value = "";
+            if(ginastastay === true){
+                document.getElementById("erosia-prelude-zirantia-win-ginasta").textContent = "Protect the Southern Erosian Group from a solidified Chaos";
+                captive -= 1;
+            } else {
+                document.getElementById("erosia-prelude-zirantia-win-ginasta").textContent = "Defeat the Southern Erosian Group";
+                confrontation += 1;
+            }
+            if(document.getElementById("erosia-prelude-zirantia-abyssal").checked === true){
+                game.globalstat.abyssal += 1;
+            }
+            if(document.getElementById("erosia-prelude-zirantia-win-captain").checked === true){
+                if(ginastastay === true){
+                    game.globalstat.abyssal += 1;
+                }
+                document.getElementById("erosia-prelude-zirantia-win-fucklord").style.visibility = "";
+                const zirantiawinoption = document.getElementById("erosia-prelude-zirantia-win-option");
+                if(zirantiawinoption.value === "impeding"){
+                    confrontation += 2;
+                    captive += 2;
+                    zirantiadone = true;
+                } else if(zirantiawinoption.value === "captive"){
+                    captive += 5;
+                    zirantiadone = true;
+                } else if(zirantiawinoption.value === "protect"){
+                    game.globalstat.zirantiatower += 3;
+                    captive += 2;
+                    game.peoplerp.uyae.rp += 5;
+                    zirantiadone = true;
+                }
+            } else {
+                document.getElementById("erosia-prelude-zirantia-win-fucklord").style.visibility = "hidden";
+                document.getElementById("erosia-prelude-zirantia-win-option").value = "";
+            }
+        } else if(game.plotchoice.frontlost === Frontlost.ZIRANTIA){
+            document.getElementById("erosia-prelude-zirantia-fight-win").style.display = "none";
+            document.getElementById("erosia-prelude-zirantia-fight-lost").style.display = "";
+            document.getElementById("erosia-prelude-zirantia-abyssal").checked = false;
+            document.getElementById("erosia-prelude-zirantia-win-captain").checked = false;
+            document.getElementById("erosia-prelude-zirantia-win-option").value = "";
+            if(ginastastay === true){
+                document.getElementById("erosia-prelude-zirantia-lost-ginasta").textContent = "Protect the Southern Erosian Group from a solidified Chaos";
+                captive -= 1;
+            } else {
+                document.getElementById("erosia-prelude-zirantia-lost-ginasta").textContent = "Defeat the Southern Erosian Group";
+                confrontation += 1;
+            }
+            if(document.getElementById("erosia-prelude-zirantia-lost-captain").checked === true){
+                if(ginastastay === true){
+                    game.globalstat.abyssal += 1;
+                }
+                document.getElementById("erosia-prelude-zirantia-lost-fucklord").style.visibility = "";
+                const zirantialostoption = document.getElementById("erosia-prelude-zirantia-lost-option");
+                if(zirantialostoption.value === "impeding"){
+                    game.globalstat.zirantiatower -= 3;
+                    captive += 1;
+                    game.peoplerp.uyae.rp -= 5;
+                    zirantiadone = true;
+                } else if(zirantialostoption.value === "captive"){
+                    confrontation -= 1;
+                    game.globalstat.zirantiatower -= 3;
+                    captive += 3;
+                    game.peoplerp.uyae.rp -= 5;
+                    zirantiadone = true;
+                } else if(zirantialostoption.value === "protect"){
+                    confrontation -= 1;
+                    captive += 1;
+                    game.peoplerp.uyae.rp += 5;
+                    zirantiadone = true;
+                }
+            } else {
+                document.getElementById("erosia-prelude-zirantia-lost-fucklord").style.visibility = "";
+                document.getElementById("erosia-prelude-zirantia-lost-option").value = "";
+            }
+        }
+    } else {
+        document.getElementById("erosia-prelude-zirantia-fight-win").style.visibility = "hidden";
+        document.getElementById("erosia-prelude-zirantia-fight-win").style.display = "";
+        document.getElementById("erosia-prelude-zirantia-fight-lost").style.display = "none";
+    }
+
+    if(zirantiadone === true){
+        document.getElementById("erosia-prelude-kings-section").style.visibility = "";
+        var powerlove = 0;
+        if(nodepower === true){
+            powerlove -= 2;
+        }
+        var haremnumber = -1;
+        if(game.plotchoice.altinastat === Altinastatus.SANER || game.plotchoice.altinastat === Altinastatus.COCKWHORE){
+            haremnumber += 1;
+        }
+        if(game.plotchoice.wynnjoin === true){
+            haremnumber += 1;
+        }
+        if(game.peoplerp.janine.cap === 100){
+            haremnumber += 1;
+        }
+        if(game.peoplerp.dari.cap === 100){
+            haremnumber += 1;
+        }
+        if(game.peoplerp.uyae.cap === 100){
+            haremnumber += 1;
+        }
+        if(haremnumber > 0){
+            powerlove += haremnumber
+        }
+
+        var locked = 0;
+        if(game.peoplerp.aka.lock === true){
+            locked += 1;
+        }
+        if(game.peoplerp.yarra.lock === true){
+            locked += 1;
+        }
+        if(game.peoplerp.qum.lock === true){
+            locked += 1;
+        }
+        if(game.peoplerp.robin.lock === true){
+            locked += 1;
+        }
+        if(game.peoplerp.hilstara.lock === true){
+            locked += 1;
+        }
+        if(game.peoplerp.megail.lock === true){
+            locked += 1;
+        }
+        if(game.peoplerp.trin.lock === true){
+            locked += 1;
+        }
+        if(game.peoplerp.altina.lock === true){
+            locked += 1;
+        }
+        if(game.peoplerp.varia.lock === true){
+            locked += 1;
+        }
+        if(game.peoplerp.nalili.lock === true){
+            locked += 1;
+        }
+        if(game.peoplerp.balia.lock === true){
+            locked += 1;
+        }
+        if(game.peoplerp.iris.lock === true){
+            locked += 1;
+        }
+        if(game.peoplerp.riala.lock === true){
+            locked += 1;
+        }
+        if(game.peoplerp.wynn.lock === true){
+            locked += 1;
+        }
+        if(game.peoplerp.dari.lock === true){
+            locked += 1;
+        }
+        if(game.peoplerp.janine.lock === true){
+            locked += 1;
+        }
+        if(game.peoplerp.uyae.lock === true){
+            locked += 1;
+        }
+        if(locked >= 15){
+            powerlove += 4;
+        } else if(locked >= 12){
+            powerlove += 3;
+        } else if(locked >= 9){
+            powerlove += 2;
+        } else if(locked >= 6){
+            powerlove += 1;
+        } else if(locked >= 3){
+
+        } else {
+            powerlove -= 1;
+        }
+
+        var simlvl = +document.getElementById("erosia-prelude-simon-level").value;
+        if(simlvl >= 61){
+
+        } else if(simlvl >= 58){
+            powerlove += 2;
+        } else if(simlvl >= 55){
+            powerlove += 1;
+        } else if(simlvl >= 50){
+
+        } else {
+            powerlove -= 1;
+        }
+        if(powerlove >= 8){
+            document.getElementById("erosia-prelude-kings-report").textContent = "Gaah! That hurt, you fucker!";
+            document.getElementById("erosia-prelude-kings-report").style.color = "#00FF00";
+            confrontation += 3;
+            game.country.erosia.value += 6;
+        } else if(powerlove >= 5){
+            document.getElementById("erosia-prelude-kings-report").textContent = "Damn, you can really put a lot of power behind a spell.";
+            document.getElementById("erosia-prelude-kings-report").style.color = "#00FF00";
+            confrontation += 2;
+            game.country.erosia.value += 4;
+        } else if(powerlove >= 3){
+            document.getElementById("erosia-prelude-kings-report").textContent = "Damn, more of that? You've obviously been studying the Tower too.";
+            document.getElementById("erosia-prelude-kings-report").style.color = "";
+            confrontation += 1;
+            game.country.erosia.value += 2;
+        } else {
+            document.getElementById("erosia-prelude-kings-report").textContent = "Haha, that's all you've got?";
+            document.getElementById("erosia-prelude-kings-report").style.color = "#FF0000";
+        }
+    } else {
+        document.getElementById("erosia-prelude-kings-section").style.visibility = "hidden";
+        document.getElementById("erosia-prelude-sabitha-fight").checked = false;
+    }
+
+    if(document.getElementById("erosia-prelude-sabitha-fight").checked === true){
+        document.getElementById("erosia-prelude-aftermath").style.visibility = "";
+        if(document.getElementById("erosia-prelude-aftrmath-esthera").checked === true){
+            game.peoplerp.esthera.rp += 2;
+        }
+        if(document.getElementById("erosia-prelude-aftermath-janine").checked === true){
+            game.peoplerp.janine.rp += 2;
+        }
+        if(document.getElementById("erosia-prelude-aftermath-fheliel").checked === true){
+            if(game.palacestat.hospitality.value >= 15){
+                document.getElementById("erosia-prelude-aftermath-hospitality").textContent = " I found everyone remarkably accommodating. I respect what you've built there.";
+                document.getElementById("erosia-prelude-aftermath-hospitality").style.color = "#00FF00";
+                game.peoplerp.fheliel.rp += 10;
+            } else if(game.palacestat.hospitality.value >= 12){
+                document.getElementById("erosia-prelude-aftermath-hospitality").textContent = "I found everyone quite accommodating. I respect what you've built there.";
+                document.getElementById("erosia-prelude-aftermath-hospitality").style.color = "#00FF00";
+                game.peoplerp.fheliel.rp += 8;
+            } else if(game.palacestat.hospitality.value >= 9){
+                document.getElementById("erosia-prelude-aftermath-hospitality").textContent = "I found my stay there quite pleasant. It was better than a mere fortress.";
+                document.getElementById("erosia-prelude-aftermath-hospitality").style.color = "";
+                game.peoplerp.fheliel.rp += 6;
+            } else if(game.palacestat.hospitality.value >= 6){
+                document.getElementById("erosia-prelude-aftermath-hospitality").textContent = "I found my stay there pleasant. It was better than a mere fortress.";
+                document.getElementById("erosia-prelude-aftermath-hospitality").style.color = "";
+                game.peoplerp.fheliel.rp += 4;
+            } else if(game.palacestat.hospitality.value >= 3){
+                document.getElementById("erosia-prelude-aftermath-hospitality").textContent = "I appreciate the touches of hospitality, even in a fortress.";
+                document.getElementById("erosia-prelude-aftermath-hospitality").style.color = "";
+                game.peoplerp.fheliel.rp += 2;
+            }
+
+            if(game.plotchoice.qumogre === true){
+                game.peoplerp.fheliel.rp += 5;
+            }
+            if(game.ledgerlist.ledgerardford.ghenaleseprogram !== Investmentround.NONE){
+                game.peoplerp.fheliel.rp += 5;
+            }
+            if(game.plotchoice.fhelielchat === true){
+                game.peoplerp.fheliel.rp += 2;
+            }
+            if(game.globalstat.tradescore >= 10){
+                game.peoplerp.fheliel.rp += 10;
+            } else if(game.globalstat.tradescore >= 6){
+                game.peoplerp.fheliel.rp += 5;
+            }
+        } else {
+            document.getElementById("erosia-prelude-aftermath-hospitality").textContent = "";
+            document.getElementById("erosia-prelude-aftermath-hospitality").style.color = "";
+        }
+        if(document.getElementById("erosia-prelude-aftermath-fheliel").checked === true && document.getElementById("erosia-prelude-aftrmath-esthera").checked === true){
+            document.getElementById("erosia-prelude-aftermath-iris-open").style.visibility = "";
+            if(document.getElementById("erosia-prelude-aftermath-iris-done").checked === true){
+                captive += 1;
+                if(captive >= 10){
+                    confrontation += 1;
+                }
+                if(confrontation >= 9){
+                    document.getElementById("erosia-prelude-aftermath-iris-report").textContent = "We did remarkably well! Not only did we turn the tide, we placed ourselves in a very advantageous position.";
+                    document.getElementById("erosia-prelude-aftermath-iris-report").style.color = "#00FF00";
+                    game.country.erosia.value += 5;
+                    game.country.ghenalon.value += 3;
+                    game.country.tatseni.value += 2;
+                    game.country.stenai.value += 2;
+                    game.peoplerp.esthera.rp += 6;
+                    game.peoplerp.ginasta.rp += 3;
+                    game.globalstat.arclentacc += 3;
+                } else if(confrontation >= 6){
+                    document.getElementById("erosia-prelude-aftermath-iris-report").textContent = "I think we did quite well. Not only did we turn the tide, we placed ourselves in an advantageous position.";
+                    document.getElementById("erosia-prelude-aftermath-iris-report").style.color = "#00FF00";
+                    game.country.erosia.value += 3;
+                    game.country.ghenalon.value += 2;
+                    game.country.tatseni.value += 1;
+                    game.country.stenai.value += 1;
+                    game.peoplerp.esthera.rp += 4;
+                    game.peoplerp.ginasta.rp += 2;
+                    game.globalstat.arclentacc += 2;
+                } else if(confrontation >= 3){
+                    document.getElementById("erosia-prelude-aftermath-iris-report").textContent = "I think we did well enough. Given the advantages he started with, we have turned the tide.";
+                    document.getElementById("erosia-prelude-aftermath-iris-report").style.color = "";
+                    game.country.erosia.value += 1;
+                    game.country.ghenalon.value += 1;
+                    game.country.tatseni.value += 1;
+                    game.country.stenai.value += 1;
+                    game.peoplerp.esthera.rp += 2;
+                    game.peoplerp.ginasta.rp += 1;
+                    game.globalstat.arclentacc += 1;
+                } else if(confrontation >= 0){
+                    document.getElementById("erosia-prelude-aftermath-iris-report").textContent = "And I fear there... we won, but not as solidly as we could have. We will need to work to overcome this.";
+                    document.getElementById("erosia-prelude-aftermath-iris-report").style.color = "#FF0000";
+                    game.country.ghenalon.value -= 1;
+                } else {
+                    document.getElementById("erosia-prelude-aftermath-iris-report").textContent = "And I fear there, things went as poorly as they could have, while we still obtained the victory. We will need to work hard to overcome this.";
+                    document.getElementById("erosia-prelude-aftermath-iris-report").style.color = "#FF0000";
+                    game.country.erosia.value -= 1;
+                    game.country.ghenalon.value -= 2;
+                    game.peoplerp.ginasta.rp -= 2;
+                    game.globalstat.arclentacc -= 1;
+                }
+            } else {
+                document.getElementById("erosia-prelude-aftermath-iris-report").textContent = "";
+                document.getElementById("erosia-prelude-aftermath-iris-report").style.color = "";
+            }
+
+
+        } else {
+            document.getElementById("erosia-prelude-aftermath-iris-open").style.visibility = "hidden";
+            document.getElementById("erosia-prelude-aftermath-iris-report").textContent = "";
+            document.getElementById("erosia-prelude-aftermath-iris-report").style.color = "";
+        }
+
+    } else {
+        document.getElementById("erosia-prelude-aftermath").style.visibility = "hidden";
+        document.getElementById("erosia-prelude-aftrmath-esthera").checked = false;
+        document.getElementById("erosia-prelude-aftermath-janine").checked = false;
+        document.getElementById("erosia-prelude-aftermath-fheliel").checked = false;
+        document.getElementById("erosia-prelude-aftermath-iris-done").checked = false;
+    }
+
+    rpscriptlocker(game.peoplerp);
+
+    document.getElementById("erosia-prelude-fucklord-confrontiation").textContent = "" + confrontation;
+    document.getElementById("erosia-prelude-erosian-captive").textContent = "" + captive;
+    document.getElementById("erosia-prelude-yhilin-tower-score").textContent = "" + game.globalstat.yhilintower;
+    document.getElementById("erosia-prelude-takkan-tower-score").textContent = "" + game.globalstat.takkantower;
+    document.getElementById("erosia-prelude-aram-tower-score").textContent = "" + game.globalstat.aramtower;
+    document.getElementById("erosia-prelude-zirantia-tower-score").textContent = "" + game.globalstat.zirantiatower;
+
+    stampendvar("Fucklord Confrontation ",confrontation , "stamp-fucklord-confrontation-erosia-prelude", true);
+    stampendvar("Erosian Captive: ",captive , "stamp-erosian-captive-erosia-prelude", true);
+    stampendvar("Yhilin Tower Score: ",game.globalstat.yhilintower , "stamp-yhilin-tower-erosia-prelude", true);
+    stampendvar("Tak'Kan Tower Score: ",game.globalstat.takkantower , "stamp-takkan-tower-erosia-prelude", true);
+    stampendvar("Aram Tower Score: ",game.globalstat.aramtower , "stamp-aram-tower-erosia-prelude", true);
+    stampendvar("Zirantia Tower Score: ",game.globalstat.zirantiatower , "stamp-zirantia-tower-erosia-prelude", true);
+
+    stampendvar("Strength: ", game.globalstat.orcstat.orcstrength, "stamp-orcs-str-erosia-prelude", true);
+    stampendvar("Intelligence: ", game.globalstat.orcstat.orcintelligence, "stamp-orcs-int-erosia-prelude", true);
+    stampendvar("Discipline: ", game.globalstat.orcstat.orcdiscipline, "stamp-orcs-disci-erosia-prelude", true);
+    stampendvar("Sapience: ", game.globalstat.orcstat.orcsapience, "stamp-orcs-sap-erosia-prelude", true);
+    stampendvar("Magic: ", game.globalstat.orcstat.orcmagic, "stamp-orcs-mag-erosia-prelude", true);
+    stampendvar("Attractiveness: ", game.globalstat.orcstat.orcattrativeness, "stamp-orcs-att-erosia-prelude", true);
+
+    stampartialvalue("HQ Military: ", game.palacestat.military, "stamp-hq-military-erosia-prelude");
+    stampartialvalue("HQ Magic:", game.palacestat.magic, "stamp-hq-magic-erosia-prelude");
+    stampartialvalue("HQ Hospitality: ", game.palacestat.hospitality, "stamp-hq-hospitality-erosia-prelude");
+
+    stampendvar("Shining Swords: ", game.globalstat.shiningword, "stamp-shining-sword-erosia-prelude", true);
+    stampendvar("Abyssal Gems: ", game.globalstat.abyssal, "stamp-abyssal-gem-erosia-prelude", true);
+    stampendvar("ProN Available: ", game.globalstat.pron, "stamp-pron-erosia-prelude", true);
+    stampendvar("Army Size: ", game.globalstat.armystat.size, "stamp-army-erosia-prelude", true);
+    stampendvar("Army Quality: ", game.globalstat.armystat.quality, "stamp-quality-erosia-prelude", true);
+    stampendvar("Trin Copies: ", game.globalstat.trincopies.numbers, "stamp-trincopies-erosia-prelude", true);
+    stampendvar("Trin Max: ", game.globalstat.trincopies.trinmax, "stamp-trinmax-erosia-prelude", true);
+    stampendvar("Yhilin Acceptance: ", game.globalstat.yhilinacc, "stamp-yhilin-acc-erosia-prelude", true);
+    stampendvar("Arclent Acceptance: ", game.globalstat.arclentacc, "stamp-arclent-acc-erosia-prelude", true);
+    stampendvar("Palace Staff: ", game.globalstat.palacestaff.numbers, "stamp-palace-staff-erosia-prelude", true);
+    stampendvar("Wynn: Simon Anger: ", game.globalstat.wynnangry, "stamp-wynn-angry-erosia-prelude", game.peoplerp.wynn.stamp);
+
+    stampartialrp("Yarra RP: ", game.peoplerp.yarra, "stamp-yarra-rp-erosia-prelude");
+    stampartialrp("Qum RP: ", game.peoplerp.qum, "stamp-qum-rp-erosia-prelude");
+    stampartialrp("Aka RP: ", game.peoplerp.aka, "stamp-aka-rp-erosia-prelude");
+    stampartialrp("Robin RP: ", game.peoplerp.robin, "stamp-robin-rp-erosia-prelude");
+    stampartialrp("Megail RP: ", game.peoplerp.megail, "stamp-megail-rp-erosia-prelude");
+    stampartialrp("Carina RP: ", game.peoplerp.carina, "stamp-carina-rp-erosia-prelude");
+    stampartialrp("Hilstara RP: ", game.peoplerp.hilstara, "stamp-hilstara-rp-erosia-prelude");
+    stampartialrp("Trin RP: ", game.peoplerp.trin, "stamp-trin-rp-erosia-prelude");
+    stampartialrp("Janine RP: ", game.peoplerp.janine, "stamp-janine-rp-erosia-prelude");
+    stampartialrp("Sarai RP: ", game.peoplerp.sarai, "stamp-sarai-rp-erosia-prelude");
+    stampartialrp("Altina RP: ", game.peoplerp.altina, "stamp-altina-rp-erosia-prelude");
+    stampartialrp("Varia RP: ", game.peoplerp.varia, "stamp-varia-rp-erosia-prelude");
+    stampartialrp("Mestan RP: ", game.peoplerp.mestan, "stamp-mestan-rp-erosia-prelude");
+    stampartialrp("Esthera RP: ", game.peoplerp.esthera, "stamp-esthera-rp-erosia-prelude");
+    stampartialrp("Nalili RP: ", game.peoplerp.nalili, "stamp-nalili-rp-erosia-prelude");
+    stampartialrp("Balia RP: ", game.peoplerp.balia, "stamp-balia-rp-erosia-prelude");
+    stampartialrp("Vhala RP: ", game.peoplerp.vhala, "stamp-vhala-rp-erosia-prelude");
+    stampartialrp("Dari RP: ", game.peoplerp.dari, "stamp-dari-rp-erosia-prelude");
+    stampartialrp("Ginasta RP: ", game.peoplerp.ginasta, "stamp-ginasta-rp-erosia-prelude");
+    stampartialrp("Lynine RP: ", game.peoplerp.lynine, "stamp-lynine-rp-erosia-prelude");
+    stampartialrp("Orilise RP: ", game.peoplerp.orilise, "stamp-orilise-rp-erosia-prelude");
+    stampartialrp("Wynn RP: ", game.peoplerp.wynn, "stamp-wynn-rp-erosia-prelude");
+    stampartialrp("Uyae RP: ", game.peoplerp.uyae, "stamp-uyae-rp-erosia-prelude");
+    stampartialrp("Neranda RP: ", game.peoplerp.neranda, "stamp-neranda-rp-erosia-prelude");
+    stampartialrp("Elleani RP: ", game.peoplerp.elleani, "stamp-elleani-rp-erosia-prelude");
+    stampartialrp("Riala RP: ", game.peoplerp.riala, "stamp-riala-rp-erosia-prelude");
+    stampartialrp("Iris RP: ", game.peoplerp.iris, "stamp-iris-rp-erosia-prelude");
+    stampartialrp("Fheliel RP: ", game.peoplerp.fheliel, "stamp-fheliel-rp-erosia-prelude");
+
+    stampartialvalue("Yhilin Score: ", game.country.yhilin, "stamp-yhilin-erosia-prelude");
+    stampartialvalue("Ardoheim Score: ", game.country.ardoheim, "stamp-ardoheim-erosia-prelude");
+    stampartialvalue("Aram Score: ", game.country.aram, "stamp-aram-erosia-prelude");
+    stampartialvalue("Eustrin Score: ", game.country.eustrin, "stamp-eustrin-erosia-prelude");
+    stampartialvalue("Zirantia Score: ", game.country.zirantia, "stamp-zirantia-erosia-prelude");
+    stampartialvalue("Ghenalon Score: ", game.country.ghenalon, "stamp-ghenalon-erosia-prelude");
+    stampartialvalue("Darghelon Score: ", game.country.darghelon, "stamp-darghelon-erosia-prelude");
+    stampartialvalue("Gheldaron Score: ", game.country.gheldaron, "stamp-gheldaron-erosia-prelude");
+    stampartialvalue("Orgasmic Empire Score: ", game.country.orgasmicempire, "stamp-orgasmic-erosia-prelude");
+    stampartialvalue("Chalice States Score: ", game.country.chalicestates, "stamp-chalice-erosia-prelude");
+    stampartialvalue("New Givini Score: ", game.country.newgivini, "stamp-givini-erosia-prelude");
+    stampartialvalue("Tak'Kan Score: ", game.country.takkan, "stamp-takkan-erosia-prelude");
+    stampartialvalue("Erosia Score: ", game.country.erosia, "stamp-erosia-erosia-prelude");
+
+    stampartialvalue("Economy Score: ", game.simonstat.economy, "stamp-economy-erosia-prelude");
+    stampartialvalue("Social Score: ", game.simonstat.social, "stamp-social-erosia-prelude");
+    stampartialvalue("Religion Score: ", game.simonstat.religion, "stamp-religion-erosia-prelude");
+
+    stampenditem(game.simonstat.keyitem.armor, "stamp-key-armor-erosia-prelude");
+    stampenditem(game.simonstat.keyitem.helm, "stamp-key-helm-erosia-prelude");
+    stampenditem(game.simonstat.keyitem.shield, "stamp-key-shield-erosia-prelude");
+
+    stampendvar("HP: +", game.simonstat.bonustat.hp, "stamp-stat-hp-erosia-prelude", true);
+    stampendvar("MP: +", game.simonstat.bonustat.mp, "stamp-stat-mp-erosia-prelude", true);
+    stampendvar("ATK: +", game.simonstat.bonustat.atk, "stamp-stat-atk-erosia-prelude", true);
+    stampendvar("DEF: +", game.simonstat.bonustat.def, "stamp-stat-def-erosia-prelude", true);
+    stampendvar("MAG: +", game.simonstat.bonustat.mag, "stamp-stat-mag-erosia-prelude", true);
+    stampendvar("MDF: +", game.simonstat.bonustat.mdf, "stamp-stat-mdf-erosia-prelude", true);
+    stampendvar("AGI: +", game.simonstat.bonustat.agi, "stamp-stat-agi-erosia-prelude", true);
+    stampendvar("LUK: +", game.simonstat.bonustat.luk, "stamp-stat-luk-erosia-prelude", true);
+    stampendlust(game.simonstat.bonustat.sp, "stamp-stat-sp-erosia-prelude", true);
+
+}
+
+function skiperosiaprelude(game){
+
+    game.peoplerp.fheliel.initial = 40;
+    game.peoplerp.fheliel.cap = 101;
+
+    rpscriptstart(game.peoplerp);
+    scorescriptstart(game.simonstat);
+    countryscriptstart(game.country);
+    palacescriptstart(game.palacestat);
+
+    var confrontation = 0;
+    var captive = 0;
+
+    if(document.getElementById("skip-erosia-prelude-carina-start").checked === true){
+        game.peoplerp.carina.rp += 1;
+    }
+    if(document.getElementById("skip-erosia-prelude-qum-start").checked === true){
+        game.peoplerp.qum.rp += 1;
+    }
+    if(document.getElementById("skip-erosia-prelude-yarra-start").checked === true){
+        game.peoplerp.yarra.rp += 1;
+    }
+    if(document.getElementById("skip-erosia-prelude-esthera-start").checked === true){
+        game.peoplerp.esthera.rp += 3;
+    }
+
+    var copydone = false;
+    if(document.getElementById("skip-erosia-prelude-trin-priestess-done").checked === true){
+        document.getElementById("skip-erosia-prelude-trin-priestess-open").style.visibility = "";
+        game.globalstat.trincopies.numbers += 2;
+        //game.globalstat.trincopies.greedy = true;
+        game.peoplerp.trin.rp += 5;
+        game.globalstat.aramtower += 1;
+        game.country.aram.value += 2;
+        game.simonstat.social.value += 1;
+        copydone = true;
+    } else {
+        document.getElementById("skip-erosia-prelude-trin-priestess-open").style.visibility = "hidden";
+    }
+
+    if(document.getElementById("skip-erosia-prelude-ingredient-orilise-done").checked === true){
+        game.globalstat.arclentacc += 1;
+        game.peoplerp.lynine.rp += 5;
+        game.country.aram.value += 1;
+    }
+
+    const religioncopy = document.getElementById("skip-erosia-prelude-trin-copy-religion");
+
+    if(game.globalstat.trincopies.jadearamite === true){
+        document.getElementById("skip-erosia-prelude-jade-copy").style.display = "";
+        game.globalstat.aramtower += 1;
+    } else {
+        document.getElementById("skip-erosia-prelude-jade-copy").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgereustrin.aramembassy !== Investmentround.NONE){
+        document.getElementById("skip-erosia-prelude-aram-dwarren").style.display = "";
+        game.globalstat.aramtower += 1;
+    } else {
+        document.getElementById("skip-erosia-prelude-aram-dwarren").style.display = "none";
+    }
+
+    if(document.getElementById("skip-erosia-prelude-unpeople-talk").checked === true){
+        if(game.summitresult.unpmotion === false){
+            game.globalstat.aramtower += 1;
+        }
+    }
+
+    if(copydone === true && religioncopy.value === "before"){
+        game.simonstat.religion.value += 2;
+    }
+
+    if(document.getElementById("skip-erosia-prelude-church-talk").checked === true){
+        if(game.simonstat.religion.value >= 20){
+            game.globalstat.aramtower += 1;
+        }
+    }
+
+    if(copydone === true && religioncopy.value === "after"){
+        game.simonstat.religion.value += 2;
+    }
+
+    if(game.suitor.farnancontrol >= 5){
+        document.getElementById("skip-erosia-prelude-farnan-servant-open").style.display = "";
+        if(document.getElementById("skip-erosia-prelude-farnan-servant-done").checked === true){
+            game.globalstat.aramtower += 1;
+        }
+    } else {
+        document.getElementById("skip-erosia-prelude-farnan-servant-open").style.display = "none";
+        document.getElementById("skip-erosia-prelude-farnan-servant-done").checked = false;
+    }
+
+    if(game.country.aram.value >= 10){
+        document.getElementById("skip-erosia-prelude-aram-score").style.visibility = "";
+        game.globalstat.aramtower += 1;
+    } else {
+        document.getElementById("skip-erosia-prelude-aram-score").style.visibility = "hidden";
+    }
+
+    if(game.globalstat.aramtower >= 6){
+        document.getElementById("skip-erosia-prelude-ramasta-end-report").textContent = "You did far better than I expected influencing people";
+        document.getElementById("skip-erosia-prelude-ramasta-end-report").style.color = "#00FF00";
+        confrontation += 1;
+        game.peoplerp.carina.rp += 2;
+        game.peoplerp.orilise.rp += 2;
+        game.peoplerp.altina.rp += 2;
+        game.peoplerp.vhala.rp += 1;
+    } else if(game.globalstat.aramtower >= 4){
+        document.getElementById("skip-erosia-prelude-ramasta-end-report").textContent = "You did better than I expected influencing people";
+        document.getElementById("skip-erosia-prelude-ramasta-end-report").style.color = "#00FF00";
+        game.peoplerp.carina.rp += 2;
+        game.peoplerp.orilise.rp += 2;
+        game.peoplerp.altina.rp += 2;
+        game.peoplerp.vhala.rp += 1;
+    } else if(game.globalstat.aramtower >= 2){
+        document.getElementById("skip-erosia-prelude-ramasta-end-report").textContent = "We have some legitimacy, but not much.";
+        document.getElementById("skip-erosia-prelude-ramasta-end-report").style.color = "";
+    } else {
+        document.getElementById("skip-erosia-prelude-ramasta-end-report").textContent = "This is barely legitimate.";
+        document.getElementById("skip-erosia-prelude-ramasta-end-report").style.color = "#FF0000";
+    }
+
+    if(game.plotchoice.newtrial.final === true){
+        document.getElementById("skip-erosia-prelude-order-trial").style.display = "";
+        game.globalstat.yhilintower += 1;
+    } else {
+        document.getElementById("skip-erosia-prelude-order-trial").style.display = "none";
+    }
+
+    if(document.getElementById("skip-erosia-prelude-talk-sarai").checked === true){
+        if((game.peoplerp.sarai.initial + game.peoplerp.sarai.rp) >= 70){
+            game.globalstat.yhilintower += 1;
+        }
+    }
+
+    if(document.getElementById("skip-erosia-prelude-talk-vera").checked === true){
+        if(game.plotchoice.secondritual === true){
+            game.globalstat.yhilintower += 1;
+        }
+    }
+
+    if(game.plotchoice.yhilinfinal === true){
+        document.getElementById("skip-erosia-prelude-yhilin-final-open").style.display = "";
+        if(document.getElementById("skip-erosia-prelude-yhilin-final-done").checked === true){
+            game.globalstat.yhilintower += 2;
+        }
+    } else {
+        document.getElementById("skip-erosia-prelude-yhilin-final-open").style.display = "none";
+        document.getElementById("skip-erosia-prelude-yhilin-final-done").checked = false;
+    }
+
+    if(game.globalstat.yhilintower >= 5){
+        document.getElementById("skip-erosia-prelude-flame-report").textContent = "We've formed an excellent foundation for our work here in Yhilin.";
+        document.getElementById("skip-erosia-prelude-flame-report").style.color = "#00FF00";
+        confrontation += 1;
+        game.peoplerp.aka.rp += 2;
+        game.peoplerp.qum.rp += 2;
+        game.peoplerp.robin.rp += 1;
+        game.peoplerp.megail.rp += 2;
+        game.peoplerp.janine.rp += 2;
+        game.peoplerp.sarai.rp += 2;
+    } else if(game.globalstat.yhilintower >= 3){
+        document.getElementById("skip-erosia-prelude-flame-report").textContent = "We've formed a solid foundation for our work here in Yhilin.";
+        document.getElementById("skip-erosia-prelude-flame-report").style.color = "";
+    } else {
+        document.getElementById("skip-erosia-prelude-flame-report").textContent = "I had hoped we would be able to support our work more thoroughly";
+        document.getElementById("skip-erosia-prelude-flame-report").style.color = "#FF0000";
+    }
+
+    if(document.getElementById("skip-erosia-prelude-yhilin-chaos").checked === true){
+        game.globalstat.yhilintower += 1;
+        game.globalstat.abyssal += 1;
+    }
+
+    if(document.getElementById("skip-erosia-prelude-yhilin-monster").checked === true){
+        game.globalstat.yhilintower += 1;
+    }
+
+    var impalervote = false;
+    if(game.globalstat.orcstat.impaleralive === true){
+        document.getElementById("skip-erosia-prelude-takkan-impaler-open").style.display = "";
+        document.getElementById("skip-erosia-prelude-takkan-impaler-vote").style.display = "";
+        impalervote = document.getElementById("skip-erosia-prelude-takkan-impaler-done").checked;
+    } else {
+        document.getElementById("skip-erosia-prelude-takkan-impaler-open").style.display = "none";
+        document.getElementById("skip-erosia-prelude-takkan-impaler-vote").style.display = "none";
+        document.getElementById("skip-erosia-prelude-takkan-impaler-done").checked = false;
+    }
+
+    var orgontvote = false;
+    if(game.ledgerlist.ledgertakkan.hallstrength !== Investmentround.NONE){
+        document.getElementById("skip-erosia-prelude-takkan-orgont-open").style.display = "";
+        document.getElementById("skip-erosia-prelude-takkan-orgont-vote").style.display = "";
+        orgontvote = document.getElementById("skip-erosia-prelude-takkan-orgont-done").checked;
+    } else {
+        document.getElementById("skip-erosia-prelude-takkan-orgont-open").style.display = "none";
+        document.getElementById("skip-erosia-prelude-takkan-orgont-vote").style.display = "none";
+        document.getElementById("skip-erosia-prelude-takkan-orgont-done").checked = false;
+    }
+
+    var impvote = false;
+    if(game.ledgerlist.ledgertakkan.impoffices !== Investmentround.NONE){
+        document.getElementById("skip-erosia-prelude-takkan-imp-open").style.display = "";
+        impvote = document.getElementById("skip-erosia-prelude-takkan-imp-done").checked;
+    } else {
+        document.getElementById("skip-erosia-prelude-takkan-imp-open").style.display = "none";
+        document.getElementById("skip-erosia-prelude-takkan-imp-done").checked = false;
+    }
+
+    var shotalk = document.getElementById("skip-erosia-prelude-takkan-sho").checked;
+
+    var yes = 3;
+    var nay = 2;
+    var mark = 0;
+    if(game.ledgerlist.ledgertakkan.orcpools !== Investmentround.NONE){
+        mark += 1;
+    }
+    if(game.ledgerlist.ledgertakkan.slumremodeled !== Investmentround.NONE){
+        mark += 1;
+    }
+    if(mark >= 2){
+        if(document.getElementById("skip-erosia-prelude-takkan-elleani").checked === true){
+            yes += 3;
+            document.getElementById("skip-erosia-prelude-tarrankan-yes").textContent = "3";
+            document.getElementById("skip-erosia-prelude-tarrankan-nay").textContent = "0";
+            document.getElementById("skip-erosia-prelude-tarrankan-detail").textContent = "Tarran'Kan Slum Remodeled and Orc Pools Investments Done and Gained Elleani Support";
+        } else {
+            yes += 2;
+            nay += 1;
+            document.getElementById("skip-erosia-prelude-tarrankan-yes").textContent = "2";
+            document.getElementById("skip-erosia-prelude-tarrankan-nay").textContent = "1";
+            document.getElementById("skip-erosia-prelude-tarrankan-detail").textContent = "Tarran'Kan Slum Remodeled and Orc Pools Investment Done and without Elleani Support";
+        }
+    } else if(mark >= 1){
+        if(document.getElementById("skip-erosia-prelude-takkan-elleani").checked === true){
+            yes += 2;
+            document.getElementById("skip-erosia-prelude-tarrankan-yes").textContent = "2";
+            document.getElementById("skip-erosia-prelude-tarrankan-nay").textContent = "0";
+            if(game.ledgerlist.ledgertakkan.orcpools !== Investmentround.NONE){
+                document.getElementById("skip-erosia-prelude-tarrankan-detail").textContent = "Orc Pools Investment Done and Gained Elleani Support";
+            }
+            if(game.ledgerlist.ledgertakkan.slumremodeled !== Investmentround.NONE){
+                document.getElementById("skip-erosia-prelude-tarrankan-detail").textContent = "Tarran'Kan Slum Remodeled Investment Done and Gained Elleani Support";
+            }
+        } else {
+            yes += 1;
+            nay += 1;
+            document.getElementById("skip-erosia-prelude-tarrankan-yes").textContent = "1";
+            document.getElementById("skip-erosia-prelude-tarrankan-nay").textContent = "1";
+            if(game.ledgerlist.ledgertakkan.orcpools !== Investmentround.NONE){
+                document.getElementById("skip-erosia-prelude-tarrankan-detail").textContent = "Orc Pools Investment Done and without Elleani Support";
+            }
+            if(game.ledgerlist.ledgertakkan.slumremodeled !== Investmentround.NONE){
+                document.getElementById("skip-erosia-prelude-tarrankan-detail").textContent = "Tarran'Kan Slum Remodeled Investment Done and without Elleani Support";
+            }
+        }
+    } else {
+        if(document.getElementById("skip-erosia-prelude-takkan-elleani").checked === true){
+            yes += 1;
+            document.getElementById("skip-erosia-prelude-tarrankan-yes").textContent = "1";
+            document.getElementById("skip-erosia-prelude-tarrankan-nay").textContent = "0";
+            document.getElementById("skip-erosia-prelude-tarrankan-detail").textContent = "Gained Elleani Support";
+        } else {
+            nay += 1;
+            document.getElementById("skip-erosia-prelude-tarrankan-yes").textContent = "0";
+            document.getElementById("skip-erosia-prelude-tarrankan-nay").textContent = "1";
+            document.getElementById("skip-erosia-prelude-tarrankan-detail").textContent = "Without Elleani Support";
+        }
+    }
+
+    if(game.country.takkan.value >= 40){
+        yes += 4;
+        document.getElementById("skip-erosia-prelude-cee-yes").textContent = "4";
+        document.getElementById("skip-erosia-prelude-cee-nay").textContent = "0";
+        document.getElementById("skip-erosia-prelude-cee-detail").textContent = "Tak'Kan Country Score 40+ (" + game.country.takkan.value + ")";
+    } else if(game.country.takkan.value >= 30){
+        yes += 3;
+        nay += 1;
+        document.getElementById("skip-erosia-prelude-cee-yes").textContent = "3";
+        document.getElementById("skip-erosia-prelude-cee-nay").textContent = "1";
+        document.getElementById("skip-erosia-prelude-cee-detail").textContent = "Tak'Kan Country Score Between 30 and 39 (" + game.country.takkan.value + ")";
+    } else if(game.country.takkan.value >= 20){
+        yes += 2;
+        nay += 2;
+        document.getElementById("skip-erosia-prelude-cee-yes").textContent = "2";
+        document.getElementById("skip-erosia-prelude-cee-nay").textContent = "2";
+        document.getElementById("skip-erosia-prelude-cee-detail").textContent = "Tak'Kan Country Score Between 20 and 29 (" + game.country.takkan.value + ")";
+    } else if(game.country.takkan.value >= 10){
+        yes += 1;
+        nay += 3;
+        document.getElementById("skip-erosia-prelude-cee-yes").textContent = "1";
+        document.getElementById("skip-erosia-prelude-cee-nay").textContent = "3";
+        document.getElementById("skip-erosia-prelude-cee-detail").textContent = "Tak'Kan Country Score Between 10 and 19 (" + game.country.takkan.value + ")";
+    } else {
+        nay += 4;
+        document.getElementById("skip-erosia-prelude-cee-yes").textContent = "0";
+        document.getElementById("skip-erosia-prelude-cee-nay").textContent = "4";
+        document.getElementById("skip-erosia-prelude-cee-detail").textContent = "Tak'Kan Country Score 9- (" + game.country.takkan.value + ")";
+    }
+
+    if(game.ledgerlist.ledgertakkan.orcdemocracy !== Investmentround.NONE){
+        document.getElementById("skip-erosia-prelude-takkan-democracy-open").style.display = "";
+        yes += 2;
+    } else {
+        document.getElementById("skip-erosia-prelude-takkan-democracy-open").style.display = "none";
+    }
+
+    if(orgontvote === true) {
+        document.getElementById("skip-erosia-prelude-takkan-orgont-vote").style.visibility = "";
+        yes += 1
+    } else {
+        document.getElementById("skip-erosia-prelude-takkan-orgont-vote").style.visibility = "hidden";
+    }
+
+    if(game.research.orcdiversification === Timeslot.AFTERWAR){
+        document.getElementById("skip-erosia-prelude-research-vote").textContent = "Yes";
+        document.getElementById("skip-erosia-prelude-research-detail").textContent = "Orc Diversification Research Done";
+        yes += 1;
+    } else {
+        document.getElementById("skip-erosia-prelude-research-vote").textContent = "Nay";
+        document.getElementById("skip-erosia-prelude-research-detail").textContent = "Orc Diversification Research Not Completed";
+        nay += 1;
+    }
+
+    if(game.globalstat.orcstat.impaleralive === true){
+        if(impalervote === true) {
+            document.getElementById("skip-erosia-prelude-takkan-impaler-result").textContent = "The Impaler Vote For the Motion";
+            yes += 1
+        } else {
+            document.getElementById("skip-erosia-prelude-takkan-impaler-result").textContent = "The Impaler Vote Against the Motion";
+            nay += 1;
+        }
+    }
+
+    if(impvote === true) {
+        document.getElementById("skip-erosia-prelude-takkan-imp-vote").style.visibility = "";
+        yes += 1
+    } else {
+        document.getElementById("skip-erosia-prelude-takkan-imp-vote").style.visibility = "hidden";
+    }
+
+    var total = yes + nay;
+    var result = (yes*100)/total | 0;
+
+    document.getElementById("skip-erosia-prelude-vote-yes").textContent = "" + yes;
+    document.getElementById("skip-erosia-prelude-vote-nay").textContent = "" + nay;
+    document.getElementById("skip-erosia-prelude-vote-total").textContent = "" + total;
+
+    if(result >= 80){
+        game.globalstat.takkantower += 3;
+        game.peoplerp.yarra.rp += 3;
+        game.peoplerp.hilstara.rp += 3;
+        game.peoplerp.nalili.rp += 3;
+        game.peoplerp.balia.rp += 3;
+        game.peoplerp.elleani.rp += 5;
+        game.peoplerp.iris.rp += 5;
+        if(shotalk === true){
+            game.globalstat.palacestaff.shojoin = true;
+            document.getElementById("skip-erosia-prelude-vote-result").textContent = "" + result + "% Vote For the Motion: Overwhelming Majority, Sho Join the Palace Staff and Gained the Formal Tarran Club";
+            document.getElementById("skip-erosia-prelude-vote-result").style.color = "#00FF00";
+        } else {
+            document.getElementById("skip-erosia-prelude-vote-result").textContent = "" + result + "% Vote For the Motion: Overwhelming Majority, Gained the Formal Tarran Club";
+            document.getElementById("skip-erosia-prelude-vote-result").style.color = "#00FF00";
+        }
+    } else if(result >= 65){
+        game.globalstat.takkantower += 2;
+        game.peoplerp.yarra.rp += 2;
+        game.peoplerp.hilstara.rp += 2;
+        game.peoplerp.nalili.rp += 2;
+        game.peoplerp.balia.rp += 2;
+        game.peoplerp.elleani.rp += 2;
+        game.peoplerp.iris.rp += 2;
+        if(shotalk === true){
+            game.globalstat.palacestaff.shojoin = true;
+            document.getElementById("skip-erosia-prelude-vote-result").textContent = "" + result + "% Vote For the Motion: Large Majority, Sho Join the Palace Staff";
+            document.getElementById("skip-erosia-prelude-vote-result").style.color = "#00FF00";
+        } else {
+            document.getElementById("skip-erosia-prelude-vote-result").textContent = "" + result + "% Vote For the Motion: Large Majority";
+            document.getElementById("skip-erosia-prelude-vote-result").style.color = "#00FF00";
+        }
+    } else if(result > 50){
+        game.globalstat.takkantower += 1;
+        document.getElementById("skip-erosia-prelude-vote-result").textContent = "" + result + "% Vote For the Motion: Barely Pass";
+        document.getElementById("skip-erosia-prelude-vote-result").style.color = "";
+    } else {
+        game.country.takkan.value -= 5;
+        game.country.newgivini.value -= 1;
+        game.globalstat.arclentacc -= 2;
+        document.getElementById("skip-erosia-prelude-vote-result").textContent = "" + result + "% Vote For the Motion: Rejected";
+        document.getElementById("skip-erosia-prelude-vote-result").style.color = "#FF0000";
+    }
+
+    if(document.getElementById("skip-erosia-prelude-trin-orc-done").checked === true){
+        game.globalstat.trincopies.numbers += 1;
+        //game.globalstat.trincopies.obnoxiousorc = true;
+        game.peoplerp.trin.rp += 5;
+        game.peoplerp.balia.rp += 5;
+    }
+
+    if(document.getElementById("skip-erosia-prelude-takkan-tower-leech").checked === true){
+        game.globalstat.abyssal += 1;
+        game.globalstat.takkantower += 1;
+    }
+
+    if(document.getElementById("skip-erosia-prelude-takkan-tower-monster").checked === true){
+        game.globalstat.takkantower += 1;
+    }
+
+    var ginastastay = false;
+    if(game.plotchoice.zirantiasupport === Zirantiasupport.NUP){
+        document.getElementById("skip-erosia-prelude-zirantia-nup-support").style.display = "";
+        game.globalstat.zirantiatower += 1;
+    } else {
+        document.getElementById("skip-erosia-prelude-zirantia-nup-support").style.display = "none";
+    }
+
+    if(game.plotchoice.wynnjoin === true){
+        document.getElementById("skip-erosia-prelude-wynn-detail").textContent = "Zirantia Tower Score +1";
+        game.globalstat.zirantiatower += 1;
+    } else {
+        document.getElementById("skip-erosia-prelude-wynn-detail").textContent = "Simon Angry -5";
+        game.globalstat.wynnangry -= 5;
+    }
+
+    if(document.getElementById("skip-erosia-prelude-zirantia-tower-monster").checked === true){
+        game.globalstat.zirantiatower += 1;
+    }
+
+    if(game.globalstat.zirantiatower >= 3){
+        document.getElementById("skip-erosia-prelude-zirantia-tower-setup-report").textContent = "This sort of ritual isn't difficult for me, and things have gone extremely smoothly.";
+        document.getElementById("skip-erosia-prelude-zirantia-tower-setup-report").style.color = "#00FF00";
+        confrontation += 1;
+        game.peoplerp.uyae.rp += 2;
+        game.peoplerp.riala.rp += 2;
+        game.peoplerp.varia.rp += 2;
+        game.peoplerp.dari.rp += 2;
+        game.peoplerp.lynine.rp += 2;
+        game.peoplerp.wynn.rp += 2;
+    } else {
+        document.getElementById("skip-erosia-prelude-zirantia-tower-setup-report").textContent = "Even if things didn't go perfectly, this sort of ritual isn't difficult for me.";
+        document.getElementById("skip-erosia-prelude-zirantia-tower-setup-report").style.color = "";
+    }
+
+    if(game.plotchoice.variamind === Variamind.RESHAPED){
+        game.peoplerp.varia.rp += 5;
+        game.peoplerp.ginasta.rp += 2;
+    } else if(game.plotchoice.variamind === Variamind.DOMINATED){
+        game.peoplerp.varia.rp += 2;
+        game.peoplerp.ginasta.rp += 5;
+    }
+
+    if(game.peoplerp.dari.cap === 100){
+        game.peoplerp.ginasta.rp += 2;
+    }
+
+    if((game.peoplerp.lynine.initial + game.peoplerp.lynine.rp) >= 90){
+        game.peoplerp.ginasta.rp += 2;
+    }
+
+    if(game.research.sexpurity === Timeslot.AFTERWAR){
+        game.peoplerp.ginasta.rp += 5;
+    }
+
+    const ginastareply = document.getElementById("skip-erosia-prelude-zirantia-ginasta-done");
+    if(ginastareply.value === "stay"){
+        ginastastay = true;
+        game.peoplerp.ginasta.rp += 5;
+    }
+
+    if(document.getElementById("skip-erosia-prelude-aram-monster").checked === true){
+        game.globalstat.aramtower += 1;
+    }
+    if(document.getElementById("skip-erosia-prelude-aram-leech").checked === true){
+        game.globalstat.aramtower += 1;
+        game.globalstat.abyssal += 1;
+    }
+
+    if(game.plotchoice.altinastat === Altinastatus.SANER || game.plotchoice.altinastat === Altinastatus.COCKWHORE){
+        document.getElementById("skip-erosia-prelude-aram-altina-open").style.visibility = "";
+        document.getElementById("skip-erosia-prelude-aram-altina-open").style.display = "";
+        game.globalstat.aramtower += 1;
+        if((game.peoplerp.orilise.initial + game.peoplerp.orilise.rp) >= 90){
+            game.globalstat.aramtower += 1;
+            game.peoplerp.orilise.rp += 2;
+            game.peoplerp.altina.rp += 5;
+        } else {
+            game.peoplerp.orilise.rp += 5;
+            game.peoplerp.altina.rp += 2;
+        }
+    } else {
+        document.getElementById("skip-erosia-prelude-aram-altina-open").style.display = "none";
+    }
+
+    var nodepower = false;
+    const nodedecision = document.getElementById("skip-erosia-prelude-placid-node-done");
+    if(nodedecision.value === "power"){
+        nodepower = true;
+        confrontation -= 1;
+    }
+
+    var robinpower = 0;
+    if(game.research.robinproject !== Timeslot.NONE){
+        robinpower += 2;
+    }
+
+    var robinlevel = +document.getElementById("skip-erosia-prelude-robin-level").value;
+    if(robinlevel >= 55){
+        robinpower += 2;
+    } else if(robinlevel >= 50){
+        robinpower += 1;
+    }
+
+    if(game.peoplerp.robin.lock === true){
+        robinpower += 2;
+    } else if((game.peoplerp.robin.initial + game.peoplerp.robin.rp)>= 95){
+        robinpower += 1;
+    }
+
+    if(robinpower >= 6){
+        confrontation += 2;
+        game.globalstat.yhilintower += 2;
+        document.getElementById("skip-erosia-prelude-robin-result").textContent = "Even if it was faking it, you really made it believable!";
+        document.getElementById("skip-erosia-prelude-robin-result").style.color = "#00FF00";
+    } else if(robinpower >= 4){
+        confrontation += 1;
+        game.globalstat.yhilintower += 1;
+        document.getElementById("skip-erosia-prelude-robin-result").textContent = "Even if it was faking it, you made it believable!";
+        document.getElementById("skip-erosia-prelude-robin-result").style.color = "";
+    } else if(robinpower >= 2){
+        game.globalstat.yhilintower -= 1;
+        document.getElementById("skip-erosia-prelude-robin-result").textContent = "It looked like you took a bit of a beating there.";
+        document.getElementById("skip-erosia-prelude-robin-result").style.color = "#FF0000";
+    } else {
+        game.globalstat.yhilintower -= 2;
+        document.getElementById("skip-erosia-prelude-robin-result").textContent = "It looked like you took a real beating there. [Robin Drained]";
+        document.getElementById("skip-erosia-prelude-robin-result").style.color = "#FF0000";
+    }
+
+    const groupdeal = document.getElementById("skip-erosia-prelude-yhilin-distruption");
+    if(groupdeal.value === "merchant"){
+        //game.plotchoice.distruption = Distruption.MERCHANT;
+    } else if(groupdeal.value === "church"){
+        //game.plotchoice.distruption = Distruption.CHURCH;
+    } else if(groupdeal.value === "magic"){
+        //game.plotchoice.distruption = Distruption.MAGIC;
+    }
+
+    const frontarget = document.getElementById("skip-erosia-prelude-front-lost-done");
+    if(frontarget.value === "aram"){
+        game.plotchoice.frontlost = Frontlost.ZIRANTIA;
+        game.country.zirantia.value -= 1;
+    } else if(frontarget.value === "zirantia"){
+        game.plotchoice.frontlost = Frontlost.ARAM;
+        game.country.aram.value -= 1;
+    }
+
+    const elvenprotect = document.getElementById("skip-erosia-prelude-elven-hit-done");
+    if(elvenprotect.value === "darghelon"){
+        game.plotchoice.elvenhit = Elvenhit.GHELDARON;
+        game.country.gheldaron.value -= 1;
+    } else if(elvenprotect.value === "gheldaron"){
+        game.plotchoice.elvenhit = Elvenhit.DARGHELON;
+        game.country.darghelon.value -= 1;
+    }
+
+    if(game.plotchoice.frontlost === Frontlost.ZIRANTIA){
+        document.getElementById("skip-erosia-prelude-aram-fight-win").style.display = "";
+        document.getElementById("skip-erosia-prelude-aram-fight-lost").style.display = "none";
+        document.getElementById("skip-erosia-prelude-aram-lost-option").value = "";
+        if(document.getElementById("skip-erosia-prelude-aram-abyssal").checked === true){
+            game.globalstat.abyssal += 1;
+        }
+        const aramwinoption = document.getElementById("skip-erosia-prelude-aram-win-option");
+        if(aramwinoption.value === "impeding"){
+            confrontation += 2;
+            captive += 2;
+        } else if(aramwinoption.value === "captive"){
+            game.globalstat.aramtower -= 3;
+            captive += 5;
+        } else if(aramwinoption.value === "protect"){
+            game.globalstat.aramtower += 2;
+            captive += 2;
+        }
+    } else if(game.plotchoice.frontlost === Frontlost.ARAM){
+        document.getElementById("skip-erosia-prelude-aram-fight-win").style.display = "none";
+        document.getElementById("skip-erosia-prelude-aram-fight-lost").style.display = "";
+        document.getElementById("skip-erosia-prelude-aram-abyssal").checked = false;
+        document.getElementById("skip-erosia-prelude-aram-win-option").value = "";
+        const aramlostoption = document.getElementById("skip-erosia-prelude-aram-lost-option");
+        if(aramlostoption.value === "impeding"){
+            game.globalstat.aramtower -= 3;
+            captive += 1;
+        } else if(aramlostoption.value === "captive"){
+            game.globalstat.aramtower -= 3;
+            confrontation -= 1;
+            captive += 3;
+        } else if(aramlostoption.value === "protect"){
+            confrontation -= 1;
+            captive += 1;
+        }
+    }
+
+    var hqbattle = 0;
+    if(game.palacestat.magicdefence === Magicdefence.STRONG){
+        document.getElementById("skip-erosia-prelude-hq-magic").textContent = "Fortunately, your core defenses are stronger than the invaders were counting on.";
+        document.getElementById("skip-erosia-prelude-hq-magic").style.color = "#00FF00";
+        hqbattle += 2;
+    } else if(game.palacestat.magicdefence === Magicdefence.AVERAGE){
+        document.getElementById("skip-erosia-prelude-hq-magic").textContent = "Your defenses are holding. The invaders might break through eventually";
+        document.getElementById("skip-erosia-prelude-hq-magic").style.color = "";
+        hqbattle += 1;
+    } else if(game.palacestat.magicdefence === Magicdefence.WEAK){
+        document.getElementById("skip-erosia-prelude-hq-magic").textContent = "Unfortunately, they're tearing through your defenses pretty quick.";
+        document.getElementById("skip-erosia-prelude-hq-magic").style.color = "#FF0000";
+        hqbattle -= 1;
+    }
+
+    if(game.palacestat.military.value >= 20){
+        document.getElementById("skip-erosia-prelude-hq-military").textContent = "Heh, we're going to be just fine. The strategy should work well.";
+        document.getElementById("skip-erosia-prelude-hq-military").style.color = "#00FF00";
+        hqbattle += 1;
+    } else if(game.palacestat.military.value >= 5){
+        document.getElementById("skip-erosia-prelude-hq-military").textContent = "Yes, we have some here. It's a viable strategy, and it could help.";
+        document.getElementById("skip-erosia-prelude-hq-military").style.color = "";
+    } else {
+        document.getElementById("skip-erosia-prelude-hq-military").textContent = "I don't think we should. We're thin on the ground here. [HQ Damaged]";
+        document.getElementById("skip-erosia-prelude-hq-military").style.color = "#FF0000";
+        game.palacestat.damagedone = true;
+        hqbattle -= 1;
+    }
+
+    if(hqbattle >= 3){
+        document.getElementById("skip-erosia-prelude-hq-report").textContent = "Things went great overall!";
+        document.getElementById("skip-erosia-prelude-hq-report").style.color = "#00FF00";
+        confrontation += 3;
+        captive += 3;
+    } else if(hqbattle >= 2){
+        document.getElementById("skip-erosia-prelude-hq-report").textContent = "Overall, you did very well.";
+        document.getElementById("skip-erosia-prelude-hq-report").style.color = "#00FF00";
+        confrontation += 2;
+        captive += 3;
+    } else if(hqbattle >= 1){
+        document.getElementById("skip-erosia-prelude-hq-report").textContent = "Overall... you managed.";
+        document.getElementById("skip-erosia-prelude-hq-report").style.color = "";
+        confrontation += 1;
+        captive += 1;
+    } else {
+        document.getElementById("skip-erosia-prelude-hq-report").textContent = "Overall... you won, but they did a distressing amount of damage.";
+        document.getElementById("skip-erosia-prelude-hq-report").style.color = "#FF0000";
+        confrontation -= 1;
+        captive += 1;
+    }
+
+    if(game.plotchoice.frontlost === Frontlost.ARAM){
+        document.getElementById("skip-erosia-prelude-zirantia-fight-win").style.display = "";
+        document.getElementById("skip-erosia-prelude-zirantia-fight-lost").style.display = "none";
+        document.getElementById("skip-erosia-prelude-zirantia-lost-option").value = "";
+        if(ginastastay === true){
+            document.getElementById("skip-erosia-prelude-zirantia-win-ginasta").textContent = "Protect the Southern Erosian Group from a solidified Chaos";
+            captive -= 1;
+        } else {
+            document.getElementById("skip-erosia-prelude-zirantia-win-ginasta").textContent = "Defeat the Southern Erosian Group";
+            confrontation += 1;
+        }
+        if(document.getElementById("skip-erosia-prelude-zirantia-abyssal").checked === true){
+            game.globalstat.abyssal += 1;
+        }
+        if(ginastastay === true){
+            game.globalstat.abyssal += 1;
+        }
+        const zirantiawinoption = document.getElementById("skip-erosia-prelude-zirantia-win-option");
+        if(zirantiawinoption.value === "impeding"){
+            confrontation += 2;
+            captive += 2;
+        } else if(zirantiawinoption.value === "captive"){
+            captive += 5;
+        } else if(zirantiawinoption.value === "protect"){
+            game.globalstat.zirantiatower += 3;
+            captive += 2;
+            game.peoplerp.uyae.rp += 5;
+        }
+    } else if(game.plotchoice.frontlost === Frontlost.ZIRANTIA){
+        document.getElementById("skip-erosia-prelude-zirantia-fight-win").style.display = "none";
+        document.getElementById("skip-erosia-prelude-zirantia-fight-lost").style.display = "";
+        document.getElementById("skip-erosia-prelude-zirantia-abyssal").checked = false;
+        document.getElementById("skip-erosia-prelude-zirantia-win-option").value = "";
+        if(ginastastay === true){
+            document.getElementById("skip-erosia-prelude-zirantia-lost-ginasta").textContent = "Protect the Southern Erosian Group from a solidified Chaos";
+            captive -= 1;
+        } else {
+            document.getElementById("skip-erosia-prelude-zirantia-lost-ginasta").textContent = "Defeat the Southern Erosian Group";
+            confrontation += 1;
+        }
+        if(ginastastay === true){
+            game.globalstat.abyssal += 1;
+        }
+        const zirantialostoption = document.getElementById("skip-erosia-prelude-zirantia-lost-option");
+        if(zirantialostoption.value === "impeding"){
+            game.globalstat.zirantiatower -= 3;
+            captive += 1;
+            game.peoplerp.uyae.rp -= 5;
+        } else if(zirantialostoption.value === "captive"){
+            confrontation -= 1;
+            game.globalstat.zirantiatower -= 3;
+            captive += 3;
+            game.peoplerp.uyae.rp -= 5;
+        } else if(zirantialostoption.value === "protect"){
+            confrontation -= 1;
+            captive += 1;
+            game.peoplerp.uyae.rp += 5;
+        }
+    }
+
+    var powerlove = 0;
+    if(nodepower === true){
+        powerlove -= 2;
+    }
+    var haremnumber = -1;
+    if(game.plotchoice.altinastat === Altinastatus.SANER || game.plotchoice.altinastat === Altinastatus.COCKWHORE){
+        haremnumber += 1;
+    }
+    if(game.plotchoice.wynnjoin === true){
+        haremnumber += 1;
+    }
+    if(game.peoplerp.janine.cap === 100){
+        haremnumber += 1;
+    }
+    if(game.peoplerp.dari.cap === 100){
+        haremnumber += 1;
+    }
+    if(game.peoplerp.uyae.cap === 100){
+        haremnumber += 1;
+    }
+    if(haremnumber > 0){
+        powerlove += haremnumber
+    }
+
+    var locked = 0;
+    if(game.peoplerp.aka.lock === true){
+        locked += 1;
+    }
+    if(game.peoplerp.yarra.lock === true){
+        locked += 1;
+    }
+    if(game.peoplerp.qum.lock === true){
+        locked += 1;
+    }
+    if(game.peoplerp.robin.lock === true){
+        locked += 1;
+    }
+    if(game.peoplerp.hilstara.lock === true){
+        locked += 1;
+    }
+    if(game.peoplerp.megail.lock === true){
+        locked += 1;
+    }
+    if(game.peoplerp.trin.lock === true){
+        locked += 1;
+    }
+    if(game.peoplerp.altina.lock === true){
+        locked += 1;
+    }
+    if(game.peoplerp.varia.lock === true){
+        locked += 1;
+    }
+    if(game.peoplerp.nalili.lock === true){
+        locked += 1;
+    }
+    if(game.peoplerp.balia.lock === true){
+        locked += 1;
+    }
+    if(game.peoplerp.iris.lock === true){
+        locked += 1;
+    }
+    if(game.peoplerp.riala.lock === true){
+        locked += 1;
+    }
+    if(game.peoplerp.wynn.lock === true){
+        locked += 1;
+    }
+    if(game.peoplerp.dari.lock === true){
+        locked += 1;
+    }
+    if(game.peoplerp.janine.lock === true){
+        locked += 1;
+    }
+    if(game.peoplerp.uyae.lock === true){
+        locked += 1;
+    }
+    if(locked >= 15){
+        powerlove += 4;
+    } else if(locked >= 12){
+        powerlove += 3;
+    } else if(locked >= 9){
+        powerlove += 2;
+    } else if(locked >= 6){
+        powerlove += 1;
+    } else if(locked >= 3){
+
+    } else {
+        powerlove -= 1;
+    }
+
+    var simlvl = +document.getElementById("skip-erosia-prelude-simon-level").value;
+    if(simlvl >= 61){
+
+    } else if(simlvl >= 58){
+        powerlove += 2;
+    } else if(simlvl >= 55){
+        powerlove += 1;
+    } else if(simlvl >= 50){
+
+    } else {
+        powerlove -= 1;
+    }
+    if(powerlove >= 8){
+        document.getElementById("skip-erosia-prelude-kings-report").textContent = "Gaah! That hurt, you fucker!";
+        document.getElementById("skip-erosia-prelude-kings-report").style.color = "#00FF00";
+        confrontation += 3;
+        game.country.erosia.value += 6;
+    } else if(powerlove >= 5){
+        document.getElementById("skip-erosia-prelude-kings-report").textContent = "Damn, you can really put a lot of power behind a spell.";
+        document.getElementById("skip-erosia-prelude-kings-report").style.color = "#00FF00";
+        confrontation += 2;
+        game.country.erosia.value += 4;
+    } else if(powerlove >= 3){
+        document.getElementById("skip-erosia-prelude-kings-report").textContent = "Damn, more of that? You've obviously been studying the Tower too.";
+        document.getElementById("skip-erosia-prelude-kings-report").style.color = "";
+        confrontation += 1;
+        game.country.erosia.value += 2;
+    } else {
+        document.getElementById("skip-erosia-prelude-kings-report").textContent = "Haha, that's all you've got?";
+        document.getElementById("skip-erosia-prelude-kings-report").style.color = "#FF0000";
+    }
+
+    game.peoplerp.esthera.rp += 2;
+
+    if(document.getElementById("skip-erosia-prelude-aftermath-janine").checked === true){
+        game.peoplerp.janine.rp += 2;
+    }
+
+    if(game.palacestat.hospitality.value >= 15){
+        document.getElementById("skip-erosia-prelude-aftermath-hospitality").textContent = " I found everyone remarkably accommodating. I respect what you've built there.";
+        document.getElementById("skip-erosia-prelude-aftermath-hospitality").style.color = "#00FF00";
+        game.peoplerp.fheliel.rp += 10;
+    } else if(game.palacestat.hospitality.value >= 12){
+        document.getElementById("skip-erosia-prelude-aftermath-hospitality").textContent = "I found everyone quite accommodating. I respect what you've built there.";
+        document.getElementById("skip-erosia-prelude-aftermath-hospitality").style.color = "#00FF00";
+        game.peoplerp.fheliel.rp += 8;
+    } else if(game.palacestat.hospitality.value >= 9){
+        document.getElementById("skip-erosia-prelude-aftermath-hospitality").textContent = "I found my stay there quite pleasant. It was better than a mere fortress.";
+        document.getElementById("skip-erosia-prelude-aftermath-hospitality").style.color = "";
+        game.peoplerp.fheliel.rp += 6;
+    } else if(game.palacestat.hospitality.value >= 6){
+        document.getElementById("skip-erosia-prelude-aftermath-hospitality").textContent = "I found my stay there pleasant. It was better than a mere fortress.";
+        document.getElementById("skip-erosia-prelude-aftermath-hospitality").style.color = "";
+        game.peoplerp.fheliel.rp += 4;
+    } else if(game.palacestat.hospitality.value >= 3){
+        document.getElementById("skip-erosia-prelude-aftermath-hospitality").textContent = "I appreciate the touches of hospitality, even in a fortress.";
+        document.getElementById("skip-erosia-prelude-aftermath-hospitality").style.color = "";
+        game.peoplerp.fheliel.rp += 2;
+    }
+
+    if(game.plotchoice.qumogre === true){
+        game.peoplerp.fheliel.rp += 5;
+    }
+    if(game.ledgerlist.ledgerardford.ghenaleseprogram !== Investmentround.NONE){
+        game.peoplerp.fheliel.rp += 5;
+    }
+    if(game.plotchoice.fhelielchat === true){
+        game.peoplerp.fheliel.rp += 2;
+    }
+    if(game.globalstat.tradescore >= 10){
+        game.peoplerp.fheliel.rp += 10;
+    } else if(game.globalstat.tradescore >= 6){
+        game.peoplerp.fheliel.rp += 5;
+    }
+
+    captive += 1;
+    if(captive >= 10){
+        confrontation += 1;
+    }
+    if(confrontation >= 9){
+        document.getElementById("skip-erosia-prelude-aftermath-iris-report").textContent = "We did remarkably well! Not only did we turn the tide, we placed ourselves in a very advantageous position.";
+        document.getElementById("skip-erosia-prelude-aftermath-iris-report").style.color = "#00FF00";
+        game.country.erosia.value += 5;
+        game.country.ghenalon.value += 3;
+        game.country.tatseni.value += 2;
+        game.country.stenai.value += 2;
+        game.peoplerp.esthera.rp += 6;
+        game.peoplerp.ginasta.rp += 3;
+        game.globalstat.arclentacc += 3;
+    } else if(confrontation >= 6){
+        document.getElementById("skip-erosia-prelude-aftermath-iris-report").textContent = "I think we did quite well. Not only did we turn the tide, we placed ourselves in an advantageous position.";
+        document.getElementById("skip-erosia-prelude-aftermath-iris-report").style.color = "#00FF00";
+        game.country.erosia.value += 3;
+        game.country.ghenalon.value += 2;
+        game.country.tatseni.value += 1;
+        game.country.stenai.value += 1;
+        game.peoplerp.esthera.rp += 4;
+        game.peoplerp.ginasta.rp += 2;
+        game.globalstat.arclentacc += 2;
+    } else if(confrontation >= 3){
+        document.getElementById("skip-erosia-prelude-aftermath-iris-report").textContent = "I think we did well enough. Given the advantages he started with, we have turned the tide.";
+        document.getElementById("skip-erosia-prelude-aftermath-iris-report").style.color = "";
+        game.country.erosia.value += 1;
+        game.country.ghenalon.value += 1;
+        game.country.tatseni.value += 1;
+        game.country.stenai.value += 1;
+        game.peoplerp.esthera.rp += 2;
+        game.peoplerp.ginasta.rp += 1;
+        game.globalstat.arclentacc += 1;
+    } else if(confrontation >= 0){
+        document.getElementById("skip-erosia-prelude-aftermath-iris-report").textContent = "And I fear there... we won, but not as solidly as we could have. We will need to work to overcome this.";
+        document.getElementById("skip-erosia-prelude-aftermath-iris-report").style.color = "#FF0000";
+        game.country.ghenalon.value -= 1;
+    } else {
+        document.getElementById("skip-erosia-prelude-aftermath-iris-report").textContent = "And I fear there, things went as poorly as they could have, while we still obtained the victory. We will need to work hard to overcome this.";
+        document.getElementById("skip-erosia-prelude-aftermath-iris-report").style.color = "#FF0000";
+        game.country.erosia.value -= 1;
+        game.country.ghenalon.value -= 2;
+        game.peoplerp.ginasta.rp -= 2;
+        game.globalstat.arclentacc -= 1;
+    }
+
+    if(game.globalstat.trincopies.numbers > game.globalstat.trincopies.trinmax){
+        document.getElementById("skip-erosia-prelude-trin-copies-negative").style.display = "";
+        game.globalstat.trincopies.trinmax = game.globalstat.trincopies.numbers + +document.getElementById("skip-succession-crisis-trin-copies-remain").value;
+    } else {
+        document.getElementById("skip-erosia-prelude-trin-copies-negative").style.display = "none";
+        document.getElementById("skip-erosia-prelude-trin-copies-remain").value = 0;
+    }
+
+    rpscriptlocker(game.peoplerp);
+
+    document.getElementById("skip-erosia-prelude-fucklord-confrontiation").textContent = "" + confrontation;
+    document.getElementById("skip-erosia-prelude-erosian-captive").textContent = "" + captive;
+    document.getElementById("skip-erosia-prelude-yhilin-tower-score").textContent = "" + game.globalstat.yhilintower;
+    document.getElementById("skip-erosia-prelude-takkan-tower-score").textContent = "" + game.globalstat.takkantower;
+    document.getElementById("skip-erosia-prelude-aram-tower-score").textContent = "" + game.globalstat.aramtower;
+    document.getElementById("skip-erosia-prelude-zirantia-tower-score").textContent = "" + game.globalstat.zirantiatower;
+
+    stampendvar("Fucklord Confrontation ",confrontation , "stamp-fucklord-confrontation-erosia-prelude", true);
+    stampendvar("Erosian Captive: ",captive , "stamp-erosian-captive-erosia-prelude", true);
+    stampendvar("Yhilin Tower Score: ",game.globalstat.yhilintower , "stamp-yhilin-tower-erosia-prelude", true);
+    stampendvar("Tak'Kan Tower Score: ",game.globalstat.takkantower , "stamp-takkan-tower-erosia-prelude", true);
+    stampendvar("Aram Tower Score: ",game.globalstat.aramtower , "stamp-aram-tower-erosia-prelude", true);
+    stampendvar("Zirantia Tower Score: ",game.globalstat.zirantiatower , "stamp-zirantia-tower-erosia-prelude", true);
+
+    stampendvar("Strength: ", game.globalstat.orcstat.orcstrength, "stamp-orcs-str-erosia-prelude", true);
+    stampendvar("Intelligence: ", game.globalstat.orcstat.orcintelligence, "stamp-orcs-int-erosia-prelude", true);
+    stampendvar("Discipline: ", game.globalstat.orcstat.orcdiscipline, "stamp-orcs-disci-erosia-prelude", true);
+    stampendvar("Sapience: ", game.globalstat.orcstat.orcsapience, "stamp-orcs-sap-erosia-prelude", true);
+    stampendvar("Magic: ", game.globalstat.orcstat.orcmagic, "stamp-orcs-mag-erosia-prelude", true);
+    stampendvar("Attractiveness: ", game.globalstat.orcstat.orcattrativeness, "stamp-orcs-att-erosia-prelude", true);
+
+    stampartialvalue("HQ Military: ", game.palacestat.military, "stamp-hq-military-erosia-prelude");
+    stampartialvalue("HQ Magic:", game.palacestat.magic, "stamp-hq-magic-erosia-prelude");
+    stampartialvalue("HQ Hospitality: ", game.palacestat.hospitality, "stamp-hq-hospitality-erosia-prelude");
+
+    stampendvar("Shining Swords: ", game.globalstat.shiningword, "stamp-shining-sword-erosia-prelude", true);
+    stampendvar("Abyssal Gems: ", game.globalstat.abyssal, "stamp-abyssal-gem-erosia-prelude", true);
+    stampendvar("ProN Available: ", game.globalstat.pron, "stamp-pron-erosia-prelude", true);
+    stampendvar("Army Size: ", game.globalstat.armystat.size, "stamp-army-erosia-prelude", true);
+    stampendvar("Army Quality: ", game.globalstat.armystat.quality, "stamp-quality-erosia-prelude", true);
+    stampendvar("Trin Copies: ", game.globalstat.trincopies.numbers, "stamp-trincopies-erosia-prelude", true);
+    stampendvar("Trin Max: ", game.globalstat.trincopies.trinmax, "stamp-trinmax-erosia-prelude", true);
+    stampendvar("Yhilin Acceptance: ", game.globalstat.yhilinacc, "stamp-yhilin-acc-erosia-prelude", true);
+    stampendvar("Arclent Acceptance: ", game.globalstat.arclentacc, "stamp-arclent-acc-erosia-prelude", true);
+    stampendvar("Palace Staff: ", game.globalstat.palacestaff.numbers, "stamp-palace-staff-erosia-prelude", true);
+    stampendvar("Wynn: Simon Anger: ", game.globalstat.wynnangry, "stamp-wynn-angry-erosia-prelude", game.peoplerp.wynn.stamp);
+
+    stampartialrp("Yarra RP: ", game.peoplerp.yarra, "stamp-yarra-rp-erosia-prelude");
+    stampartialrp("Qum RP: ", game.peoplerp.qum, "stamp-qum-rp-erosia-prelude");
+    stampartialrp("Aka RP: ", game.peoplerp.aka, "stamp-aka-rp-erosia-prelude");
+    stampartialrp("Robin RP: ", game.peoplerp.robin, "stamp-robin-rp-erosia-prelude");
+    stampartialrp("Megail RP: ", game.peoplerp.megail, "stamp-megail-rp-erosia-prelude");
+    stampartialrp("Carina RP: ", game.peoplerp.carina, "stamp-carina-rp-erosia-prelude");
+    stampartialrp("Hilstara RP: ", game.peoplerp.hilstara, "stamp-hilstara-rp-erosia-prelude");
+    stampartialrp("Trin RP: ", game.peoplerp.trin, "stamp-trin-rp-erosia-prelude");
+    stampartialrp("Janine RP: ", game.peoplerp.janine, "stamp-janine-rp-erosia-prelude");
+    stampartialrp("Sarai RP: ", game.peoplerp.sarai, "stamp-sarai-rp-erosia-prelude");
+    stampartialrp("Altina RP: ", game.peoplerp.altina, "stamp-altina-rp-erosia-prelude");
+    stampartialrp("Varia RP: ", game.peoplerp.varia, "stamp-varia-rp-erosia-prelude");
+    stampartialrp("Mestan RP: ", game.peoplerp.mestan, "stamp-mestan-rp-erosia-prelude");
+    stampartialrp("Esthera RP: ", game.peoplerp.esthera, "stamp-esthera-rp-erosia-prelude");
+    stampartialrp("Nalili RP: ", game.peoplerp.nalili, "stamp-nalili-rp-erosia-prelude");
+    stampartialrp("Balia RP: ", game.peoplerp.balia, "stamp-balia-rp-erosia-prelude");
+    stampartialrp("Vhala RP: ", game.peoplerp.vhala, "stamp-vhala-rp-erosia-prelude");
+    stampartialrp("Dari RP: ", game.peoplerp.dari, "stamp-dari-rp-erosia-prelude");
+    stampartialrp("Ginasta RP: ", game.peoplerp.ginasta, "stamp-ginasta-rp-erosia-prelude");
+    stampartialrp("Lynine RP: ", game.peoplerp.lynine, "stamp-lynine-rp-erosia-prelude");
+    stampartialrp("Orilise RP: ", game.peoplerp.orilise, "stamp-orilise-rp-erosia-prelude");
+    stampartialrp("Wynn RP: ", game.peoplerp.wynn, "stamp-wynn-rp-erosia-prelude");
+    stampartialrp("Uyae RP: ", game.peoplerp.uyae, "stamp-uyae-rp-erosia-prelude");
+    stampartialrp("Neranda RP: ", game.peoplerp.neranda, "stamp-neranda-rp-erosia-prelude");
+    stampartialrp("Elleani RP: ", game.peoplerp.elleani, "stamp-elleani-rp-erosia-prelude");
+    stampartialrp("Riala RP: ", game.peoplerp.riala, "stamp-riala-rp-erosia-prelude");
+    stampartialrp("Iris RP: ", game.peoplerp.iris, "stamp-iris-rp-erosia-prelude");
+    stampartialrp("Fheliel RP: ", game.peoplerp.fheliel, "stamp-fheliel-rp-erosia-prelude");
+
+    stampartialvalue("Yhilin Score: ", game.country.yhilin, "stamp-yhilin-erosia-prelude");
+    stampartialvalue("Ardoheim Score: ", game.country.ardoheim, "stamp-ardoheim-erosia-prelude");
+    stampartialvalue("Aram Score: ", game.country.aram, "stamp-aram-erosia-prelude");
+    stampartialvalue("Eustrin Score: ", game.country.eustrin, "stamp-eustrin-erosia-prelude");
+    stampartialvalue("Zirantia Score: ", game.country.zirantia, "stamp-zirantia-erosia-prelude");
+    stampartialvalue("Ghenalon Score: ", game.country.ghenalon, "stamp-ghenalon-erosia-prelude");
+    stampartialvalue("Darghelon Score: ", game.country.darghelon, "stamp-darghelon-erosia-prelude");
+    stampartialvalue("Gheldaron Score: ", game.country.gheldaron, "stamp-gheldaron-erosia-prelude");
+    stampartialvalue("Orgasmic Empire Score: ", game.country.orgasmicempire, "stamp-orgasmic-erosia-prelude");
+    stampartialvalue("Chalice States Score: ", game.country.chalicestates, "stamp-chalice-erosia-prelude");
+    stampartialvalue("New Givini Score: ", game.country.newgivini, "stamp-givini-erosia-prelude");
+    stampartialvalue("Tak'Kan Score: ", game.country.takkan, "stamp-takkan-erosia-prelude");
+    stampartialvalue("Erosia Score: ", game.country.erosia, "stamp-erosia-erosia-prelude");
+
+    stampartialvalue("Economy Score: ", game.simonstat.economy, "stamp-economy-erosia-prelude");
+    stampartialvalue("Social Score: ", game.simonstat.social, "stamp-social-erosia-prelude");
+    stampartialvalue("Religion Score: ", game.simonstat.religion, "stamp-religion-erosia-prelude");
+
+    stampenditem(game.simonstat.keyitem.armor, "stamp-key-armor-erosia-prelude");
+    stampenditem(game.simonstat.keyitem.helm, "stamp-key-helm-erosia-prelude");
+    stampenditem(game.simonstat.keyitem.shield, "stamp-key-shield-erosia-prelude");
+
+    stampendvar("HP: +", game.simonstat.bonustat.hp, "stamp-stat-hp-erosia-prelude", true);
+    stampendvar("MP: +", game.simonstat.bonustat.mp, "stamp-stat-mp-erosia-prelude", true);
+    stampendvar("ATK: +", game.simonstat.bonustat.atk, "stamp-stat-atk-erosia-prelude", true);
+    stampendvar("DEF: +", game.simonstat.bonustat.def, "stamp-stat-def-erosia-prelude", true);
+    stampendvar("MAG: +", game.simonstat.bonustat.mag, "stamp-stat-mag-erosia-prelude", true);
+    stampendvar("MDF: +", game.simonstat.bonustat.mdf, "stamp-stat-mdf-erosia-prelude", true);
+    stampendvar("AGI: +", game.simonstat.bonustat.agi, "stamp-stat-agi-erosia-prelude", true);
+    stampendvar("LUK: +", game.simonstat.bonustat.luk, "stamp-stat-luk-erosia-prelude", true);
+    stampendlust(game.simonstat.bonustat.sp, "stamp-stat-sp-erosia-prelude", true);
+
+}
+
+function stenaitrip(game){
+
+    rpscriptstart(game.peoplerp);
+    scorescriptstart(game.simonstat);
+    countryscriptstart(game.country);
+    palacescriptstart(game.palacestat);
+
+    if(game.plotchoice.elvenhit === Elvenhit.GHELDARON){
+        game.peoplerp.lynine.cap = 100;
+    }
+
+    if(document.getElementById("stenai-trip-qum-robin").checked === true){
+        game.peoplerp.qum.rp += 2;
+        game.peoplerp.robin.rp += 1;
+    }
+
+    if(document.getElementById("stenai-trip-yarra-robin").checked === true){
+        game.peoplerp.yarra.rp += 2;
+    }
+
+    if(document.getElementById("stenai-trip-orilise-chat").checked === true){
+        if(game.plotchoice.elvenhit === Elvenhit.GHELDARON){
+            game.peoplerp.orilise.rp -= 1;
+        } else if(game.plotchoice.elvenhit === Elvenhit.DARGHELON){
+            game.peoplerp.orilise.rp += 2;
+        }
+    }
+
+    if(document.getElementById("stenai-trip-lynine-chat").checked === true){
+        if(game.plotchoice.elvenhit === Elvenhit.GHELDARON){
+            game.peoplerp.lynine.rp += 5;
+        } else if(game.plotchoice.elvenhit === Elvenhit.DARGHELON){
+            game.peoplerp.lynine.rp -= 5;
+        }
+    }
+
+    if(game.palacestat.shrine === false){
+        if(game.globalstat.pron >= 5000){
+            document.getElementById("stenai-trip-carina-shrine-open").style.display = "";
+            document.getElementById("stenai-trip-carina-shrine-close").style.display = "none";
+            if(document.getElementById("stenai-trip-carina-shrine-done").checked === true){
+                game.globalstat.pron -= 5000;
+                game.palacestat.magic.value += 1;
+                game.palacestat.hospitality.value += 3;
+                game.peoplerp.carina.rp += 5;
+                game.palacestat.shrine = true;
+            }
+        } else {
+            document.getElementById("stenai-trip-carina-shrine-open").style.display = "none";
+            document.getElementById("stenai-trip-carina-shrine-close").style.display = "";
+            document.getElementById("stenai-trip-carina-shrine-done").checked = false;
+        }
+    } else {
+        document.getElementById("stenai-trip-carina-shrine-open").style.display = "none";
+        document.getElementById("stenai-trip-carina-shrine-close").style.display = "none";
+        document.getElementById("stenai-trip-carina-shrine-done").checked = false;
+    }
+
+    if(game.palacestat.shrine === true){
+       document.getElementById("stenai-trip-carina-nalili-open").style.visibility = "";
+       if(document.getElementById("stenai-trip-carina-nalili-done").checked === true){
+           game.peoplerp.carina.rp += 2;
+           game.peoplerp.nalili.rp += 2;
+       }
+    } else {
+        document.getElementById("stenai-trip-carina-nalili-open").style.visibility = "hidden";
+        document.getElementById("stenai-trip-carina-nalili-done").checked = false;
+    }
+
+    if(document.getElementById("stenai-trip-orcent-bucket").checked === true){
+        game.globalstat.orcentconvo.value += 1;
+        game.globalstat.orcentconvo.arambucket = true;
+    }
+
+    if(document.getElementById("stenai-trip-biyue-talk").checked === true){
+        game.country.zirantia.value += 1;
+    }
+
+    if(document.getElementById("stenai-trip-grubbak-talk").checked === true){
+        game.country.takkan.value += 1;
+        game.peoplerp.aka.rp += 2;
+    }
+
+    if((game.globalstat.yhilintower + game.globalstat.takkantower + game.globalstat.aramtower + game.globalstat.zirantiatower) >= 20){
+        document.getElementById("stenai-trip-shining-sword-open").style.display = "";
+        if(document.getElementById("stenai-trip-shining-sword-done").checked === true){
+            game.globalstat.shiningword += 1;
+        }
+    } else {
+        document.getElementById("stenai-trip-shining-sword-open").style.display = "none";
+        document.getElementById("stenai-trip-shining-sword-done").checked = false;
+    }
+
+    if(game.palacestat.damagedone === true){
+        if(game.globalstat.pron >= 5000){
+            document.getElementById("stenai-trip-base-repair-open").style.display = "";
+            document.getElementById("stenai-trip-base-repair-close").style.display = "none";
+            if(document.getElementById("stenai-trip-base-repair-done").checked === true){
+                game.globalstat.pron -= 5000;
+                game.palacestat.damagedone = false;
+            }
+        } else {
+            document.getElementById("stenai-trip-base-repair-open").style.display = "none";
+            document.getElementById("stenai-trip-base-repair-close").style.display = "";
+            document.getElementById("stenai-trip-base-repair-done").checked = false;
+        }
+    } else {
+        document.getElementById("stenai-trip-base-repair-open").style.display = "none";
+        document.getElementById("stenai-trip-base-repair-close").style.display = "none";
+        document.getElementById("stenai-trip-base-repair-done").checked = false;
+    }
+
+    if(game.palacestat.shrine === false && game.globalstat.pron < 5000 && document.getElementById("stenai-trip-carina-shrine-done").checked === false){
+        document.getElementById("stenai-trip-carina-shrine-open").style.display = "none";
+        document.getElementById("stenai-trip-carina-shrine-close").style.display = "";
+    }
+
+    if(game.palacestat.damagedone === true && game.globalstat.pron < 5000 && document.getElementById("stenai-trip-carina-shrine-done").checked === false){
+        document.getElementById("stenai-trip-base-repair-open").style.display = "none";
+        document.getElementById("stenai-trip-base-repair-close").style.display = "";
+    }
+
+    if(document.getElementById("stenai-trip-riala-robin").checked === true && document.getElementById("stenai-trip-orilise-chat").checked === true && document.getElementById("stenai-trip-lynine-chat").checked === true){
+        document.getElementById("stenai-trip-lustlord-offer-open").style.visibility = "";
+    } else {
+        document.getElementById("stenai-trip-lustlord-offer-open").style.visibility = "hidden";
+        document.getElementById("stenai-trip-lustlord-offer-done").checked = false;
+    }
+
+    rpscriptlocker(game.peoplerp);
+
+    stampendvar("Strength: ", game.globalstat.orcstat.orcstrength, "stamp-orcs-str-stenai-trip", true);
+    stampendvar("Intelligence: ", game.globalstat.orcstat.orcintelligence, "stamp-orcs-int-stenai-trip", true);
+    stampendvar("Discipline: ", game.globalstat.orcstat.orcdiscipline, "stamp-orcs-disci-stenai-trip", true);
+    stampendvar("Sapience: ", game.globalstat.orcstat.orcsapience, "stamp-orcs-sap-stenai-trip", true);
+    stampendvar("Magic: ", game.globalstat.orcstat.orcmagic, "stamp-orcs-mag-stenai-trip", true);
+    stampendvar("Attractiveness: ", game.globalstat.orcstat.orcattrativeness, "stamp-orcs-att-stenai-trip", true);
+
+    stampartialvalue("HQ Military: ", game.palacestat.military, "stamp-hq-military-stenai-trip");
+    stampartialvalue("HQ Magic:", game.palacestat.magic, "stamp-hq-magic-stenai-trip");
+    stampartialvalue("HQ Hospitality: ", game.palacestat.hospitality, "stamp-hq-hospitality-stenai-trip");
+
+    stampendvar("Shining Swords: ", game.globalstat.shiningword, "stamp-shining-sword-stenai-trip", true);
+    stampendvar("Abyssal Gems: ", game.globalstat.abyssal, "stamp-abyssal-gem-stenai-trip", true);
+    stampendvar("ProN Available: ", game.globalstat.pron, "stamp-pron-stenai-trip", true);
+    stampendvar("Army Size: ", game.globalstat.armystat.size, "stamp-army-stenai-trip", true);
+    stampendvar("Army Quality: ", game.globalstat.armystat.quality, "stamp-quality-stenai-trip", true);
+    stampendvar("Trin Copies: ", game.globalstat.trincopies.numbers, "stamp-trincopies-stenai-trip", true);
+    stampendvar("Trin Max: ", game.globalstat.trincopies.trinmax, "stamp-trinmax-stenai-trip", true);
+    stampendvar("Yhilin Acceptance: ", game.globalstat.yhilinacc, "stamp-yhilin-acc-stenai-trip", true);
+    stampendvar("Arclent Acceptance: ", game.globalstat.arclentacc, "stamp-arclent-acc-stenai-trip", true);
+    stampendvar("Palace Staff: ", game.globalstat.palacestaff.numbers, "stamp-palace-staff-stenai-trip", true);
+    stampendvar("Wynn: Simon Anger: ", game.globalstat.wynnangry, "stamp-wynn-angry-stenai-trip", game.peoplerp.wynn.stamp);
+
+    stampartialrp("Yarra RP: ", game.peoplerp.yarra, "stamp-yarra-rp-stenai-trip");
+    stampartialrp("Qum RP: ", game.peoplerp.qum, "stamp-qum-rp-stenai-trip");
+    stampartialrp("Aka RP: ", game.peoplerp.aka, "stamp-aka-rp-stenai-trip");
+    stampartialrp("Robin RP: ", game.peoplerp.robin, "stamp-robin-rp-stenai-trip");
+    stampartialrp("Megail RP: ", game.peoplerp.megail, "stamp-megail-rp-stenai-trip");
+    stampartialrp("Carina RP: ", game.peoplerp.carina, "stamp-carina-rp-stenai-trip");
+    stampartialrp("Hilstara RP: ", game.peoplerp.hilstara, "stamp-hilstara-rp-stenai-trip");
+    stampartialrp("Trin RP: ", game.peoplerp.trin, "stamp-trin-rp-stenai-trip");
+    stampartialrp("Janine RP: ", game.peoplerp.janine, "stamp-janine-rp-stenai-trip");
+    stampartialrp("Sarai RP: ", game.peoplerp.sarai, "stamp-sarai-rp-stenai-trip");
+    stampartialrp("Altina RP: ", game.peoplerp.altina, "stamp-altina-rp-stenai-trip");
+    stampartialrp("Varia RP: ", game.peoplerp.varia, "stamp-varia-rp-stenai-trip");
+    stampartialrp("Mestan RP: ", game.peoplerp.mestan, "stamp-mestan-rp-stenai-trip");
+    stampartialrp("Esthera RP: ", game.peoplerp.esthera, "stamp-esthera-rp-stenai-trip");
+    stampartialrp("Nalili RP: ", game.peoplerp.nalili, "stamp-nalili-rp-stenai-trip");
+    stampartialrp("Balia RP: ", game.peoplerp.balia, "stamp-balia-rp-stenai-trip");
+    stampartialrp("Vhala RP: ", game.peoplerp.vhala, "stamp-vhala-rp-stenai-trip");
+    stampartialrp("Dari RP: ", game.peoplerp.dari, "stamp-dari-rp-stenai-trip");
+    stampartialrp("Ginasta RP: ", game.peoplerp.ginasta, "stamp-ginasta-rp-stenai-trip");
+    stampartialrp("Lynine RP: ", game.peoplerp.lynine, "stamp-lynine-rp-stenai-trip");
+    stampartialrp("Orilise RP: ", game.peoplerp.orilise, "stamp-orilise-rp-stenai-trip");
+    stampartialrp("Wynn RP: ", game.peoplerp.wynn, "stamp-wynn-rp-stenai-trip");
+    stampartialrp("Uyae RP: ", game.peoplerp.uyae, "stamp-uyae-rp-stenai-trip");
+    stampartialrp("Neranda RP: ", game.peoplerp.neranda, "stamp-neranda-rp-stenai-trip");
+    stampartialrp("Elleani RP: ", game.peoplerp.elleani, "stamp-elleani-rp-stenai-trip");
+    stampartialrp("Riala RP: ", game.peoplerp.riala, "stamp-riala-rp-stenai-trip");
+    stampartialrp("Iris RP: ", game.peoplerp.iris, "stamp-iris-rp-stenai-trip");
+    stampartialrp("Fheliel RP: ", game.peoplerp.fheliel, "stamp-fheliel-rp-stenai-trip");
+
+    stampartialvalue("Yhilin Score: ", game.country.yhilin, "stamp-yhilin-stenai-trip");
+    stampartialvalue("Ardoheim Score: ", game.country.ardoheim, "stamp-ardoheim-stenai-trip");
+    stampartialvalue("Aram Score: ", game.country.aram, "stamp-aram-stenai-trip");
+    stampartialvalue("Eustrin Score: ", game.country.eustrin, "stamp-eustrin-stenai-trip");
+    stampartialvalue("Zirantia Score: ", game.country.zirantia, "stamp-zirantia-stenai-trip");
+    stampartialvalue("Ghenalon Score: ", game.country.ghenalon, "stamp-ghenalon-stenai-trip");
+    stampartialvalue("Darghelon Score: ", game.country.darghelon, "stamp-darghelon-stenai-trip");
+    stampartialvalue("Gheldaron Score: ", game.country.gheldaron, "stamp-gheldaron-stenai-trip");
+    stampartialvalue("Orgasmic Empire Score: ", game.country.orgasmicempire, "stamp-orgasmic-stenai-trip");
+    stampartialvalue("Chalice States Score: ", game.country.chalicestates, "stamp-chalice-stenai-trip");
+    stampartialvalue("New Givini Score: ", game.country.newgivini, "stamp-givini-stenai-trip");
+    stampartialvalue("Tak'Kan Score: ", game.country.takkan, "stamp-takkan-stenai-trip");
+    stampartialvalue("Erosia Score: ", game.country.erosia, "stamp-erosia-stenai-trip");
+
+    stampartialvalue("Economy Score: ", game.simonstat.economy, "stamp-economy-stenai-trip");
+    stampartialvalue("Social Score: ", game.simonstat.social, "stamp-social-stenai-trip");
+    stampartialvalue("Religion Score: ", game.simonstat.religion, "stamp-religion-stenai-trip");
+
+    stampenditem(game.simonstat.keyitem.armor, "stamp-key-armor-stenai-trip");
+    stampenditem(game.simonstat.keyitem.helm, "stamp-key-helm-stenai-trip");
+    stampenditem(game.simonstat.keyitem.shield, "stamp-key-shield-stenai-trip");
+
+    stampendvar("HP: +", game.simonstat.bonustat.hp, "stamp-stat-hp-stenai-trip", true);
+    stampendvar("MP: +", game.simonstat.bonustat.mp, "stamp-stat-mp-stenai-trip", true);
+    stampendvar("ATK: +", game.simonstat.bonustat.atk, "stamp-stat-atk-stenai-trip", true);
+    stampendvar("DEF: +", game.simonstat.bonustat.def, "stamp-stat-def-stenai-trip", true);
+    stampendvar("MAG: +", game.simonstat.bonustat.mag, "stamp-stat-mag-stenai-trip", true);
+    stampendvar("MDF: +", game.simonstat.bonustat.mdf, "stamp-stat-mdf-stenai-trip", true);
+    stampendvar("AGI: +", game.simonstat.bonustat.agi, "stamp-stat-agi-stenai-trip", true);
+    stampendvar("LUK: +", game.simonstat.bonustat.luk, "stamp-stat-luk-stenai-trip", true);
+    stampendlust(game.simonstat.bonustat.sp, "stamp-stat-sp-stenai-trip", true);
+}
+
+function skipstenaitrip(game){
+
+    rpscriptstart(game.peoplerp);
+    scorescriptstart(game.simonstat);
+    countryscriptstart(game.country);
+    palacescriptstart(game.palacestat);
+
+    if(game.plotchoice.elvenhit === Elvenhit.GHELDARON){
+        game.peoplerp.lynine.cap = 100;
+    }
+
+    if(document.getElementById("skip-stenai-trip-qum-robin").checked === true){
+        game.peoplerp.qum.rp += 2;
+        game.peoplerp.robin.rp += 1;
+    }
+
+    if(document.getElementById("skip-stenai-trip-yarra-robin").checked === true){
+        game.peoplerp.yarra.rp += 2;
+    }
+
+    if(document.getElementById("skip-stenai-trip-orilise-chat").checked === true){
+        if(game.plotchoice.elvenhit === Elvenhit.GHELDARON){
+            game.peoplerp.orilise.rp -= 1;
+        } else if(game.plotchoice.elvenhit === Elvenhit.DARGHELON){
+            game.peoplerp.orilise.rp += 2;
+        }
+    }
+
+    if(document.getElementById("skip-stenai-trip-lynine-chat").checked === true){
+        if(game.plotchoice.elvenhit === Elvenhit.GHELDARON){
+            game.peoplerp.lynine.rp += 5;
+        } else if(game.plotchoice.elvenhit === Elvenhit.DARGHELON){
+            game.peoplerp.lynine.rp -= 5;
+        }
+    }
+
+    if(game.palacestat.shrine === false){
+        document.getElementById("skip-stenai-trip-carina-shrine-open").style.display = "";
+        if(document.getElementById("skip-stenai-trip-carina-shrine-done").checked === true){
+            game.globalstat.pron -= 5000;
+            game.palacestat.magic.value += 1;
+            game.palacestat.hospitality.value += 3;
+            game.peoplerp.carina.rp += 5;
+            game.palacestat.shrine = true;
+        }
+    } else {
+        document.getElementById("skip-stenai-trip-carina-shrine-open").style.display = "none";
+        document.getElementById("skip-stenai-trip-carina-shrine-done").checked = false;
+    }
+
+    if(game.palacestat.shrine === true){
+        document.getElementById("skip-stenai-trip-carina-nalili-open").style.visibility = "";
+        if(document.getElementById("skip-stenai-trip-carina-nalili-done").checked === true){
+            game.peoplerp.carina.rp += 2;
+            game.peoplerp.nalili.rp += 2;
+        }
+    } else {
+        document.getElementById("skip-stenai-trip-carina-nalili-open").style.visibility = "hidden";
+        document.getElementById("skip-stenai-trip-carina-nalili-done").checked = false;
+    }
+
+    if(document.getElementById("skip-stenai-trip-orcent-bucket").checked === true){
+        game.globalstat.orcentconvo.value += 1;
+        game.globalstat.orcentconvo.arambucket = true;
+    }
+
+    if(document.getElementById("skip-stenai-trip-biyue-talk").checked === true){
+        game.country.zirantia.value += 1;
+    }
+
+    if(document.getElementById("skip-stenai-trip-grubbak-talk").checked === true){
+        game.country.takkan.value += 1;
+        game.peoplerp.aka.rp += 2;
+    }
+
+    if((game.globalstat.yhilintower + game.globalstat.takkantower + game.globalstat.aramtower + game.globalstat.zirantiatower) >= 20){
+        document.getElementById("skip-stenai-trip-shining-sword-open").style.display = "";
+        if(document.getElementById("skip-stenai-trip-shining-sword-done").checked === true){
+            game.globalstat.shiningword += 1;
+        }
+    } else {
+        document.getElementById("skip-stenai-trip-shining-sword-open").style.display = "none";
+        document.getElementById("skip-stenai-trip-shining-sword-done").checked = false;
+    }
+
+    if(game.palacestat.damagedone === true){
+        document.getElementById("skip-stenai-trip-base-repair-open").style.display = "";
+        if(document.getElementById("skip-stenai-trip-base-repair-done").checked === true){
+            game.globalstat.pron -= 5000;
+            game.palacestat.damagedone = false;
+        }
+    } else {
+        document.getElementById("skip-stenai-trip-base-repair-open").style.display = "none";
+        document.getElementById("skip-stenai-trip-base-repair-done").checked = false;
+    }
+
+    if(game.globalstat.pron < 0){
+        document.getElementById("skip-stenai-trip-pron-negative").style.visibility = "";
+        game.globalstat.pron = +document.getElementById("skip-four-investment-ii-pron-left").value;
+    } else {
+        document.getElementById("skip-stenai-trip-pron-negative").style.visibility = "hidden";
+        document.getElementById("skip-stenai-trip-pron-left").value = 0;
+    }
+
+    rpscriptlocker(game.peoplerp);
+
+    stampendvar("Strength: ", game.globalstat.orcstat.orcstrength, "stamp-orcs-str-stenai-trip", true);
+    stampendvar("Intelligence: ", game.globalstat.orcstat.orcintelligence, "stamp-orcs-int-stenai-trip", true);
+    stampendvar("Discipline: ", game.globalstat.orcstat.orcdiscipline, "stamp-orcs-disci-stenai-trip", true);
+    stampendvar("Sapience: ", game.globalstat.orcstat.orcsapience, "stamp-orcs-sap-stenai-trip", true);
+    stampendvar("Magic: ", game.globalstat.orcstat.orcmagic, "stamp-orcs-mag-stenai-trip", true);
+    stampendvar("Attractiveness: ", game.globalstat.orcstat.orcattrativeness, "stamp-orcs-att-stenai-trip", true);
+
+    stampartialvalue("HQ Military: ", game.palacestat.military, "stamp-hq-military-stenai-trip");
+    stampartialvalue("HQ Magic:", game.palacestat.magic, "stamp-hq-magic-stenai-trip");
+    stampartialvalue("HQ Hospitality: ", game.palacestat.hospitality, "stamp-hq-hospitality-stenai-trip");
+
+    stampendvar("Shining Swords: ", game.globalstat.shiningword, "stamp-shining-sword-stenai-trip", true);
+    stampendvar("Abyssal Gems: ", game.globalstat.abyssal, "stamp-abyssal-gem-stenai-trip", true);
+    stampendvar("ProN Available: ", game.globalstat.pron, "stamp-pron-stenai-trip", true);
+    stampendvar("Army Size: ", game.globalstat.armystat.size, "stamp-army-stenai-trip", true);
+    stampendvar("Army Quality: ", game.globalstat.armystat.quality, "stamp-quality-stenai-trip", true);
+    stampendvar("Trin Copies: ", game.globalstat.trincopies.numbers, "stamp-trincopies-stenai-trip", true);
+    stampendvar("Trin Max: ", game.globalstat.trincopies.trinmax, "stamp-trinmax-stenai-trip", true);
+    stampendvar("Yhilin Acceptance: ", game.globalstat.yhilinacc, "stamp-yhilin-acc-stenai-trip", true);
+    stampendvar("Arclent Acceptance: ", game.globalstat.arclentacc, "stamp-arclent-acc-stenai-trip", true);
+    stampendvar("Palace Staff: ", game.globalstat.palacestaff.numbers, "stamp-palace-staff-stenai-trip", true);
+    stampendvar("Wynn: Simon Anger: ", game.globalstat.wynnangry, "stamp-wynn-angry-stenai-trip", game.peoplerp.wynn.stamp);
+
+    stampartialrp("Yarra RP: ", game.peoplerp.yarra, "stamp-yarra-rp-stenai-trip");
+    stampartialrp("Qum RP: ", game.peoplerp.qum, "stamp-qum-rp-stenai-trip");
+    stampartialrp("Aka RP: ", game.peoplerp.aka, "stamp-aka-rp-stenai-trip");
+    stampartialrp("Robin RP: ", game.peoplerp.robin, "stamp-robin-rp-stenai-trip");
+    stampartialrp("Megail RP: ", game.peoplerp.megail, "stamp-megail-rp-stenai-trip");
+    stampartialrp("Carina RP: ", game.peoplerp.carina, "stamp-carina-rp-stenai-trip");
+    stampartialrp("Hilstara RP: ", game.peoplerp.hilstara, "stamp-hilstara-rp-stenai-trip");
+    stampartialrp("Trin RP: ", game.peoplerp.trin, "stamp-trin-rp-stenai-trip");
+    stampartialrp("Janine RP: ", game.peoplerp.janine, "stamp-janine-rp-stenai-trip");
+    stampartialrp("Sarai RP: ", game.peoplerp.sarai, "stamp-sarai-rp-stenai-trip");
+    stampartialrp("Altina RP: ", game.peoplerp.altina, "stamp-altina-rp-stenai-trip");
+    stampartialrp("Varia RP: ", game.peoplerp.varia, "stamp-varia-rp-stenai-trip");
+    stampartialrp("Mestan RP: ", game.peoplerp.mestan, "stamp-mestan-rp-stenai-trip");
+    stampartialrp("Esthera RP: ", game.peoplerp.esthera, "stamp-esthera-rp-stenai-trip");
+    stampartialrp("Nalili RP: ", game.peoplerp.nalili, "stamp-nalili-rp-stenai-trip");
+    stampartialrp("Balia RP: ", game.peoplerp.balia, "stamp-balia-rp-stenai-trip");
+    stampartialrp("Vhala RP: ", game.peoplerp.vhala, "stamp-vhala-rp-stenai-trip");
+    stampartialrp("Dari RP: ", game.peoplerp.dari, "stamp-dari-rp-stenai-trip");
+    stampartialrp("Ginasta RP: ", game.peoplerp.ginasta, "stamp-ginasta-rp-stenai-trip");
+    stampartialrp("Lynine RP: ", game.peoplerp.lynine, "stamp-lynine-rp-stenai-trip");
+    stampartialrp("Orilise RP: ", game.peoplerp.orilise, "stamp-orilise-rp-stenai-trip");
+    stampartialrp("Wynn RP: ", game.peoplerp.wynn, "stamp-wynn-rp-stenai-trip");
+    stampartialrp("Uyae RP: ", game.peoplerp.uyae, "stamp-uyae-rp-stenai-trip");
+    stampartialrp("Neranda RP: ", game.peoplerp.neranda, "stamp-neranda-rp-stenai-trip");
+    stampartialrp("Elleani RP: ", game.peoplerp.elleani, "stamp-elleani-rp-stenai-trip");
+    stampartialrp("Riala RP: ", game.peoplerp.riala, "stamp-riala-rp-stenai-trip");
+    stampartialrp("Iris RP: ", game.peoplerp.iris, "stamp-iris-rp-stenai-trip");
+    stampartialrp("Fheliel RP: ", game.peoplerp.fheliel, "stamp-fheliel-rp-stenai-trip");
+
+    stampartialvalue("Yhilin Score: ", game.country.yhilin, "stamp-yhilin-stenai-trip");
+    stampartialvalue("Ardoheim Score: ", game.country.ardoheim, "stamp-ardoheim-stenai-trip");
+    stampartialvalue("Aram Score: ", game.country.aram, "stamp-aram-stenai-trip");
+    stampartialvalue("Eustrin Score: ", game.country.eustrin, "stamp-eustrin-stenai-trip");
+    stampartialvalue("Zirantia Score: ", game.country.zirantia, "stamp-zirantia-stenai-trip");
+    stampartialvalue("Ghenalon Score: ", game.country.ghenalon, "stamp-ghenalon-stenai-trip");
+    stampartialvalue("Darghelon Score: ", game.country.darghelon, "stamp-darghelon-stenai-trip");
+    stampartialvalue("Gheldaron Score: ", game.country.gheldaron, "stamp-gheldaron-stenai-trip");
+    stampartialvalue("Orgasmic Empire Score: ", game.country.orgasmicempire, "stamp-orgasmic-stenai-trip");
+    stampartialvalue("Chalice States Score: ", game.country.chalicestates, "stamp-chalice-stenai-trip");
+    stampartialvalue("New Givini Score: ", game.country.newgivini, "stamp-givini-stenai-trip");
+    stampartialvalue("Tak'Kan Score: ", game.country.takkan, "stamp-takkan-stenai-trip");
+    stampartialvalue("Erosia Score: ", game.country.erosia, "stamp-erosia-stenai-trip");
+
+    stampartialvalue("Economy Score: ", game.simonstat.economy, "stamp-economy-stenai-trip");
+    stampartialvalue("Social Score: ", game.simonstat.social, "stamp-social-stenai-trip");
+    stampartialvalue("Religion Score: ", game.simonstat.religion, "stamp-religion-stenai-trip");
+
+    stampenditem(game.simonstat.keyitem.armor, "stamp-key-armor-stenai-trip");
+    stampenditem(game.simonstat.keyitem.helm, "stamp-key-helm-stenai-trip");
+    stampenditem(game.simonstat.keyitem.shield, "stamp-key-shield-stenai-trip");
+
+    stampendvar("HP: +", game.simonstat.bonustat.hp, "stamp-stat-hp-stenai-trip", true);
+    stampendvar("MP: +", game.simonstat.bonustat.mp, "stamp-stat-mp-stenai-trip", true);
+    stampendvar("ATK: +", game.simonstat.bonustat.atk, "stamp-stat-atk-stenai-trip", true);
+    stampendvar("DEF: +", game.simonstat.bonustat.def, "stamp-stat-def-stenai-trip", true);
+    stampendvar("MAG: +", game.simonstat.bonustat.mag, "stamp-stat-mag-stenai-trip", true);
+    stampendvar("MDF: +", game.simonstat.bonustat.mdf, "stamp-stat-mdf-stenai-trip", true);
+    stampendvar("AGI: +", game.simonstat.bonustat.agi, "stamp-stat-agi-stenai-trip", true);
+    stampendvar("LUK: +", game.simonstat.bonustat.luk, "stamp-stat-luk-stenai-trip", true);
+    stampendlust(game.simonstat.bonustat.sp, "stamp-stat-sp-stenai-trip", true);
+
+}
+
+function expectedreturn(game){
+
+    var profitotal = 0;
+
+    //Yhilini Arm Dealer
+    profitotal += 20000;
+
+    if(game.ledgerlist.ledgeryhilin.premiumsteeltwo !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-premium").style.display = "";
+        profitotal += 10000;
+    } else {
+        document.getElementById("expected-return-profit-premium").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.yhilinbanktwo !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-yhilin-bank").style.display = "";
+        profitotal += 150000;
+    } else {
+        document.getElementById("expected-return-profit-yhilin-bank").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.giftmegail !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-megail-gift").style.display = "";
+        profitotal += 25000;
+    } else {
+        document.getElementById("expected-return-profit-megail-gift").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.mineprocess !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-mine").style.display = "";
+        profitotal += 100000;
+    } else {
+        document.getElementById("expected-return-profit-mine").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerstineford.magicshop !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-magic-shop").style.display = "";
+        profitotal += 25000;
+    } else {
+        document.getElementById("expected-return-profit-magic-shop").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.magictrade !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-magic-trade").style.display = "";
+        profitotal += 65000;
+    } else {
+        document.getElementById("expected-return-profit-magic-trade").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.yhilinsupplier !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-yhilin-supplier").style.display = "";
+        profitotal += 5000;
+    } else {
+        document.getElementById("expected-return-profit-yhilin-supplier").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgereustrin.aramitesupplier !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-aram-supplier").style.display = "";
+        profitotal += 5000;
+    } else {
+        document.getElementById("expected-return-profit-aram-supplier").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgereustrin.bountyoffice !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-bounty").style.display = "";
+        profitotal += 5000;
+    } else {
+        document.getElementById("expected-return-profit-bounty").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgereustrin.eustrinsupplier !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-eustrin-supplier").style.display = "";
+        profitotal += 5000;
+    } else {
+        document.getElementById("expected-return-profit-eustrin-supplier").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgereustrin.eustrinprocessor !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-eustrin-processing").style.display = "";
+        profitotal += 20000;
+    } else {
+        document.getElementById("expected-return-profit-eustrin-processing").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgereustrin.eustrinmanufacturer !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-eustrin-manufacturing").style.display = "";
+        profitotal += 25000;
+    } else {
+        document.getElementById("expected-return-profit-eustrin-manufacturing").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerardford.ivalanbank !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-ivalan-bank").style.display = "";
+        profitotal += 225000;
+    } else {
+        document.getElementById("expected-return-profit-ivalan-bank").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerardford.adranbank !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-ardan-bank").style.display = "";
+        profitotal += 300000;
+    } else {
+        document.getElementById("expected-return-profit-ardan-bank").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerardford.ardfordsupplier !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-ardford-supplier").style.display = "";
+        profitotal += 5000;
+    } else {
+        document.getElementById("expected-return-profit-ardford-supplier").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerardford.shitmage !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-shit-mage").style.display = "";
+        profitotal += 5000;
+    } else {
+        document.getElementById("expected-return-profit-shit-mage").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerardford.ardfordresturant !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-ardford-restaurant").style.display = "";
+        profitotal += 10000;
+    } else {
+        document.getElementById("expected-return-profit-ardford-restaurant").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerardford.crystalrefinery !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-crystal-refiner").style.display = "";
+        profitotal += 55000;
+    } else {
+        document.getElementById("expected-return-profit-crystal-refiner").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerardford.flotilla !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-flotilla").style.display = "";
+        profitotal += 25000;
+    } else {
+        document.getElementById("expected-return-profit-flotilla").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.fightring !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-slum-ring").style.display = "";
+        profitotal += 40000;
+    } else {
+        document.getElementById("expected-return-profit-slum-ring").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.sexring !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-sex-ring").style.display = "";
+        profitotal += 60000;
+    } else {
+        document.getElementById("expected-return-profit-sex-ring").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.sexshop !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-sex-shop").style.display = "";
+        profitotal += 75000;
+    } else {
+        document.getElementById("expected-return-profit-sex-shop").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.mineshaft !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-private-mine").style.display = "";
+        profitotal += 130000;
+    } else {
+        document.getElementById("expected-return-profit-private-mine").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgergivini.givininetwork !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-givini-trade").style.display = "";
+        profitotal += 100000;
+        game.country.newgivini.value += 1;
+    } else {
+        document.getElementById("expected-return-profit-givini-trade").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerchalice.chalicenetwork !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-givini-trade").style.display = "";
+        profitotal += 100000;
+        game.country.chalicestates.value += 1;
+    } else {
+        document.getElementById("expected-return-profit-givini-trade").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgertakkan.takkanetwork !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-takkan-trade").style.display = "";
+        profitotal += 100000;
+        game.country.takkan.value += 1;
+    } else {
+        document.getElementById("expected-return-profit-takkan-trade").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.mercenaryoffice !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-mercenary-office").style.display = "";
+        profitotal += 15000;
+    } else {
+        document.getElementById("expected-return-profit-mercenary-office").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerchalice.gasmshop !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-gasm-shop").style.display = "";
+        profitotal += 110000;
+    } else {
+        document.getElementById("expected-return-profit-gasm-shop").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.succubitrade !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-succubi-trade").style.display = "";
+        profitotal += 200000;
+    } else {
+        document.getElementById("expected-return-profit-succubi-trade").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgereustrin.eustringuild !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-eustrin-guild").style.display = "";
+        profitotal += 250000;
+    } else {
+        document.getElementById("expected-return-profit-eustrin-guild").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.minroute !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-min-trade").style.display = "";
+        profitotal += 185000;
+    } else {
+        document.getElementById("expected-return-profit-min-trade").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerelven.theltiarflow !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-theltiar-flowhouse").style.display = "";
+        profitotal += 80000;
+    } else {
+        document.getElementById("expected-return-profit-theltiar-flowhouse").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerelven.theltiarent !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-theltiar-rental").style.display = "";
+        profitotal += 95000;
+    } else {
+        document.getElementById("expected-return-profit-theltiar-rental").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerelven.denmielarchive !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-denmiel-archives").style.display = "";
+        profitotal += 20000;
+    } else {
+        document.getElementById("expected-return-profit-denmiel-archives").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerelven.denmielfarm !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-denmiel-mushrooms").style.display = "";
+        profitotal += 40000;
+    } else {
+        document.getElementById("expected-return-profit-denmiel-mushrooms").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerchalice.llexpansion !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-lustlord-expansion").style.display = "";
+        profitotal += 50000;
+    } else {
+        document.getElementById("expected-return-profit-lustlord-expansion").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerchalice.lovetour !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-band-tour").style.display = "";
+        profitotal += 2000;
+    } else {
+        document.getElementById("expected-return-profit-band-tour").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerchalice.gasmaemorer !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-armor-succubus").style.display = "";
+        profitotal += 10000;
+    } else {
+        document.getElementById("expected-return-profit-armor-succubus").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerchalice.potionmore !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-potion-more").style.display = "";
+        profitotal += 100;
+    } else {
+        document.getElementById("expected-return-profit-potion-more").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgertakkan.slumremodeled !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-tarrankan-slum").style.display = "";
+        profitotal += 50000;
+    } else {
+        document.getElementById("expected-return-profit-tarrankan-slum").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgertakkan.hallstrength !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-hall-mental").style.display = "";
+        profitotal += 25000;
+    } else {
+        document.getElementById("expected-return-profit-hall-mental").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgertakkan.boozeshack !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-booze-shack").style.display = "";
+        profitotal += 50000;
+    } else {
+        document.getElementById("expected-return-profit-booze-shack").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgertakkan.tradeimprovment !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-tarrankan-trade").style.display = "";
+        profitotal += 50000;
+    } else {
+        document.getElementById("expected-return-profit-tarrankan-trade").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgertakkan.ceekanshipping !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-ceekan-shipping").style.display = "";
+        profitotal += 200000;
+    } else {
+        document.getElementById("expected-return-profit-ceekan-shipping").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgertakkan.lonelysailor !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-lonely-sailor").style.display = "";
+        profitotal += 100000;
+    } else {
+        document.getElementById("expected-return-profit-lonely-sailor").style.display = "none";
+    }
+
+    var smasherguild = 0;
+    var smashermoney = 0;
+
+    if(game.plotchoice.tradersmasher === true){
+        smasherguild += 1;
+    }
+
+    if(game.ledgerlist.ledgertakkan.ceekanshipping !== Investmentround.NONE){
+        smasherguild += 1;
+    }
+
+    if(game.ledgerlist.ledgertakkan.lonelysailor !== Investmentround.NONE){
+        smasherguild += 1;
+    }
+
+    if(game.ledgerlist.ledgertakkan.orcdemocracy !== Investmentround.NONE){
+        smasherguild += 1;
+    }
+
+    if(game.ledgerlist.ledgertakkan.orcpools !== Investmentround.NONE){
+        smasherguild += 1;
+    }
+
+    if(game.ledgerlist.ledgergivini.orcmerchant !== Investmentround.NONE){
+        smasherguild += 1;
+    }
+
+    if(smasherguild >= 6){
+        smashermoney = 200000;
+    } else if(smasherguild >= 5){
+        smashermoney = 175000;
+    } else if(smasherguild >= 4){
+        smashermoney = 150000;
+    } else if(smasherguild >= 3){
+        smashermoney = 125000;
+    } else if(smasherguild >= 2){
+        smashermoney = 75000;
+    } else if(smasherguild >= 1){
+        smashermoney = 50000;
+    } else {
+        smashermoney = 10000;
+    }
+
+    if(game.ledgerlist.ledgertakkan.tradesmasherguild !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-tradesmasher-guild").style.display = "";
+        document.getElementById("expected-return-tradesmasher-money").textContent = "" + smashermoney;
+        profitotal += smashermoney;
+    } else {
+        document.getElementById("expected-return-profit-tradesmasher-guild").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerchalice.givinitunnel !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-givini-tunnels").style.display = "";
+        profitotal += 300000;
+    } else {
+        document.getElementById("expected-return-profit-givini-tunnels").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgergivini.givinismith !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-givini-smith").style.display = "";
+        profitotal += 10000;
+    } else {
+        document.getElementById("expected-return-profit-givini-smith").style.display = "none";
+    }
+
+    var giviniorc = 0;
+
+    if(game.country.newgivini.value >= 50){
+        giviniorc = 200000;
+    } else if(game.country.newgivini.value >= 40){
+        giviniorc = 150000;
+    } else if(game.country.newgivini.value >= 30){
+        giviniorc = 100000;
+    } else if(game.country.newgivini.value >= 20){
+        giviniorc = 50000;
+    } else {
+        giviniorc = 25000;
+    }
+
+    if(game.ledgerlist.ledgergivini.orcmerchant !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-givini-orc").style.display = "";
+        document.getElementById("expected-return-orc-money").textContent = "" + giviniorc;
+        profitotal += giviniorc;
+    } else {
+        document.getElementById("expected-return-profit-givini-orc").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgergivini.givinibank !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-givini-bank").style.display = "";
+        profitotal += 300000;
+    } else {
+        document.getElementById("expected-return-profit-givini-bank").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgergivini.mageguild !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-mage-guild").style.display = "";
+        profitotal += 40000;
+    } else {
+        document.getElementById("expected-return-profit-mage-guild").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgergivini.teahouse !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-givini-teahouse").style.display = "";
+        profitotal += 30000;
+    } else {
+        document.getElementById("expected-return-profit-givini-teahouse").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerstineford.tradepillars !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-trading-pillar").style.display = "";
+        profitotal += 100000;
+    } else {
+        document.getElementById("expected-return-profit-trading-pillar").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerstineford.stinefordbank !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-stineford-bank").style.display = "";
+        profitotal += 240000;
+    } else {
+        document.getElementById("expected-return-profit-stineford-bank").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgerstineford.weaponshop !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-stineford-weapons").style.display = "";
+        profitotal += 75000;
+    } else {
+        document.getElementById("expected-return-profit-stineford-weapons").style.display = "none";
+    }
+
+    if(game.ledgerlist.ledgeryhilin.airshipone !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-yhilin-airship").style.display = "";
+        profitotal += 100000;
+    } else {
+        document.getElementById("expected-return-profit-yhilin-airship").style.display = "none";
+    }
+
+    var brothelmoney = 0;
+
+    if(game.plotchoice.yhilinfinal === true){
+        brothelmoney =  35000;
+    } else {
+        brothelmoney = 15000;
+    }
+
+    if(game.ledgerlist.ledgeryhilin.brothelsuccubi !== Investmentround.NONE){
+        document.getElementById("expected-return-profit-yhilin-brothel").style.display = "";
+        document.getElementById("expected-return-brothel-money").textContent = "" + brothelmoney;
+        profitotal += brothelmoney;
+    } else {
+        document.getElementById("expected-return-profit-yhilin-brothel").style.display = "none";
+    }
+
+    var totalpron = game.globalstat.pron + profitotal;
+    document.getElementById("expected-return-profit-result").textContent = "" + profitotal;
+    document.getElementById("expected-return-pron-result").textContent = "" + totalpron;
+    document.getElementById("stamp-expected-return-profit").textContent = "" + profitotal;
+    document.getElementById("stamp-expected-return-result").textContent = "" + totalpron;
 }
 
 function stampresult (game){
@@ -48034,6 +57596,9 @@ function stampresult (game){
         document.getElementById("war-investment-phase-report").checked = true;
         document.getElementById("four-investment-i-report").checked = true;
         document.getElementById("succession-crisis-report").checked = true;
+        document.getElementById("four-investment-ii-report").checked = true;
+        document.getElementById("erosia-prelude-report").checked = true;
+        document.getElementById("stenai-trip-report").checked = true;
     }
 
     if(document.getElementById("prologue-report").checked === true){
@@ -48180,6 +57745,24 @@ function stampresult (game){
         document.getElementById("succession-crisis-result").style.display = "none";
     }
 
+    if(document.getElementById("four-investment-ii-report").checked === true){
+        document.getElementById("four-investment-ii-result").style.display = "";
+    } else {
+        document.getElementById("four-investment-ii-result").style.display = "none";
+    }
+
+    if(document.getElementById("erosia-prelude-report").checked === true){
+        document.getElementById("erosia-prelude-result").style.display = "";
+    } else {
+        document.getElementById("erosia-prelude-result").style.display = "none";
+    }
+
+    if(document.getElementById("stenai-trip-report").checked === true){
+        document.getElementById("stenai-trip-result").style.display = "";
+    } else {
+        document.getElementById("stenai-trip-result").style.display = "none";
+    }
+
     if(game.stampoption.stampglobal === true){
         document.getElementById("stamp-global-tal").style.display = "";
         document.getElementById("stamp-global-stineford").style.display = "";
@@ -48205,6 +57788,9 @@ function stampresult (game){
         document.getElementById("stamp-global-war-investment-phase").style.display = "";
         document.getElementById("stamp-global-four-investment-i").style.display = "";
         document.getElementById("stamp-global-succession-crisis").style.display = "";
+        document.getElementById("stamp-global-four-investment-ii").style.display = "";
+        document.getElementById("stamp-global-erosia-prelude").style.display = "";
+        document.getElementById("stamp-global-stenai-trip").style.display = "";
         document.getElementById("stamp-global-end").style.display = "";
     } else {
         document.getElementById("stamp-global-tal").style.display = "none";
@@ -48231,6 +57817,9 @@ function stampresult (game){
         document.getElementById("stamp-global-war-investment-phase").style.display = "none";
         document.getElementById("stamp-global-four-investment-i").style.display = "none";
         document.getElementById("stamp-global-succession-crisis").style.display = "none";
+        document.getElementById("stamp-global-four-investment-ii").style.display = "none";
+        document.getElementById("stamp-global-erosia-prelude").style.display = "none";
+        document.getElementById("stamp-global-stenai-trip").style.display = "none";
         document.getElementById("stamp-global-end").style.display = "none";
     }
 
@@ -48260,6 +57849,9 @@ function stampresult (game){
         document.getElementById("stamp-rp-war-investment-phase").style.display = "";
         document.getElementById("stamp-rp-four-investment-i").style.display = "";
         document.getElementById("stamp-rp-succession-crisis").style.display = "";
+        document.getElementById("stamp-rp-four-investment-ii").style.display = "";
+        document.getElementById("stamp-rp-erosia-prelude").style.display = "";
+        document.getElementById("stamp-rp-stenai-trip").style.display = "";
         document.getElementById("stamp-rp-end").style.display = "";
     } else {
         document.getElementById("stamp-rp-tal").style.display = "none";
@@ -48286,6 +57878,9 @@ function stampresult (game){
         document.getElementById("stamp-rp-war-investment-phase").style.display = "none";
         document.getElementById("stamp-rp-four-investment-i").style.display = "none";
         document.getElementById("stamp-rp-succession-crisis").style.display = "none";
+        document.getElementById("stamp-rp-four-investment-ii").style.display = "none";
+        document.getElementById("stamp-rp-erosia-prelude").style.display = "none";
+        document.getElementById("stamp-rp-stenai-trip").style.display = "none";
         document.getElementById("stamp-rp-end").style.display = "none";
     }
 
@@ -48311,6 +57906,9 @@ function stampresult (game){
         document.getElementById("stamp-country-war-investment-phase").style.display = "";
         document.getElementById("stamp-country-four-investment-i").style.display = "";
         document.getElementById("stamp-country-succession-crisis").style.display = "";
+        document.getElementById("stamp-country-four-investment-ii").style.display = "";
+        document.getElementById("stamp-country-erosia-prelude").style.display = "";
+        document.getElementById("stamp-country-stenai-trip").style.display = "";
         document.getElementById("stamp-country-end").style.display = "";
     } else {
         document.getElementById("stamp-country-investment").style.display = "none";
@@ -48332,7 +57930,11 @@ function stampresult (game){
         document.getElementById("stamp-country-govern-iv").style.display = "none";
         document.getElementById("stamp-country-third-arclent-war").style.display = "none";
         document.getElementById("stamp-country-war-investment-phase").style.display = "none";
+        document.getElementById("stamp-country-four-investment-i").style.display = "none";
         document.getElementById("stamp-country-succession-crisis").style.display = "none";
+        document.getElementById("stamp-country-four-investment-ii").style.display = "none";
+        document.getElementById("stamp-country-erosia-prelude").style.display = "none";
+        document.getElementById("stamp-country-stenai-trip").style.display = "none";
         document.getElementById("stamp-country-end").style.display = "none";
     }
 
@@ -48360,6 +57962,9 @@ function stampresult (game){
         document.getElementById("stamp-core-war-investment-phase").style.display = "";
         document.getElementById("stamp-core-four-investment-i").style.display = "";
         document.getElementById("stamp-core-succession-crisis").style.display = "";
+        document.getElementById("stamp-core-four-investment-ii").style.display = "";
+        document.getElementById("stamp-core-erosia-prelude").style.display = "";
+        document.getElementById("stamp-core-stenai-trip").style.display = "";
         document.getElementById("stamp-core-end").style.display = "";
     } else {
         document.getElementById("stamp-core-stineford").style.display = "none";
@@ -48385,6 +57990,9 @@ function stampresult (game){
         document.getElementById("stamp-core-war-investment-phase").style.display = "none";
         document.getElementById("stamp-core-four-investment-i").style.display = "none";
         document.getElementById("stamp-core-succession-crisis").style.display = "none";
+        document.getElementById("stamp-core-four-investment-ii").style.display = "none";
+        document.getElementById("stamp-core-erosia-prelude").style.display = "none";
+        document.getElementById("stamp-core-stenai-trip").style.display = "none";
         document.getElementById("stamp-core-end").style.display = "none";
     }
 
@@ -48413,6 +58021,9 @@ function stampresult (game){
         document.getElementById("stamp-bonus-war-investment-phase").style.display = "";
         document.getElementById("stamp-bonus-four-investment-i").style.display = "";
         document.getElementById("stamp-bonus-succession-crisis").style.display = "";
+        document.getElementById("stamp-bonus-four-investment-ii").style.display = "";
+        document.getElementById("stamp-bonus-erosia-prelude").style.display = "";
+        document.getElementById("stamp-bonus-stenai-trip").style.display = "";
         document.getElementById("stamp-bonus-end").style.display = "";
     } else {
         document.getElementById("stamp-bonus-tal").style.display = "none";
@@ -48439,6 +58050,9 @@ function stampresult (game){
         document.getElementById("stamp-bonus-war-investment-phase").style.display = "none";
         document.getElementById("stamp-bonus-four-investment-i").style.display = "none";
         document.getElementById("stamp-bonus-succession-crisis").style.display = "none";
+        document.getElementById("stamp-bonus-four-investment-ii").style.display = "none";
+        document.getElementById("stamp-bonus-erosia-prelude").style.display = "none";
+        document.getElementById("stamp-bonus-stenai-trip").style.display = "none";
         document.getElementById("stamp-bonus-end").style.display = "none";
     }
 
@@ -48463,6 +58077,9 @@ function stampresult (game){
         document.getElementById("stamp-special-war-investment-phase").style.display = "";
         document.getElementById("stamp-special-four-investment-i").style.display = "";
         document.getElementById("stamp-special-succession-crisis").style.display = "";
+        document.getElementById("stamp-special-four-investment-ii").style.display = "";
+        document.getElementById("stamp-special-erosia-prelude").style.display = "";
+        document.getElementById("stamp-special-stenai-trip").style.display = "";
         document.getElementById("stamp-special-end").style.display = "";
     } else {
         document.getElementById("stamp-special-stineford").style.display = "none";
@@ -48484,6 +58101,9 @@ function stampresult (game){
         document.getElementById("stamp-special-war-investment-phase").style.display = "none";
         document.getElementById("stamp-special-four-investment-i").style.display = "none";
         document.getElementById("stamp-special-succession-crisis").style.display = "none";
+        document.getElementById("stamp-special-four-investment-ii").style.display = "none";
+        document.getElementById("stamp-special-erosia-prelude").style.display = "none";
+        document.getElementById("stamp-special-stenai-trip").style.display = "none";
         document.getElementById("stamp-special-end").style.display = "none";
     }
 
@@ -48499,6 +58119,7 @@ function stampresult (game){
     stampendvar("Palace Hospitality: ", game.palacestat.hospitality.value, "stamp-hq-hospitality-end", true);
 
     stampendvar("Shining Swords: ", game.globalstat.shiningword, "stamp-shining-sword-end", true);
+    stampendvar("Abyssal Gems: ", game.globalstat.abyssal, "stamp-abyssal-gem-end", true);
     stampendvar("ProN Available: ", game.globalstat.pron, "stamp-pron-end", true);
     stampendvar("Army Size: ", game.globalstat.armystat.size, "stamp-army-end", true);
     stampendvar("Army Quality: ", game.globalstat.armystat.quality, "stamp-quality-end", true);
@@ -48550,6 +58171,7 @@ function stampresult (game){
     stampendvar("Chalice States Score: ", game.country.chalicestates.value, "stamp-chalice-end", game.country.chalicestates.stamp);
     stampendvar("New Givini Score: ", game.country.newgivini.value, "stamp-givini-end", game.country.newgivini.stamp);
     stampendvar("Tak'Kan Score: ", game.country.takkan.value, "stamp-takkan-end", game.country.takkan.stamp);
+    stampendvar("Erosia Score: ", game.country.erosia.value, "stamp-erosia-end", game.country.erosia.stamp);
 
     stampendvar("Economy Score: ", game.simonstat.economy.value, "stamp-economy-end", game.simonstat.economy.stamp);
     stampendvar("Social Score: ", game.simonstat.social.value, "stamp-social-end", game.simonstat.social.stamp);
@@ -48709,11 +58331,12 @@ function rpscriptlocker(list){
 	lockingrp(list.elleani);
 	lockingrp(list.riala);
 	lockingrp(list.iris);
+	lockingrp(list.fheliel);
 }
 
 function lockingrp(person){
 
-	var total = person.initial + person.rp; 
+	var total = person.initial + person.rp;
 	if(person.cap !== 101){
 		if(person.cap !== 99){
 			if(person.lock === false){
@@ -48762,6 +58385,7 @@ function rpscriptstart(list){
     starterp(list.elleani);
     starterp(list.riala);
     starterp(list.iris);
+    starterp(list.fheliel);
 }
 
 function starterp(person){
@@ -48782,6 +58406,7 @@ function countryscriptstart(list){
     startvalue(list.ardoheim);
     startvalue(list.aram);
     startvalue(list.eustrin);
+    startvalue(list.erosia);
     startvalue(list.zirantia);
     startvalue(list.ghenalon);
     startvalue(list.darghelon);

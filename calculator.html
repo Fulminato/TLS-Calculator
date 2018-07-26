@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="game.css">
 	<title>The Calculator</title>
 	<script src="calculus.js"></script>
+	<script src="save-plugin.js"></script>
 </head>
 <body>
 	<header>
@@ -69,6 +70,12 @@
 						<label for="four-investment-i-select">First Tower Run and Investment Full Version</label></div>
 					<div class="can"><input type="checkbox" id="succession-crisis-select" checked>
 						<label for="succession-crisis-select">Ardoheim Succession Crisis Full Version</label></div>
+					<div class="can"><input type="checkbox" id="four-investment-ii-select" checked>
+						<label for="four-investment-ii-select">Meeting with the Anak and Investment Full Version</label></div>
+					<div class="can"><input type="checkbox" id="erosia-prelude-select" checked>
+						<label for="erosia-prelude-select">Erosia Prelude Full Version</label></div>
+					<div class="can"><input type="checkbox" id="stenai-trip-select" checked>
+						<label for="stenai-trip-select">Stenai Trip Full Version</label></div>
 					<br>
 					<div class="can"><input type="checkbox" id="select-global-stamp" checked>
 						<label for="select-global-stamp">Global Stats Full Report</label><br>(Shining swords, Trin Copies, etc...)</div>
@@ -122,7 +129,7 @@
 					<div class="can"><input type="checkbox" id="govern-iii-report" checked>
 						<label for="govern-iii-report">Govern Yhilin III Report</label></div>
 					<div class="can"><input type="checkbox" id="govern-iii-v-report" checked>
-						<label for="govern-iii-v-report">Govern Yhilin III.5 Report</label></div>
+						<label for="govern-iii-v-report">Govern Yhilin III.V Report</label></div>
 					<div class="can"><input type="checkbox" id="eustrin-report" checked>
 						<label for="eustrin-report">Eustrin and Aram Report</label></div>
 					<div class="can"><input type="checkbox" id="govern-iv-report" checked>
@@ -135,6 +142,12 @@
 						<label for="four-investment-i-report">First Tower Run and Investment Report</label></div>
 					<div class="can"><input type="checkbox" id="succession-crisis-report" checked>
 						<label for="succession-crisis-report">Ardoheim Succession Crisis Report</label></div>
+					<div class="can"><input type="checkbox" id="four-investment-ii-report" checked>
+						<label for="four-investment-ii-report">Meeting with the Anak and Investment Report</label></div>
+					<div class="can"><input type="checkbox" id="erosia-prelude-report" checked>
+						<label for="erosia-prelude-report">Erosia Prelude Report</label></div>
+					<div class="can"><input type="checkbox" id="stenai-trip-report" checked>
+						<label for="stenai-trip-report">Stenai Trip Report</label></div>
 					<br>
 					<div class="can"><input type="checkbox" id="select-rp-report" checked>
 						<label for="select-rp-report">Full RP Report (Uncheck for Single Report Selection)</label></div>
@@ -192,6 +205,8 @@
 						<label for="riala-rp-report">Riala RP Change</label></div>
 					<div class="can"><input type="checkbox" id="iris-rp-report" checked>
 						<label for="iris-rp-report">Iris RP Change</label></div>
+					<div class="can"><input type="checkbox" id="fheliel-rp-report" checked>
+						<label for="fheliel-rp-report">Fheliel RP Change</label></div>
 				</div>
 			</div>
 			<br>
@@ -259,6 +274,10 @@
 				<a href="javascript:showchapter('show-normal-stineford')">Merchant Camp, Stineford and Megail's Deal:</a><br>
 				<br>
 				<div id="show-normal-stineford">
+					Merchant Camp:<br>
+					<div class="can"><input type="checkbox" id="merchant-booze-sell">
+						<label for="merchant-booze-sell">Sell the Alcohol for 20000 ProN</label></div>
+					<br>
 					Fighting the Slavers in the Meeting Hall:<br>
 					<div class="can"><input type="checkbox" id="slaver-help-aka">
 						<label for="slaver-help-aka">Help Aka</label></div>
@@ -279,6 +298,7 @@
 						<label for="slaver-first-qum">Help Qum First</label></div>
 					</div>
 					<br>
+					Stineford:<br>
 					<div class="can"><input type="checkbox" id="underground-sword">
 						<label for="underground-sword">Recover the Shining Sword in the Stineford Tunnel</label></div>
 					<div class="can"><input type="checkbox" id="abandonhouse-sword">
@@ -302,6 +322,10 @@
 					<div class="can"><input type="checkbox" id="aka-dagger">
 						<label for="aka-dagger">Forge a Custom Dagger for Aka</label></div>
 					<br>
+					<div class="can"><input type="checkbox" id="robin-demon-quest">
+						<label for="robin-demon-quest">Help Robin to Deal with Some Demon Summoning Problem</label></div>
+					<div class="can"><input type="checkbox" id="hilstara-mine-clear">
+						<label for="hilstara-mine-clear">Help Hilstara to Remove the Source of Corruption in the Stineford Mine</label></div>
 					<div class="can"><label class="piece" for="potion-license">Robin's Potions License</label>
 					<select id="potion-license">
 						<option selected></option>
@@ -450,6 +474,9 @@
 				<a href="javascript:showchapter('show-skip-stineford')">Merchant Camp, Stineford and Megail's Deal (Skipped):</a><br>
 				<br>
 				<div id="show-skip-stineford">
+					Merchant Camp:<br>
+					Sell the Alcohol for 20000 ProN<br>
+					<br>
 					Fighting the Slavers in the Meeting Hall:<br>
 					<div class="can"><input type="checkbox" id="aka-help-skip">
 						<label for="aka-help-skip">Help Aka</label></div>
@@ -465,6 +492,7 @@
 							<option value="qum">Qum</option>
 						</select></div>
 					<br>
+					Stineford:<br>
 					<div class="can"><label class="piece" for="sword-stineford-skip">Stineford's Shining Swords Recovered</label>
 						<input type="number" id="sword-stineford-skip" min="0" max="2" value="0"></div>
 					<div class="can"><label class="piece" for="orc-store-skip">Recalcitrant Orc in the Storehouse</label>
@@ -482,6 +510,8 @@
 							<option value="ignored">Ignored</option>
 						</select></div>
 					<br>
+					Help Robin to Deal with Some Demon Summoning Problem<br>
+					Help Hilstara to Remove the Source of Corruption in the Stineford Mine<br>
 					<div class="can"><input type="checkbox" id="robin-license-skip">
 						<label for="robin-license-skip">Robin's Potions License Obtained</label></div>
 					<div class="can"><input type="checkbox" id="carina-quest-skip">
@@ -612,7 +642,7 @@
 					<div id="figurine-quest-start">
 						<div class="can"><label class="piece" for="unpeople-spotted">Number of Time Spotted</label>
 							<input type="number" id="unpeople-spotted" min="0" max="10" value="0"></div>
-						<div id="manor-infiltration"><br></div>
+						<span id="manor-infiltration">placeholder infiltration</span><br>
 					</div>
 					<br>
 					<div class="can"><input type="checkbox" id="janine-husband-first">
@@ -664,6 +694,7 @@
 						<input type="number" id="manor-sword-skip" min="0" max="2" value="0"></div>
 					<div class="can"><label class="piece" for="figurine-manor-skip">Yhilin Manor's Figurines Found</label>
 						<input type="number" id="figurine-manor-skip" min="0" max="3" value="0"></div>
+					<span id="manor-result-skip">placeholder infiltration</span><br>
 					<br>
 					<div class="can"><input type="checkbox" id="janine-husband-skip">
 						<label for="janine-husband-skip">Ask Janine for Information on Her Late Husband</label></div>
@@ -915,9 +946,11 @@
 						<div class="can"><input type="checkbox" id="roaming-stark-head">
 							<label for="roaming-stark-head">Recover Stark's Head</label></div>
 					</div>
+					<br>
 					<div class="can"><input type="checkbox" id="whitered-keep-go">
 						<label for="whitered-keep-go">Go to the Withered Mountain's Keep</label></div>
 					<div id="roaming-keep-open" style="visibility:hidden">
+						Vote Gathered: <span id="whitered-keep-vote">XX</span><br>
 						Group Persuaded:<br>
 						<div class="can"><input type="checkbox" id="keep-orc-entrance">
 							<label for="keep-orc-entrance">Orc Group near the Entrance</label></div>
@@ -1558,7 +1591,7 @@
 					</div>
 					<div id="megail-mine-open">
 						<div class="can"><input type="checkbox" id="megail-mine-take">
-							<label for="megail-mine-take">Take 10000 from the Mine Processor</label></div>
+							<label for="megail-mine-take">Take 10000 ProN from the Mine Processor</label></div>
 					</div>
 					<br>
 					<div class="can"><input type="checkbox" id="caria-sarai-dialogue">
@@ -1739,7 +1772,7 @@
 					</div>
 					<div id="skip-megail-mine-open">
 						<div class="can"><input type="checkbox" id="skip-megail-mine-take">
-							<label for="skip-megail-mine-take">Take 10000 from the Mine Processor</label></div>
+							<label for="skip-megail-mine-take">Take 10000 ProN from the Mine Processor</label></div>
 					</div>
 					<br>
 					<div class="can"><input type="checkbox" id="skip-caria-sarai-dialogue">
@@ -2171,6 +2204,8 @@
 					</div>
 					<div class="can"><input type="checkbox" id="skip-yarra-futa-done">
 						<label for="skip-yarra-futa-done">Let the Futa Succubus Assfuck Qum</label></div>
+					<div class="can"><input type="checkbox" id="skip-yarra-ogre-done">
+						<label for="skip-yarra-ogre-done">Qum Join Yarra in the Ogre Scene</label></div>
 					Endgame:<br>
 					<div class="can"><label class="piece" for="skip-yarra-snow-ball">Snowballs Moved</label>
 						<input type="number" id="skip-yarra-snow-ball" min="0" max="4" value="0"></div>
@@ -3599,7 +3634,7 @@
                 	<select id="skip-summit-unpeople-motion-result">
                 	    <option selected></option>
                 	    <option value="pass">The Motion Pass</option>
-                	    <option value="stop">The Motion Doesen't Pass</option>
+                	    <option value="stop">The Motion Doesn't Pass</option>
 					</select></div>
 					<div class="can"><label class="piece" for="skip-summit-orc-motion-result">Orc Extermination Motion Result</label>
                 	<select id="skip-summit-orc-motion-result">
@@ -7512,7 +7547,7 @@
 			</div>
 			<br>
 			<div class="chapter" id="display-yhilin-iii-v">
-				<a href="javascript:showchapter('show-normal-yhilin-iii-v')">Govern Yhilin III.5: After The Refugees</a><br>
+				<a href="javascript:showchapter('show-normal-yhilin-iii-v')">Govern Yhilin III.V: After The Refugees</a><br>
 				<br>
 				<div id="show-normal-yhilin-iii-v">
 					Discretionary Funds Remaining: <span id="govern-iii-v-discretionary"></span><br>
@@ -8013,7 +8048,7 @@
 				<br>
 			</div>
 			<div class="chapter" id="hidden-yhilin-iii-v">
-				<a href="javascript:showchapter('show-skip-yhilin-iii-v')">Govern Yhilin III.5: After The Refugees (Skipped)</a><br>
+				<a href="javascript:showchapter('show-skip-yhilin-iii-v')">Govern Yhilin III.V: After The Refugees (Skipped)</a><br>
 				<br>
 				<div id="show-skip-yhilin-iii-v">
 					Discretionary Funds Remaining: <span id="skip-govern-iii-v-discretionary"></span><br>
@@ -10932,7 +10967,7 @@
 							Yhilini Succubi Trade: 200000 ProN
 						</div>
 						<div id="four-investment-i-profit-eustrin-guild">
-							Eustrin Guild: 200000 ProN
+							Eustrin Guild: 250000 ProN
 						</div>
 						<div id="four-investment-i-profit-min-trade">
 							Min's Trade Route: 185000 ProN
@@ -11528,10 +11563,10 @@
 					</div>
 					<div id="four-investment-i-book-statue-open">
 						<div class="can"><input type="checkbox" id="four-investment-i-book-statue-done">
-							<label for="four-investment-i-book-statue-done">Buy Book-looking Statues Set in the House Rose's Fancy Shop for 2000 ProN</label></div>
+							<label for="four-investment-i-book-statue-done">Buy Book-shaped Statues Set in the House Rose's Fancy Shop for 2000 ProN</label></div>
 					</div>
 					<div id="four-investment-i-book-statue-close">
-						You Don't Have 2000 ProN for Buy Book-looking Statues Set in the House Rose's Fancy Shop
+						You Don't Have 2000 ProN for Buy Book-shaped Statues Set in the House Rose's Fancy Shop
 					</div>
 					<div id="four-investment-i-mage-bed-open">
 						<div class="can"><input type="checkbox" id="four-investment-i-mage-bed-done">
@@ -11570,6 +11605,10 @@
 					<div id="four-investment-i-yhilin-final-open">
 						<div class="can"><input type="checkbox" id="four-investment-i-yhilin-final-done">
 							<label for="four-investment-i-yhilin-final-done">At Last, Janine and Simon Wedding Ceremony</label></div>
+					</div>
+					<div id="four-investment-i-andra-mine-open">
+						<div class="can"><input type="checkbox" id="four-investment-i-andra-mine-done">
+							<label for="four-investment-i-andra-mine-done">Watch the Ex High priestess Andra Fuck an Orc in Miners' Junction</label></div>
 					</div>
 					<div id="four-investment-i-megail-iris-bed-open">
 						<div class="can"><input type="checkbox" id="four-investment-i-megail-iris-bed-done">
@@ -11690,6 +11729,10 @@
 						<div class="can"><input type="checkbox" id="four-investment-i-wynn-join-done">
 							<label for="four-investment-i-wynn-join-done">Simon and Wynn Remember the Old Time and She Join the Harem</label></div>
 					</div>
+					<div id="four-investment-i-wynn-balia-open">
+						<div class="can"><input type="checkbox" id="four-investment-i-wynn-balia-done">
+							<label for="four-investment-i-wynn-balia-done">Wynn Chat with Balia in the New Courtyard's Orc Lab</label></div>
+					</div>
 					<div id="four-investment-i-patty-takkan-open">
 						<div class="can"><input type="checkbox" id="four-investment-i-patty-takkan-done">
 							<label for="four-investment-i-patty-takkan-done">Meet Patty, the Orc Maid in Tarran'Kan's Slum</label></div>
@@ -11718,58 +11761,47 @@
 						<div class="can"><input type="checkbox" id="four-investment-i-weapons-varia-done">
 							<label for="four-investment-i-weapons-varia-done">[5000 Sx] The Givini Smith Craft Varia's Custom Weapons</label></div>
 					</div>
-					<div id="four-investment-blade-varia-open">
-						<div class="can"><input type="checkbox" id="four-investment-blade-varia-done">
-							<label for="four-investment-blade-varia-done">[3000 Sx] Craft Varia's Custom Blades with Wynn's Help</label></div>
-						<div id="four-investment-blade-varia-wynn-open">
-							<div class="can"><input type="checkbox" id="four-investment-blade-varia-wynn-done">
-								<label for="four-investment-blade-varia-wynn-done">Talk with Wynn During the Blades' Forging</label></div>
+					<div id="four-investment-i-blade-varia-open">
+						<div class="can"><input type="checkbox" id="four-investment-i-blade-varia-done">
+							<label for="four-investment-i-blade-varia-done">[3000 Sx] Craft Varia's Custom Blades with Wynn's Help</label></div>
+						<div id="four-investment-i-blade-varia-wynn-open">
+							<div class="can"><input type="checkbox" id="four-investment-i-blade-varia-wynn-done">
+								<label for="four-investment-i-blade-varia-wynn-done">Talk with Wynn During the Blades' Forging</label></div>
 						</div>
 					</div>
 					<br>
 					Orcen's Bar Crawl:<br>
-					<div id="four-investment-i-orcent-keeper-open">
+					<div id="four-investment-i-orcent-crawl-open">
 						<div class="can"><input type="checkbox" id="four-investment-i-orcent-keeper-done">
 							<label for="four-investment-i-orcent-keeper-done">Orcent and Simon Talk about the Chosen in the Keeper Tavern (Stineford's Merchant Quarter)</label></div>
-					</div>
-					<div id="four-investment-i-orcent-crimson-open">
 						<div class="can"><input type="checkbox" id="four-investment-i-orcent-crimson-done">
-							<label for="four-investment-i-orcent-crimson-done">Orcen and Hilstara Have a Chat in the Crimson Cape Taver (Stineford's Noble Quarter)</label></div>
-					</div>
-					<div id="four-investment-i-orcent-oak-open">
+							<label for="four-investment-i-orcent-crimson-done">Orcent and Hilstara Have a Chat in the Crimson Cape Taver (Stineford's Noble Quarter)</label></div>
 						<div class="can"><input type="checkbox" id="four-investment-i-orcent-oak-done">
 							<label for="four-investment-i-orcent-oak-done">Orcent, Simon and Robin Discuss about the Church Idea of Corruption</label></div>
-					</div>
-					<div id="four-investment-i-orcent-warrior-open">
-						<div class="can"><input type="checkbox" id="four-investment-i-orcent-warrior-done">
-							<label for="four-investment-i-orcent-warrior-done">Orcent and Trin Have a Discussion in the Fighting Ring Bar</label></div>
-					</div>
-					<div id="four-investment-i-orcent-zirantia-open">
-						<div class="can"><input type="checkbox" id="four-investment-i-orcent-zirantia-done">
-							<label for="four-investment-i-orcent-zirantia-done">Orcent and Uyae had some Talk in Zirantian</label></div>
-					</div>
-					<div id="four-investment-i-orcent-shack-open">
-						<div class="can"><input type="checkbox" id="four-investment-i-orcent-shack-done">
-							<label for="four-investment-i-orcent-shack-done">Some Drunk Orcs Interrupt the Chat Between Simon and Orcent in the Illustrious Booze Shack</label></div>
-					</div>
-					<div id="four-investment-i-orcent-gushing-open">
 						<div class="can"><input type="checkbox" id="four-investment-i-orcent-gushing-done">
 							<label for="four-investment-i-orcent-gushing-done">Simon and Orcent Talk about Hedonism and Self Restrain in the Gasm Falls Bar</label></div>
-					</div>
-					<div id="four-investment-i-orcent-fheliel-open">
-						<div class="can"><input type="checkbox" id="four-investment-i-orcent-fheliel-done">
-							<label for="four-investment-i-orcent-fheliel-done">Orcent and Simon Talk about Power and Capacity in the Cee'Kan Bar, Fheliel's Crown</label></div>
-					</div>
-					<div id="four-investment-i-orcent-helvanna-open">
 						<div class="can"><input type="checkbox" id="four-investment-i-orcent-helvanna-done">
 							<label for="four-investment-i-orcent-helvanna-done">Orcent and Simon Desist to Talk Inside the Helvanna's Bar, the Steaming Chalice, Because to Many Succubi Observe Them</label></div>
+						<div class="can"><input type="checkbox" id="four-investment-i-orcent-fheliel-done">
+							<label for="four-investment-i-orcent-fheliel-done">Orcent and Simon Talk about Power and Capacity in the Cee'Kan Bar, Fheliel's Crown</label></div>
+						<div id="four-investment-i-orcent-warrior-open">
+							<div class="can"><input type="checkbox" id="four-investment-i-orcent-warrior-done">
+								<label for="four-investment-i-orcent-warrior-done">Orcent and Trin Have a Discussion in the Fighting Ring Bar</label></div>
+						</div>
+						<div id="four-investment-i-orcent-shack-open">
+							<div class="can"><input type="checkbox" id="four-investment-i-orcent-shack-done">
+								<label for="four-investment-i-orcent-shack-done">Some Drunk Orcs Interrupt the Chat Between Simon and Orcent in the Illustrious Booze Shack</label></div>
+						</div>
 					</div>
 					<br>
 					<div id="four-investment-i-ghenalese-breeding-open">
 						<div class="can"><input type="checkbox" id="four-investment-i-ghenalese-breeding-done">
 							<label for="four-investment-i-ghenalese-breeding-done">Orcent Spoke to Balia of some Ghenalese Orcs Want Help in the Orc Development Process</label></div>
 					</div>
+					<br>
 				</div>
+				<br>
+				<br>
 			</div>
 			<div class="chapter" id="hidden-four-investment-i">
 				<a href="javascript:showchapter('show-skip-four-investment-i')">First Tower Run and Investment (Skipped)</a><br>
@@ -12036,7 +12068,7 @@
 					</div>
 					<div id="skip-four-investment-i-book-statue-open">
 						<div class="can"><input type="checkbox" id="skip-four-investment-i-book-statue-done">
-							<label for="skip-four-investment-i-book-statue-done">Buy Book-looking Statues Set in the House Rose's Fancy Shop for 2000 ProN</label></div>
+							<label for="skip-four-investment-i-book-statue-done">Buy Book-shaped Statues Set in the House Rose's Fancy Shop for 2000 ProN</label></div>
 					</div>
 					<div id="skip-four-investment-i-mage-bed-open">
 						<div class="can"><input type="checkbox" id="skip-four-investment-i-mage-bed-done">
@@ -12069,6 +12101,10 @@
 					<div id="skip-four-investment-i-yhilin-final-open">
 						<div class="can"><input type="checkbox" id="skip-four-investment-i-yhilin-final-done">
 							<label for="skip-four-investment-i-yhilin-final-done">At Last, Janine and Simon Wedding Ceremony</label></div>
+					</div>
+					<div id="skip-four-investment-i-andra-mine-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-i-andra-mine-done">
+							<label for="skip-four-investment-i-andra-mine-done">Watch the Ex High priestess Andra Fuck an Orc in Miners' Junction</label></div>
 					</div>
 					<div id="skip-four-investment-i-megail-iris-bed-open">
 						<div class="can"><input type="checkbox" id="skip-four-investment-i-megail-iris-bed-done">
@@ -12183,6 +12219,10 @@
 						<div class="can"><input type="checkbox" id="skip-four-investment-i-wynn-join-done">
 							<label for="skip-four-investment-i-wynn-join-done">Simon and Wynn Remember the Old Time and She Join the Harem</label></div>
 					</div>
+					<div id="skip-four-investment-i-wynn-balia-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-i-wynn-balia-done">
+							<label for="skip-four-investment-i-wynn-balia-done">Wynn Chat with Balia in the New Courtyard's Orc Lab</label></div>
+					</div>
 					<div class="can"><input type="checkbox" id="skip-four-investment-i-patty-ship-done">
 						<label for="skip-four-investment-i-patty-ship-done">Meet Patty in Cee'Kan and Ash Him to Join Your Palace's Staff</label></div>
 					<div id="skip-four-investment-i-patty-breeding-open">
@@ -12197,12 +12237,12 @@
 						<div class="can"><input type="checkbox" id="skip-four-investment-i-weapons-varia-done">
 							<label for="skip-four-investment-i-weapons-varia-done">[5000 Sx] The Givini Smith Craft Varia's Custom Weapons</label></div>
 					</div>
-					<div id="skip-four-investment-blade-varia-open">
-						<div class="can"><input type="checkbox" id="skip-four-investment-blade-varia-done">
-							<label for="skip-four-investment-blade-varia-done">[3000 Sx] Craft Varia's Custom Blades with Wynn's Help</label></div>
-						<div id="skip-four-investment-blade-varia-wynn-open">
-							<div class="can"><input type="checkbox" id="skip-four-investment-blade-varia-wynn-done">
-								<label for="skip-four-investment-blade-varia-wynn-done">Talk with Wynn During the Blades' Forging</label></div>
+					<div id="skip-four-investment-i-blade-varia-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-i-blade-varia-done">
+							<label for="skip-four-investment-i-blade-varia-done">[3000 Sx] Craft Varia's Custom Blades with Wynn's Help</label></div>
+						<div id="skip-four-investment-i-blade-varia-wynn-open">
+							<div class="can"><input type="checkbox" id="skip-four-investment-i-blade-varia-wynn-done">
+								<label for="skip-four-investment-i-blade-varia-wynn-done">Talk with Wynn During the Blades' Forging</label></div>
 						</div>
 					</div>
 					<br>
@@ -12217,8 +12257,6 @@
 						<div class="can"><input type="checkbox" id="skip-four-investment-i-orcent-warrior-done">
 							<label for="skip-four-investment-i-orcent-warrior-done">Orcent and Trin Have a Discussion in the Fighting Ring Bar</label></div>
 					</div>
-					<div class="can"><input type="checkbox" id="skip-four-investment-i-orcent-zirantia-done">
-						<label for="skip-four-investment-i-orcent-zirantia-done">Orcent and Uyae had some Talk in Zirantian</label></div>
 					<div id="skip-four-investment-i-orcent-shack-open">
 						<div class="can"><input type="checkbox" id="skip-four-investment-i-orcent-shack-done">
 							<label for="skip-four-investment-i-orcent-shack-done">Some Drunk Orcs Interrupt the Chat Between Simon and Orcent in the Illustrious Booze Shack</label></div>
@@ -12235,6 +12273,7 @@
 							<label for="skip-four-investment-i-ghenalese-breeding-done">Orcent Spoke to Balia of some Ghenalese Orcs Want Help in the Orc Development Process</label></div>
 					</div>
 				</div>
+				<br>
 				<br>
 			</div>
 			<br>
@@ -12664,6 +12703,8 @@
 					<span id="succession-crisis-end-result">result post alonon meeting</span><br>
 					<br>
 				</div>
+				<br>
+				<br>
 			</div>
 			<div class="chapter" id="hidden-succession-crisis">
 				<a href="javascript:showchapter('show-skip-succession-crisis')">Ardoheim Succession Crisis (Skipped)</a><br>
@@ -13050,8 +13091,2386 @@
 					</div>
 					<br>
 				</div>
+				<br>
+				<br>
 			</div>
 			<br>
+			<div class="chapter" id="display-four-investment-ii">
+				<a href="javascript:showchapter('show-four-investment-ii')">Meeting with the Anak and Investment</a><br>
+				<br>
+				<div id="show-four-investment-ii">
+					HQ's Stats:<br>
+					Military: <span id="four-investment-ii-hq-military">XX</span> - Magic <span id="four-investment-ii-magic">YY</span> - Hospitality <span id="four-investment-ii-hq-hospitality">ZZ</span><br>
+					<br>
+					Returns:<br>
+					Yhilin Arms Dealer: 20000 ProN<br>
+					<div id="four-investment-ii-profit-premium">
+						Premium Steel Stake Owner: 10000 ProN
+					</div>
+					<div id="four-investment-ii-profit-yhilin-bank">
+						Bank of Yhilin Core Lender: 150000 ProN
+					</div>
+					<div id="four-investment-ii-profit-megail-gift">
+						Special Supplier: 25000 ProN
+					</div>
+					<div id="four-investment-ii-profit-mine">
+						Mine Processing: 100000 ProN
+					</div>
+					<div id="four-investment-ii-profit-magic-shop">
+						Stineford' Magic shop: 25000 ProN
+					</div>
+					<div id="four-investment-ii-profit-magic-trade">
+						Ardoheim Magic Trade: 65000 ProN
+					</div>
+					<div id="four-investment-ii-profit-yhilin-supplier">
+						Yhilini Supplier: 5000  ProN
+					</div>
+					<div id="four-investment-ii-profit-aram-supplier">
+						Aramite Supplier: 5000 ProN
+					</div>
+					<div id="four-investment-ii-profit-bounty">
+						Desert Bounty Office: 5000 ProN
+					</div>
+					<div id="four-investment-ii-profit-eustrin-supplier">
+						Eutrin Supplier: 5000 ProN
+					</div>
+					<div id="four-investment-ii-profit-eustrin-processing">
+						Eustrin Processor: 20000 ProN
+					</div>
+					<div id="four-investment-ii-profit-eustrin-manufacturing">
+						Eustrin Manufacturer: 25000 ProN
+					</div>
+					<div id="four-investment-ii-profit-ivalan-bank">
+						Ivalan Bank: 225000 ProN
+					</div>
+					<div id="four-investment-ii-profit-ardan-bank">
+						Ardan Bank: 300000 ProN
+					</div>
+					<div id="four-investment-ii-profit-ardford-supplier">
+						Ardford Supplier: 5000 ProN
+					</div>
+					<div id="four-investment-ii-profit-shit-mage">
+						Sanitation Mage Guild: 5000 ProN
+					</div>
+					<div id="four-investment-ii-profit-ardford-restaurant">
+						Ardford Restaurant: 10000 ProN
+					</div>
+					<div id="four-investment-ii-profit-crystal-refiner">
+						Crystal Refiner: 55000 ProN
+					</div>
+					<div id="four-investment-ii-profit-flotilla">
+						Mercenary Flotilla: 25000 ProN
+					</div>
+					<div id="four-investment-ii-profit-slum-ring">
+						Slum Fighting Ring: 40000 ProN
+					</div>
+					<div id="four-investment-ii-profit-sex-ring">
+						Sex Fighting Ring: 60000 ProN
+					</div>
+					<div id="four-investment-ii-profit-sex-shop">
+						Yhilini Sex Shop: 75000 ProN
+					</div>
+					<div id="four-investment-ii-profit-private-mine">
+						Private Mineshaft: 130000 ProN
+					</div>
+					<div id="four-investment-ii-profit-givini-trade">
+						New Givini Trade: 100000 ProN
+					</div>
+					<div id="four-investment-ii-profit-chalice-trade">
+						Chalice States Trade: 100000 ProN
+					</div>
+					<div id="four-investment-ii-profit-takkan-trade">
+						Tak'Kan Trade: 100000 ProN
+					</div>
+					<div id="four-investment-ii-profit-mercenary-office">
+						Yhilini Mercenary: 15000 ProN
+					</div>
+					<div id="four-investment-ii-profit-gasm-shop">
+						Gasm Falls Trade: 110000 ProN
+					</div>
+					<div id="four-investment-ii-profit-succubi-trade">
+						Yhilini Succubi Trade: 200000 ProN
+					</div>
+					<div id="four-investment-ii-profit-eustrin-guild">
+						Eustrin Guild: 250000 ProN
+					</div>
+					<div id="four-investment-ii-profit-min-trade">
+						Min's Trade Route: 185000 ProN
+					</div>
+					<div id="four-investment-ii-profit-theltiar-flowhouse">
+						Theltiar Flowhouse: 80000 ProN
+					</div>
+					<div id="four-investment-ii-profit-theltiar-rental">
+						Theltiar Rentals: 95000 ProN
+					</div>
+					<div id="four-investment-ii-profit-denmiel-archives">
+						Denmiel Archives: 20000 ProN
+					</div>
+					<div id="four-investment-ii-profit-denmiel-mushrooms">
+						Denmiel Mushroom Farm: 40000 ProN
+					</div>
+					<div id="four-investment-ii-profit-lustlord-expansion">
+						Lustlord Temples: 50000 ProN
+					</div>
+					<div id="four-investment-ii-profit-band-tour">
+						Succubus Band Tour: 2000 ProN
+					</div>
+					<div id="four-investment-ii-profit-armor-succubus">
+						Succubus Armorer: 10000 ProN
+					</div>
+					<div id="four-investment-ii-profit-potion-more">
+						Potion and More: 100 ProN
+					</div>
+					<div id="four-investment-ii-profit-tarrankan-slum">
+						Tarran'kan Housing: 50000 ProN
+					</div>
+					<div id="four-investment-ii-profit-hall-mental">
+						Hall of Mental Strenght: 25000 ProN
+					</div>
+					<div id="four-investment-ii-profit-booze-shack">
+						Illustrious Booze Shack: 50000 ProN
+					</div>
+					<div id="four-investment-ii-profit-tarrankan-trade">
+						Tarran'Kan Trade Upgrade: 50000 ProN
+					</div>
+					<div id="four-investment-ii-profit-ceekan-shipping">
+						Cee'Kan Shipping: 200000 ProN
+					</div>
+					<div id="four-investment-ii-profit-lonely-sailor">
+						Lonely Sailor: 100000 ProN
+					</div>
+					<div id="four-investment-ii-profit-tradesmasher-guild">
+						Tradersmasher Guild: <span id="four-investment-ii-tradesmasher-money">XXX000</span> ProN
+					</div>
+					<div id="four-investment-ii-profit-givini-tunnels">
+						Givini Tunnels: 300000 ProN
+					</div>
+					<div id="four-investment-ii-profit-givini-smith">
+						Givini Smithing: 10000 ProN
+					</div>
+					<div id="four-investment-ii-profit-givini-orc">
+						Givini Orc Merchant: <span id="four-investment-ii-orc-money">XXX000</span> ProN
+					</div>
+					<div id="four-investment-ii-profit-givini-bank">
+						Bank of Givini: 300000 ProN
+					</div>
+					<div id="four-investment-ii-profit-mage-guild">
+						Givini Mage Guild: 40000 ProN
+					</div>
+					<div id="four-investment-ii-profit-givini-teahouse">
+						Givini Teahouse Chain: 30000 ProN
+					</div>
+					<div id="four-investment-ii-profit-trading-pillar">
+						Trading Pillar Rights: 100000 ProN
+					</div>
+					<div id="four-investment-ii-profit-stineford-bank">
+						Bank of Stineford: 240000 ProN
+					</div>
+					<div id="four-investment-ii-profit-stineford-weapons">
+						Stineford's Weapons Shop: 75000 ProN
+					</div>
+					<div id="four-investment-ii-profit-yhilin-airship">
+						Yhilini Airships: 100000 ProN
+					</div>
+					<div id="four-investment-ii-profit-yhilin-brothel">
+						Yhilini Brothel: <span id="four-investment-ii-brothel-money">XX000</span> ProN
+					</div>
+					<br>
+					Total Profit: <span id="four-investment-ii-profit-result">AAAA000</span><br>
+					<br>
+					HQ Improvement:<br>
+					<div id="four-investment-ii-hq-yarra-room-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-hq-yarra-room-done">
+							<label for="four-investment-ii-hq-yarra-room-done">5000 ProN for the Sex Room Upgrade</label></div>
+					</div>
+					<div id="four-investment-ii-hq-yarra-room-close">
+						You Don't Have 5000 ProN for the Sex Room Upgrade
+					</div>
+					<div id="four-investment-ii-hq-balia-lab-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-hq-balia-lab-done">
+							<label for="four-investment-ii-hq-balia-lab-done">25000 ProN for the Orc Lab</label></div>
+					</div>
+					<div id="four-investment-ii-hq-balia-lab-close">
+						You Don't Have 25000 ProN for the Orc Lab
+					</div>
+					<div id="four-investment-ii-hq-orc-post-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-hq-orc-post-done">
+							<label for="four-investment-ii-hq-orc-post-done">5000 ProN for a Guard Post in the Palace</label></div>
+					</div>
+					<div id="four-investment-ii-hq-orc-post-close">
+						You Don't Have 5000 ProN for a Guard Post in the Place
+					</div>
+					<div id="four-investment-ii-hq-orcent-armory-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-hq-orcent-armory-done">
+							<label for="four-investment-ii-hq-orcent-armory-done">10000 ProN for the Armor's Room</label></div>
+					</div>
+					<div id="four-investment-ii-hq-orcent-armory-close">
+						You Don't Have 10000 ProN for the Armory's Room
+					</div>
+					<div id="four-investment-ii-hq-lynine-supply-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-hq-lynine-supply-done">
+							<label for="four-investment-ii-hq-lynine-supply-done">10000 ProN for Improve Kitchen Supplies</label></div>
+					</div>
+					<div id="four-investment-ii-hq-lynine-supply-close">
+						You Don't Have 10000 ProN for Improve Kitchen Supplies
+					</div>
+					<div id="four-investment-ii-hq-robin-shield-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-hq-robin-shield-done">
+							<label for="four-investment-ii-hq-robin-shield-done">100000 ProN for a Backup Defence Ritual</label></div>
+					</div>
+					<div id="four-investment-ii-hq-robin-shield-close">
+						You Don't Have 100000 ProN for a Backup defence Ritual
+					</div>
+					<div id="four-investment-ii-hq-wynn-shield-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-hq-wynn-shield-done">
+							<label for="four-investment-ii-hq-wynn-shield-done">100000 ProN for a Sex Energy Shield</label></div>
+					</div>
+					<div id="four-investment-ii-hq-wynn-shield-close">
+						You Don't Have 100000 ProN for a Sex Energy Shield
+					</div>
+					<div id="four-investment-ii-hq-riala-shield-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-hq-riala-shield-done">
+							<label for="four-investment-ii-hq-riala-shield-done">225000 ProN for Extradimensional Foundation</label></div>
+					</div>
+					<div id="four-investment-ii-hq-riala-shield-close">
+						You Don't Have 225000 ProN for Extradimensional Foundation
+					</div>
+					<div id="four-investment-ii-hq-iris-well-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-hq-iris-well-done">
+							<label for="four-investment-ii-hq-iris-well-done">10000 for Building a Second Well</label></div>
+					</div>
+					<div id="four-investment-ii-hq-iris-well-close">
+						You Don't Have 10000 ProN for Building a Second Well
+					</div>
+					<div id="four-investment-ii-hq-cudgel-buidling-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-hq-cudgel-buidling-done">
+							<label for="four-investment-ii-hq-cudgel-buidling-done">15000 ProN for a Provisional Agreement with the Iron Cudgel</label></div>
+					</div>
+					<div id="four-investment-ii-hq-cudgel-buidling-close">
+						You Don't Have 15000 ProN for a Provvisional Agreement with the Iron Cudgel
+					</div>
+					<div id="four-investment-ii-hq-carina-shrine-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-hq-carina-shrine-done">
+							<label for="four-investment-ii-hq-carina-shrine-done">5000 ProN for a Santificated Shrine</label></div>
+					</div>
+					<div id="four-investment-ii-hq-carina-shrine-close">
+						You Don't Have 5000 ProN for a Santificated Shrine
+					</div>
+					<div id="four-investment-ii-hq-yhilin-shield-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-hq-yhilin-shield-done">
+							<label for="four-investment-ii-hq-yhilin-shield-done">80000 ProN for Yhilini Magical Corps Upgraded Shield</label></div>
+					</div>
+					<div id="four-investment-ii-hq-yhilin-shield-close">
+						You Don't Have 80000 ProN for Yhilini Magical Corps Upgrade Shield
+					</div>
+					<br>
+					Profitable Investment:<br>
+					<div id="four-investment-ii-merchant-pillar-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-merchant-pillar-done">
+							<label for="four-investment-ii-merchant-pillar-done">Invest 300000 ProN in Trading Pillars Rights in the Merchant Camp</label></div>
+					</div>
+					<div id="four-investment-ii-merchant-pillar-close">
+						You Don't Have 300000 ProN for the Trading Pillars Rights in the Merchant Camp
+					</div>
+					<div id="four-investment-ii-stineford-bank-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-stineford-bank-done">
+							<label for="four-investment-ii-stineford-bank-done">Invest 400000 ProN to Become Stineford's Bank Core Lender</label></div>
+					</div>
+					<div id="four-investment-ii-stineford-bank-close">
+						You Don't Have 400000 ProN for Become Stineford's Bank Core Lender
+					</div>
+					<div id="four-investment-ii-stineford-weapons-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-stineford-weapons-done">
+							<label for="four-investment-ii-stineford-weapons-done">Invest 200000 ProN from a Stake in Stineford's Weapons Shop</label></div>
+					</div>
+					<div id="four-investment-ii-stineford-weapons-close">
+						You Don't Have 200000 ProN from a Stake in Stineford's Weapons Shop
+					</div>
+					<div id="four-investment-ii-stineford-magic-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-stineford-magic-done">
+							<label for="four-investment-ii-stineford-magic-done">Invest 25000 ProN from a Stake in Stineford's Magic Shop</label></div>
+					</div>
+					<div id="four-investment-ii-stineford-magic-close">
+						You Don't Have 25000 ProN from a Stake in Stineford's Magic Shop
+					</div>
+					<div id="four-investment-ii-airship-fleet-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-airship-fleet-done">
+							<label for="four-investment-ii-airship-fleet-done">Invest 1000000 ProN in the Creation of a Yhilin Airship Fleet</label></div>
+					</div>
+					<div id="four-investment-ii-airship-fleet-close">
+						You Don't Have 1000000 ProN for the Creation of a Yhilin Airship Fleet
+					</div>
+					<div id="four-investment-ii-brothel-reform-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-brothel-reform-done">
+							<label for="four-investment-ii-brothel-reform-done">Invest 25000 ProN in Yhilin Brothel Reform</label></div>
+					</div>
+					<div id="four-investment-ii-brothel-reform-close">
+						You Don't Have 25000 ProN for Yhilin Brothel Reform
+					</div>
+					<div id="four-investment-ii-tarrankan-slum-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-tarrankan-slum-done">
+							<label for="four-investment-ii-tarrankan-slum-done">Invest 1000000 ProN in Remodeling Tarrak'Kan Slum</label></div>
+					</div>
+					<div id="four-investment-ii-tarrankan-slum-close">
+						You Don't Have 1000000 ProN for Remodeling Tarrak'Kan Slum
+					</div>
+					<div id="four-investment-ii-hall-mental-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-hall-mental-done">
+							<label for="four-investment-ii-hall-mental-done">Invest 200000 ProN in Funding of the Hall of Mental Strength</label></div>
+					</div>
+					<div id="four-investment-ii-hall-mental-close">
+						You Don't Have 200000 ProN for Hall of Mental Strength
+					</div>
+					<div id="four-investment-ii-booze-shack-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-booze-shack-done">
+							<label for="four-investment-ii-booze-shack-done">Invest 150000 ProN in Booze Shack</label></div>
+					</div>
+					<div id="four-investment-ii-booze-shack-close">
+						You Don't Have 150000 ProN for Booze Shack
+					</div>
+					<div id="four-investment-ii-tarrankan-trade-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-tarrankan-trade-done">
+							<label for="four-investment-ii-tarrankan-trade-done">Invest 100000 ProN in Upgrading Tarran'Kan Trade</label></div>
+					</div>
+					<div id="four-investment-ii-tarrankan-trade-close">
+						You Don't Have 100000 ProN for Upgrading Tarran'Kan Trade
+					</div>
+					<div id="four-investment-ii-tradesmasher-guild-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-tradesmasher-guild-done">
+							<label for="four-investment-ii-tradesmasher-guild-done">Invest 350000 ProN in Tradesmasher Guild</label></div>
+					</div>
+					<div id="four-investment-ii-tradesmasher-guild-close">
+						You Don't Have 350000 ProN for Tradesmasher Guild
+					</div>
+					<div id="four-investment-ii-lonely-sailor-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-lonely-sailor-done">
+							<label for="four-investment-ii-lonely-sailor-done">Invest 250000 ProN in Lonely Sailor</label></div>
+					</div>
+					<div id="four-investment-ii-lonely-sailor-close">
+						You Don't Have 250000 ProN for Lonely Sailor
+					</div>
+					<div id="four-investment-ii-ceekan-shipping-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-ceekan-shipping-done">
+							<label for="four-investment-ii-ceekan-shipping-done">Invest 700000 ProN in Cee'Kan Shipping</label></div>
+					</div>
+					<div id="four-investment-ii-ceekan-shipping-close">
+						You Don't Have 700000 ProN for Cee'Kan Shipping
+					</div>
+					<div id="four-investment-ii-givini-smith-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-givini-smith-done">
+							<label for="four-investment-ii-givini-smith-done">Invest 200000 ProN in Givini Smith</label></div>
+					</div>
+					<div id="four-investment-ii-givini-smith-close">
+						You Don't Have 200000 ProN for Givini Smith
+					</div>
+					<div id="four-investment-ii-givini-orc-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-givini-orc-done">
+							<label for="four-investment-ii-givini-orc-done">Invest <span id="four-investment-ii-givini-orc-money">XXX000</span> ProN in Givini Orc Merchant</label></div>
+					</div>
+					<div id="four-investment-ii-givini-orc-close">
+						You Don't Have <span id="four-investment-ii-givini-orc-cost">YYY000</span> ProN for Givini Orc Merchant
+					</div>
+					<div id="four-investment-ii-givini-tea-house-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-givini-tea-house-done">
+							<label for="four-investment-ii-givini-tea-house-done">Invest 275000 ProN in Givini Tea House Chain</label></div>
+					</div>
+					<div id="four-investment-ii-givini-tea-house-close">
+						You Don't Have 275000 ProN for Givini Tea House Chain
+					</div>
+					<div id="four-investment-ii-givini-bank-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-givini-bank-done">
+							<label for="four-investment-ii-givini-bank-done">Invest 350000 ProN in Givini Bank System</label></div>
+					</div>
+					<div id="four-investment-ii-givini-bank-close">
+						You Don't Have 350000 ProN for Givini Bank System
+					</div>
+					<div id="four-investment-ii-givini-mage-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-givini-mage-done">
+							<label for="four-investment-ii-givini-mage-done">Invest 1000000 ProN in Givini Mage Guild</label></div>
+					</div>
+					<div id="four-investment-ii-givini-mage-close">
+						You Don't Have 1000000 ProN for Givini Mage Guild
+					</div>
+					<div id="four-investment-ii-lustlord-expansion-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-lustlord-expansion-done">
+							<label for="four-investment-ii-lustlord-expansion-done">Invest 750000 ProN in Lustlord Temple Expansion</label></div>
+					</div>
+					<div id="four-investment-ii-lustlord-expansion-close">
+						You Don't Have 750000 ProN for Lustlord Temple Expansion
+					</div>
+					<div id="four-investment-ii-love-tour-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-love-tour-done">
+							<label for="four-investment-ii-love-tour-done">Invest 100000 ProN in House of Love Tour</label></div>
+					</div>
+					<div id="four-investment-ii-love-tour-close">
+						You Don't Have 100000 ProN for House of Love Tour
+					</div>
+					<div id="four-investment-ii-armor-succubus-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-armor-succubus-done">
+							<label for="four-investment-ii-armor-succubus-done">Invest <span id="four-investment-ii-armor-succubus-money">XXX0000</span> ProN in Succubus Armorer</label></div>
+					</div>
+					<div id="four-investment-ii-armor-succubus-close">
+						You Don't Have <span id="four-investment-ii-armor-succubus-cost">YYY0000</span> ProN for Succubus Armorer
+					</div>
+					<div id="four-investment-ii-potion-more-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-potion-more-done">
+							<label for="four-investment-ii-potion-more-done">Invest 20000 ProN in Gasm Fall Shop's Potion and More</label></div>
+					</div>
+					<div id="four-investment-ii-potion-more-close">
+						You Don't Have 20000 ProN for Gasm Fall Shop's Potion and More
+					</div>
+					<div id="four-investment-ii-givini-tunnel-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-givini-tunnel-done">
+							<label for="four-investment-ii-givini-tunnel-done">Invest 1500000 ProN in Reworks Givini Tunnel</label></div>
+					</div>
+					<div id="four-investment-ii-givini-tunnel-close">
+						You Don't Have 1500000 ProN for Reworks Givini Tunnel
+					</div>
+					<div id="four-investment-ii-mercenary-office-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-mercenary-office-done">
+							<label for="four-investment-ii-mercenary-office-done">Invest <span id="four-investment-ii-mercenary-office-money">XXX0000</span> ProN in the Mercenary Regulation Office</label></div>
+					</div>
+					<div id="four-investment-ii-mercenary-office-close">
+						You Don't Have <span id="four-investment-ii-mercenary-office-cost">YYY0000</span> ProN for the Mercenary Regulation Office
+					</div>
+					<div id="four-investment-ii-premium-steel-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-premium-steel-done">
+							<label for="four-investment-ii-premium-steel-done">Invest <span id="four-investment-ii-premium-steel-money">XXX0000</span> ProN in Acquiring Premium Steel Ownership Stake</label></div>
+					</div>
+					<div id="four-investment-ii-premium-steel-close">
+						You Don't Have <span id="four-investment-ii-premium-steel-cost">YYY0000</span> ProN for Acquiring Premium Steel Ownership Stake
+					</div>
+					<div id="four-investment-ii-yhilin-bank-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-yhilin-bank-done">
+							<label for="four-investment-ii-yhilin-bank-done">Invest <span id="four-investment-ii-yhilin-bank-money">XXX0000</span> ProN Become Yhilin's Bank Core Lender</label></div>
+					</div>
+					<div id="four-investment-ii-yhilin-bank-close">
+						You Don't Have <span id="four-investment-ii-yhilin-bank-cost">YYY0000</span> ProN for Become Yhilin's Bank Core Lender
+					</div>
+					<div id="four-investment-ii-min-route-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-min-route-done">
+							<label for="four-investment-ii-min-route-done">Invest 400000 ProN in Min's Trade Route</label></div>
+					</div>
+					<div id="four-investment-ii-min-route-close">
+						You Don't Have 400000 ProN for Min's Trade Route
+					</div>
+					<div id="four-investment-ii-yhilin-trade-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-yhilin-trade-done">
+							<label for="four-investment-ii-yhilin-trade-done">Invest <span id="four-investment-ii-yhilin-trade-money">XXX0000</span> ProN in Yhilini Succubus Trade Expansion</label></div>
+					</div>
+					<div id="four-investment-ii-yhilin-trade-close">
+						You Don't Have <span id="four-investment-ii-yhilin-trade-cost">YYY0000</span> ProN for Yhilini Succubus Trade Expansion
+					</div>
+					<div id="four-investment-ii-slum-ring-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-slum-ring-done">
+							<label for="four-investment-ii-slum-ring-done">Invest 150000 ProN in Ari-Yhilina's Slum Fighting Ring</label></div>
+					</div>
+					<div id="four-investment-ii-slum-ring-close">
+						You Don't Have 150000 ProN for Ari-Yhilina's Slum Fighting Ring
+					</div>
+					<div id="four-investment-ii-sex-ring-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-sex-ring-done">
+							<label for="four-investment-ii-sex-ring-done">Invest 250000 ProN in Ari-Yhilina Sex fighting Ring</label></div>
+					</div>
+					<div id="four-investment-ii-sex-ring-close">
+						You Don't Have 250000 ProN for Ari-Yhilina Sex fighting Ring
+					</div>
+					<div id="four-investment-ii-sex-shop-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-sex-shop-done">
+							<label for="four-investment-ii-sex-shop-done">Invest 350000 ProN in a Sex Shop</label></div>
+					</div>
+					<div id="four-investment-ii-sex-shop-close">
+						You Don't Have 350000 ProN for a Sex Shop
+					</div>
+					<div id="four-investment-ii-eustrin-guild-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-eustrin-guild-done">
+							<label for="four-investment-ii-eustrin-guild-done">Invest 600000 ProN in Eustrin Smithing Guild</label></div>
+					</div>
+					<div id="four-investment-ii-eustrin-guild-close">
+						You Don't Have 600000 ProN for Eustrin Smithing Guild
+					</div>
+					<div id="four-investment-ii-theltiar-rentals-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-theltiar-rentals-done">
+							<label for="four-investment-ii-theltiar-rentals-done">Invest 425000 ProN in Theltiar Foreign Rentals</label></div>
+					</div>
+					<div id="four-investment-ii-theltiar-rentals-close">
+						You Don't Have 425000 ProN for Theltiar Foreign Rentals
+					</div>
+					<div id="four-investment-ii-theltiar-flowhouse-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-theltiar-flowhouse-done">
+							<label for="four-investment-ii-theltiar-flowhouse-done">Invest 250000 ProN in the Theltiar Flowhouse</label></div>
+					</div>
+					<div id="four-investment-ii-theltiar-flowhouse-close">
+						You Don't Have 250000 ProN for the Theltiar Flowhouse
+					</div>
+					<div id="four-investment-ii-denmiel-mushrooms-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-denmiel-mushrooms-done">
+							<label for="four-investment-ii-denmiel-mushrooms-done">Invest 105000 ProN in Denmiel's Mushrooms Farm</label></div>
+					</div>
+					<div id="four-investment-ii-denmiel-mushrooms-close">
+						You Don't Have 105000 ProN for Denmiel's Mushrooms Fram
+					</div>
+					<div id="four-investment-ii-denmiel-archives-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-denmiel-archives-done">
+							<label for="four-investment-ii-denmiel-archives-done">Invest 250000 ProN in Denmiel's Archives</label></div>
+					</div>
+					<div id="four-investment-ii-denmiel-archives-close">
+						You Don't Have 250000 ProN for Denmiel's Archives
+					</div>
+					<div id="four-investment-ii-gasm-shop-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-gasm-shop-done">
+							<label for="four-investment-ii-gasm-shop-done">Invest 275000 ProN in Gasm Falls' Equipment Shop</label></div>
+					</div>
+					<div id="four-investment-ii-gasm-shop-close">
+						You Don't Have 275000 ProN for Gasm Falls' Equipment Shop
+					</div>
+					<br>
+					Non-Profitable Investment:<br>
+					<div id="four-investment-ii-stineford-tower-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-stineford-tower-done">
+							<label for="four-investment-ii-stineford-tower-done">Invest <span id="four-investment-ii-stineford-tower-money">XXX0000</span> ProN in Stineford's Succubus Tower Expansion</label></div>
+					</div>
+					<div id="four-investment-ii-stineford-tower-close">
+						You Don't Have <span id="four-investment-ii-stineford-tower-cost">YYY0000</span> ProN for Stineford's Succubus Tower Expansion
+					</div>
+					<div id="four-investment-ii-aram-embassy-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-aram-embassy-done">
+							<label for="four-investment-ii-aram-embassy-done">Invest <span id="four-investment-ii-aram-embassy-money">XXX0000</span> ProN in Aram's Eustrin Embassy</label></div>
+					</div>
+					<div id="four-investment-ii-aram-embassy-close">
+						You Don't Have <span id="four-investment-ii-aram-embassy-cost">YYY0000</span> ProN for Aram's Eustrin Embassy
+					</div>
+					<div id="four-investment-ii-orc-democracy-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-orc-democracy-done">
+							<label for="four-investment-ii-orc-democracy-done">Invest 1000000 ProN in the Development of Orcish Democracy</label></div>
+					</div>
+					<div id="four-investment-ii-orc-democracy-close">
+						You Don't Have 1000000 ProN for the Development of Orcish Democracy
+					</div>
+					<div id="four-investment-ii-imp-offices-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-imp-offices-done">
+							<label for="four-investment-ii-imp-offices-done">Invest 100000 ProN in Imp Offices</label></div>
+					</div>
+					<div id="four-investment-ii-imp-offices-close">
+						You Don't Have 100000 ProN for Imp Offices
+					</div>
+					<div id="four-investment-ii-orc-pools-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-orc-pools-done">
+							<label for="four-investment-ii-orc-pools-done">Invest 500000 ProN in Orc Polls Upgrade</label></div>
+					</div>
+					<div id="four-investment-ii-orc-pools-close">
+						You Don't Have 500000 ProN for Orc Polls Upgrade
+					</div>
+					<div id="four-investment-ii-war-monument-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-war-monument-done">
+							<label for="four-investment-ii-war-monument-done">Invest 1000000 ProN in Givini War Monument</label></div>
+					</div>
+					<div id="four-investment-ii-war-monument-close">
+						You Don't Have 1000000 ProN for Givini War Monument
+					</div>
+					<div id="four-investment-ii-chalice-supplies-one-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-chalice-supplies-one-done">
+							<label for="four-investment-ii-chalice-supplies-one-done">Donate 100000 ProN for Supplies in Chalice States Warehouse</label></div>
+					</div>
+					<div id="four-investment-ii-chalice-supplies-one-close">
+						You Don't Have 100000 ProN for Donating Supplies in Chalice States Warehouse
+					</div>
+					<div id="four-investment-ii-chalice-supplies-two-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-chalice-supplies-two-done">
+							<label for="four-investment-ii-chalice-supplies-two-done">Donate 250000 ProN for Supplies in Chalice States Warehouse</label></div>
+					</div>
+					<div id="four-investment-ii-chalice-supplies-two-close">
+						You Don't Have 250000 ProN for Donating Supplies in Chalice States Warehouse
+					</div>
+					<div id="four-investment-ii-chalice-supplies-three-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-chalice-supplies-three-done">
+							<label for="four-investment-ii-chalice-supplies-three-done">Donate 500000 ProN for Supplies in Chalice States Warehouse</label></div>
+					</div>
+					<div id="four-investment-ii-chalice-supplies-three-close">
+						You Don't Have 500000 ProN for Donating Supplies in Chalice States Warehouse
+					</div>
+					<div id="four-investment-ii-lustlord-statue-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-lustlord-statue-done">
+							<label for="four-investment-ii-lustlord-statue-done">Invest 50000 ProN in New Lustlord Statues</label></div>
+					</div>
+					<div id="four-investment-ii-lustlord-statue-close">
+						You Don't Have 50000 ProN for New Lustlord Statues
+					</div>
+					<div id="four-investment-ii-gasm-cleanup-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-gasm-cleanup-done">
+							<label for="four-investment-ii-gasm-cleanup-done">Invest 250000 ProN in Gasm Falls' Water Cleanup Project</label></div>
+					</div>
+					<div id="four-investment-ii-gasm-cleanup-close">
+						You Don't Have 250000 ProN for Gasm Falls' Water Cleanup Project
+					</div>
+					<div id="four-investment-ii-orc-tunnel-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-orc-tunnel-done">
+							<label for="four-investment-ii-orc-tunnel-done">Invest 200000 ProN in Gasm Falls' Orc Tunnel Improvment</label></div>
+					</div>
+					<div id="four-investment-ii-orc-tunnel-close">
+						You Don't Have 200000 ProN for Gasm Falls' Orc Tunnel Improvment
+					</div>
+					<div id="four-investment-ii-national-succubus-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-national-succubus-done">
+							<label for="four-investment-ii-national-succubus-done">Invest 250000 ProN in National Succubus Trade</label></div>
+					</div>
+					<div id="four-investment-ii-national-succubus-close">
+						You Don't Have 250000 ProN for National Succubus Trade
+					</div>
+					<div id="four-investment-ii-succubus-brothel-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-succubus-brothel-done">
+							<label for="four-investment-ii-succubus-brothel-done">Invest 50000 ProN in Succubus Brothel Expansion</label></div>
+					</div>
+					<div id="four-investment-ii-succubus-brothel-close">
+						You Don't Have 50000 ProN for Succubus Brothel Expansion
+					</div>
+					<div id="four-investment-ii-elven-improvement-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-elven-improvement-done">
+							<label for="four-investment-ii-elven-improvement-done">Invest 500000 ProN in Elven Ghetto Improvement Project</label></div>
+					</div>
+					<div id="four-investment-ii-elven-improvement-close">
+						You Don't Have 500000 ProN for Elven Ghetto Improvement Project
+					</div>
+					<div id="four-investment-ii-dk-statue-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-dk-statue-done">
+							<label for="four-investment-ii-dk-statue-done">Invest 25000 ProN in Doom King Statue</label></div>
+					</div>
+					<div id="four-investment-ii-dk-statue-close">
+						You Don't Have 25000 ProN for Doom King Statue
+					</div>
+					<div id="four-investment-ii-magic-standardization-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-magic-standardization-done">
+							<label for="four-investment-ii-magic-standardization-done">Invest 100000 ProN in Magic Standardization</label></div>
+					</div>
+					<div id="four-investment-ii-magic-standardization-close">
+						You Don't Have 100000 ProN for Magic Standardization
+					</div>
+					<div id="four-investment-ii-monastery-shrine-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-monastery-shrine-done">
+							<label for="four-investment-ii-monastery-shrine-done">Invest 50000 ProN in the Monastery Conversion in a Shrine</label></div>
+					</div>
+					<div id="four-investment-ii-monastery-shrine-close">
+						You Don't Have 50000 ProN for the Monastery Conversion in a Shrine
+					</div>
+					<div id="four-investment-ii-monastery-aid-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-monastery-aid-done">
+							<label for="four-investment-ii-monastery-aid-done">Invest 25000 ProN in the Monastery Conversion in a Aid Station</label></div>
+					</div>
+					<div id="four-investment-ii-monastery-aid-close">
+						You Don't Have 25000 ProN for the Monastery Conversion in a Aid Station
+					</div>
+					<div id="four-investment-ii-arcane-sex-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-arcane-sex-done">
+							<label for="four-investment-ii-arcane-sex-done">Invest 200000 ProN in Arcane-Sexual Magic Agreement</label></div>
+					</div>
+					<div id="four-investment-ii-arcane-sex-close">
+						You Don't Have 200000 ProN for Arcane-Sexual Magic Agreement
+					</div>
+					<div id="four-investment-ii-airship-military-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-airship-military-done">
+							<label for="four-investment-ii-airship-military-done">Invest 500000 ProN in Airships Militarization</label></div>
+					</div>
+					<div id="four-investment-ii-airship-military-close">
+						You Don't Have 500000 ProN for Airships Militarization
+					</div>
+					<div id="four-investment-ii-acc-buy-open">
+						<div class="can"><label class="piece" for="four-investment-ii-acc-buy-number">Buy Acceptance [250000 ProN] from Noble's Liaison: </label>
+							<input type="number" id="four-investment-ii-acc-buy-number" min="0" max="" value="0"></div>
+						Max Number of Time You can Buy Acceptance from Noble's Liaison: <span id="four-investment-ii-acc-buy-max">X</span><br>
+					</div>
+					<div id="four-investment-ii-acc-buy-close">
+						You Don't Have 250000 ProN for Buy Acceptance from Noble's Liaison
+					</div>
+					<br>
+					Palace Decoration:<br>
+					<div id="four-investment-ii-chalice-banner-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-chalice-banner-done">
+							<label for="four-investment-ii-chalice-banner-done">Buy Gasm Falls' Banners for the HQ for 1500 ProN</label></div>
+					</div>
+					<div id="four-investment-ii-chalice-banner-close">
+						You Don't Have 1500 ProN for Buy Gasm Falls' Banners
+					</div>
+					<div id="four-investment-ii-chalice-statue-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-chalice-statue-done">
+							<label for="four-investment-ii-chalice-statue-done">Buy Gasm Falls' Succubus Statues Set for the HQ for 2000 ProN</label></div>
+					</div>
+					<div id="four-investment-ii-chalice-statue-close">
+						You Don't Have 2000 ProN for Buy Gasm Falls' Succubus Statues Set
+					</div>
+					<div id="four-investment-ii-givini-dragon-normal-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-givini-dragon-normal-done">
+							<label for="four-investment-ii-givini-dragon-normal-done">Buy Givini Standard Dragon Statues for the HQ for 2500 ProN</label></div>
+					</div>
+					<div id="four-investment-ii-givini-dragon-normal-close">
+						You Don't Have 2500 ProN for Buy Givini Standard Dragon Statues
+					</div>
+					<div id="four-investment-ii-givini-dragon-deluxe-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-givini-dragon-deluxe-done">
+							<label for="four-investment-ii-givini-dragon-deluxe-done">Buy Givini Deluxe Dragon Statues for the HQ for 5000 ProN</label></div>
+					</div>
+					<div id="four-investment-ii-givini-dragon-deluxe-close">
+						You Don't Have 5000 ProN for Buy Givini Deluxe Dragon Statues
+					</div>
+					<div id="four-investment-ii-givini-banner-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-givini-banner-done">
+							<label for="four-investment-ii-givini-banner-done">Buy Givini Banners for the HQ for 1000 ProN</label></div>
+					</div>
+					<div id="four-investment-ii-givini-banner-close">
+						You Don't Have 1000 ProN for Buy Givini Banners
+					</div>
+					<span id="four-investment-ii-givini-decoration-all">Fine Givini Tea (+1 Hospitality) is Delivered to the Palace and Increase New Givini Country Score</span><br>
+					<div id="four-investment-ii-takkan-black-drake-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-takkan-black-drake-done">
+							<label for="four-investment-ii-takkan-black-drake-done">Buy Tak'Kan's Black Drake Statues Set for the HQ for 1000 ProN</label></div>
+					</div>
+					<div id="four-investment-ii-takkan-black-drake-close">
+						You Don't Have 1000 ProN for Buy Tak'Kan's Black Drake Statues Set
+					</div>
+					<div id="four-investment-ii-takkan-golden-drake-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-takkan-golden-drake-done">
+							<label for="four-investment-ii-takkan-golden-drake-done">Buy Tak'Kan Golden Drake Statues Set for the HQ for 5000 ProN</label></div>
+					</div>
+					<div id="four-investment-ii-takkan-golden-drake-close">
+						You Don't Have 5000 ProN for Buy Tak'Kan Golden Drake Statues Set
+					</div>
+					<div id="four-investment-ii-takkan-gargoyle-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-takkan-gargoyle-done">
+							<label for="four-investment-ii-takkan-gargoyle-done">Buy Tak'Kan Gargoyle Statues Set for the HQ for 2000 ProN</label></div>
+					</div>
+					<div id="four-investment-ii-takkan-gargoyle-close">
+						You Don't Have 2000 ProN for Buy Tak'Kan Gargoyle Statues Set
+					</div>
+					<span id="four-investment-ii-takkan-decoration-all">Buying All the Tak'Kan Statue Grants a Boost in the Tak'Kan Economy</span><br>
+					<div id="four-investment-ii-magic-statue-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-magic-statue-done">
+							<label for="four-investment-ii-magic-statue-done">Make a Donation for the Goddess of Magic's Cult for 10000 ProN and Receive a Pair of Statues</label></div>
+					</div>
+					<div id="four-investment-ii-magic-statue-close">
+						You Don't Have 10000 ProN for Make a Donation for the Goddess of Magic's Cult
+					</div>
+					<div id="four-investment-ii-lamia-statue-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-lamia-statue-done">
+							<label for="four-investment-ii-lamia-statue-done">Buy Lamia Statues Set in the House Rose's Fancy Shop for 1000 ProN</label></div>
+					</div>
+					<div id="four-investment-ii-lamia-statue-close">
+						You Don't Have 1000 ProN for Buy Lamia Statues Set in the House Rose's Fancy Shop
+					</div>
+					<div id="four-investment-ii-book-statue-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-book-statue-done">
+							<label for="four-investment-ii-book-statue-done">Buy Book-shaped Statues Set in the House Rose's Fancy Shop for 2000 ProN</label></div>
+					</div>
+					<div id="four-investment-ii-book-statue-close">
+						You Don't Have 2000 ProN for Buy Book-shaped Statues Set in the House Rose's Fancy Shop
+					</div>
+					<div id="four-investment-ii-mage-bed-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-mage-bed-done">
+							<label for="four-investment-ii-mage-bed-done">Buy a Magecrafted Bed in the House Rose's Fancy Shop for 500 ProN</label></div>
+					</div>
+					<div id="four-investment-ii-mage-bed-close">
+						You Don't Have 500 ProN for Buy a Magecrafted Bed in the House Rose's Fancy Shop
+					</div>
+					<br>
+					Tower Trip:<br>
+					<div class="can"><input type="checkbox" id="four-investment-ii-anak-start">
+						<label for="four-investment-ii-anak-start">Explore a Tower's Region Resonating with a Power Similar to Alonon's One</label></div>
+					<div id="four-investment-ii-mirror-shard-open">
+						<div class="can"><label class="piece" for="four-investment-ii-mirror-shard-done">Recover Mirror's Shards</label>
+							<input type="number" id="four-investment-ii-mirror-shard-done" min="0" max="7" value="0"></div>
+					</div>
+					<div id="four-investment-ii-anak-sword-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-anak-sword-done">
+							<label for="four-investment-ii-anak-sword-done">Recover the Shining Sword</label></div>
+					</div>
+					<div id="four-investment-ii-anak-node-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-anak-node-done">
+							<label for="four-investment-ii-anak-node-done">Fight the Tower Nodes</label></div>
+					</div>
+					<div id="four-investment-ii-anak-meeting-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-anak-meeting-done">
+							<label for="four-investment-ii-anak-meeting-done">Meet the Anak of Philon</label></div>
+					</div>
+					Xestris Comment on Your HQ Defence:<br>
+					<span id="four-investment-ii-magic-test">xestris magic response</span><br>
+					<br>
+					Research:<br>
+					<div id="four-investment-ii-research-diversification-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-research-diversification-done">
+							<label for="four-investment-ii-research-diversification-done">Orc Diversification Research</label></div>
+					</div>
+					<div id="four-investment-ii-research-unpeople-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-research-unpeople-done">
+							<label for="four-investment-ii-research-unpeople-done">Unpoeple Tranformation Research</label></div>
+					</div>
+					<div id="four-investment-ii-research-purity-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-research-purity-done">
+							<label for="four-investment-ii-research-purity-done">Relation Between Sex and Purity Magic Research</label></div>
+					</div>
+					<div id="four-investment-ii-research-defence-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-research-defence-done">
+							<label for="four-investment-ii-research-defence-done">HQ Defense Overhaul Research</label></div>
+					</div>
+					<br>
+					<div id="four-investment-ii-yhilin-final-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-yhilin-final-done">
+							<label for="four-investment-ii-yhilin-final-done">At Last, Janine and Simon Wedding Ceremony</label></div>
+					</div>
+					<div id="four-investment-ii-megail-iris-bed-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-megail-iris-bed-done">
+							<label for="four-investment-ii-megail-iris-bed-done">Unlock Megail - Iris HQ Bed Scene</label></div>
+					</div>
+					<div id="four-investment-ii-yarra-aka-bed-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-yarra-aka-bed-done">
+							<label for="four-investment-ii-yarra-aka-bed-done">Unlock Yarra - Aka HQ Bed Scene</label></div>
+					</div>
+					<div id="four-investment-ii-megail-qum-bed-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-megail-qum-bed-done">
+							<label for="four-investment-ii-megail-qum-bed-done">Unlock Megail - Qum HQ Bed Scene</label></div>
+					</div>
+					<div class="can"><input type="checkbox" id="four-investment-ii-hilstara-scene-done">
+						<label for="four-investment-ii-hilstara-scene-done"><span id="four-investment-ii-hilstara-scene-type">hilstara massage type</span></label></div>
+					<div class="can"><input type="checkbox" id="four-investment-ii-vhala-scene">
+						<label for="four-investment-ii-vhala-scene">Talk with Vhala about her Meeting with Alonon</label></div>
+					<div class="can"><input type="checkbox" id="four-investment-ii-robin-scene-done">
+						<label for="four-investment-ii-robin-scene-done">Talk with Robin about <span id="four-investment-ii-robin-scene-type">robin dialogue type</span></label></div>
+					<div class="can"><input type="checkbox" id="four-investment-ii-uyae-join">
+						<label for="four-investment-ii-uyae-join">Uyae Ask Simon to Be his Mate and Join the Harem</label></div>
+					<div id="four-investment-ii-dari-ritual-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-dari-ritual-done">
+							<label for="four-investment-ii-dari-ritual-done">Talk to Dari and Start the Ritual</label></div>
+					</div>
+					<div id="four-investment-ii-dari-join-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-dari-join-done">
+							<label for="four-investment-ii-dari-join-done">Dari Ask to Simon to Fuck Her, Joining the Harem</label></div>
+					</div>
+					<div id="four-investment-ii-merchant-regulation-high-open">
+						<div class="can"><label class="piece" for="four-investment-ii-merchant-regulation-high-done">Resolve the Dispute about Merchant Camp Regulation</label>
+							<select id="four-investment-ii-merchant-regulation-high-done">
+								<option selected></option>
+								<option value="yhilin">Compromise favoring Yhilin</option>
+								<option value="ardoheim">Compromise favoring Ardoheim</option>
+								<option value="givini">Compromise favoring New Givini</option>
+								<option value="neutral">Neutral compromise</option>
+							</select></div>
+					</div>
+					<div id="four-investment-ii-merchant-regulation-low-open">
+						<div class="can"><label class="piece" for="four-investment-ii-merchant-regulation-low-done">Resolve the Dispute about Merchant Camp Regulation</label>
+							<select id="four-investment-ii-merchant-regulation-low-done">
+								<option selected></option>
+								<option value="yhilin">Compromise favoring Yhilin</option>
+								<option value="ardoheim">Compromise favoring Ardoheim</option>
+								<option value="givini">Compromise favoring New Givini</option>
+							</select></div>
+					</div>
+					<div id="four-investment-ii-merchant-regulation-space">
+						--- <br>
+					</div>
+					<div id="four-investment-ii-nalili-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-nalili-done">
+							<label for="four-investment-ii-nalili-done">Nalili Has a Fight in the Ring and Proposes a Succubus Fighting Ring</label></div>
+					</div>
+					<div id="four-investment-ii-statue-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-statue-done">
+							<label for="four-investment-ii-statue-done">Observe the Doom King Statue in the City Square</label></div>
+					</div>
+					<div id="four-investment-ii-andra-mine-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-andra-mine-done">
+							<label for="four-investment-ii-andra-mine-done">Watch the Ex High priestess Andra Fuck an Orc in Miners' Junction</label></div>
+					</div>
+					<div id="four-investment-ii-wynn-talk-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-wynn-talk-done">
+							<label for="four-investment-ii-wynn-talk-done">Talk with Wynn in the Wendis' Mausoleum in the old Zirantian Wynn's House</label></div>
+					</div>
+					<div id="four-investment-ii-bertricia-succubus-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-bertricia-succubus-done">
+							<label for="four-investment-ii-bertricia-succubus-done">Ask a Succubus Priestess Near the Entrance of Helvanna Cathedral to Join Bertricia</label></div>
+					</div>
+					<div id="four-investment-ii-teahouse-succubi-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-teahouse-succubi-done">
+							<label for="four-investment-ii-teahouse-succubi-done">Visit the Teahouse Basement</label></div>
+					</div>
+					<div id="four-investment-ii-teahouse-connection-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-teahouse-connection-done">
+							<label for="four-investment-ii-teahouse-connection-done">Yarra Invite the Givini Survivor Working in the Equipment Shop in the Teahouse's Succubi Floor</label></div>
+					</div>
+					<div id="four-investment-ii-wynn-join-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-wynn-join-done">
+							<label for="four-investment-ii-wynn-join-done">Simon and Wynn Remember the Old Time and She Join the Harem</label></div>
+					</div>
+					<div id="four-investment-ii-wynn-balia-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-wynn-balia-done">
+							<label for="four-investment-ii-wynn-balia-done">Wynn Chat with Balia in the New Courtyard's Orc Lab</label></div>
+					</div>
+					<div id="four-investment-ii-steel-varia-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-steel-varia-done">
+							<label for="four-investment-ii-steel-varia-done">[4000 Sx] Buy Weapon-Grade Dwarren Steel for Varia's Custom Weapons</label></div>
+					</div>
+					<div id="four-investment-ii-weapons-varia-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-weapons-varia-done">
+							<label for="four-investment-ii-weapons-varia-done">[5000 Sx] The Givini Smith Craft Varia's Custom Weapons</label></div>
+					</div>
+					<div id="four-investment-ii-blade-varia-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-blade-varia-done">
+							<label for="four-investment-ii-blade-varia-done">[3000 Sx] Craft Varia's Custom Blades with Wynn's Help</label></div>
+						<div id="four-investment-ii-blade-varia-wynn-open">
+							<div class="can"><input type="checkbox" id="four-investment-ii-blade-varia-wynn-done">
+								<label for="four-investment-ii-blade-varia-wynn-done">Talk with Wynn During the Blades' Forging</label></div>
+						</div>
+					</div>
+					<br>
+					Orcen's Bar Crawl:<br>
+					<div id="four-investment-ii-orcent-warrior-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-orcent-warrior-done">
+							<label for="four-investment-ii-orcent-warrior-done">Orcent and Trin Have a Discussion in the Fighting Ring Bar</label></div>
+					</div>
+					<div id="four-investment-ii-orcent-shack-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-orcent-shack-done">
+							<label for="four-investment-ii-orcent-shack-done">Some Drunk Orcs Interrupt the Chat Between Simon and Orcent in the Illustrious Booze Shack</label></div>
+					</div>
+					<div id="four-investment-ii-orcent-zirantia-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-orcent-zirantia-done">
+							<label for="four-investment-ii-orcent-zirantia-done">Orcent and Uyae had some Talk in Zirantian</label></div>
+					</div>
+					<div id="four-investment-ii-orcent-teahouse-open">
+						<div class="can"><input type="checkbox" id="four-investment-ii-orcent-teahouse-done">
+							<label for="four-investment-ii-orcent-teahouse-done">Orcent and Simon in the New Givini Teahouse Basament Discuss about Variety of Experience</label></div>
+					</div>
+					<br>
+				</div>
+				<br>
+				<br>
+			</div>
+			<div class="chapter" id="hidden-four-investment-ii">
+				<a href="javascript:showchapter('show-skip-four-investment-ii')">Meeting with the Anak and Investment (Skipped)</a><br>
+				<br>
+				<div id="show-skip-four-investment-ii">
+					HQ's Stats:<br>
+					Military: <span id="skip-four-investment-ii-hq-military">XX</span> - Magic <span id="skip-four-investment-ii-magic">YY</span> - Hospitality <span id="skip-four-investment-ii-hq-hospitality">ZZ</span><br>
+					<br>
+					Total Profit: <span id="skip-four-investment-ii-profit-result">AAAA000</span><br>
+					<br>
+					HQ Improvement:<br>
+					<div id="skip-four-investment-ii-hq-yarra-room-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-hq-yarra-room-done">
+							<label for="skip-four-investment-ii-hq-yarra-room-done">5000 ProN for the Sex Room Upgrade</label></div>
+					</div>
+					<div id="skip-four-investment-ii-hq-balia-lab-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-hq-balia-lab-done">
+							<label for="skip-four-investment-ii-hq-balia-lab-done">25000 ProN for the Orc Lab</label></div>
+					</div>
+					<div id="skip-four-investment-ii-hq-orc-post-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-hq-orc-post-done">
+							<label for="skip-four-investment-ii-hq-orc-post-done">5000 ProN for a Guard Post in the Palace</label></div>
+					</div>
+					<div id="skip-four-investment-ii-hq-orcent-armory-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-hq-orcent-armory-done">
+							<label for="skip-four-investment-ii-hq-orcent-armory-done">10000 ProN for the Armor's Room</label></div>
+					</div>
+					<div id="skip-four-investment-ii-hq-lynine-supply-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-hq-lynine-supply-done">
+							<label for="skip-four-investment-ii-hq-lynine-supply-done">10000 ProN for Improve Kitchen Supplies</label></div>
+					</div>
+					<div id="skip-four-investment-ii-hq-robin-shield-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-hq-robin-shield-done">
+							<label for="skip-four-investment-ii-hq-robin-shield-done">100000 ProN for a Backup Defence Ritual</label></div>
+					</div>
+					<div id="skip-four-investment-ii-hq-wynn-shield-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-hq-wynn-shield-done">
+							<label for="skip-four-investment-ii-hq-wynn-shield-done">100000 ProN for a Sex Energy Shield</label></div>
+					</div>
+					<div id="skip-four-investment-ii-hq-riala-shield-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-hq-riala-shield-done">
+							<label for="skip-four-investment-ii-hq-riala-shield-done">225000 ProN for Extradimensional Foundation</label></div>
+					</div>
+					<div id="skip-four-investment-ii-hq-iris-well-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-hq-iris-well-done">
+							<label for="skip-four-investment-ii-hq-iris-well-done">10000 for Building a Second Well</label></div>
+					</div>
+					<div id="skip-four-investment-ii-hq-cudgel-buidling-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-hq-cudgel-buidling-done">
+							<label for="skip-four-investment-ii-hq-cudgel-buidling-done">15000 ProN for a Provisional Agreement with the Iron Cudgel</label></div>
+					</div>
+					<div id="skip-four-investment-ii-hq-carina-shrine-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-hq-carina-shrine-done">
+							<label for="skip-four-investment-ii-hq-carina-shrine-done">5000 ProN for a Santificated Shrine</label></div>
+					</div>
+					<div id="skip-four-investment-ii-hq-yhilin-shield-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-hq-yhilin-shield-done">
+							<label for="skip-four-investment-ii-hq-yhilin-shield-done">80000 ProN for Yhilini Magical Corps Upgraded Shield</label></div>
+					</div>
+					<br>
+					Profitable Investment:<br>
+					<div id="skip-four-investment-ii-merchant-pillar-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-merchant-pillar-done">
+							<label for="skip-four-investment-ii-merchant-pillar-done">Invest 300000 ProN in Trading Pillars Rights in the Merchant Camp</label></div>
+					</div>
+					<div id="skip-four-investment-ii-stineford-bank-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-stineford-bank-done">
+							<label for="skip-four-investment-ii-stineford-bank-done">Invest 400000 ProN to Become Stineford's Bank Core Lender</label></div>
+					</div>
+					<div id="skip-four-investment-ii-stineford-weapons-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-stineford-weapons-done">
+							<label for="skip-four-investment-ii-stineford-weapons-done">Invest 200000 ProN from a Stake in Stineford's Weapons Shop</label></div>
+					</div>
+					<div id="skip-four-investment-ii-stineford-magic-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-stineford-magic-done">
+							<label for="skip-four-investment-ii-stineford-magic-done">Invest 25000 ProN from a Stake in Stineford's Magic Shop</label></div>
+					</div>
+					<div id="skip-four-investment-ii-airship-fleet-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-airship-fleet-done">
+							<label for="skip-four-investment-ii-airship-fleet-done">Invest 1000000 ProN in the Creation of a Yhilin Airship Fleet</label></div>
+					</div>
+					<div id="skip-four-investment-ii-brothel-reform-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-brothel-reform-done">
+							<label for="skip-four-investment-ii-brothel-reform-done">Invest 25000 ProN in Yhilin Brothel Reform</label></div>
+					</div>
+					<div id="skip-four-investment-ii-tarrankan-slum-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-tarrankan-slum-done">
+							<label for="skip-four-investment-ii-tarrankan-slum-done">Invest 1000000 ProN in Remodeling Tarrak'Kan Slum</label></div>
+					</div>
+					<div id="skip-four-investment-ii-hall-mental-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-hall-mental-done">
+							<label for="skip-four-investment-ii-hall-mental-done">Invest 200000 ProN in Funding of the Hall of Mental Strength</label></div>
+					</div>
+					<div id="skip-four-investment-ii-booze-shack-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-booze-shack-done">
+							<label for="skip-four-investment-ii-booze-shack-done">Invest 150000 ProN in Booze Shack</label></div>
+					</div>
+					<div id="skip-four-investment-ii-tarrankan-trade-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-tarrankan-trade-done">
+							<label for="skip-four-investment-ii-tarrankan-trade-done">Invest 100000 ProN in Upgrading Tarran'Kan Trade</label></div>
+					</div>
+					<div id="skip-four-investment-ii-tradesmasher-guild-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-tradesmasher-guild-done">
+							<label for="skip-four-investment-ii-tradesmasher-guild-done">Invest 350000 ProN in Tradesmasher Guild</label></div>
+					</div>
+					<div id="skip-four-investment-ii-lonely-sailor-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-lonely-sailor-done">
+							<label for="skip-four-investment-ii-lonely-sailor-done">Invest 250000 ProN in Lonely Sailor</label></div>
+					</div>
+					<div id="skip-four-investment-ii-ceekan-shipping-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-ceekan-shipping-done">
+							<label for="skip-four-investment-ii-ceekan-shipping-done">Invest 700000 ProN in Cee'Kan Shipping</label></div>
+					</div>
+					<div id="skip-four-investment-ii-givini-smith-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-givini-smith-done">
+							<label for="skip-four-investment-ii-givini-smith-done">Invest 200000 ProN in Givini Smith</label></div>
+					</div>
+					<div id="skip-four-investment-ii-givini-orc-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-givini-orc-done">
+							<label for="skip-four-investment-ii-givini-orc-done">Invest <span id="skip-four-investment-ii-givini-orc-money">XXX000</span> ProN in Givini Orc Merchant</label></div>
+					</div>
+					<div id="skip-four-investment-ii-givini-tea-house-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-givini-tea-house-done">
+							<label for="skip-four-investment-ii-givini-tea-house-done">Invest 275000 ProN in Givini Tea House Chain</label></div>
+					</div>
+					<div id="skip-four-investment-ii-givini-bank-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-givini-bank-done">
+							<label for="skip-four-investment-ii-givini-bank-done">Invest 350000 ProN in Givini Bank System</label></div>
+					</div>
+					<div id="skip-four-investment-ii-givini-mage-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-givini-mage-done">
+							<label for="skip-four-investment-ii-givini-mage-done">Invest 1000000 ProN in Givini Mage Guild</label></div>
+					</div>
+					<div id="skip-four-investment-ii-lustlord-expansion-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-lustlord-expansion-done">
+							<label for="skip-four-investment-ii-lustlord-expansion-done">Invest 750000 ProN in Lustlord Temple Expansion</label></div>
+					</div>
+					<div id="skip-four-investment-ii-love-tour-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-love-tour-done">
+							<label for="skip-four-investment-ii-love-tour-done">Invest 100000 ProN in House of Love Tour</label></div>
+					</div>
+					<div id="skip-four-investment-ii-armor-succubus-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-armor-succubus-done">
+							<label for="skip-four-investment-ii-armor-succubus-done">Invest <span id="skip-four-investment-ii-armor-succubus-money">XXX0000</span> ProN in Succubus Armorer</label></div>
+					</div>
+					<div id="skip-four-investment-ii-potion-more-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-potion-more-done">
+							<label for="skip-four-investment-ii-potion-more-done">Invest 20000 ProN in Gasm Fall Shop's Potion and More</label></div>
+					</div>
+					<div id="skip-four-investment-ii-givini-tunnel-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-givini-tunnel-done">
+							<label for="skip-four-investment-ii-givini-tunnel-done">Invest 1500000 ProN in Reworks Givini Tunnel</label></div>
+					</div>
+					<div id="skip-four-investment-ii-mercenary-office-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-mercenary-office-done">
+							<label for="skip-four-investment-ii-mercenary-office-done">Invest <span id="skip-four-investment-ii-mercenary-office-money">XXX0000</span> ProN in the Mercenary Regulation Office</label></div>
+					</div>
+					<div id="skip-four-investment-ii-premium-steel-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-premium-steel-done">
+							<label for="skip-four-investment-ii-premium-steel-done">Invest <span id="skip-four-investment-ii-premium-steel-money">XXX0000</span> ProN in Acquiring Premium Steel Ownership Stake</label></div>
+					</div>
+					<div id="skip-four-investment-ii-yhilin-bank-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-yhilin-bank-done">
+							<label for="skip-four-investment-ii-yhilin-bank-done">Invest <span id="skip-four-investment-ii-yhilin-bank-money">XXX0000</span> ProN Become Yhilin's Bank Core Lender</label></div>
+					</div>
+					<div id="skip-four-investment-ii-min-route-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-min-route-done">
+							<label for="skip-four-investment-ii-min-route-done">Invest 400000 ProN in Min's Trade Route</label></div>
+					</div>
+					<div id="skip-four-investment-ii-yhilin-trade-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-yhilin-trade-done">
+							<label for="skip-four-investment-ii-yhilin-trade-done">Invest <span id="skip-four-investment-ii-yhilin-trade-money">XXX0000</span> ProN in Yhilini Succubus Trade Expansion</label></div>
+					</div>
+					<div id="skip-four-investment-ii-slum-ring-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-slum-ring-done">
+							<label for="skip-four-investment-ii-slum-ring-done">Invest 150000 ProN in Ari-Yhilina's Slum Fighting Ring</label></div>
+					</div>
+					<div id="skip-four-investment-ii-sex-ring-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-sex-ring-done">
+							<label for="skip-four-investment-ii-sex-ring-done">Invest 250000 ProN in Ari-Yhilina Sex fighting Ring</label></div>
+					</div>
+					<div id="skip-four-investment-ii-sex-shop-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-sex-shop-done">
+							<label for="skip-four-investment-ii-sex-shop-done">Invest 350000 ProN in a Sex Shop</label></div>
+					</div>
+					<div id="skip-four-investment-ii-eustrin-guild-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-eustrin-guild-done">
+							<label for="skip-four-investment-ii-eustrin-guild-done">Invest 600000 ProN in Eustrin Smithing Guild</label></div>
+					</div>
+					<div id="skip-four-investment-ii-theltiar-rentals-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-theltiar-rentals-done">
+							<label for="skip-four-investment-ii-theltiar-rentals-done">Invest 425000 ProN in Theltiar Foreign Rentals</label></div>
+					</div>
+					<div id="skip-four-investment-ii-theltiar-flowhouse-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-theltiar-flowhouse-done">
+							<label for="skip-four-investment-ii-theltiar-flowhouse-done">Invest 250000 ProN in the Theltiar Flowhouse</label></div>
+					</div>
+					<div id="skip-four-investment-ii-denmiel-mushrooms-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-denmiel-mushrooms-done">
+							<label for="skip-four-investment-ii-denmiel-mushrooms-done">Invest 105000 ProN in Denmiel's Mushrooms Farm</label></div>
+					</div>
+					<div id="skip-four-investment-ii-denmiel-archives-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-denmiel-archives-done">
+							<label for="skip-four-investment-ii-denmiel-archives-done">Invest 250000 ProN in Denmiel's Archives</label></div>
+					</div>
+					<div id="skip-four-investment-ii-gasm-shop-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-gasm-shop-done">
+							<label for="skip-four-investment-ii-gasm-shop-done">Invest 275000 ProN in Gasm Falls' Equipment Shop</label></div>
+					</div>
+					<br>
+					Non-Profitable Investment:<br>
+					<div id="skip-four-investment-ii-stineford-tower-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-stineford-tower-done">
+							<label for="skip-four-investment-ii-stineford-tower-done">Invest <span id="skip-four-investment-ii-stineford-tower-money">XXX0000</span> ProN in Stineford's Succubus Tower Expansion</label></div>
+					</div>
+					<div id="skip-four-investment-ii-aram-embassy-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-aram-embassy-done">
+							<label for="skip-four-investment-ii-aram-embassy-done">Invest <span id="skip-four-investment-ii-aram-embassy-money">XXX0000</span> ProN in Aram's Eustrin Embassy</label></div>
+					</div>
+					<div id="skip-four-investment-ii-orc-democracy-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-orc-democracy-done">
+							<label for="skip-four-investment-ii-orc-democracy-done">Invest 1000000 ProN in the Development of Orcish Democracy</label></div>
+					</div>
+					<div id="skip-four-investment-ii-imp-offices-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-imp-offices-done">
+							<label for="skip-four-investment-ii-imp-offices-done">Invest 100000 ProN in Imp Offices</label></div>
+					</div>
+					<div id="skip-four-investment-ii-orc-pools-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-orc-pools-done">
+							<label for="skip-four-investment-ii-orc-pools-done">Invest 500000 ProN in Orc Polls Upgrade</label></div>
+					</div>
+					<div id="skip-four-investment-ii-war-monument-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-war-monument-done">
+							<label for="skip-four-investment-ii-war-monument-done">Invest 1000000 ProN in Givini War Monument</label></div>
+					</div>
+					<div id="skip-four-investment-ii-chalice-supplies-one-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-chalice-supplies-one-done">
+							<label for="skip-four-investment-ii-chalice-supplies-one-done">Donate 100000 ProN for Supplies in Chalice States Warehouse</label></div>
+					</div>
+					<div id="skip-four-investment-ii-chalice-supplies-two-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-chalice-supplies-two-done">
+							<label for="skip-four-investment-ii-chalice-supplies-two-done">Donate 250000 ProN for Supplies in Chalice States Warehouse</label></div>
+					</div>
+					<div id="skip-four-investment-ii-chalice-supplies-three-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-chalice-supplies-three-done">
+							<label for="skip-four-investment-ii-chalice-supplies-three-done">Donate 500000 ProN for Supplies in Chalice States Warehouse</label></div>
+					</div>
+					<div id="skip-four-investment-ii-lustlord-statue-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-lustlord-statue-done">
+							<label for="skip-four-investment-ii-lustlord-statue-done">Invest 50000 ProN in New Lustlord Statues</label></div>
+					</div>
+					<div id="skip-four-investment-ii-gasm-cleanup-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-gasm-cleanup-done">
+							<label for="skip-four-investment-ii-gasm-cleanup-done">Invest 250000 ProN in Gasm Falls' Water Cleanup Project</label></div>
+					</div>
+					<div id="skip-four-investment-ii-orc-tunnel-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-orc-tunnel-done">
+							<label for="skip-four-investment-ii-orc-tunnel-done">Invest 200000 ProN in Gasm Falls' Orc Tunnel Improvment</label></div>
+					</div>
+					<div id="skip-four-investment-ii-national-succubus-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-national-succubus-done">
+							<label for="skip-four-investment-ii-national-succubus-done">Invest 250000 ProN in National Succubus Trade</label></div>
+					</div>
+					<div id="skip-four-investment-ii-succubus-brothel-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-succubus-brothel-done">
+							<label for="skip-four-investment-ii-succubus-brothel-done">Invest 50000 ProN in Succubus Brothel Expansion</label></div>
+					</div>
+					<div id="skip-four-investment-ii-elven-improvement-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-elven-improvement-done">
+							<label for="skip-four-investment-ii-elven-improvement-done">Invest 500000 ProN in Elven Ghetto Improvement Project</label></div>
+					</div>
+					<div id="skip-four-investment-ii-dk-statue-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-dk-statue-done">
+							<label for="skip-four-investment-ii-dk-statue-done">Invest 25000 ProN in Doom King Statue</label></div>
+					</div>
+					<div id="skip-four-investment-ii-magic-standardization-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-magic-standardization-done">
+							<label for="skip-four-investment-ii-magic-standardization-done">Invest 100000 ProN in Magic Standardization</label></div>
+					</div>
+					<div id="skip-four-investment-ii-monastery-shrine-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-monastery-shrine-done">
+							<label for="skip-four-investment-ii-monastery-shrine-done">Invest 50000 ProN in the Monastery Conversion in a Shrine</label></div>
+					</div>
+					<div id="skip-four-investment-ii-monastery-aid-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-monastery-aid-done">
+							<label for="skip-four-investment-ii-monastery-aid-done">Invest 25000 ProN in the Monastery Conversion in a Aid Station</label></div>
+					</div>
+					<div id="skip-four-investment-ii-arcane-sex-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-arcane-sex-done">
+							<label for="skip-four-investment-ii-arcane-sex-done">Invest 200000 ProN in Arcane-Sexual Magic Agreement</label></div>
+					</div>
+					<div id="skip-four-investment-ii-airship-military-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-airship-military-done">
+							<label for="skip-four-investment-ii-airship-military-done">Invest 500000 ProN in Airships Militarization</label></div>
+					</div>
+					<div id="skip-four-investment-ii-acc-buy-open">
+						<div class="can"><label class="piece" for="skip-four-investment-ii-acc-buy-number">Buy Acceptance [250000 ProN] from Noble's Liaison: </label>
+							<input type="number" id="skip-four-investment-ii-acc-buy-number" min="0" max="" value="0"></div>
+						Max Number of Time You can Buy Acceptance from Noble's Liaison: <span id="skip-four-investment-ii-acc-buy-max">X</span><br>
+					</div>
+					<br>
+					Palace Decoration:<br>
+					<div id="skip-four-investment-ii-chalice-banner-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-chalice-banner-done">
+							<label for="skip-four-investment-ii-chalice-banner-done">Buy Gasm Falls' Banners for the HQ for 1500 ProN</label></div>
+					</div>
+					<div id="skip-four-investment-ii-chalice-statue-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-chalice-statue-done">
+							<label for="skip-four-investment-ii-chalice-statue-done">Buy Gasm Falls' Succubus Statues Set for the HQ for 2000 ProN</label></div>
+					</div>
+					<div id="skip-four-investment-ii-givini-dragon-normal-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-givini-dragon-normal-done">
+							<label for="skip-four-investment-ii-givini-dragon-normal-done">Buy Givini Standard Dragon Statues for the HQ for 2500 ProN</label></div>
+					</div>
+					<div id="skip-four-investment-ii-givini-dragon-deluxe-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-givini-dragon-deluxe-done">
+							<label for="skip-four-investment-ii-givini-dragon-deluxe-done">Buy Givini Deluxe Dragon Statues for the HQ for 5000 ProN</label></div>
+					</div>
+					<div id="skip-four-investment-ii-givini-banner-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-givini-banner-done">
+							<label for="skip-four-investment-ii-givini-banner-done">Buy Givini Banners for the HQ for 1000 ProN</label></div>
+					</div>
+					<span id="skip-four-investment-ii-givini-decoration-all">Fine Givini Tea (+1 Hospitality) is Delivered to the Palace and Increase New Givini Country Score</span><br>
+					<div id="skip-four-investment-ii-takkan-black-drake-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-takkan-black-drake-done">
+							<label for="skip-four-investment-ii-takkan-black-drake-done">Buy Tak'Kan's Black Drake Statues Set for the HQ for 1000 ProN</label></div>
+					</div>
+					<div id="skip-four-investment-ii-takkan-golden-drake-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-takkan-golden-drake-done">
+							<label for="skip-four-investment-ii-takkan-golden-drake-done">Buy Tak'Kan Golden Drake Statues Set for the HQ for 5000 ProN</label></div>
+					</div>
+					<div id="skip-four-investment-ii-takkan-gargoyle-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-takkan-gargoyle-done">
+							<label for="skip-four-investment-ii-takkan-gargoyle-done">Buy Tak'Kan Gargoyle Statues Set for the HQ for 2000 ProN</label></div>
+					</div>
+					<span id="skip-four-investment-ii-takkan-decoration-all">Buying All the Tak'Kan Statue Grants a Boost in the Tak'Kan Economy</span><br>
+					<div id="skip-four-investment-ii-magic-statue-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-magic-statue-done">
+							<label for="skip-four-investment-ii-magic-statue-done">Make a Donation for the Goddess of Magic's Cult for 10000 ProN and Receive a Pair of Statues</label></div>
+					</div>
+					<div id="skip-four-investment-ii-lamia-statue-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-lamia-statue-done">
+							<label for="skip-four-investment-ii-lamia-statue-done">Buy Lamia Statues Set in the House Rose's Fancy Shop for 1000 ProN</label></div>
+					</div>
+					<div id="skip-four-investment-ii-book-statue-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-book-statue-done">
+							<label for="skip-four-investment-ii-book-statue-done">Buy Book-shaped Statues Set in the House Rose's Fancy Shop for 2000 ProN</label></div>
+					</div>
+					<div id="skip-four-investment-ii-mage-bed-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-mage-bed-done">
+							<label for="skip-four-investment-ii-mage-bed-done">Buy a Magecrafted Bed in the House Rose's Fancy Shop for 500 ProN</label></div>
+					</div>
+					<br>
+					<div id="skip-four-investment-ii-pron-negative">
+						<div class="can"><label class="piece" for="skip-four-investment-ii-pron-left">ProN Remaining</label>
+							<input type="number" id="skip-four-investment-ii-pron-left" min="0" value="0"></div>
+					</div>
+					<br>
+					Tower Trip:<br>
+					Explore a Tower's Region Resonating with a Power Similar to Alonon's One<br>
+					<div class="can"><input type="checkbox" id="skip-four-investment-ii-anak-sword-done">
+						<label for="skip-four-investment-ii-anak-sword-done">Recover the Shining Sword</label></div>
+					Meet the Anak of Philon<br>
+					Xestris Comment on Your HQ Defence:<br>
+					<span id="skip-four-investment-ii-magic-test">xestris magic response</span><br>
+					<br>
+					Research:<br>
+					<div id="skip-four-investment-ii-research-diversification-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-research-diversification-done">
+							<label for="skip-four-investment-ii-research-diversification-done">Orc Diversification Research</label></div>
+					</div>
+					<div id="skip-four-investment-ii-research-unpeople-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-research-unpeople-done">
+							<label for="skip-four-investment-ii-research-unpeople-done">Unpoeple Tranformation Research</label></div>
+					</div>
+					<div id="skip-four-investment-ii-research-purity-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-research-purity-done">
+							<label for="skip-four-investment-ii-research-purity-done">Relation Between Sex and Purity Magic Research</label></div>
+					</div>
+					<div id="skip-four-investment-ii-research-defence-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-research-defence-done">
+							<label for="skip-four-investment-ii-research-defence-done">HQ Defense Overhaul Research</label></div>
+					</div>
+					<br>
+					<div id="skip-four-investment-ii-yhilin-final-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-yhilin-final-done">
+							<label for="skip-four-investment-ii-yhilin-final-done">At Last, Janine and Simon Wedding Ceremony</label></div>
+					</div>
+					<div id="skip-four-investment-ii-megail-iris-bed-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-megail-iris-bed-done">
+							<label for="skip-four-investment-ii-megail-iris-bed-done">Unlock Megail - Iris HQ Bed Scene</label></div>
+					</div>
+					<div id="skip-four-investment-ii-yarra-aka-bed-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-yarra-aka-bed-done">
+							<label for="skip-four-investment-ii-yarra-aka-bed-done">Unlock Yarra - Aka HQ Bed Scene</label></div>
+					</div>
+					<div id="skip-four-investment-ii-megail-qum-bed-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-megail-qum-bed-done">
+							<label for="skip-four-investment-ii-megail-qum-bed-done">Unlock Megail - Qum HQ Bed Scene</label></div>
+					</div>
+					<div class="can"><input type="checkbox" id="skip-four-investment-ii-hilstara-scene-done">
+						<label for="skip-four-investment-ii-hilstara-scene-done"><span id="skip-four-investment-ii-hilstara-scene-type">hilstara massage type</span></label></div>
+					<div class="can"><input type="checkbox" id="skip-four-investment-ii-vhala-scene">
+						<label for="skip-four-investment-ii-vhala-scene">Talk with Vhala about her Meeting with Alonon</label></div>
+					<div class="can"><input type="checkbox" id="skip-four-investment-ii-robin-scene-done">
+						<label for="skip-four-investment-ii-robin-scene-done">Talk with Robin about <span id="skip-four-investment-ii-robin-scene-type">robin dialogue type</span></label></div>
+					<div class="can"><input type="checkbox" id="skip-four-investment-ii-uyae-join">
+						<label for="skip-four-investment-ii-uyae-join">Uyae Ask Simon to Be his Mate and Join the Harem</label></div>
+					<div id="skip-four-investment-ii-dari-ritual-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-dari-ritual-done">
+							<label for="skip-four-investment-ii-dari-ritual-done">Talk to Dari and Start the Ritual</label></div>
+					</div>
+					<div id="skip-four-investment-ii-dari-join-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-dari-join-done">
+							<label for="skip-four-investment-ii-dari-join-done">Dari Ask to Simon to Fuck Her, Joining the Harem</label></div>
+					</div>
+					<div id="skip-four-investment-ii-merchant-regulation-high-open">
+						<div class="can"><label class="piece" for="skip-four-investment-ii-merchant-regulation-high-done">Resolve the Dispute about Merchant Camp Regulation</label>
+							<select id="skip-four-investment-ii-merchant-regulation-high-done">
+								<option selected></option>
+								<option value="yhilin">Compromise favoring Yhilin</option>
+								<option value="ardoheim">Compromise favoring Ardoheim</option>
+								<option value="givini">Compromise favoring New Givini</option>
+								<option value="neutral">Neutral compromise</option>
+							</select></div>
+					</div>
+					<div id="skip-four-investment-ii-merchant-regulation-low-open">
+						<div class="can"><label class="piece" for="skip-four-investment-ii-merchant-regulation-low-done">Resolve the Dispute about Merchant Camp Regulation</label>
+							<select id="skip-four-investment-ii-merchant-regulation-low-done">
+								<option selected></option>
+								<option value="yhilin">Compromise favoring Yhilin</option>
+								<option value="ardoheim">Compromise favoring Ardoheim</option>
+								<option value="givini">Compromise favoring New Givini</option>
+							</select></div>
+					</div>
+					<div id="skip-four-investment-ii-merchant-regulation-space">
+						--- <br>
+					</div>
+					<div id="skip-four-investment-ii-nalili-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-nalili-done">
+							<label for="skip-four-investment-ii-nalili-done">Nalili Has a Fight in the Ring and Proposes a Succubus Fighting Ring</label></div>
+					</div>
+					<div id="skip-four-investment-ii-statue-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-statue-done">
+							<label for="skip-four-investment-ii-statue-done">Observe the Doom King Statue in the City Square</label></div>
+					</div>
+					<div id="skip-four-investment-ii-andra-mine-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-andra-mine-done">
+							<label for="skip-four-investment-ii-andra-mine-done">Watch the Ex High priestess Andra Fuck an Orc in Miners' Junction</label></div>
+					</div>
+					<div id="skip-four-investment-ii-wynn-talk-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-wynn-talk-done">
+							<label for="skip-four-investment-ii-wynn-talk-done">Talk with Wynn in the Wendis' Mausoleum in the old Zirantian Wynn's House</label></div>
+					</div>
+					<div id="skip-four-investment-ii-bertricia-succubus-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-bertricia-succubus-done">
+							<label for="skip-four-investment-ii-bertricia-succubus-done">Ask a Succubus Priestess Near the Entrance of Helvanna Cathedral to Join Bertricia</label></div>
+					</div>
+					<div id="skip-four-investment-ii-teahouse-succubi-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-teahouse-succubi-done">
+							<label for="skip-four-investment-ii-teahouse-succubi-done">Visit the Teahouse Basement</label></div>
+					</div>
+					<div id="skip-four-investment-ii-teahouse-connection-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-teahouse-connection-done">
+							<label for="skip-four-investment-ii-teahouse-connection-done">Yarra Invite the Givini Survivor Working in the Equipment Shop in the Teahouse's Succubi Floor</label></div>
+					</div>
+					<div id="skip-four-investment-ii-wynn-join-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-wynn-join-done">
+							<label for="skip-four-investment-ii-wynn-join-done">Simon and Wynn Remember the Old Time and She Join the Harem</label></div>
+					</div>
+					<div id="skip-four-investment-ii-wynn-balia-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-wynn-balia-done">
+							<label for="skip-four-investment-ii-wynn-balia-done">Wynn Chat with Balia in the New Courtyard's Orc Lab</label></div>
+					</div>
+					<div id="skip-four-investment-ii-steel-varia-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-steel-varia-done">
+							<label for="skip-four-investment-ii-steel-varia-done">[4000 Sx] Buy Weapon-Grade Dwarren Steel for Varia's Custom Weapons</label></div>
+					</div>
+					<div id="skip-four-investment-ii-weapons-varia-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-weapons-varia-done">
+							<label for="skip-four-investment-ii-weapons-varia-done">[5000 Sx] The Givini Smith Craft Varia's Custom Weapons</label></div>
+					</div>
+					<div id="skip-four-investment-ii-blade-varia-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-blade-varia-done">
+							<label for="skip-four-investment-ii-blade-varia-done">[3000 Sx] Craft Varia's Custom Blades with Wynn's Help</label></div>
+						<div id="skip-four-investment-ii-blade-varia-wynn-open">
+							<div class="can"><input type="checkbox" id="skip-four-investment-ii-blade-varia-wynn-done">
+								<label for="skip-four-investment-ii-blade-varia-wynn-done">Talk with Wynn During the Blades' Forging</label></div>
+						</div>
+					</div>
+					<br>
+					Orcen's Bar Crawl:<br>
+					<div id="skip-four-investment-ii-orcent-warrior-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-orcent-warrior-done">
+							<label for="skip-four-investment-ii-orcent-warrior-done">Orcent and Trin Have a Discussion in the Fighting Ring Bar</label></div>
+					</div>
+					<div id="skip-four-investment-ii-orcent-shack-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-orcent-shack-done">
+							<label for="skip-four-investment-ii-orcent-shack-done">Some Drunk Orcs Interrupt the Chat Between Simon and Orcent in the Illustrious Booze Shack</label></div>
+					</div>
+					<div id="skip-four-investment-ii-orcent-zirantia-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-orcent-zirantia-done">
+							<label for="skip-four-investment-ii-orcent-zirantia-done">Orcent and Uyae had some Talk in Zirantian</label></div>
+					</div>
+					<div id="skip-four-investment-ii-orcent-teahouse-open">
+						<div class="can"><input type="checkbox" id="skip-four-investment-ii-orcent-teahouse-done">
+							<label for="skip-four-investment-ii-orcent-teahouse-done">Orcent and Simon in the New Givini Teahouse Basament Discuss about Variety of Experience</label></div>
+					</div>
+					<br>
+				</div>
+				<br>
+				<br>
+			</div>
+			<br>
+			<div class="chapter" id="display-erosia-prelude">
+				<a href="javascript:showchapter('show-erosia-prelude')">Erosia Prelude</a><br>
+				<br>
+				<div id="show-erosia-prelude">
+					Fucklord Battle:<br>
+					Fucklord Confrontation: <span id="erosia-prelude-fucklord-confrontiation">A</span><br>
+					Erosian Captive: <span id="erosia-prelude-erosian-captive">BB</span><br>
+					Yhilin Tower Score: <span id="erosia-prelude-yhilin-tower-score">CC</span><br>
+					Tak'Kan Tower Score: <span id="erosia-prelude-takkan-tower-score">DD</span><br>
+					Aram Tower Score: <span id="erosia-prelude-aram-tower-score">EE</span><br>
+					Zirantia Tower Score: <span id="erosia-prelude-zirantia-tower-score">FF</span><br>
+					<br>
+					<div class="can"><input type="checkbox" id="erosia-prelude-riala-start">
+						<label for="erosia-prelude-riala-start">Talk with Riala andr Start Preemptive Action Against Fucklord Invasion</label></div>
+					<br>
+					Extradimensional HQ:<br>
+					<div id="erosia-prelude-pre-talk">
+						<div class="can"><input type="checkbox" id="erosia-prelude-carina-start">
+							<label for="erosia-prelude-carina-start">Talk with Carina</label></div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-qum-start">
+							<label for="erosia-prelude-qum-start"></label>Talk with Qum</div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-yarra-start">
+							<label for="erosia-prelude-yarra-start">Talk with Yarra</label></div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-esthera-start">
+							<label for="erosia-prelude-esthera-start">Talk with Esthera</label></div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-robin-start">
+							<label for="erosia-prelude-robin-start">Talk with Robin and Start Next Phase</label></div>
+					</div>
+					<br>
+					Aram: Ramasta<br>
+					<div id="erosia-prelude-ramasta-open">
+						<div class="can"><input type="checkbox" id="erosia-prelude-guild-start">
+							<label for="erosia-prelude-guild-start">Talk with the Head of Mage Guild for the Defensive Ritual</label></div>
+						<div id="erosia-prelude-aram-score" style="color:#00FF00">
+							Your Aram Score is Enough to Reduce Some Objection (+1 Aram Tower Score)
+						</div>
+						<div id="erosia-prelude-jade-copy" style="color:#00FF00">
+							Trin Used the Aramite Jade Employee to Support the Party Effort (+1 Aram Tower Score)
+						</div>
+						<div id="erosia-prelude-aram-dwarren" style="color:#00FF00">
+							The New Funded Aram's Dwarren 'embassy' help in Aram Accepting the Ritual(+1 Aram Tower Score)
+						</div>
+						<div id="erosia-prelude-talk-open">
+							<div class="can"><input type="checkbox" id="erosia-prelude-unpeople-talk">
+								<label for="erosia-prelude-unpeople-talk">Talk with the Local Unpeople's Commander</label></div>
+							<div class="can"><input type="checkbox" id="erosia-prelude-church-talk">
+								<label for="erosia-prelude-church-talk">Talk with the Healer Priest</label></div>
+						</div>
+						<div id="erosia-prelude-trin-priestess-open">
+							<div class="can"><input type="checkbox" id="erosia-prelude-trin-priestess-done">
+							<label for="erosia-prelude-trin-priestess-done">Let Trin Copy the Greedy Priestess [Take Two Copy Slots]</label></div>
+						</div>
+						<div id="erosia-prelude-trin-copy-open">
+							<div class="can"><label class="piece" for="erosia-prelude-trin-copy-religion">Copy the Priestess Before or After Talk with the Priest</label>
+								<select id="erosia-prelude-trin-copy-religion">
+									<option selected></option>
+									<option value="before">Before</option>
+									<option value="after">After</option>
+								</select></div>
+						</div>
+						<div id="erosia-prelude-trin-priestess-close">
+							Trin is Capped and Cannot Copy the Greedy Priestess [Take Two Copy Slots]
+						</div>
+						<div id="erosia-prelude-farnan-servant-open">
+							<div class="can"><input type="checkbox" id="erosia-prelude-farnan-servant-done">
+								<label for="erosia-prelude-farnan-servant-done">Talk with a Servant Farnan Send to Help</label></div>
+						</div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-ingredient-orilise-done">
+							<label for="erosia-prelude-ingredient-orilise-done">Orilise Setup a Blackmarket Chanel for Darghelese Ingredient to Aram Through Gheldaron</label></div>
+						<div id="erosia-prelude-ramasta-end-open">
+							<div class="can"><input type="checkbox" id="erosia-prelude-ramasta-end-done">
+								<label for="erosia-prelude-ramasta-end-done">Talk with the Head of Mage Guild to Complete the Negotiation</label></div>
+							<span id="erosia-prelude-ramasta-end-report">ramasta end report</span><br>
+						</div>
+					</div>
+					<br>
+					Yhilin: Order Guildhall<br>
+					<div id="erosia-prelude-order-open">
+						<div id="erosia-prelude-order-trial">
+							Robin Acquiring Full Order Membership Help in Facilitating the Works with the Order  
+						</div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-talk-sarai">
+							<label for="erosia-prelude-talk-sarai">Talk with Sarai</label></div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-talk-vera">
+							<label for="erosia-prelude-talk-vera">Talk with Vera, Goddess of Magic' Sect Leader</label></div>
+						<div id="erosia-prelude-yhilin-final-open">
+							<div class="can"><input type="checkbox" id="erosia-prelude-yhilin-final-done">
+							<label for="erosia-prelude-yhilin-final-done">Talk with the Elite Succubus</label></div>
+						</div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-flame-interact">
+							<label for="erosia-prelude-flame-interact">Interact to the Flame and Go in the Tower</label></div>
+						<span id="erosia-prelude-flame-report">yhilin tower report</span><br>
+					</div>
+					<br>
+					Yhilin: Tower Foundation<br>
+					<div id="erosia-prelude-yhilin-tower-start">
+						<div class="can"><input type="checkbox" id="erosia-prelude-yhilin-chaos">
+							<label for="erosia-prelude-yhilin-chaos">Fight the Solidified Chaos in the Right Edge of the Map</label></div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-yhilin-monster">
+							<label for="erosia-prelude-yhilin-monster">Fight the Monster in the Key Point in the Right Room</label></div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-yhilin-ritual">
+							<label for="erosia-prelude-yhilin-ritual">Start the Ritual in the Left Room</label></div>
+					</div>
+					<br>
+					Tak'Kan: Hall of Order:<br>
+					<div id="erosia-prelude-hall-order-open">
+						<div class="can"><input type="checkbox" id="erosia-prelude-takkan-elleani">
+							<label for="erosia-prelude-takkan-elleani">Talk with Elleani about Her Presence in the Hall of Order</label></div>
+						<div id="erosia-prelude-takkan-impaler-open">
+							<div class="can"><input type="checkbox" id="erosia-prelude-takkan-impaler-done">
+							<label for="erosia-prelude-takkan-impaler-done">Ask the Impaler Vote for the Motion</label></div>
+						</div>
+						<div id="erosia-prelude-takkan-orgont-open">
+							<div class="can"><input type="checkbox" id="erosia-prelude-takkan-orgont-done">
+							<label for="erosia-prelude-takkan-orgont-done">Ask Orgont Vote for the Motion</label></div>
+						</div>
+						<div id="erosia-prelude-takkan-imp-open">
+							<div class="can"><input type="checkbox" id="erosia-prelude-takkan-imp-done">
+							<label for="erosia-prelude-takkan-imp-done">Ask the Imp's Representative His Vote</label></div>
+						</div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-takkan-sho">
+							<label for="erosia-prelude-takkan-sho">Balia 'Ask' Sho Joining the Palace Staff</label></div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-takkan-vote-start">
+							<label for="erosia-prelude-takkan-vote-start">Ask Grubbak to Start the Vote</label></div>
+						<br>
+						<div id="erosia-prelude-takkan-vote-open">
+							Fixed Vote: 3 Yes - 2 Nay<br>
+							Tarran'Kan Vote: <span id="erosia-prelude-tarrankan-yes">X</span> Yes - <span id="erosia-prelude-tarrankan-nay">Y</span> Nay [<span id="erosia-prelude-tarrankan-detail">tarrankan detail</span>]<br>
+							Cee Region Vote: <span id="erosia-prelude-cee-yes">X</span> Yes - <span id="erosia-prelude-cee-nay">Y</span> Nay [<span id="erosia-prelude-cee-detail">cee detail</span>]<br>
+							<div id="erosia-prelude-takkan-democracy-open">
+								Vote from Other Region: 2 Yes [Orcish Democracy Funded]
+							</div>
+							<div id="erosia-prelude-takkan-orgont-vote">
+								Orgont Vote Yes to the Motion [Hall of Mental Strenght Funded]
+							</div>
+							Vote from Orc Present: <span id="erosia-prelude-research-vote">yes/nay</span> [<span id="erosia-prelude-research-detail">research status</span>]<br>
+							<div id="erosia-prelude-takkan-impaler-vote">
+								<span id="erosia-prelude-takkan-impaler-result">impaler vote yes/no</span>
+							</div>
+							<div id="erosia-prelude-takkan-imp-vote">
+								Imp's Rapresentative Vote Yes [Imp's Office Funded]
+							</div>
+							<br>
+							Final Result: <span id="erosia-prelude-vote-yes">XX</span> Yes - <span id="erosia-prelude-vote-nay">YY</span> Nay - [Total Vote Cast <span id="erosia-prelude-vote-total">ZZ</span>]<br>
+							<span id="erosia-prelude-vote-result">%yes and detailed effect</span>
+							<br>
+							<div id="erosia-prelude-trin-orc-open">
+								<div class="can"><input type="checkbox" id="erosia-prelude-trin-orc-done">
+									<label for="erosia-prelude-trin-orc-done">Trin and Balia Work together for Copy the Obnoxious Orc</label></div>
+							</div>
+							<div id="erosia-prelude-trin-orc-close">
+								Trin is Capped and Cannot Copy the Obnoxious Orc
+							</div>
+						</div>
+					</div>
+					<br>
+					Takkan Tower Fundation:<br>
+					<div id="erosia-prelude-takkan-tower-open">
+						<div class="can"><input type="checkbox" id="erosia-prelude-takkan-tower-leech">
+							<label for="erosia-prelude-takkan-tower-leech">Fight the Reality Leech in the Right Edge of the Map</label></div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-takkan-tower-monster">
+							<label for="erosia-prelude-takkan-tower-monster">Fight the Monster Group in the Bottom Right of the Map</label></div>
+						(Orcent will Join if the fight take three or more turn)<br>
+						<div class="can"><input type="checkbox" id="erosia-prelude-takkan-tower-yarra">
+							<label for="erosia-prelude-takkan-tower-yarra">Interact with the Orb and End the Section</label></div>
+					</div>
+					<br>
+					Zirantia Road and Tower Fundation:<br>
+					<div id="erosia-prelude-zirantia-tower-open">
+						<div id="erosia-prelude-zirantia-nup-support">
+							Byue Lend Her Help to the Party
+						</div> 
+						Wynn Join the Effort (<span id="erosia-prelude-wynn-detail">join/not join</span>)<br>
+						<div class="can"><input type="checkbox" id="erosia-prelude-zirantia-tower-monster">
+							<label for="erosia-prelude-zirantia-tower-monster">Defeat the Monster Group in the North West Corner</label></div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-zirantia-tower-setup-done">
+							<label for="erosia-prelude-zirantia-tower-setup-done">Setup The Ritual and Return to the Initial Bridget</label></div>
+						<span id="erosia-prelude-zirantia-tower-setup-report">riala zirantia tower report</span>
+						<div id="erosia-prelude-zirantia-ginasta-open">
+							<div class="can"><label class="piece" for="erosia-prelude-zirantia-ginasta-done">Ginasta Ask to Setup a Trap</label>
+								<select id="erosia-prelude-zirantia-ginasta-done">
+									<option selected></option>
+									<option value="barrier">Finish the barrier</option>
+									<option value="stay">Allow Ginasta to stay</option>
+								</select></div>
+						</div>
+					</div>
+					<br>
+					Aram Tower Foundation:<br>
+					<div id="erosia-prelude-aram-tower-open">
+						<div class="can"><input type="checkbox" id="erosia-prelude-aram-monster">
+							<label for="erosia-prelude-aram-monster">Defeat the Monster Group in the South-East Corner</label></div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-aram-leech">
+							<label for="erosia-prelude-aram-leech">Defeat the Reality Leech</label></div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-aram-end">
+							<label for="erosia-prelude-aram-end">Chase the Focal Point Throught the Map and Pin It</label></div>
+						<div id="erosia-prelude-aram-altina-open" style="visibility:hidden">
+							Altina and Orilise Perform a 'rest spell'
+						</div>
+					</div>
+					<br>
+					Placid Tower:<br>
+					<div id="erosia-prelude-placid-tower-open">
+						<div class="can"><input type="checkbox" id="erosia-prelude-placid-start">
+							<label for="erosia-prelude-placid-start">Yarra 'build' a Link Between Simon and Orcent to Find the Source of the Problem</label></div>
+						<div id="erosia-prelude-placid-node-open">
+							<div class="can"><label class="piece" for="erosia-prelude-placid-node-done">Deal with Two Tower Node</label>
+								<select id="erosia-prelude-placid-node-done">
+									<option selected></option>
+									<option value="fight">Fight Them</option>
+									<option value="power">Use Stored Power</option>
+								</select></div>
+						</div>
+						<div id="erosia-prelude-placid-end-open">
+							<div class="can"><input type="checkbox" id="erosia-prelude-placid-end-done">
+								<label for="erosia-prelude-placid-end-done">Talk with Ulrissa and Complete Takkan Ritual</label></div>
+						</div>
+					</div>
+					<br>
+					Yhilini Fucklord Confrontation:<br>
+					<div id="erosia-prelude-yhilin-fucklord-open">
+						Hear Stenai Rapresentative Offer One Royal Principess to the Doom Kings for Protection<br>
+						<div class="can"><label class="piece" for="erosia-prelude-robin-level">Robin Level</label>
+							<input type="number" id="erosia-prelude-robin-level" min="0" max="60" value="0"></div>
+						<span id="erosia-prelude-robin-result">fucklord robin armor effect</span><br>
+						Doom King Armor, Simon and Esthera Scare Estaven and He Retreat<br>
+						<div class="can"><label class="piece" for="erosia-prelude-yhilin-distruption">Choose the Group Want Deal with</label>
+							<select id="erosia-prelude-yhilin-distruption">
+								<option selected></option>
+								<option value="merchant">Merchants and nobles</option>
+								<option value="church">Church of Ivala</option>
+								<option value="magic">Cult of Magic</option>
+							</select></div>
+						<br>
+						<div id="erosia-prelude-front-lost-open">
+							A Chosen Appear in the Aram Section of the Tower and Distract Estevan Enough to Allow the Party to Withdraw<br>
+							The Empress Make a Truce with the Lustlord and Both Are Out of the Fight<br>
+							<br>
+							<div class="can"><label class="piece" for="erosia-prelude-front-lost-done">Use Magical Charges Against the Fucklord in</label>
+								<select id="erosia-prelude-front-lost-done">
+									<option selected></option>
+									<option value="aram">Aram</option>
+									<option value="zirantia">Zirantia</option>
+								</select></div>
+						</div>
+						<div id="erosia-prelude-elven-hit-open">
+							<div class="can"><label class="piece" for="erosia-prelude-elven-hit-done">Simon Try to Confront the Fucklord in</label>
+								<select id="erosia-prelude-elven-hit-done">
+									<option selected></option>
+									<option value="darghelon">Darghelon</option>
+									<option value="gheldaron">Gheldaron</option>
+								</select></div>
+						</div>
+					</div>
+					<br>
+					Aram Tower Fundation:<br>
+					<div id="erosia-prelude-aram-fight-win">
+						<div class="can"><input type="checkbox" id="erosia-prelude-aram-abyssal">
+							<label for="erosia-prelude-aram-abyssal">Fight the Reality Leech and Some Inchoate Monsters</label></div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-aram-win-captain">
+							<label for="erosia-prelude-aram-win-captain">Fight the Main Erosian Group Near the Purple Crystal Formation</label></div>
+						<div id="erosia-prelude-aram-win-fucklord">
+							Estevan Retreat After Been Hit with Charged Spell by Iris<br>
+							<div class="can"><label class="piece" for="erosia-prelude-aram-win-option">Party Primary Focus</label>
+								<select id="erosia-prelude-aram-win-option">
+									<option selected></option>
+									<option value="impeding">Focus on impeding him</option>
+									<option value="captive">Focus on rescuing captives</option>
+									<option value="protect">Focus on protecting Aram</option>
+								</select></div>
+						</div>
+					</div>
+					<div id="erosia-prelude-aram-fight-lost">
+						Estevan's Army Clear All the Monster<br>
+						<div class="can"><input type="checkbox" id="erosia-prelude-aram-lost-captain">
+							<label for="erosia-prelude-aram-lost-captain">Fight the Main Erosian Group Near the Purple Crystal Formation</label></div>
+						<div id="erosia-prelude-aram-lost-fucklord">
+							<div class="can"><label class="piece" for="erosia-prelude-aram-lost-option">Party Primary Focus</label>
+								<select id="erosia-prelude-aram-lost-option">
+									<option selected></option>
+									<option value="impeding">Focus on impeding him</option>
+									<option value="captive">Focus on rescuing captives</option>
+									<option value="protect">Focus on protecting Aram</option>
+								</select></div>
+						</div>
+						<br>
+					</div>
+					<br>
+					HQ under Attack:<br>
+					<div id="erosia-prelude-hq-sige">
+						Magic Defence: <span id="erosia-prelude-hq-magic">little girl defence report</span><br>
+						Military Presence: <span id="erosia-prelude-hq-military">hq force report</span><br>
+						<div class="can"><input type="checkbox" id="erosia-prelude-hq-battle">
+							<label for="erosia-prelude-hq-battle">Fight some Erosian Troop in the Tower Space</label></div>
+						<span id="erosia-prelude-hq-report">final report</span>
+					</div>
+					<br>
+					Zirantia Tower Fundation:<br>
+					<div id="erosia-prelude-zirantia-fight-win">
+						<div class="can"><input type="checkbox" id="erosia-prelude-zirantia-abyssal">
+							<label for="erosia-prelude-zirantia-abyssal">Fight the Solidified Chaos Monsters Group</label></div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-zirantia-win-captain">
+							<label for="erosia-prelude-zirantia-win-captain"><span id="erosia-prelude-zirantia-win-ginasta">fight group/defend group</span></label></div>
+						<div id="erosia-prelude-zirantia-win-fucklord">
+							Estevan Retreat After Been Hit with Charged Spell by Iris<br>
+							<div class="can"><label class="piece" for="erosia-prelude-zirantia-win-option">Party Primary Focus</label>
+								<select id="erosia-prelude-zirantia-win-option">
+									<option selected></option>
+									<option value="impeding">Focus on impeding him</option>
+									<option value="captive">Focus on rescuing captives</option>
+									<option value="protect">Focus on protecting Zirantia</option>
+								</select></div>
+						</div>
+					</div>
+					<div id="erosia-prelude-zirantia-fight-lost">
+						Estevan's Army Clear All the Monster<br>
+						<div class="can"><input type="checkbox" id="erosia-prelude-zirantia-lost-captain">
+							<label for="erosia-prelude-zirantia-lost-captain"><span id="erosia-prelude-zirantia-lost-ginasta">fight group/defend group</span></label></div>
+						<div id="erosia-prelude-zirantia-lost-fucklord">
+							<div class="can"><label class="piece" for="erosia-prelude-zirantia-lost-option">Party Primary Focus</label>
+								<select id="erosia-prelude-zirantia-lost-option">
+									<option selected></option>
+									<option value="impeding">Focus on impeding him</option>
+									<option value="captive">Focus on rescuing captives</option>
+									<option value="protect">Focus on protecting Zirantia</option>
+								</select></div>
+						</div>
+						<br>
+					</div>
+					<br>
+					Confrontation of the Kings:<br>
+					<div id="erosia-prelude-kings-section">
+						<div class="can"><label class="piece" for="erosia-prelude-simon-level">Simon Level</label>
+							<input type="number" id="erosia-prelude-simon-level" min="0" max="65" value="0"></div>
+						Fucklord Comment: <span id="erosia-prelude-kings-report">report dk - fucklord fight</span><br>
+						<br>
+						<div class="can"><input type="checkbox" id="erosia-prelude-sabitha-fight">
+							<label for="erosia-prelude-sabitha-fight">Defeat Sabitha</label></div>
+					</div>
+					<br>
+					The Aftermath:<br>
+					<div id="erosia-prelude-aftermath">
+						<div class="can"><input type="checkbox" id="erosia-prelude-aftrmath-esthera">
+							<label for="erosia-prelude-aftrmath-esthera">Talk with Esthera</label></div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-aftermath-janine">
+							<label for="erosia-prelude-aftermath-janine">Talk with Janine</label></div>
+						<div class="can"><input type="checkbox" id="erosia-prelude-aftermath-fheliel">
+							<label for="erosia-prelude-aftermath-fheliel">Talk with Fheliel</label></div>
+						<span id="erosia-prelude-aftermath-hospitality">fheliel comment on hospitality</span>
+						<div id="erosia-prelude-aftermath-iris-open">
+							<div class="can"><input type="checkbox" id="erosia-prelude-aftermath-iris-done">
+								<label for="erosia-prelude-aftermath-iris-done">Talk with Iris</label></div>
+						</div>
+						<span id="erosia-prelude-aftermath-iris-report">iris final report</span><br>
+					</div>
+				</div>
+				<br>
+				<br>
+			</div>
+			<div class="chapter" id="hidden-erosia-prelude">
+				<a href="javascript:showchapter('show-skip-erosia-prelude')">Erosia Prelude (Skipped)</a><br>
+				<br>
+				<div id="show-skip-erosia-prelude">
+					Fucklord Battle:<br>
+					Fucklord Confrontation: <span id="skip-erosia-prelude-fucklord-confrontiation">A</span><br>
+					Erosian Captive: <span id="skip-erosia-prelude-erosian-captive">BB</span><br>
+					Yhilin Tower Score: <span id="skip-erosia-prelude-yhilin-tower-score">CC</span><br>
+					Tak'Kan Tower Score: <span id="skip-erosia-prelude-takkan-tower-score">DD</span><br>
+					Aram Tower Score: <span id="skip-erosia-prelude-aram-tower-score">EE</span><br>
+					Zirantia Tower Score: <span id="skip-erosia-prelude-zirantia-tower-score">FF</span><br>
+					<br>
+					Extradimensional HQ:<br>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-carina-start">
+						<label for="skip-erosia-prelude-carina-start">Talk with Carina</label></div>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-qum-start">
+						<label for="skip-erosia-prelude-qum-start"></label>Talk with Qum</div>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-yarra-start">
+						<label for="skip-erosia-prelude-yarra-start">Talk with Yarra</label></div>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-esthera-start">
+						<label for="skip-erosia-prelude-esthera-start">Talk with Esthera</label></div>
+					<br>
+					Aram: Ramasta<br>
+					<div id="skip-erosia-prelude-aram-score" style="color:#00FF00">
+						Your Aram Score is Enough to Reduce Some Objection (+1 Aram Tower Score)
+					</div>
+					<div id="skip-erosia-prelude-jade-copy" style="color:#00FF00">
+						Trin Used the Aramite Jade Employee to Support the Party Effort (+1 Aram Tower Score)
+					</div>
+					<div id="skip-erosia-prelude-aram-dwarren" style="color:#00FF00">
+						The New Funded Aram's Dwarren 'embassy' help in Aram Accepting the Ritual(+1 Aram Tower Score)
+					</div>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-unpeople-talk">
+						<label for="skip-erosia-prelude-unpeople-talk">Talk with the Local Unpeople's Commander</label></div>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-church-talk">
+						<label for="skip-erosia-prelude-church-talk">Talk with the Healer Priest</label></div>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-trin-priestess-done">
+						<label for="skip-erosia-prelude-trin-priestess-done">Let Trin Copy the Greedy Priestess [Take Two Copy Slots]</label></div>
+					<div id="skip-erosia-prelude-trin-priestess-open">
+						<div class="can"><label class="piece" for="skip-erosia-prelude-trin-copy-religion">Copy the Priestess Before or After Talk with the Priest</label>
+							<select id="skip-erosia-prelude-trin-copy-religion">
+								<option selected></option>
+								<option value="before">Before</option>
+								<option value="after">After</option>
+							</select></div>
+					</div>
+
+					<div id="skip-erosia-prelude-farnan-servant-open">
+						<div class="can"><input type="checkbox" id="skip-erosia-prelude-farnan-servant-done">
+							<label for="skip-erosia-prelude-farnan-servant-done">Talk with a Servant Farnan Send to Help</label></div>
+					</div>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-ingredient-orilise-done">
+						<label for="skip-erosia-prelude-ingredient-orilise-done">Orilise Setup a Blackmarket Chanel for Darghelese Ingredient to Aram Through Gheldaron</label></div>
+					<span id="skip-erosia-prelude-ramasta-end-report">ramasta end report</span><br>
+					<br>
+					Yhilin: Order Guildhall<br>
+					<div id="skip-erosia-prelude-order-trial" style="color:#00FF00">
+						Robin Acquiring Full Order Membership Help in Facilitating the Works with the Order
+					</div>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-talk-sarai">
+						<label for="skip-erosia-prelude-talk-sarai">Talk with Sarai</label></div>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-talk-vera">
+						<label for="skip-erosia-prelude-talk-vera">Talk with Vera, Goddess of Magic' Sect Leader</label></div>
+					<div id="skip-erosia-prelude-yhilin-final-open">
+						<div class="can"><input type="checkbox" id="skip-erosia-prelude-yhilin-final-done">
+							<label for="skip-erosia-prelude-yhilin-final-done">Talk with the Elite Succubus</label></div>
+					</div>
+					<span id="skip-erosia-prelude-flame-report">yhilin tower report</span><br>
+					<br>
+					Yhilin: Tower Foundation<br>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-yhilin-chaos">
+						<label for="skip-erosia-prelude-yhilin-chaos">Fight the Solidified Chaos in the Right Edge of the Map</label></div>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-yhilin-monster">
+						<label for="skip-erosia-prelude-yhilin-monster">Fight the Monster in the Key Point in the Right Room</label></div>
+					Start the Ritual in the Left Room<BR>
+					<br>
+					Tak'Kan: Hall of Order:<br>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-takkan-elleani">
+						<label for="skip-erosia-prelude-takkan-elleani">Talk with Elleani about Her Presence in the Hall of Order</label></div>
+					<div id="skip-erosia-prelude-takkan-impaler-open">
+						<div class="can"><input type="checkbox" id="skip-erosia-prelude-takkan-impaler-done">
+							<label for="skip-erosia-prelude-takkan-impaler-done">Ask the Impaler Vote for the Motion</label></div>
+					</div>
+					<div id="skip-erosia-prelude-takkan-orgont-open">
+						<div class="can"><input type="checkbox" id="skip-erosia-prelude-takkan-orgont-done">
+							<label for="skip-erosia-prelude-takkan-orgont-done">Ask Orgont Vote for the Motion</label></div>
+					</div>
+					<div id="skip-erosia-prelude-takkan-imp-open">
+						<div class="can"><input type="checkbox" id="skip-erosia-prelude-takkan-imp-done">
+							<label for="skip-erosia-prelude-takkan-imp-done">Ask the Imp's Representative His Vote</label></div>
+					</div>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-takkan-sho">
+						<label for="skip-erosia-prelude-takkan-sho">Balia 'Ask' Sho Joining the Palace Staff</label></div>
+					<br>
+					Ask Grubbak to Start the Vote:<br>
+					Fixed Vote: 3 Yes - 2 Nay<br>
+					Tarran'Kan Vote: <span id="skip-erosia-prelude-tarrankan-yes">X</span> Yes - <span id="skip-erosia-prelude-tarrankan-nay">Y</span> Nay [<span id="skip-erosia-prelude-tarrankan-detail">tarrankan detail</span>]<br>
+					Cee Region Vote: <span id="skip-erosia-prelude-cee-yes">X</span> Yes - <span id="skip-erosia-prelude-cee-nay">Y</span> Nay [<span id="skip-erosia-prelude-cee-detail">cee detail</span>]<br>
+					<div id="skip-erosia-prelude-takkan-democracy-open">
+						Vote from Other Region: 2 Yes [Orcish Democracy Funded]
+					</div>
+					<div id="skip-erosia-prelude-takkan-orgont-vote">
+						Orgont Vote Yes to the Motion [Hall of Mental Strenght Funded]
+					</div>
+						Vote from Orc Present: <span id="skip-erosia-prelude-research-vote">yes/nay</span> [<span id="skip-erosia-prelude-research-detail">research status</span>]<br>
+					<div id="skip-erosia-prelude-takkan-impaler-vote">
+						<span id="skip-erosia-prelude-takkan-impaler-result">impaler vote yes/no</span>
+					</div>
+					<div id="skip-erosia-prelude-takkan-imp-vote">
+						Imp's Rapresentative Vote Yes [Imp's Office Funded]
+					</div>
+					<br>
+					Final Result: <span id="skip-erosia-prelude-vote-yes">XX</span> Yes - <span id="skip-erosia-prelude-vote-nay">YY</span> Nay - [Total Vote Cast <span id="skip-erosia-prelude-vote-total">ZZ</span>]<br>
+					<span id="skip-erosia-prelude-vote-result">%yes and detailed effect</span>
+					<br>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-trin-orc-done">
+						<label for="skip-erosia-prelude-trin-orc-done">Trin and Balia Work together for Copy the Obnoxious Orc</label></div>
+					<br>
+					Takkan Tower Fundation:<br>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-takkan-tower-leech">
+						<label for="skip-erosia-prelude-takkan-tower-leech">Fight the Reality Leech in the Right Edge of the Map</label></div>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-takkan-tower-monster">
+						<label for="skip-erosia-prelude-takkan-tower-monster">Fight the Monster Group in the Bottom Right of the Map</label></div>
+					(Orcent will Join if the fight take three or more turn)<br>
+					Yarra Effort are Blocked by Someone Influence<br>
+					<br>
+					Zirantia Road and Tower Fundation:<br>
+					<div id="skip-erosia-prelude-zirantia-nup-support">
+						Byue Lend Her Help to the Party
+					</div>
+					Wynn Join the Effort (<span id="skip-erosia-prelude-wynn-detail">join/not join</span>)<br>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-zirantia-tower-monster">
+						<label for="skip-erosia-prelude-zirantia-tower-monster">Defeat the Monster Group in the North West Corner</label></div>
+					<span id="skip-erosia-prelude-zirantia-tower-setup-report">riala zirantia tower report</span>
+					<div class="can"><label class="piece" for="skip-erosia-prelude-zirantia-ginasta-done">Ginasta Ask to Setup a Trap</label>
+						<select id="skip-erosia-prelude-zirantia-ginasta-done">
+							<option selected></option>
+							<option value="barrier">Finish the barrier</option>
+							<option value="stay">Allow Ginasta to stay</option>
+						</select></div>
+					<br>
+					Aram Tower Foundation:<br>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-aram-monster">
+						<label for="skip-erosia-prelude-aram-monster">Defeat the Monster Group in the South-East Corner</label></div>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-aram-leech">
+						<label for="skip-erosia-prelude-aram-leech">Defeat the Reality Leech</label></div>
+					Chase the Focal Point Throught the Map and Pin It<br>
+					<div id="skip-erosia-prelude-aram-altina-open" style="visibility:hidden">
+						Altina and Orilise Perform a 'rest spell'
+					</div>
+					<br>
+					Placid Tower:<br>
+					Yarra 'build' a Link Between Simon and Orcent to Find the Source of the Problem<br>
+					<div class="can"><label class="piece" for="skip-erosia-prelude-placid-node-done">Deal with Two Tower Node</label>
+						<select id="skip-erosia-prelude-placid-node-done">
+							<option selected></option>
+							<option value="fight">Fight Them</option>
+							<option value="power">Use Stored Power</option>
+						</select></div>
+					Talk with Ulrissa and Complete Takkan Ritual<br>
+					<br>
+					Yhilini Fucklord Confrontation:<br>
+					Hear Stenai Rapresentative Offer One Royal Principess to the Doom Kings for Protection<br>
+					<div class="can"><label class="piece" for="skip-erosia-prelude-robin-level">Robin Level</label>
+						<input type="number" id="skip-erosia-prelude-robin-level" min="0" max="60" value="0"></div>
+					<span id="skip-erosia-prelude-robin-result">fucklord robin armor effect</span><br>
+					Doom King Armor, Simon and Esthera Scare Estaven and He Retreat<br>
+					<div class="can"><label class="piece" for="skip-erosia-prelude-yhilin-distruption">Choose the Group Want Deal with</label>
+						<select id="skip-erosia-prelude-yhilin-distruption">
+							<option selected></option>
+							<option value="merchant">Merchants and nobles</option>
+							<option value="church">Church of Ivala</option>
+							<option value="magic">Cult of Magic</option>
+						</select></div>
+					<br>
+					A Chosen Appear in the Aram Section of the Tower and Distract Estevan Enough to Allow the Party to Withdraw<br>
+					The Empress Make a Truce with the Lustlord and Both Are Out of the Fight<br>
+					<br>
+					<div class="can"><label class="piece" for="skip-erosia-prelude-front-lost-done">Use Magical Charges Against the Fucklord in</label>
+						<select id="skip-erosia-prelude-front-lost-done">
+							<option selected></option>
+							<option value="aram">Aram</option>
+							<option value="zirantia">Zirantia</option>
+						</select></div>
+					<div class="can"><label class="piece" for="skip-erosia-prelude-elven-hit-done">Simon Try to Confront the Fucklord in</label>
+						<select id="skip-erosia-prelude-elven-hit-done">
+							<option selected></option>
+							<option value="darghelon">Darghelon</option>
+							<option value="gheldaron">Gheldaron</option>
+						</select></div>
+					<br>
+					Aram Tower Fundation:<br>
+					<div id="skip-erosia-prelude-aram-fight-win">
+						<div class="can"><input type="checkbox" id="skip-erosia-prelude-aram-abyssal">
+							<label for="skip-erosia-prelude-aram-abyssal">Fight the Reality Leech and Some Inchoate Monsters</label></div>
+						Fight the Main Erosian Group Near the Purple Crystal Formation<br>
+						Estevan Retreat After Been Hit with Charged Spell by Iris<br>
+						<div class="can"><label class="piece" for="skip-erosia-prelude-aram-win-option">Party Primary Focus</label>
+							<select id="skip-erosia-prelude-aram-win-option">
+								<option selected></option>
+								<option value="impeding">Focus on impeding him</option>
+								<option value="captive">Focus on rescuing captives</option>
+								<option value="protect">Focus on protecting Aram</option>
+							</select></div>
+					</div>
+					<div id="skip-erosia-prelude-aram-fight-lost">
+						Estevan's Army Killed All Monsters<br>
+						Fight the Main Erosian Group Near the Purple Crystal Formation<br>
+						<div class="can"><label class="piece" for="skip-erosia-prelude-aram-lost-option">Party Primary Focus</label>
+							<select id="skip-erosia-prelude-aram-lost-option">
+								<option selected></option>
+								<option value="impeding">Focus on impeding him</option>
+								<option value="captive">Focus on rescuing captives</option>
+								<option value="protect">Focus on protecting Aram</option>
+							</select></div>
+					</div>
+					<br>
+					HQ under Attack:<br>
+					Magic Defence: <span id="skip-erosia-prelude-hq-magic">little girl defence report</span><br>
+					Military Presence: <span id="skip-erosia-prelude-hq-military">hq force report</span><br>
+					Fight some Erosian Troop in the Tower Space<br>
+					<span id="skip-erosia-prelude-hq-report">final report</span><br>
+					<br>
+					Zirantia Tower Fundation:<br>
+					<div id="skip-erosia-prelude-zirantia-fight-win">
+						<div class="can"><input type="checkbox" id="skip-erosia-prelude-zirantia-abyssal">
+							<label for="skip-erosia-prelude-zirantia-abyssal">Fight the Solidified Chaos Monsters Group</label></div>
+						<span id="skip-erosia-prelude-zirantia-win-ginasta">fight group/defend group</span><br>
+						Estevan Retreat After Been Hit with Charged Spell by Iris<br>
+						<div class="can"><label class="piece" for="skip-erosia-prelude-zirantia-win-option">Party Primary Focus</label>
+							<select id="skip-erosia-prelude-zirantia-win-option">
+								<option selected></option>
+								<option value="impeding">Focus on impeding him</option>
+								<option value="captive">Focus on rescuing captives</option>
+								<option value="protect">Focus on protecting Zirantia</option>
+							</select></div>
+					</div>
+					<div id="skip-erosia-prelude-zirantia-fight-lost">
+						Estevan's Army Killed All Monsters<br>
+						<span id="skip-erosia-prelude-zirantia-lost-ginasta">fight group/defend group</span><br>
+						<div class="can"><label class="piece" for="skip-erosia-prelude-zirantia-lost-option">Party Primary Focus</label>
+							<select id="skip-erosia-prelude-zirantia-lost-option">
+								<option selected></option>
+								<option value="impeding">Focus on impeding him</option>
+								<option value="captive">Focus on rescuing captives</option>
+								<option value="protect">Focus on protecting Zirantia</option>
+							</select></div>
+					</div>
+					<br>
+					Confrontation of the Kings:<br>
+					<div class="can"><label class="piece" for="skip-erosia-prelude-simon-level">Simon Level</label>
+						<input type="number" id="skip-erosia-prelude-simon-level" min="0" max="65" value="0"></div>
+					Fucklord Comment: <span id="skip-erosia-prelude-kings-report">report dk - fucklord fight</span><br>
+					<br>
+					Defeat Sabitha<br>
+					<br>
+					The Aftermath:<br>
+					Talk with Esthera<br>
+					Talk with Fheliel<br>
+					<span id="skip-erosia-prelude-aftermath-hospitality">fheliel comment on hospitality</span><br>
+					<div class="can"><input type="checkbox" id="skip-erosia-prelude-aftermath-janine">
+						<label for="skip-erosia-prelude-aftermath-janine">Talk with Janine</label></div>
+					Iris Comment:<br>
+					<span id="skip-erosia-prelude-aftermath-iris-report">iris final report</span><br>
+					<br>
+					<div id="skip-erosia-prelude-trin-copies-negative">
+						<div class="can"><label class="piece" for="skip-erosia-prelude-trin-copies-remain">Trin Copies Slot Free</label>
+							<input id="skip-erosia-prelude-trin-copies-remain" type="number" min="0" value="0"></div>
+					</div>
+				</div>
+				<br>
+				<br>
+			</div>
+			<br>
+			<div class="chapter" id="display-stenai-trip">
+				<a href="javascript:showchapter('show-stenai-trip')">Stenai Trip</a><br>
+				<br>
+				<div id="show-stenai-trip">
+					<div class="can"><input type="checkbox" id="stenai-trip-qum-robin">
+						<label for="stenai-trip-qum-robin">Unlock Robin - Qum HQ Bed Scene</label></div>
+					<div class="can"><input type="checkbox" id="stenai-trip-yarra-robin">
+						<label for="stenai-trip-yarra-robin">Watch the Chat Between Robin and Yarra</label></div>
+					<div class="can"><input type="checkbox" id="stenai-trip-riala-robin">
+						<label for="stenai-trip-riala-robin">Talk with Riala about the Non-sexual Sexual Spell Simon Used Against the Fucklord</label></div>
+					<div class="can"><input type="checkbox" id="stenai-trip-orilise-chat">
+						<label for="stenai-trip-orilise-chat">Talk with Orilise for the Elven Kingdom Protect First</label></div>
+					<div class="can"><input type="checkbox" id="stenai-trip-lynine-chat">
+						<label for="stenai-trip-lynine-chat">Talk with Lynine for the Elven Kingdom Protect First</label></div>
+					<div id="stenai-trip-carina-shrine-open">
+						<div class="can"><input type="checkbox" id="stenai-trip-carina-shrine-done">
+							<label for="stenai-trip-carina-shrine-done">5000 ProN for a Santificated Shrine</label></div>
+					</div>
+					<div id="stenai-trip-carina-shrine-close">
+						You Don't Have 5000 ProN for a Santificated Shrine
+					</div>
+					<div id="stenai-trip-carina-nalili-open">
+						<div class="can"><input type="checkbox" id="stenai-trip-carina-nalili-done">
+							<label for="stenai-trip-carina-nalili-done">Carina and Nalili Talk about the Events During the Confrontation with the Fucklord</label></div>
+					</div>
+					<div class="can"><input type="checkbox" id="stenai-trip-orcent-bucket">
+						<label for="stenai-trip-orcent-bucket">Simon and Orcent Ponder in the Leaky Bucket about Orckind's Religious Evolution</label></div>
+					<br>
+					<div class="can"><input type="checkbox" id="stenai-trip-biyue-talk">
+						<label for="stenai-trip-biyue-talk">Biyue Tanks Simon for the Effort done to Protect Zirantia</label></div>
+					<div class="can"><input type="checkbox" id="stenai-trip-grubbak-talk">
+						<label for="stenai-trip-grubbak-talk">Orcent, Aka and Grubbak Talk about Balance of Power</label></div>
+					<br>
+					<div id="stenai-trip-shining-sword-open">
+						<div class="can"><input type="checkbox" id="stenai-trip-shining-sword-done">
+							<label for="stenai-trip-shining-sword-done">Recover the Shining Sword form the Aramite Tower Foundation</label></div>
+					</div>
+					<div id="stenai-trip-base-repair-open">
+						<div class="can"><input type="checkbox" id="stenai-trip-base-repair-done">
+							<label for="stenai-trip-base-repair-done">5000 ProN for Clean up Base Damage</label></div>
+					</div>
+					<div id="stenai-trip-base-repair-close">
+						You Don't Have 5000 ProN for Clean up Base Damage
+					</div>
+					<br>
+					<div id="stenai-trip-lustlord-offer-open">
+						<div class="can"><input type="checkbox" id="stenai-trip-lustlord-offer-done">
+							<label for="stenai-trip-lustlord-offer-done">Talk with Iris and Hear the Lustlord Offer</label></div>
+					</div>
+				</div>
+				<br>
+				<br>
+			</div>
+			<div class="chapter" id="hidden-stenai-trip">
+				<a href="javascript:showchapter('show-skip-stenai-trip')">Stenai Trip (Skipped)</a><br>
+				<br>
+				<div id="show-skip-stenai-trip">
+					<div class="can"><input type="checkbox" id="skip-stenai-trip-qum-robin">
+						<label for="skip-stenai-trip-qum-robin">Unlock Robin - Qum HQ Bed Scene</label></div>
+					<div class="can"><input type="checkbox" id="skip-stenai-trip-yarra-robin">
+						<label for="skip-stenai-trip-yarra-robin">Watch the Chat Between Robin and Yarra</label></div>
+					<div class="can"><input type="checkbox" id="skip-stenai-trip-orilise-chat">
+						<label for="skip-stenai-trip-orilise-chat">Talk with Orilise for the Choice of the Elven Kingdoms to Protect</label></div>
+					<div class="can"><input type="checkbox" id="skip-stenai-trip-lynine-chat">
+						<label for="skip-stenai-trip-lynine-chat">Talk with Lynine for the Choice of the Elven Kingdoms to Protect</label></div>
+					<div id="skip-stenai-trip-carina-shrine-open">
+						<div class="can"><input type="checkbox" id="skip-stenai-trip-carina-shrine-done">
+							<label for="skip-stenai-trip-carina-shrine-done">5000 ProN for a Santificated Shrine</label></div>
+					</div>
+					<div id="skip-stenai-trip-carina-nalili-open">
+						<div class="can"><input type="checkbox" id="skip-stenai-trip-carina-nalili-done">
+							<label for="skip-stenai-trip-carina-nalili-done">Carina and Nalili Talk about the Events During the Confrontation with the Fucklord</label></div>
+					</div>
+					<div class="can"><input type="checkbox" id="skip-stenai-trip-orcent-bucket">
+						<label for="skip-stenai-trip-orcent-bucket">Simon and Orcent Ponder about the Orckind's Religious Evolution</label></div>
+					<br>
+					<div class="can"><input type="checkbox" id="skip-stenai-trip-biyue-talk">
+						<label for="skip-stenai-trip-biyue-talk">Biyue Tanks Simon for the Effort done to Protect Zirantia</label></div>
+					<div class="can"><input type="checkbox" id="skip-stenai-trip-grubbak-talk">
+						<label for="skip-stenai-trip-grubbak-talk">Orcent, Aka and Grubbak Talk about Balance of Power</label></div>
+					<br>
+					<div id="skip-stenai-trip-shining-sword-open">
+						<div class="can"><input type="checkbox" id="skip-stenai-trip-shining-sword-done">
+							<label for="skip-stenai-trip-shining-sword-done">Recover the Shining Sword form the Aramite Tower Foundation</label></div>
+					</div>
+					<div id="skip-stenai-trip-base-repair-open">
+						<div class="can"><input type="checkbox" id="skip-stenai-trip-base-repair-done">
+							<label for="skip-stenai-trip-base-repair-done">5000 ProN for Clean up Base Damage</label></div>
+					</div>
+					<div id="skip-stenai-trip-pron-negative">
+						<div class="can"><label class="piece" for="skip-stenai-trip-pron-left">ProN Remaining</label>
+							<input type="number" id="skip-stenai-trip-pron-left" min="0" value="0"></div>
+					</div>
+					<br>
+					Talk with Iris and Hear the Lustlord Offer
+				</div>
+				<br>
+				<br>
+			</div>
+			<br>
+			<div class="chapter" id="display-expected-return">
+				<a href="javascript:showchapter('show-expected-return')">Expected Return</a><br>
+				<br>
+				<div id="show-expected-return">
+					Returns:<br>
+					Yhilin Arms Dealer: 20000 ProN<br>
+					<div id="expected-return-profit-premium">
+						Premium Steel Stake Owner: 10000 ProN
+					</div>
+					<div id="expected-return-profit-yhilin-bank">
+						Bank of Yhilin Core Lender: 150000 ProN
+					</div>
+					<div id="expected-return-profit-megail-gift">
+						Special Supplier: 25000 ProN
+					</div>
+					<div id="expected-return-profit-mine">
+						Mine Processing: 100000 ProN
+					</div>
+					<div id="expected-return-profit-magic-shop">
+						Stineford' Magic shop: 25000 ProN
+					</div>
+					<div id="expected-return-profit-magic-trade">
+						Ardoheim Magic Trade: 65000 ProN
+					</div>
+					<div id="expected-return-profit-yhilin-supplier">
+						Yhilini Supplier: 5000  ProN
+					</div>
+					<div id="expected-return-profit-aram-supplier">
+						Aramite Supplier: 5000 ProN
+					</div>
+					<div id="expected-return-profit-bounty">
+						Desert Bounty Office: 5000 ProN
+					</div>
+					<div id="expected-return-profit-eustrin-supplier">
+						Eutrin Supplier: 5000 ProN
+					</div>
+					<div id="expected-return-profit-eustrin-processing">
+						Eustrin Processor: 20000 ProN
+					</div>
+					<div id="expected-return-profit-eustrin-manufacturing">
+						Eustrin Manufacturer: 25000 ProN
+					</div>
+					<div id="expected-return-profit-ivalan-bank">
+						Ivalan Bank: 225000 ProN
+					</div>
+					<div id="expected-return-profit-ardan-bank">
+						Ardan Bank: 300000 ProN
+					</div>
+					<div id="expected-return-profit-ardford-supplier">
+						Ardford Supplier: 5000 ProN
+					</div>
+					<div id="expected-return-profit-shit-mage">
+						Sanitation Mage Guild: 5000 ProN
+					</div>
+					<div id="expected-return-profit-ardford-restaurant">
+						Ardford Restaurant: 10000 ProN
+					</div>
+					<div id="expected-return-profit-crystal-refiner">
+						Crystal Refiner: 55000 ProN
+					</div>
+					<div id="expected-return-profit-flotilla">
+						Mercenary Flotilla: 25000 ProN
+					</div>
+					<div id="expected-return-profit-slum-ring">
+						Slum Fighting Ring: 40000 ProN
+					</div>
+					<div id="expected-return-profit-sex-ring">
+						Sex Fighting Ring: 60000 ProN
+					</div>
+					<div id="expected-return-profit-sex-shop">
+						Yhilini Sex Shop: 75000 ProN
+					</div>
+					<div id="expected-return-profit-private-mine">
+						Private Mineshaft: 130000 ProN
+					</div>
+					<div id="expected-return-profit-givini-trade">
+						New Givini Trade: 100000 ProN
+					</div>
+					<div id="expected-return-profit-chalice-trade">
+						Chalice States Trade: 100000 ProN
+					</div>
+					<div id="expected-return-profit-takkan-trade">
+						Tak'Kan Trade: 100000 ProN
+					</div>
+					<div id="expected-return-profit-mercenary-office">
+						Yhilini Mercenary: 15000 ProN
+					</div>
+					<div id="expected-return-profit-gasm-shop">
+						Gasm Falls Trade: 110000 ProN
+					</div>
+					<div id="expected-return-profit-succubi-trade">
+						Yhilini Succubi Trade: 200000 ProN
+					</div>
+					<div id="expected-return-profit-eustrin-guild">
+						Eustrin Guild: 250000 ProN
+					</div>
+					<div id="expected-return-profit-min-trade">
+						Min's Trade Route: 185000 ProN
+					</div>
+					<div id="expected-return-profit-theltiar-flowhouse">
+						Theltiar Flowhouse: 80000 ProN
+					</div>
+					<div id="expected-return-profit-theltiar-rental">
+						Theltiar Rentals: 95000 ProN
+					</div>
+					<div id="expected-return-profit-denmiel-archives">
+						Denmiel Archives: 20000 ProN
+					</div>
+					<div id="expected-return-profit-denmiel-mushrooms">
+						Denmiel Mushroom Farm: 40000 ProN
+					</div>
+					<div id="expected-return-profit-lustlord-expansion">
+						Lustlord Temples: 50000 ProN
+					</div>
+					<div id="expected-return-profit-band-tour">
+						Succubus Band Tour: 2000 ProN
+					</div>
+					<div id="expected-return-profit-armor-succubus">
+						Succubus Armorer: 10000 ProN
+					</div>
+					<div id="expected-return-profit-potion-more">
+						Potion and More: 100 ProN
+					</div>
+					<div id="expected-return-profit-tarrankan-slum">
+						Tarran'kan Housing: 50000 ProN
+					</div>
+					<div id="expected-return-profit-hall-mental">
+						Hall of Mental Strenght: 25000 ProN
+					</div>
+					<div id="expected-return-profit-booze-shack">
+						Illustrious Booze Shack: 50000 ProN
+					</div>
+					<div id="expected-return-profit-tarrankan-trade">
+						Tarran'Kan Trade Upgrade: 50000 ProN
+					</div>
+					<div id="expected-return-profit-ceekan-shipping">
+						Cee'Kan Shipping: 200000 ProN
+					</div>
+					<div id="expected-return-profit-lonely-sailor">
+						Lonely Sailor: 100000 ProN
+					</div>
+					<div id="expected-return-profit-tradesmasher-guild">
+						Tradersmasher Guild: <span id="expected-return-tradesmasher-money">XXX000</span> ProN
+					</div>
+					<div id="expected-return-profit-givini-tunnels">
+						Givini Tunnels: 300000 ProN
+					</div>
+					<div id="expected-return-profit-givini-smith">
+						Givini Smithing: 10000 ProN
+					</div>
+					<div id="expected-return-profit-givini-orc">
+						Givini Orc Merchant: <span id="expected-return-orc-money">XXX000</span> ProN
+					</div>
+					<div id="expected-return-profit-givini-bank">
+						Bank of Givini: 300000 ProN
+					</div>
+					<div id="expected-return-profit-mage-guild">
+						Givini Mage Guild: 40000 ProN
+					</div>
+					<div id="expected-return-profit-givini-teahouse">
+						Givini Teahouse Chain: 30000 ProN
+					</div>
+					<div id="expected-return-profit-trading-pillar">
+						Trading Pillar Rights: 100000 ProN
+					</div>
+					<div id="expected-return-profit-stineford-bank">
+						Bank of Stineford: 240000 ProN
+					</div>
+					<div id="expected-return-profit-stineford-weapons">
+						Stineford's Weapons Shop: 75000 ProN
+					</div>
+					<div id="expected-return-profit-yhilin-airship">
+						Yhilini Airships: 100000 ProN
+					</div>
+					<div id="expected-return-profit-yhilin-brothel">
+						Yhilini Brothel: <span id="expected-return-brothel-money">XX000</span> ProN
+					</div>
+					<br>
+					Total Profit: <span id="expected-return-profit-result">AAAA000</span><br>
+					<br>
+					Total ProN: <span id="expected-return-pron-result">AAAA000</span><br>
+					<br>
+				</div>
+				<br>
+				<br>
+			</div>
 			<br>
 		</div>
 		<div class="grid-item" id="result">
@@ -14925,6 +17344,331 @@
 					<br>
 				</div>
 			</div>
+			<div class="roundbox" id="four-investment-ii-result">
+				<h1>Meeting the Anak and Investment:</h1><br>
+				<br>
+				<div id="stamp-special-four-investment-ii">
+					Orc Stats:<br>
+					<span id="stamp-orcs-str-four-investment-ii">Str: XX</span>, <span id="stamp-orcs-int-four-investment-ii">Int: YY</span>, <span id="stamp-orcs-disci-four-investment-ii">Disci: ZZ</span><br>
+					<span id="stamp-orcs-sap-four-investment-ii">Sap: XX</span>, <span id="stamp-orcs-mag-four-investment-ii">Mag: YY</span>, <span id="stamp-orcs-att-four-investment-ii">Att: ZZ</span><br>
+					<br>
+					HQ Stats:<br>
+					<span id="stamp-hq-military-four-investment-ii">Military: XX</span><br>
+					<span id="stamp-hq-magic-four-investment-ii">Magic: XX</span><br>
+					<span id="stamp-hq-hospitality-four-investment-ii">Hospitality: XX</span><br>
+					<br>
+				</div>
+				<div id="stamp-global-four-investment-ii">
+					Global Stats:<br>
+					<div id="stamp-pron-four-investment-ii">ProN<br></div>
+					<div id="stamp-army-four-investment-ii">army<br></div>
+					<div id="stamp-quality-four-investment-ii">quality<br></div>
+					<div id="stamp-trincopies-four-investment-ii">trin copies<br></div>
+					<div id="stamp-trinmax-four-investment-ii">trin max<br></div>
+					<div id="stamp-shining-sword-four-investment-ii">shining swords<br></div>
+					<div id="stamp-yhilin-acc-four-investment-ii">yhilin acc<br></div>
+					<div id="stamp-arclent-acc-four-investment-ii">arclent acc<br></div>
+					<div id="stamp-palace-staff-four-investment-ii">palace staff</div>
+					<br>
+				</div>
+				<div id="stamp-rp-four-investment-ii">
+					RP Changes:<br>
+					<div id="stamp-yarra-rp-four-investment-ii">yarra<br></div>
+					<div id="stamp-qum-rp-four-investment-ii">qum<br></div>
+					<div id="stamp-aka-rp-four-investment-ii">aka<br></div>
+					<div id="stamp-robin-rp-four-investment-ii">robin<br></div>
+					<div id="stamp-megail-rp-four-investment-ii">megail<br></div>
+					<div id="stamp-hilstara-rp-four-investment-ii">hilstara<br></div>
+					<div id="stamp-carina-rp-four-investment-ii">carina<br></div>
+					<div id="stamp-trin-rp-four-investment-ii">trin<br></div>
+					<div id="stamp-janine-rp-four-investment-ii">janine<br></div>
+					<div id="stamp-sarai-rp-four-investment-ii">sarai<br></div>
+					<div id="stamp-altina-rp-four-investment-ii">altina<br></div>
+					<div id="stamp-varia-rp-four-investment-ii">varia<br></div>
+					<div id="stamp-mestan-rp-four-investment-ii">mestan<br></div>
+					<div id="stamp-esthera-rp-four-investment-ii">esthera<br></div>
+					<div id="stamp-nalili-rp-four-investment-ii">nalili<br></div>
+					<div id="stamp-balia-rp-four-investment-ii">balia<br></div>
+					<div id="stamp-vhala-rp-four-investment-ii">vhala<br></div>
+					<div id="stamp-dari-rp-four-investment-ii">dari<br></div>
+					<div id="stamp-ginasta-rp-four-investment-ii">ginasta<br></div>
+					<div id="stamp-lynine-rp-four-investment-ii">lynine<br></div>
+					<div id="stamp-orilise-rp-four-investment-ii">orilise<br></div>
+					<div id="stamp-wynn-rp-four-investment-ii">wynn<br></div>
+					<div id="stamp-wynn-angry-four-investment-ii">angry<br></div>
+					<div id="stamp-uyae-rp-four-investment-ii">uyae<br></div>
+					<div id="stamp-neranda-rp-four-investment-ii">neranda<br></div>
+					<div id="stamp-elleani-rp-four-investment-ii">elleani<br></div>
+					<div id="stamp-riala-rp-four-investment-ii">riala<br></div>
+					<div id="stamp-iris-rp-four-investment-ii">iris<br></div>
+					<br>
+				</div>
+				<div id="stamp-country-four-investment-ii">
+					Country Stats:<br>
+					<div id="stamp-yhilin-four-investment-ii">yhilin<br></div>
+					<div id="stamp-ardoheim-four-investment-ii">ardoheim<br></div>
+					<div id="stamp-aram-four-investment-ii">aram<br></div>
+					<div id="stamp-eustrin-four-investment-ii">eustrin<br></div>
+					<div id="stamp-zirantia-four-investment-ii">zirantia<br></div>
+					<div id="stamp-ghenalon-four-investment-ii">ghenalon<br></div>
+					<div id="stamp-darghelon-four-investment-ii">darghelon<br></div>
+					<div id="stamp-gheldaron-four-investment-ii">gheldaron<br></div>
+					<div id="stamp-orgasmic-four-investment-ii">orgasmic</div>
+					<div id="stamp-chalice-four-investment-ii">chalice states</div>
+					<div id="stamp-givini-four-investment-ii">new givini</div>
+					<div id="stamp-takkan-four-investment-ii">takkan</div>
+					<br>
+				</div>
+				<div id="stamp-core-four-investment-ii">
+					Simon Core Stats:<br>
+					<div id="stamp-economy-four-investment-ii">economy<br></div>
+					<div id="stamp-social-four-investment-ii">social<br></div>
+					<div id="stamp-religion-four-investment-ii">religion<br></div>
+					<br>
+				</div>
+				<div id="stamp-bonus-four-investment-ii">
+					Simon Bonuses:<br>
+					<div id="stamp-stat-hp-four-investment-ii">HP<br></div>
+					<div id="stamp-stat-mp-four-investment-ii">MP<br></div>
+					<div id="stamp-stat-atk-four-investment-ii">ATK<br></div>
+					<div id="stamp-stat-def-four-investment-ii">DEF<br></div>
+					<div id="stamp-stat-mag-four-investment-ii">MAG<br></div>
+					<div id="stamp-stat-mdf-four-investment-ii">MDF<br></div>
+					<div id="stamp-stat-agi-four-investment-ii">AGI<br></div>
+					<div id="stamp-stat-luk-four-investment-ii">LUK<br></div>
+					<div id="stamp-stat-sp-four-investment-ii">sp<br></div>
+					<br>
+					IK Set Key Items Recovered:
+					<div id="stamp-key-armor-four-investment-ii" style="display:none">Incubus King's Armor</div>
+					<div id="stamp-key-helm-four-investment-ii" style="display:none">Incubus King's Helm</div>
+					<div id="stamp-key-shield-four-investment-ii" style="display:none">Incubus King's Shield</div>
+					<br>
+				</div>
+			</div>
+			<div class="roundbox" id="erosia-prelude-result">
+				<h1>Erosia Prelude:</h1><br>
+				<br>
+				<div id="stamp-special-erosia-prelude">
+					Fucklord Battle:<br>
+					<span id="stamp-fucklord-confrontation-erosia-prelude">fucklord confrontation: A</span><br>
+					<span id="stamp-erosian-captive-erosia-prelude">erosian captive: BB</span><br>
+					<span id="stamp-yhilin-tower-erosia-prelude">yhilin tower: CC</span><br>
+					<span id="stamp-takkan-tower-erosia-prelude">takkan tower: DD</span><br>
+					<span id="stamp-aram-tower-erosia-prelude">aram tower: EE</span><br>
+					<span id="stamp-zirantia-tower-erosia-prelude">zirantia tower: FF</span><br>
+					<br>
+					<br>
+					Orc Stats:<br>
+					<span id="stamp-orcs-str-erosia-prelude">Str: XX</span>, <span id="stamp-orcs-int-erosia-prelude">Int: YY</span>, <span id="stamp-orcs-disci-erosia-prelude">Disci: ZZ</span><br>
+					<span id="stamp-orcs-sap-erosia-prelude">Sap: XX</span>, <span id="stamp-orcs-mag-erosia-prelude">Mag: YY</span>, <span id="stamp-orcs-att-erosia-prelude">Att: ZZ</span><br>
+					<br>
+					HQ Stats:<br>
+					<span id="stamp-hq-military-erosia-prelude">Military: XX</span><br>
+					<span id="stamp-hq-magic-erosia-prelude">Magic: XX</span><br>
+					<span id="stamp-hq-hospitality-erosia-prelude">Hospitality: XX</span><br>
+					<br>
+				</div>
+				<div id="stamp-global-erosia-prelude">
+					Global Stats:<br>
+					<div id="stamp-pron-erosia-prelude">ProN<br></div>
+					<div id="stamp-army-erosia-prelude">army<br></div>
+					<div id="stamp-quality-erosia-prelude">quality<br></div>
+					<div id="stamp-trincopies-erosia-prelude">trin copies<br></div>
+					<div id="stamp-trinmax-erosia-prelude">trin max<br></div>
+					<div id="stamp-shining-sword-erosia-prelude">shining swords<br></div>
+					<div id="stamp-abyssal-gem-erosia-prelude">abyssal gem<br></div>
+					<div id="stamp-yhilin-acc-erosia-prelude">yhilin acc<br></div>
+					<div id="stamp-arclent-acc-erosia-prelude">arclent acc<br></div>
+					<div id="stamp-palace-staff-erosia-prelude">palace staff</div>
+					<br>
+				</div>
+				<div id="stamp-rp-erosia-prelude">
+					RP Changes:<br>
+					<div id="stamp-yarra-rp-erosia-prelude">yarra<br></div>
+					<div id="stamp-qum-rp-erosia-prelude">qum<br></div>
+					<div id="stamp-aka-rp-erosia-prelude">aka<br></div>
+					<div id="stamp-robin-rp-erosia-prelude">robin<br></div>
+					<div id="stamp-megail-rp-erosia-prelude">megail<br></div>
+					<div id="stamp-hilstara-rp-erosia-prelude">hilstara<br></div>
+					<div id="stamp-carina-rp-erosia-prelude">carina<br></div>
+					<div id="stamp-trin-rp-erosia-prelude">trin<br></div>
+					<div id="stamp-janine-rp-erosia-prelude">janine<br></div>
+					<div id="stamp-sarai-rp-erosia-prelude">sarai<br></div>
+					<div id="stamp-altina-rp-erosia-prelude">altina<br></div>
+					<div id="stamp-varia-rp-erosia-prelude">varia<br></div>
+					<div id="stamp-mestan-rp-erosia-prelude">mestan<br></div>
+					<div id="stamp-esthera-rp-erosia-prelude">esthera<br></div>
+					<div id="stamp-nalili-rp-erosia-prelude">nalili<br></div>
+					<div id="stamp-balia-rp-erosia-prelude">balia<br></div>
+					<div id="stamp-vhala-rp-erosia-prelude">vhala<br></div>
+					<div id="stamp-dari-rp-erosia-prelude">dari<br></div>
+					<div id="stamp-ginasta-rp-erosia-prelude">ginasta<br></div>
+					<div id="stamp-lynine-rp-erosia-prelude">lynine<br></div>
+					<div id="stamp-orilise-rp-erosia-prelude">orilise<br></div>
+					<div id="stamp-wynn-rp-erosia-prelude">wynn<br></div>
+					<div id="stamp-wynn-angry-erosia-prelude">angry<br></div>
+					<div id="stamp-uyae-rp-erosia-prelude">uyae<br></div>
+					<div id="stamp-neranda-rp-erosia-prelude">neranda<br></div>
+					<div id="stamp-elleani-rp-erosia-prelude">elleani<br></div>
+					<div id="stamp-riala-rp-erosia-prelude">riala<br></div>
+					<div id="stamp-iris-rp-erosia-prelude">iris<br></div>
+					<div id="stamp-fheliel-rp-erosia-prelude">fheliel<br></div>
+					<br>
+				</div>
+				<div id="stamp-country-erosia-prelude">
+					Country Stats:<br>
+					<div id="stamp-yhilin-erosia-prelude">yhilin<br></div>
+					<div id="stamp-ardoheim-erosia-prelude">ardoheim<br></div>
+					<div id="stamp-aram-erosia-prelude">aram<br></div>
+					<div id="stamp-eustrin-erosia-prelude">eustrin<br></div>
+					<div id="stamp-zirantia-erosia-prelude">zirantia<br></div>
+					<div id="stamp-ghenalon-erosia-prelude">ghenalon<br></div>
+					<div id="stamp-darghelon-erosia-prelude">darghelon<br></div>
+					<div id="stamp-gheldaron-erosia-prelude">gheldaron<br></div>
+					<div id="stamp-orgasmic-erosia-prelude">orgasmic</div>
+					<div id="stamp-chalice-erosia-prelude">chalice states</div>
+					<div id="stamp-givini-erosia-prelude">new givini</div>
+					<div id="stamp-takkan-erosia-prelude">takkan</div>
+					<div id="stamp-erosia-erosia-prelude">erosia</div>
+					<br>
+				</div>
+				<div id="stamp-core-erosia-prelude">
+					Simon Core Stats:<br>
+					<div id="stamp-economy-erosia-prelude">economy<br></div>
+					<div id="stamp-social-erosia-prelude">social<br></div>
+					<div id="stamp-religion-erosia-prelude">religion<br></div>
+					<br>
+				</div>
+				<div id="stamp-bonus-erosia-prelude">
+					Simon Bonuses:<br>
+					<div id="stamp-stat-hp-erosia-prelude">HP<br></div>
+					<div id="stamp-stat-mp-erosia-prelude">MP<br></div>
+					<div id="stamp-stat-atk-erosia-prelude">ATK<br></div>
+					<div id="stamp-stat-def-erosia-prelude">DEF<br></div>
+					<div id="stamp-stat-mag-erosia-prelude">MAG<br></div>
+					<div id="stamp-stat-mdf-erosia-prelude">MDF<br></div>
+					<div id="stamp-stat-agi-erosia-prelude">AGI<br></div>
+					<div id="stamp-stat-luk-erosia-prelude">LUK<br></div>
+					<div id="stamp-stat-sp-erosia-prelude">sp<br></div>
+					<br>
+					IK Set Key Items Recovered:
+					<div id="stamp-key-armor-erosia-prelude" style="display:none">Incubus King's Armor</div>
+					<div id="stamp-key-helm-erosia-prelude" style="display:none">Incubus King's Helm</div>
+					<div id="stamp-key-shield-erosia-prelude" style="display:none">Incubus King's Shield</div>
+					<br>
+				</div>
+			</div>
+			<div class="roundbox" id="stenai-trip-result">
+				<h1>Stenai Trip:</h1><br>
+				<br>
+				<div id="stamp-special-stenai-trip">
+					Orc Stats:<br>
+					<span id="stamp-orcs-str-stenai-trip">Str: XX</span>, <span id="stamp-orcs-int-stenai-trip">Int: YY</span>, <span id="stamp-orcs-disci-stenai-trip">Disci: ZZ</span><br>
+					<span id="stamp-orcs-sap-stenai-trip">Sap: XX</span>, <span id="stamp-orcs-mag-stenai-trip">Mag: YY</span>, <span id="stamp-orcs-att-stenai-trip">Att: ZZ</span><br>
+					<br>
+					HQ Stats:<br>
+					<span id="stamp-hq-military-stenai-trip">Military: XX</span><br>
+					<span id="stamp-hq-magic-stenai-trip">Magic: XX</span><br>
+					<span id="stamp-hq-hospitality-stenai-trip">Hospitality: XX</span><br>
+					<br>
+				</div>
+				<div id="stamp-global-stenai-trip">
+					Global Stats:<br>
+					<div id="stamp-pron-stenai-trip">ProN<br></div>
+					<div id="stamp-army-stenai-trip">army<br></div>
+					<div id="stamp-quality-stenai-trip">quality<br></div>
+					<div id="stamp-trincopies-stenai-trip">trin copies<br></div>
+					<div id="stamp-trinmax-stenai-trip">trin max<br></div>
+					<div id="stamp-shining-sword-stenai-trip">shining swords<br></div>
+					<div id="stamp-abyssal-gem-stenai-trip">abyssal gem<br></div>
+					<div id="stamp-yhilin-acc-stenai-trip">yhilin acc<br></div>
+					<div id="stamp-arclent-acc-stenai-trip">arclent acc<br></div>
+					<div id="stamp-palace-staff-stenai-trip">palace staff</div>
+					<br>
+				</div>
+				<div id="stamp-rp-stenai-trip">
+					RP Changes:<br>
+					<div id="stamp-yarra-rp-stenai-trip">yarra<br></div>
+					<div id="stamp-qum-rp-stenai-trip">qum<br></div>
+					<div id="stamp-aka-rp-stenai-trip">aka<br></div>
+					<div id="stamp-robin-rp-stenai-trip">robin<br></div>
+					<div id="stamp-megail-rp-stenai-trip">megail<br></div>
+					<div id="stamp-hilstara-rp-stenai-trip">hilstara<br></div>
+					<div id="stamp-carina-rp-stenai-trip">carina<br></div>
+					<div id="stamp-trin-rp-stenai-trip">trin<br></div>
+					<div id="stamp-janine-rp-stenai-trip">janine<br></div>
+					<div id="stamp-sarai-rp-stenai-trip">sarai<br></div>
+					<div id="stamp-altina-rp-stenai-trip">altina<br></div>
+					<div id="stamp-varia-rp-stenai-trip">varia<br></div>
+					<div id="stamp-mestan-rp-stenai-trip">mestan<br></div>
+					<div id="stamp-esthera-rp-stenai-trip">esthera<br></div>
+					<div id="stamp-nalili-rp-stenai-trip">nalili<br></div>
+					<div id="stamp-balia-rp-stenai-trip">balia<br></div>
+					<div id="stamp-vhala-rp-stenai-trip">vhala<br></div>
+					<div id="stamp-dari-rp-stenai-trip">dari<br></div>
+					<div id="stamp-ginasta-rp-stenai-trip">ginasta<br></div>
+					<div id="stamp-lynine-rp-stenai-trip">lynine<br></div>
+					<div id="stamp-orilise-rp-stenai-trip">orilise<br></div>
+					<div id="stamp-wynn-rp-stenai-trip">wynn<br></div>
+					<div id="stamp-wynn-angry-stenai-trip">angry<br></div>
+					<div id="stamp-uyae-rp-stenai-trip">uyae<br></div>
+					<div id="stamp-neranda-rp-stenai-trip">neranda<br></div>
+					<div id="stamp-elleani-rp-stenai-trip">elleani<br></div>
+					<div id="stamp-riala-rp-stenai-trip">riala<br></div>
+					<div id="stamp-iris-rp-stenai-trip">iris<br></div>
+					<div id="stamp-fheliel-rp-stenai-trip">fheliel<br></div>
+					<br>
+				</div>
+				<div id="stamp-country-stenai-trip">
+					Country Stats:<br>
+					<div id="stamp-yhilin-stenai-trip">yhilin<br></div>
+					<div id="stamp-ardoheim-stenai-trip">ardoheim<br></div>
+					<div id="stamp-aram-stenai-trip">aram<br></div>
+					<div id="stamp-eustrin-stenai-trip">eustrin<br></div>
+					<div id="stamp-zirantia-stenai-trip">zirantia<br></div>
+					<div id="stamp-ghenalon-stenai-trip">ghenalon<br></div>
+					<div id="stamp-darghelon-stenai-trip">darghelon<br></div>
+					<div id="stamp-gheldaron-stenai-trip">gheldaron<br></div>
+					<div id="stamp-orgasmic-stenai-trip">orgasmic</div>
+					<div id="stamp-chalice-stenai-trip">chalice states</div>
+					<div id="stamp-givini-stenai-trip">new givini</div>
+					<div id="stamp-takkan-stenai-trip">takkan</div>
+					<div id="stamp-erosia-stenai-trip">erosia</div>
+					<br>
+				</div>
+				<div id="stamp-core-stenai-trip">
+					Simon Core Stats:<br>
+					<div id="stamp-economy-stenai-trip">economy<br></div>
+					<div id="stamp-social-stenai-trip">social<br></div>
+					<div id="stamp-religion-stenai-trip">religion<br></div>
+					<br>
+				</div>
+				<div id="stamp-bonus-stenai-trip">
+					Simon Bonuses:<br>
+					<div id="stamp-stat-hp-stenai-trip">HP<br></div>
+					<div id="stamp-stat-mp-stenai-trip">MP<br></div>
+					<div id="stamp-stat-atk-stenai-trip">ATK<br></div>
+					<div id="stamp-stat-def-stenai-trip">DEF<br></div>
+					<div id="stamp-stat-mag-stenai-trip">MAG<br></div>
+					<div id="stamp-stat-mdf-stenai-trip">MDF<br></div>
+					<div id="stamp-stat-agi-stenai-trip">AGI<br></div>
+					<div id="stamp-stat-luk-stenai-trip">LUK<br></div>
+					<div id="stamp-stat-sp-stenai-trip">sp<br></div>
+					<br>
+					IK Set Key Items Recovered:
+					<div id="stamp-key-armor-stenai-trip" style="display:none">Incubus King's Armor</div>
+					<div id="stamp-key-helm-stenai-trip" style="display:none">Incubus King's Helm</div>
+					<div id="stamp-key-shield-stenai-trip" style="display:none">Incubus King's Shield</div>
+					<br>
+				</div>
+			</div>
+			<div class="roundbox" id="expected-return-result">
+				<h1>Expected Return:</h1><br>
+				<br>
+				Expected ProN: <span id="stamp-expected-return-profit">XXXX000</span><br>
+				Total ProN: <span id="stamp-expected-return-result">YYYY000</span><br>
+				<br>
+			</div>
 			<div class="roundbox" id="end-result">
 				<h1>Final:</h1><br>
 				<br>
@@ -14946,6 +17690,7 @@
 					<div id="stamp-trincopies-end">trin copies<br></div>
 					<div id="stamp-trinmax-end">trin max<br></div>
 					<div id="stamp-shining-sword-end">shining swords<br></div>
+					<div id="stamp-abyssal-gem-end">abyssal gem<br></div>
 					<div id="stamp-yhilin-acc-end">yhilin acc<br></div>
 					<div id="stamp-arclent-acc-end">arclent acc<br></div>
 					<div id="stamp-yarra-candidate-end">yarra quest</div>
@@ -14998,6 +17743,7 @@
 					<div id="stamp-chalice-end">chalice states</div>
 					<div id="stamp-givini-end">new givini</div>
 					<div id="stamp-takkan-end">takkan</div>
+					<div id="stamp-erosia-end">erosia</div>
 					<br>
 				</div>
 				<div id="stamp-core-end">
